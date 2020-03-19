@@ -3,25 +3,89 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A30996FEE833B1C60685AC5 /* Pods_PartyMantra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */; };
 		BF87734D2423AF6200CF8C5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87734C2423AF6200CF8C5D /* AppDelegate.swift */; };
-		BF8773512423AF6200CF8C5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773502423AF6200CF8C5D /* ViewController.swift */; };
 		BF8773542423AF6200CF8C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8773522423AF6200CF8C5D /* Main.storyboard */; };
 		BF8773562423AF6300CF8C5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF8773552423AF6300CF8C5D /* Assets.xcassets */; };
 		BF8773592423AF6300CF8C5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8773572423AF6300CF8C5D /* LaunchScreen.storyboard */; };
+		BF8773662423BB1C00CF8C5D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773632423BB1C00CF8C5D /* BaseViewController.swift */; };
+		BF8773672423BB1C00CF8C5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773642423BB1C00CF8C5D /* LoginViewController.swift */; };
+		BF8773682423BB1C00CF8C5D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773652423BB1C00CF8C5D /* UIViewExtension.swift */; };
+		BF8773732423BDD400CF8C5D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773722423BDD400CF8C5D /* Model.swift */; };
+		BF8773762423BDFD00CF8C5D /* GlobalFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773742423BDFD00CF8C5D /* GlobalFunction.swift */; };
+		BF8773772423BDFD00CF8C5D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773752423BDFD00CF8C5D /* Constants.swift */; };
+		BF8773792423BE5600CF8C5D /* AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773782423BE5600CF8C5D /* AppExtension.swift */; };
+		BF87737F2423BF0B00CF8C5D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87737B2423BF0B00CF8C5D /* NetworkManager.swift */; };
+		BF8773802423BF0B00CF8C5D /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87737C2423BF0B00CF8C5D /* Network.swift */; };
+		BF8773812423BF0B00CF8C5D /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87737D2423BF0B00CF8C5D /* Loader.swift */; };
+		BF8773822423BF0B00CF8C5D /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87737E2423BF0B00CF8C5D /* Server.swift */; };
+		BF8773932423C0F500CF8C5D /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773852423C0F500CF8C5D /* OrderViewController.swift */; };
+		BF8773942423C0F500CF8C5D /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773862423C0F500CF8C5D /* ListViewController.swift */; };
+		BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773872423C0F500CF8C5D /* PartiesViewController.swift */; };
+		BF8773962423C0F500CF8C5D /* DiningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773882423C0F500CF8C5D /* DiningViewController.swift */; };
+		BF8773972423C0F500CF8C5D /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773892423C0F500CF8C5D /* WalletViewController.swift */; };
+		BF8773982423C0F500CF8C5D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87738A2423C0F500CF8C5D /* HomeViewController.swift */; };
+		BF8773992423C0F500CF8C5D /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87738B2423C0F500CF8C5D /* CollectionDetailViewController.swift */; };
+		BF87739A2423C0F500CF8C5D /* AddBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87738C2423C0F500CF8C5D /* AddBalanceViewController.swift */; };
+		BF87739B2423C0F500CF8C5D /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87738D2423C0F500CF8C5D /* HomePageViewController.swift */; };
+		BF87739C2423C0F500CF8C5D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87738E2423C0F500CF8C5D /* WebViewController.swift */; };
+		BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87738F2423C0F500CF8C5D /* TabbarViewController.swift */; };
+		BF87739E2423C0F500CF8C5D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773902423C0F500CF8C5D /* ProfileViewController.swift */; };
+		BF87739F2423C0F500CF8C5D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773912423C0F500CF8C5D /* NotificationViewController.swift */; };
+		BF8773A02423C0F500CF8C5D /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773922423C0F500CF8C5D /* CollectionViewController.swift */; };
+		BF8773A62423C12B00CF8C5D /* TopMenuBarCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773A22423C12B00CF8C5D /* TopMenuBarCollectionCell.swift */; };
+		BF8773A72423C12B00CF8C5D /* TopMenuBarCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8773A32423C12B00CF8C5D /* TopMenuBarCollectionCell.xib */; };
+		BF8773A82423C12B00CF8C5D /* TopMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773A42423C12B00CF8C5D /* TopMenuBar.swift */; };
+		BF8773A92423C12B00CF8C5D /* TopMenuBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8773A52423C12B00CF8C5D /* TopMenuBar.xib */; };
+		BF8773AC2423C17D00CF8C5D /* AutoScrollingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773AB2423C17D00CF8C5D /* AutoScrollingCollectionView.swift */; };
+		BF8773AF2423C1D300CF8C5D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8773AE2423C1D300CF8C5D /* Home.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		250F4D8406A879E019532AD7 /* Pods-PartyMantra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyMantra.debug.xcconfig"; path = "Target Support Files/Pods-PartyMantra/Pods-PartyMantra.debug.xcconfig"; sourceTree = "<group>"; };
+		B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyMantra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8773492423AF6200CF8C5D /* PartyMantra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyMantra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF87734C2423AF6200CF8C5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF8773502423AF6200CF8C5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BF8773532423AF6200CF8C5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF8773552423AF6300CF8C5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF8773582423AF6300CF8C5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF87735A2423AF6300CF8C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF8773632423BB1C00CF8C5D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		BF8773642423BB1C00CF8C5D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BF8773652423BB1C00CF8C5D /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		BF8773722423BDD400CF8C5D /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		BF8773742423BDFD00CF8C5D /* GlobalFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunction.swift; sourceTree = "<group>"; };
+		BF8773752423BDFD00CF8C5D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BF8773782423BE5600CF8C5D /* AppExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppExtension.swift; sourceTree = "<group>"; };
+		BF87737B2423BF0B00CF8C5D /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BF87737C2423BF0B00CF8C5D /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		BF87737D2423BF0B00CF8C5D /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		BF87737E2423BF0B00CF8C5D /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		BF8773852423C0F500CF8C5D /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		BF8773862423C0F500CF8C5D /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		BF8773872423C0F500CF8C5D /* PartiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartiesViewController.swift; sourceTree = "<group>"; };
+		BF8773882423C0F500CF8C5D /* DiningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiningViewController.swift; sourceTree = "<group>"; };
+		BF8773892423C0F500CF8C5D /* WalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		BF87738A2423C0F500CF8C5D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BF87738B2423C0F500CF8C5D /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
+		BF87738C2423C0F500CF8C5D /* AddBalanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBalanceViewController.swift; sourceTree = "<group>"; };
+		BF87738D2423C0F500CF8C5D /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		BF87738E2423C0F500CF8C5D /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		BF87738F2423C0F500CF8C5D /* TabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
+		BF8773902423C0F500CF8C5D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BF8773912423C0F500CF8C5D /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		BF8773922423C0F500CF8C5D /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		BF8773A22423C12B00CF8C5D /* TopMenuBarCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuBarCollectionCell.swift; sourceTree = "<group>"; };
+		BF8773A32423C12B00CF8C5D /* TopMenuBarCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopMenuBarCollectionCell.xib; sourceTree = "<group>"; };
+		BF8773A42423C12B00CF8C5D /* TopMenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuBar.swift; sourceTree = "<group>"; };
+		BF8773A52423C12B00CF8C5D /* TopMenuBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopMenuBar.xib; sourceTree = "<group>"; };
+		BF8773AB2423C17D00CF8C5D /* AutoScrollingCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollingCollectionView.swift; sourceTree = "<group>"; };
+		BF8773AE2423C1D300CF8C5D /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		C323B65CE59EB81612CA5349 /* Pods-PartyMantra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyMantra.release.xcconfig"; path = "Target Support Files/Pods-PartyMantra/Pods-PartyMantra.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +93,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A30996FEE833B1C60685AC5 /* Pods_PartyMantra.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85BB2F2C4BC8D770BFF09230 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				250F4D8406A879E019532AD7 /* Pods-PartyMantra.debug.xcconfig */,
+				C323B65CE59EB81612CA5349 /* Pods-PartyMantra.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9EE6D66B9E985453E9A095F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BF8773402423AF6200CF8C5D = {
 			isa = PBXGroup;
 			children = (
 				BF87734B2423AF6200CF8C5D /* PartyMantra */,
 				BF87734A2423AF6200CF8C5D /* Products */,
+				85BB2F2C4BC8D770BFF09230 /* Pods */,
+				9EE6D66B9E985453E9A095F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +138,116 @@
 		BF87734B2423AF6200CF8C5D /* PartyMantra */ = {
 			isa = PBXGroup;
 			children = (
+				BF87737A2423BF0B00CF8C5D /* Network */,
+				BF87736D2423BDA400CF8C5D /* Global */,
+				BF87736C2423BD9900CF8C5D /* Model */,
+				BF8773692423BB2800CF8C5D /* Extension */,
+				BF8773602423B9EE00CF8C5D /* Screens */,
 				BF87734C2423AF6200CF8C5D /* AppDelegate.swift */,
-				BF8773502423AF6200CF8C5D /* ViewController.swift */,
 				BF8773522423AF6200CF8C5D /* Main.storyboard */,
 				BF8773552423AF6300CF8C5D /* Assets.xcassets */,
 				BF8773572423AF6300CF8C5D /* LaunchScreen.storyboard */,
 				BF87735A2423AF6300CF8C5D /* Info.plist */,
 			);
 			path = PartyMantra;
+			sourceTree = "<group>";
+		};
+		BF8773602423B9EE00CF8C5D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				BF8773AD2423C1C100CF8C5D /* Storyboard */,
+				BF8773AA2423C14800CF8C5D /* AutoScroll */,
+				BF8773A12423C12B00CF8C5D /* TopMenuBarView */,
+				BF8773842423C0F500CF8C5D /* TabBar */,
+				BF8773632423BB1C00CF8C5D /* BaseViewController.swift */,
+				BF8773642423BB1C00CF8C5D /* LoginViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		BF8773692423BB2800CF8C5D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BF8773782423BE5600CF8C5D /* AppExtension.swift */,
+				BF8773652423BB1C00CF8C5D /* UIViewExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		BF87736C2423BD9900CF8C5D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF8773722423BDD400CF8C5D /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF87736D2423BDA400CF8C5D /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				BF8773752423BDFD00CF8C5D /* Constants.swift */,
+				BF8773742423BDFD00CF8C5D /* GlobalFunction.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		BF87737A2423BF0B00CF8C5D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BF87737B2423BF0B00CF8C5D /* NetworkManager.swift */,
+				BF87737C2423BF0B00CF8C5D /* Network.swift */,
+				BF87737D2423BF0B00CF8C5D /* Loader.swift */,
+				BF87737E2423BF0B00CF8C5D /* Server.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		BF8773842423C0F500CF8C5D /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				BF8773852423C0F500CF8C5D /* OrderViewController.swift */,
+				BF8773862423C0F500CF8C5D /* ListViewController.swift */,
+				BF8773872423C0F500CF8C5D /* PartiesViewController.swift */,
+				BF8773882423C0F500CF8C5D /* DiningViewController.swift */,
+				BF8773892423C0F500CF8C5D /* WalletViewController.swift */,
+				BF87738A2423C0F500CF8C5D /* HomeViewController.swift */,
+				BF87738B2423C0F500CF8C5D /* CollectionDetailViewController.swift */,
+				BF87738C2423C0F500CF8C5D /* AddBalanceViewController.swift */,
+				BF87738D2423C0F500CF8C5D /* HomePageViewController.swift */,
+				BF87738E2423C0F500CF8C5D /* WebViewController.swift */,
+				BF87738F2423C0F500CF8C5D /* TabbarViewController.swift */,
+				BF8773902423C0F500CF8C5D /* ProfileViewController.swift */,
+				BF8773912423C0F500CF8C5D /* NotificationViewController.swift */,
+				BF8773922423C0F500CF8C5D /* CollectionViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		BF8773A12423C12B00CF8C5D /* TopMenuBarView */ = {
+			isa = PBXGroup;
+			children = (
+				BF8773A22423C12B00CF8C5D /* TopMenuBarCollectionCell.swift */,
+				BF8773A32423C12B00CF8C5D /* TopMenuBarCollectionCell.xib */,
+				BF8773A42423C12B00CF8C5D /* TopMenuBar.swift */,
+				BF8773A52423C12B00CF8C5D /* TopMenuBar.xib */,
+			);
+			path = TopMenuBarView;
+			sourceTree = "<group>";
+		};
+		BF8773AA2423C14800CF8C5D /* AutoScroll */ = {
+			isa = PBXGroup;
+			children = (
+				BF8773AB2423C17D00CF8C5D /* AutoScrollingCollectionView.swift */,
+			);
+			path = AutoScroll;
+			sourceTree = "<group>";
+		};
+		BF8773AD2423C1C100CF8C5D /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BF8773AE2423C1D300CF8C5D /* Home.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +257,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF87735D2423AF6300CF8C5D /* Build configuration list for PBXNativeTarget "PartyMantra" */;
 			buildPhases = (
+				CCBE4DC7FCC119591CFAD9CD /* [CP] Check Pods Manifest.lock */,
 				BF8773452423AF6200CF8C5D /* Sources */,
 				BF8773462423AF6200CF8C5D /* Frameworks */,
 				BF8773472423AF6200CF8C5D /* Resources */,
+				9749217624C0D490159D9D84 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,19 +312,91 @@
 			files = (
 				BF8773592423AF6300CF8C5D /* LaunchScreen.storyboard in Resources */,
 				BF8773562423AF6300CF8C5D /* Assets.xcassets in Resources */,
+				BF8773A72423C12B00CF8C5D /* TopMenuBarCollectionCell.xib in Resources */,
+				BF8773AF2423C1D300CF8C5D /* Home.storyboard in Resources */,
+				BF8773A92423C12B00CF8C5D /* TopMenuBar.xib in Resources */,
 				BF8773542423AF6200CF8C5D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9749217624C0D490159D9D84 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PartyMantra/Pods-PartyMantra-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PartyMantra/Pods-PartyMantra-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PartyMantra/Pods-PartyMantra-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCBE4DC7FCC119591CFAD9CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PartyMantra-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BF8773452423AF6200CF8C5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF8773512423AF6200CF8C5D /* ViewController.swift in Sources */,
+				BF8773A02423C0F500CF8C5D /* CollectionViewController.swift in Sources */,
+				BF8773792423BE5600CF8C5D /* AppExtension.swift in Sources */,
+				BF8773AC2423C17D00CF8C5D /* AutoScrollingCollectionView.swift in Sources */,
+				BF87739C2423C0F500CF8C5D /* WebViewController.swift in Sources */,
+				BF8773682423BB1C00CF8C5D /* UIViewExtension.swift in Sources */,
+				BF8773A82423C12B00CF8C5D /* TopMenuBar.swift in Sources */,
+				BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */,
+				BF8773932423C0F500CF8C5D /* OrderViewController.swift in Sources */,
+				BF8773812423BF0B00CF8C5D /* Loader.swift in Sources */,
+				BF87739E2423C0F500CF8C5D /* ProfileViewController.swift in Sources */,
+				BF8773982423C0F500CF8C5D /* HomeViewController.swift in Sources */,
+				BF87737F2423BF0B00CF8C5D /* NetworkManager.swift in Sources */,
+				BF8773672423BB1C00CF8C5D /* LoginViewController.swift in Sources */,
+				BF87739F2423C0F500CF8C5D /* NotificationViewController.swift in Sources */,
+				BF87739B2423C0F500CF8C5D /* HomePageViewController.swift in Sources */,
+				BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */,
+				BF8773942423C0F500CF8C5D /* ListViewController.swift in Sources */,
+				BF8773762423BDFD00CF8C5D /* GlobalFunction.swift in Sources */,
+				BF8773992423C0F500CF8C5D /* CollectionDetailViewController.swift in Sources */,
+				BF8773802423BF0B00CF8C5D /* Network.swift in Sources */,
+				BF8773A62423C12B00CF8C5D /* TopMenuBarCollectionCell.swift in Sources */,
 				BF87734D2423AF6200CF8C5D /* AppDelegate.swift in Sources */,
+				BF8773662423BB1C00CF8C5D /* BaseViewController.swift in Sources */,
+				BF8773732423BDD400CF8C5D /* Model.swift in Sources */,
+				BF87739A2423C0F500CF8C5D /* AddBalanceViewController.swift in Sources */,
+				BF8773972423C0F500CF8C5D /* WalletViewController.swift in Sources */,
+				BF8773962423C0F500CF8C5D /* DiningViewController.swift in Sources */,
+				BF8773822423BF0B00CF8C5D /* Server.swift in Sources */,
+				BF8773772423BDFD00CF8C5D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +538,7 @@
 		};
 		BF87735E2423AF6300CF8C5D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 250F4D8406A879E019532AD7 /* Pods-PartyMantra.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +557,7 @@
 		};
 		BF87735F2423AF6300CF8C5D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C323B65CE59EB81612CA5349 /* Pods-PartyMantra.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
