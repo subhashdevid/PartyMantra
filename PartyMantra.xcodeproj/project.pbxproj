@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BF87734D2423AF6200CF8C5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87734C2423AF6200CF8C5D /* AppDelegate.swift */; };
-		BF87734F2423AF6200CF8C5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87734E2423AF6200CF8C5D /* SceneDelegate.swift */; };
 		BF8773512423AF6200CF8C5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773502423AF6200CF8C5D /* ViewController.swift */; };
 		BF8773542423AF6200CF8C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8773522423AF6200CF8C5D /* Main.storyboard */; };
 		BF8773562423AF6300CF8C5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF8773552423AF6300CF8C5D /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 /* Begin PBXFileReference section */
 		BF8773492423AF6200CF8C5D /* PartyMantra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyMantra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF87734C2423AF6200CF8C5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF87734E2423AF6200CF8C5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BF8773502423AF6200CF8C5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BF8773532423AF6200CF8C5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF8773552423AF6300CF8C5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				BF87734C2423AF6200CF8C5D /* AppDelegate.swift */,
-				BF87734E2423AF6200CF8C5D /* SceneDelegate.swift */,
 				BF8773502423AF6200CF8C5D /* ViewController.swift */,
 				BF8773522423AF6200CF8C5D /* Main.storyboard */,
 				BF8773552423AF6300CF8C5D /* Assets.xcassets */,
@@ -140,7 +137,6 @@
 			files = (
 				BF8773512423AF6200CF8C5D /* ViewController.swift in Sources */,
 				BF87734D2423AF6200CF8C5D /* AppDelegate.swift in Sources */,
-				BF87734F2423AF6200CF8C5D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +282,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PartyMantra/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +300,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PartyMantra/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
