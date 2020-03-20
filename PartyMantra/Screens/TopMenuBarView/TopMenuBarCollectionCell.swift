@@ -12,14 +12,14 @@ class TopMenuBarCollectionCell: UICollectionViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet fileprivate var selectionIndicator: UIView!
     
-    var color = UIColor.red
-    var selectedColor = UIColor.green
+    var color = UIColor.gray
+    var selectedColor = UIColor.init(red: 179/255.0, green: 141/255.0, blue: 12/255.0, alpha: 1)
     
     var fixedWidth: Bool = false
     var selectorIndicatorWidth: Int = 20
     
     var isCircular: Bool = false
-    var selectorIndicatorHeight: Int = 2
+    var selectorIndicatorHeight: Int = 3
     
     @IBOutlet weak var widthConst: NSLayoutConstraint!
     @IBOutlet weak var heightConst: NSLayoutConstraint!
@@ -37,7 +37,7 @@ class TopMenuBarCollectionCell: UICollectionViewCell {
         self.titleLabel.text = text
         self.titleLabel.textAlignment = .center
         self.selectorIndicatorWidth = indicatorWidth
-        self.titleLabel.font =  UIFont.systemFont(ofSize: 15)
+        self.titleLabel.font =  UIFont.systemFont(ofSize: 17)
         //  self.titleLabel.textColor = self.topMenuColor(false)
         self.titleLabel.textColor = self.topMenuColor(false)
         
@@ -84,7 +84,7 @@ class TopMenuBarCollectionCell: UICollectionViewCell {
         //titleLabel.textColor = hexStringToUIColor(hex: "4A6073")
         titleLabel.textColor = color
         
-        self.titleLabel.font = UIFont.systemFont(ofSize: 15)
+        self.titleLabel.font = UIFont.systemFont(ofSize: 17)
         selectionIndicator.backgroundColor = UIColor.clear
     }
     
@@ -93,7 +93,7 @@ class TopMenuBarCollectionCell: UICollectionViewCell {
 //        let color = Appconstants.BackgroundColor.darkbgColor
         
         titleLabel.textColor = color
-        self.titleLabel.font = UIFont.systemFont(ofSize: 15)
+        self.titleLabel.font = UIFont.systemFont(ofSize: 17)
         selectionIndicator.backgroundColor = color
         
 //        if fixedWidth {
@@ -131,11 +131,11 @@ class TopMenuBarCollectionCell: UICollectionViewCell {
     }
     
     func topMenuFont(_ isSelected: Bool) -> UIFont {
-        return isSelected ? UIFont.systemFont(ofSize: 17) : UIFont.systemFont(ofSize: 16)
+        return isSelected ? UIFont.systemFont(ofSize: 17) : UIFont.systemFont(ofSize: 17)
     }
     
     func topMenuEnglishFont(_ isSelected: Bool) -> UIFont {
-        return isSelected ?  UIFont.systemFont(ofSize: 13, weight: .bold) :  UIFont.systemFont(ofSize: 12, weight: .bold)
+        return isSelected ?  UIFont.systemFont(ofSize: 17, weight: .bold) :  UIFont.systemFont(ofSize: 17, weight: .bold)
     }
 }
 
@@ -147,7 +147,7 @@ extension TopMenuBarCollectionCell {
     
     class func getWidthForTitle(title: String? = "Dummy") -> CGFloat {
         if let title = title {
-            let width = (title as NSString).size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]).width + 30 // 10+10 left and right padding
+            let width = (title as NSString).size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)]).width + 30 // 10+10 left and right padding
             return width
         }
         return 0.0

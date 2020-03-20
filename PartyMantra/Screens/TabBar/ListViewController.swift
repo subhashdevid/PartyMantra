@@ -10,6 +10,8 @@ import UIKit
 
 class ListViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    
     var dataArr: HomeModel?
     var type: String?
     
@@ -43,16 +45,6 @@ class ListViewController: BaseViewController {
             }
         }
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -61,23 +53,25 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
+            return CGSize(width: self.view.width, height: 200)
+        }
+        else if indexPath.section == 1{
             return CGSize(width: self.view.width, height: 150)
-        } else if indexPath.section == 1{
-            return CGSize(width: self.view.width, height: 150)
-        } else if indexPath.section == 2 {
+        }
+        else if indexPath.section == 2 {
             
             let data = dataArr?.others?[indexPath.row]
             let count1: Int = data?.event?.count ?? 0
             let count2: Int = data?.banners?.count ?? 0
             
             var rowCount = count1/3
+            
             if count1 % 3 != 0 {
-                rowCount = rowCount+1
+                rowCount = rowCount + 1
             }
             let rowCount1 = count2 > 0 ? 1: 0
-            
-            
-            return CGSize(width: self.view.width, height: CGFloat(rowCount*100) + CGFloat(rowCount1*150)+30.0)
+            return CGSize(width: self.view.width, height: CGFloat(rowCount * 140) + CGFloat(rowCount1 * 181) + 40.0)
+            //3
         }
         return CGSize(width: self.view.width, height: 150)
     }
@@ -116,24 +110,27 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         } else if section == 2 {
             
         }
-        return CGSize(width: 60.0, height: 30.0)
+        return CGSize(width: 0.0, height: 0.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         var collectionCell: UICollectionViewCell?
+        
         if indexPath.section == 0 {
             let cell = collectionView
                 .dequeueReusableCell(withReuseIdentifier: "\(ImageBannerCell.self)", for: indexPath) as? ImageBannerCell
             cell?.configureCell(imgData: dataArr?.banners ?? [])
             collectionCell = cell
-        } else if indexPath.section == 1{
+        }
+        else if indexPath.section == 1{
             let cell = collectionView
                 .dequeueReusableCell(withReuseIdentifier: "\(EventCollectionCell.self)", for: indexPath) as? EventCollectionCell
             cell?.configureCell(imgData: dataArr?.collections ?? [])
             cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
             collectionCell = cell
-        } else if indexPath.section == 2 {
+        }
+        else if indexPath.section == 2 {
             let cell = collectionView
                 .dequeueReusableCell(withReuseIdentifier: "\(EventOtherCell.self)", for: indexPath) as? EventOtherCell
             cell?.configureCell(homeOthers: dataArr?.others?[indexPath.row])
@@ -173,7 +170,7 @@ class EventOtherCell1: UICollectionViewCell {
     func configureCell(data:eventModel?) {
         eventData = data
         lblName.text = eventData?.title
-        lblDesc.text = eventData?.description
+        lblDesc.text = eventData?.venue_name
         let url = URL(string: eventData?.small_image ?? "")
         imgView.contentMode = .scaleAspectFill
         imgView.kf.setImage(with: url, placeholder: nil)
@@ -191,6 +188,9 @@ class EventOtherCell: UICollectionViewCell {
     func configureCell(homeOthers:HomeOthers?) {
         lblName.text = homeOthers?.name
         lblDesc.text = homeOthers?.about
+        
+        viewButton.layer.cornerRadius = 10
+        viewButton.layer.masksToBounds = true
         self.homeOthers = homeOthers
         collectionView.reloadData()
     }
@@ -214,9 +214,9 @@ extension EventOtherCell : UICollectionViewDelegate,UICollectionViewDataSource,U
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return CGSize(width: Constants.windowWidth/3, height: 130)
+            return CGSize(width: Constants.windowWidth/3.3, height: 130)
         } else if indexPath.section == 1 {
-            return CGSize(width: Constants.windowWidth, height: 130)
+            return CGSize(width: Constants.windowWidth, height: 180)
         }
         return CGSize(width: 100, height: 130)
         
@@ -259,9 +259,13 @@ extension EventOtherCell : UICollectionViewDelegate,UICollectionViewDataSource,U
 class EventCollectionCell: UICollectionViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var viewButton: UIButton!
+    
     var imageData = [HomeCollection]()
     
     func configureCell(imgData:[HomeCollection]) {
+        viewButton.layer.cornerRadius = 10
+        viewButton.layer.masksToBounds = true
+        
         imageData = imgData
         collectionView.reloadData()
     }
@@ -278,7 +282,7 @@ extension EventCollectionCell : UICollectionViewDelegate,UICollectionViewDataSou
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 100, height: 130)
+        return CGSize(width: 130, height: 180)
         
     }
     
@@ -323,7 +327,7 @@ extension ImageBannerCell : UICollectionViewDelegate,UICollectionViewDataSource,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: Constants.windowWidth, height: 230)
+        return CGSize(width: Constants.windowWidth, height: 180)
         
     }
     
@@ -350,9 +354,10 @@ extension ImageBannerCell : UICollectionViewDelegate,UICollectionViewDataSource,
 class ImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cellImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.cellImage.contentMode = .scaleAspectFill
+        self.cellImage.contentMode = .scaleToFill
     }
     
 }

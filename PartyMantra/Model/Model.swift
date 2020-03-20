@@ -128,6 +128,7 @@ struct HomeModel: Codable {
     let banners: [HomeBanners]?
     let collections: [HomeCollection]?
     let others: [HomeOthers]?
+    let nearby: [NearByPlace]?
 //    let otherbanners: [OtherBanners]?
 }
 
@@ -150,7 +151,15 @@ struct HomeCollection: Codable {
     let about: String?
     let type: String?
 }
-
+struct NearByPlace: Codable {
+    let id: Int?
+    let name: String?
+    let cover_image: String?
+    let small_image: String?
+    let istop: Int?
+    let about: String?
+    let type: String?
+}
 struct HomeOthers: Codable {
     let id: Int?
     let name: String?

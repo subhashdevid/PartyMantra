@@ -47,14 +47,7 @@ class TopMenuBar: UIView {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "\(TopMenuBarCollectionCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TopMenuBarCollectionCell.self)")
-        topMenuContentView.layer.masksToBounds = false
-        //        topMenuContentView.layer.shadowOffset = CGSize(width: 0, height: 5)
-        //        topMenuContentView.layer.shadowRadius = 2
-        //        topMenuContentView.layer.shadowOpacity = 0.5
-        //        topMenuContentView.layer.shadowColor = UIColor.lightGray.cgColor
-        
-        
-        
+        topMenuContentView.layer.masksToBounds = false 
     }
     
     func configureCollectionViewWithTabSelectionChange(handler: @escaping TabSelectionHandler) {

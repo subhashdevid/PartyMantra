@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A30996FEE833B1C60685AC5 /* Pods_PartyMantra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */; };
+		BF6D1ED42424CBE300DC018C /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */; };
 		BF87734D2423AF6200CF8C5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87734C2423AF6200CF8C5D /* AppDelegate.swift */; };
 		BF8773542423AF6200CF8C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8773522423AF6200CF8C5D /* Main.storyboard */; };
 		BF8773562423AF6300CF8C5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF8773552423AF6300CF8C5D /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		250F4D8406A879E019532AD7 /* Pods-PartyMantra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyMantra.debug.xcconfig"; path = "Target Support Files/Pods-PartyMantra/Pods-PartyMantra.debug.xcconfig"; sourceTree = "<group>"; };
 		B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyMantra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		BF8773492423AF6200CF8C5D /* PartyMantra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyMantra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF87734C2423AF6200CF8C5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF8773532423AF6200CF8C5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +119,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BF6D1ECF2424C32F00DC018C /* View controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View controller";
+			sourceTree = "<group>";
+		};
+		BF6D1ED22424CBA400DC018C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		BF8773402423AF6200CF8C5D = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +172,8 @@
 		BF8773602423B9EE00CF8C5D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				BF6D1ED22424CBA400DC018C /* Cell */,
+				BF6D1ECF2424C32F00DC018C /* View controller */,
 				BF8773AD2423C1C100CF8C5D /* Storyboard */,
 				BF8773AA2423C14800CF8C5D /* AutoScroll */,
 				BF8773A12423C12B00CF8C5D /* TopMenuBarView */,
@@ -376,6 +395,7 @@
 				BF8773A82423C12B00CF8C5D /* TopMenuBar.swift in Sources */,
 				BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */,
 				BF8773932423C0F500CF8C5D /* OrderViewController.swift in Sources */,
+				BF6D1ED42424CBE300DC018C /* BannerTableViewCell.swift in Sources */,
 				BF8773812423BF0B00CF8C5D /* Loader.swift in Sources */,
 				BF87739E2423C0F500CF8C5D /* ProfileViewController.swift in Sources */,
 				BF8773982423C0F500CF8C5D /* HomeViewController.swift in Sources */,
