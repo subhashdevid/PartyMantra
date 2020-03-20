@@ -235,7 +235,8 @@ struct restaurantModel: Codable {
 //            "collection_id": 31,
 //            "restaurant_id": 8
 //        },
-//        "avgreviews": []
+let avgreviews: [avgreviewsModel]?
+
 }
 
 struct PartyModel: Codable {
