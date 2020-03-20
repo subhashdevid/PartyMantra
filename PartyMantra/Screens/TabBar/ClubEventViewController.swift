@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  ClubEventViewController.swift
 //  PartyMantra
 //
 //  Created by Mayank Purwar on 15/02/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: BaseViewController {
+class ClubEventViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     
@@ -38,7 +38,7 @@ class ListViewController: BaseViewController {
                 if let notification = response.data {
                     self?.dataArr = notification
                     self?.collectionView.reloadData()
-                    print(self?.dataArr?.collections)
+                    print(self?.dataArr?.collections as Any)
                 }
                 
             case .failure: break
@@ -47,7 +47,7 @@ class ListViewController: BaseViewController {
     }
 }
 
-extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -167,6 +167,12 @@ class EventOtherCell1: UICollectionViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
     
+    @IBOutlet weak var rateView: UIView!
+    @IBOutlet weak var rateLbl: UILabel!
+    @IBOutlet weak var rateImg: UIImageView!
+    
+    
+    
     func configureCell(data:eventModel?) {
         eventData = data
         lblName.text = eventData?.title
@@ -174,6 +180,21 @@ class EventOtherCell1: UICollectionViewCell {
         let url = URL(string: eventData?.small_image ?? "")
         imgView.contentMode = .scaleAspectFill
         imgView.kf.setImage(with: url, placeholder: nil)
+        if data?.avgreviews?.count ?? 0 > 0 {
+            rateView.isHidden = false
+            rateLbl.isHidden = false
+            rateImg.isHidden = false
+            rateImg.image = UIImage(named: "StarIcon")
+            
+            let rate = data?.avgreviews?[0]
+            let value = Double(rate?.rating ?? "0.0")
+            rateLbl.text = String(format:"%.1f", value ?? 0.0)
+        
+        }else{
+            rateView.isHidden = true
+            rateLbl.isHidden = true
+            rateImg.isHidden = true
+        }
     }
 }
 

@@ -191,12 +191,21 @@ struct eventModel: Codable {
     let small_image: String?
     let tnc: String?
     let priority: Int?
-    let raing: Int?
+    let rating: Int?
     let per_person_text: String?
     let time_to_start: String?
     let away: Int?
-//    let avgreviews:[Int]
+    let avgreviews: [avgreviewsModel]?
+
 }
+
+
+struct avgreviewsModel: Codable {
+    let rating: String?
+    let reviews: Int?
+}
+
+
 
 struct restaurantModel: Codable {
     let id: Int?

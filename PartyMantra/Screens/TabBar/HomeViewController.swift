@@ -50,7 +50,7 @@ class HomeViewController: BaseViewController {
         if segue.identifier == "homePageController" {
             if let homePageViewController = segue.destination as? HomePageViewController {
                 
-                let list1 = ListViewController.instantiate(appStoryboard: .home)
+                let list1 = ClubEventViewController.instantiate(appStoryboard: .home)
                 list1.type = ""
                 
 //                let list1 = EventListViewController.instantiate(appStoryboard: .home)

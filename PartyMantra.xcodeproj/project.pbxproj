@@ -25,7 +25,7 @@
 		BF8773812423BF0B00CF8C5D /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87737D2423BF0B00CF8C5D /* Loader.swift */; };
 		BF8773822423BF0B00CF8C5D /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87737E2423BF0B00CF8C5D /* Server.swift */; };
 		BF8773932423C0F500CF8C5D /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773852423C0F500CF8C5D /* OrderViewController.swift */; };
-		BF8773942423C0F500CF8C5D /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773862423C0F500CF8C5D /* ListViewController.swift */; };
+		BF8773942423C0F500CF8C5D /* ClubEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773862423C0F500CF8C5D /* ClubEventViewController.swift */; };
 		BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773872423C0F500CF8C5D /* PartiesViewController.swift */; };
 		BF8773962423C0F500CF8C5D /* DiningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773882423C0F500CF8C5D /* DiningViewController.swift */; };
 		BF8773972423C0F500CF8C5D /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8773892423C0F500CF8C5D /* WalletViewController.swift */; };
@@ -68,7 +68,7 @@
 		BF87737D2423BF0B00CF8C5D /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		BF87737E2423BF0B00CF8C5D /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		BF8773852423C0F500CF8C5D /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
-		BF8773862423C0F500CF8C5D /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		BF8773862423C0F500CF8C5D /* ClubEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubEventViewController.swift; sourceTree = "<group>"; };
 		BF8773872423C0F500CF8C5D /* PartiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartiesViewController.swift; sourceTree = "<group>"; };
 		BF8773882423C0F500CF8C5D /* DiningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiningViewController.swift; sourceTree = "<group>"; };
 		BF8773892423C0F500CF8C5D /* WalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
@@ -225,7 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				BF8773852423C0F500CF8C5D /* OrderViewController.swift */,
-				BF8773862423C0F500CF8C5D /* ListViewController.swift */,
+				BF8773862423C0F500CF8C5D /* ClubEventViewController.swift */,
 				BF8773872423C0F500CF8C5D /* PartiesViewController.swift */,
 				BF8773882423C0F500CF8C5D /* DiningViewController.swift */,
 				BF8773892423C0F500CF8C5D /* WalletViewController.swift */,
@@ -404,7 +404,7 @@
 				BF87739F2423C0F500CF8C5D /* NotificationViewController.swift in Sources */,
 				BF87739B2423C0F500CF8C5D /* HomePageViewController.swift in Sources */,
 				BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */,
-				BF8773942423C0F500CF8C5D /* ListViewController.swift in Sources */,
+				BF8773942423C0F500CF8C5D /* ClubEventViewController.swift in Sources */,
 				BF8773762423BDFD00CF8C5D /* GlobalFunction.swift in Sources */,
 				BF8773992423C0F500CF8C5D /* CollectionDetailViewController.swift in Sources */,
 				BF8773802423BF0B00CF8C5D /* Network.swift in Sources */,
