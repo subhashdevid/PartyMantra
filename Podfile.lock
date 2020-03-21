@@ -1,22 +1,30 @@
 PODS:
+  - Cosmos (21.0.0)
+  - DynamicCodable (1.0)
   - Kingfisher (5.13.2):
     - Kingfisher/Core (= 5.13.2)
   - Kingfisher/Core (5.13.2)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - Cosmos (~> 21.0)
+  - DynamicCodable (= 1.0)
   - Kingfisher (~> 5.0)
   - SVProgressHUD
 
 SPEC REPOS:
   trunk:
+    - Cosmos
+    - DynamicCodable
     - Kingfisher
     - SVProgressHUD
 
 SPEC CHECKSUMS:
+  Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
+  DynamicCodable: 2cf558d057b3e6540552943254e1c9eeb706dde2
   Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: bea344f0633e62784855ccaa7669b9ba32815a00
+PODFILE CHECKSUM: 1ef8e30bbbd7048e97c447ceab30e5a5f86fdb4f
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.8.4

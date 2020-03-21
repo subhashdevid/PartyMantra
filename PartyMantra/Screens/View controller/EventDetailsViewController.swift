@@ -37,14 +37,9 @@ class EventDetailsViewController: UIViewController  {
             Loader.dismissHud()
             switch result {
             case let .success(response):
-                print("Need to create Event model for this")
-                if let notification = response.data {
-                    
-//                    self?.diningArr = notification.events ?? []
-//                    self?.collectionView.reloadData()
-//
-//                    let url = URL(string: notification.image ?? "")
-//                    self?.imageView.kf.setImage(with: url, placeholder: nil)
+                if let events = response.data {
+                    let eventList = EventlistModel.init(response: events.event)
+                    print(eventList.title ?? "")
                 }
                 
             case .failure: break
