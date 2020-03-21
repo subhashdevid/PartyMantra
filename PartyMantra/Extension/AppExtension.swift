@@ -11,6 +11,7 @@ import UIKit
 enum AppStoryboard: String {
     case main = "Main"
     case home = "Home"
+    case events = "Events"
     case more = "MoreStoryBoard"
     
     var instance : UIStoryboard {

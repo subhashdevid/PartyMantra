@@ -2,13 +2,14 @@
 //  ClubEventViewController.swift
 //  PartyMantra
 //
-//  Created by Mayank Purwar on 15/02/20.
-//  Copyright © 2020 Mayank Purwar. All rights reserved.
+//  Created by Subhash Kumar on 21/03/20.
+//  Copyright © 2020 Shikha. All rights reserved.
 //
 
 import UIKit
 
-class ClubEventViewController: BaseViewController {
+class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate  {
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     
@@ -45,6 +46,14 @@ class ClubEventViewController: BaseViewController {
             }
         }
     }
+    
+    func didEventCellPressed() {
+        let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    
 }
 
 extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -137,6 +146,7 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
             cell?.viewButton.tag = indexPath.row
             cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
             collectionCell = cell
+            cell?.delegate = self
         }
         return collectionCell ?? UICollectionViewCell()
     }
@@ -158,6 +168,8 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
         vc.type = self.type
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
     
 }
 
@@ -189,7 +201,7 @@ class EventOtherCell1: UICollectionViewCell {
             let rate = data?.avgreviews?[0]
             let value = Double(rate?.rating ?? "0.0")
             rateLbl.text = String(format:"%.1f", value ?? 0.0)
-        
+            
         }else{
             rateView.isHidden = true
             rateLbl.isHidden = true
@@ -198,6 +210,9 @@ class EventOtherCell1: UICollectionViewCell {
     }
 }
 
+protocol ClubEventOtherCellDelegate: class {
+    func didEventCellPressed()
+}
 
 class EventOtherCell: UICollectionViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -205,6 +220,8 @@ class EventOtherCell: UICollectionViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var viewButton: UIButton!
+    
+    weak var delegate:ClubEventOtherCellDelegate?
     
     func configureCell(homeOthers:HomeOthers?) {
         lblName.text = homeOthers?.name
@@ -215,6 +232,12 @@ class EventOtherCell: UICollectionViewCell {
         self.homeOthers = homeOthers
         collectionView.reloadData()
     }
+    func cellPressAction() {
+        if let del = self.delegate {
+            del.didEventCellPressed()
+        }
+    }
+    
 }
 extension EventOtherCell : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
@@ -259,22 +282,13 @@ extension EventOtherCell : UICollectionViewDelegate,UICollectionViewDataSource,U
         
         
         
-
+        
         return collectionCell ?? UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        cellPressAction()
     }
-    
-    
 }
-
-
-
-
-
-
-
 
 
 class EventCollectionCell: UICollectionViewCell {

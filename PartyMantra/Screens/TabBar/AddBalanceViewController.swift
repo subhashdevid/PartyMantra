@@ -2,8 +2,8 @@
 //  AddBalanceViewController.swift
 //  PartyMantra
 //
-//  Created by Mayank Purwar on 21/02/20.
-//  Copyright © 2020 Mayank Purwar. All rights reserved.
+//  Created by Subhash Kumar on 21/03/20.
+//  Copyright © 2020 Shikha. All rights reserved.
 //
 
 import UIKit

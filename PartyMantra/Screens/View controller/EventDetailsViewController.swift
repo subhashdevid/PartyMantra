@@ -1,5 +1,5 @@
 //
-//  WebViewController.swift
+//  EventDetailsViewController.swift
 //  PartyMantra
 //
 //  Created by Subhash Kumar on 21/03/20.
@@ -7,21 +7,12 @@
 //
 
 import UIKit
-import WebKit
 
-class WebViewController: BaseViewController {
+class EventDetailsViewController: UIViewController {
 
-    var urlStr: String?
-    @IBOutlet weak var webView: WKWebView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        let myURL = URL(string:urlStr ?? "")
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
-        
         // Do any additional setup after loading the view.
     }
     
