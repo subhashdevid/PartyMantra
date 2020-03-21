@@ -306,8 +306,6 @@ class EventCollectionCell: UICollectionViewCell {
     }
 }
 
-
-
 extension EventCollectionCell : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.imageData.count
