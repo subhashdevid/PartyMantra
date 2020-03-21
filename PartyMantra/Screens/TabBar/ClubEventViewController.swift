@@ -12,22 +12,19 @@ class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate  {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
     var dataArr: HomeModel?
     var type: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        getListing()
+        fetchClubEvents()
     }
     
-    func getListing() {
-        
+    func fetchClubEvents() {
         var param: [String: Any] = [
-            
-            :]
+            "lat" : "28.604912200000",
+            "lang": "77.223133800000"
+        ]
         if type != "" {
             param["type"] = self.type
         }
@@ -47,9 +44,26 @@ class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate  {
         }
     }
     
-    func didEventCellPressed() {
+    func didEventCellPressed(row: Int) {
+        
         let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
+        if dataArr?.nearby?.count != 0 {
+            let data = dataArr?.others?[3]
+            if data?.event?.count != 0 {
+                vc.eventModel = data?.event?[row]
+            }
+        }
+        else{
+            let data = dataArr?.others?[2]
+                       if data?.event?.count != 0 {
+                           vc.eventModel = data?.event?[row]
+                       }
+        }
+       
+        
+        
         self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     
@@ -61,43 +75,95 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.section == 0 {
-            return CGSize(width: self.view.width, height: 200)
-        }
-        else if indexPath.section == 1{
-            return CGSize(width: self.view.width, height: 150)
-        }
-        else if indexPath.section == 2 {
-            
-            let data = dataArr?.others?[indexPath.row]
-            let count1: Int = data?.event?.count ?? 0
-            let count2: Int = data?.banners?.count ?? 0
-            
-            var rowCount = count1/3
-            
-            if count1 % 3 != 0 {
-                rowCount = rowCount + 1
+        
+        
+        if dataArr?.nearby?.count != 0 {
+            if indexPath.section == 0 {
+                return CGSize(width: self.view.width, height: 200)
             }
-            let rowCount1 = count2 > 0 ? 1: 0
-            return CGSize(width: self.view.width, height: CGFloat(rowCount * 140) + CGFloat(rowCount1 * 181) + 40.0)
-            //3
+            else if indexPath.section == 1 || indexPath.section == 2{
+                return CGSize(width: self.view.width, height: 150)
+            }
+            else if indexPath.section == 3 {
+                
+                let data = dataArr?.others?[indexPath.row]
+                let count1: Int = data?.event?.count ?? 0
+                let count2: Int = data?.banners?.count ?? 0
+                
+                var rowCount = count1/3
+                
+                if count1 % 3 != 0 {
+                    rowCount = rowCount + 1
+                }
+                let rowCount1 = count2 > 0 ? 1: 0
+                return CGSize(width: self.view.width, height: CGFloat(rowCount * 140) + CGFloat(rowCount1 * 181) + 40.0)
+                //3
+            }
         }
+        else{
+            if indexPath.section == 0 {
+                return CGSize(width: self.view.width, height: 200)
+            }
+            else if indexPath.section == 1{
+                return CGSize(width: self.view.width, height: 150)
+            }
+            else if indexPath.section == 2 {
+                
+                let data = dataArr?.others?[indexPath.row]
+                let count1: Int = data?.event?.count ?? 0
+                let count2: Int = data?.banners?.count ?? 0
+                
+                var rowCount = count1/3
+                
+                if count1 % 3 != 0 {
+                    rowCount = rowCount + 1
+                }
+                let rowCount1 = count2 > 0 ? 1: 0
+                return CGSize(width: self.view.width, height: CGFloat(rowCount * 140) + CGFloat(rowCount1 * 181) + 40.0)
+                //3
+            }
+        }
+        
+        
         return CGSize(width: self.view.width, height: 150)
+        
+        
+        
     }
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        if dataArr?.nearby?.count != 0 {
+            return 4
+            
+        }else{
+            return 3
+            
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else if section == 1 {
-            return 1
-        } else if section == 2 {
-            return dataArr?.others?.count ?? 0
+        
+        if dataArr?.nearby?.count != 0 {
+            if section == 0 {
+                return 1
+            } else if section == 1  || section == 2{
+                return 1
+            } else if section == 3 {
+                return dataArr?.others?.count ?? 0
+            }
+            
+        }else{
+            if section == 0 {
+                return 1
+            } else if section == 1 {
+                return 1
+            } else if section == 2 {
+                return dataArr?.others?.count ?? 0
+            }
+            
         }
+        
         return 0
     }
     
@@ -112,13 +178,6 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
         return CGSize(width: collectionView.frame.width, height: 0)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        if section == 0 {
-            
-        } else if section == 1{
-            
-        } else if section == 2 {
-            
-        }
         return CGSize(width: 0.0, height: 0.0)
     }
     
@@ -126,28 +185,65 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
         
         var collectionCell: UICollectionViewCell?
         
-        if indexPath.section == 0 {
-            let cell = collectionView
-                .dequeueReusableCell(withReuseIdentifier: "\(ImageBannerCell.self)", for: indexPath) as? ImageBannerCell
-            cell?.configureCell(imgData: dataArr?.banners ?? [])
-            collectionCell = cell
+        if dataArr?.nearby?.count != 0 {
+            if indexPath.section == 0 {
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "\(ImageBannerCell.self)", for: indexPath) as? ImageBannerCell
+                cell?.configureCell(imgData: dataArr?.banners ?? [])
+                collectionCell = cell
+            }
+            else if indexPath.section == 1{
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "\(EventCollectionCell.self)", for: indexPath) as? EventCollectionCell
+                cell?.configureCell(imgData: dataArr?.collections ?? [])
+                cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
+                collectionCell = cell
+            }
+            else if indexPath.section == 2{
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "\(EventCollectionCell.self)", for: indexPath) as? EventCollectionCell
+                cell?.configureCell(imgData: dataArr?.collections ?? [])
+                cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
+                collectionCell = cell
+            }
+                
+            else if indexPath.section == 3 {
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "\(EventOtherCell.self)", for: indexPath) as? EventOtherCell
+                cell?.configureCell(homeOthers: dataArr?.others?[indexPath.row])
+                cell?.viewButton.tag = indexPath.row
+                cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
+                collectionCell = cell
+                cell?.delegate = self
+            }
+            
+        }else{
+            
+            if indexPath.section == 0 {
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "\(ImageBannerCell.self)", for: indexPath) as? ImageBannerCell
+                cell?.configureCell(imgData: dataArr?.banners ?? [])
+                collectionCell = cell
+            }
+            else if indexPath.section == 1{
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "\(EventCollectionCell.self)", for: indexPath) as? EventCollectionCell
+                cell?.configureCell(imgData: dataArr?.collections ?? [])
+                cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
+                collectionCell = cell
+            }
+            else if indexPath.section == 2 {
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "\(EventOtherCell.self)", for: indexPath) as? EventOtherCell
+                cell?.configureCell(homeOthers: dataArr?.others?[indexPath.row])
+                cell?.viewButton.tag = indexPath.row
+                cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
+                collectionCell = cell
+                cell?.delegate = self
+            }
+            
         }
-        else if indexPath.section == 1{
-            let cell = collectionView
-                .dequeueReusableCell(withReuseIdentifier: "\(EventCollectionCell.self)", for: indexPath) as? EventCollectionCell
-            cell?.configureCell(imgData: dataArr?.collections ?? [])
-            cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
-            collectionCell = cell
-        }
-        else if indexPath.section == 2 {
-            let cell = collectionView
-                .dequeueReusableCell(withReuseIdentifier: "\(EventOtherCell.self)", for: indexPath) as? EventOtherCell
-            cell?.configureCell(homeOthers: dataArr?.others?[indexPath.row])
-            cell?.viewButton.tag = indexPath.row
-            cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
-            collectionCell = cell
-            cell?.delegate = self
-        }
+        
         return collectionCell ?? UICollectionViewCell()
     }
     
@@ -211,7 +307,7 @@ class EventOtherCell1: UICollectionViewCell {
 }
 
 protocol ClubEventOtherCellDelegate: class {
-    func didEventCellPressed()
+    func didEventCellPressed(row : Int)
 }
 
 class EventOtherCell: UICollectionViewCell {
@@ -232,9 +328,9 @@ class EventOtherCell: UICollectionViewCell {
         self.homeOthers = homeOthers
         collectionView.reloadData()
     }
-    func cellPressAction() {
+    func cellPressAction(row : Int) {
         if let del = self.delegate {
-            del.didEventCellPressed()
+            del.didEventCellPressed(row: row)
         }
     }
     
@@ -286,7 +382,7 @@ extension EventOtherCell : UICollectionViewDelegate,UICollectionViewDataSource,U
         return collectionCell ?? UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        cellPressAction()
+        cellPressAction(row: indexPath.row)
     }
 }
 

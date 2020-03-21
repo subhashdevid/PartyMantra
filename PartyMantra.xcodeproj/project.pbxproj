@@ -46,6 +46,7 @@
 		BF8773AF2423C1D300CF8C5D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8773AE2423C1D300CF8C5D /* Home.storyboard */; };
 		BF99CEC02425C37D0051E775 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CEBF2425C37D0051E775 /* EventDetailsViewController.swift */; };
 		BF99CEC22425C3920051E775 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF99CEC12425C3920051E775 /* Events.storyboard */; };
+		BF99CEC42425D6670051E775 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CEC32425D6670051E775 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		BF8773AE2423C1D300CF8C5D /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		BF99CEBF2425C37D0051E775 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		BF99CEC12425C3920051E775 /* Events.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
+		BF99CEC32425D6670051E775 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		C323B65CE59EB81612CA5349 /* Pods-PartyMantra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyMantra.release.xcconfig"; path = "Target Support Files/Pods-PartyMantra/Pods-PartyMantra.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */,
+				BF99CEC32425D6670051E775 /* CustomTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				BF87739B2423C0F500CF8C5D /* HomePageViewController.swift in Sources */,
 				BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */,
 				BF8773942423C0F500CF8C5D /* ClubEventViewController.swift in Sources */,
+				BF99CEC42425D6670051E775 /* CustomTableViewCell.swift in Sources */,
 				BF8773762423BDFD00CF8C5D /* GlobalFunction.swift in Sources */,
 				BF8773992423C0F500CF8C5D /* CollectionDetailViewController.swift in Sources */,
 				BF8773802423BF0B00CF8C5D /* Network.swift in Sources */,
