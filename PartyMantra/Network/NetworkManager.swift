@@ -203,6 +203,10 @@ class NetworkManager {
         getRequest(url: url, parameters: parameters, handler: handler)
     }
     
+    class func getEventDetailListing(url: String, parameters: [String: Any]?, handler: (APICompletion<HomeModel>)? = nil) {
+        getRequest(url: url, parameters: parameters, handler: handler)
+    }
+    
     class func getCollectionDiningDetailListing(url: String, parameters: [String: Any]?, handler: (APICompletion<CollectionDiningListModel>)? = nil) {
         getRequest(url: url, parameters: parameters, handler: handler)
     }

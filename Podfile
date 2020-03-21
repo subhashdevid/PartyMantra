@@ -9,6 +9,7 @@ target 'PartyMantra' do
 
 	pod 'SVProgressHUD'
   pod 'Kingfisher', '~> 5.0'
+  pod 'Cosmos', '~> 21.0'
 
 
 
