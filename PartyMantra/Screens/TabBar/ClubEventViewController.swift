@@ -184,7 +184,7 @@ class EventOtherCell1: UICollectionViewCell {
             rateView.isHidden = false
             rateLbl.isHidden = false
             rateImg.isHidden = false
-            rateImg.image = UIImage(named: "StarIcon")
+            rateImg.image = UIImage(named: "starnew")
             
             let rate = data?.avgreviews?[0]
             let value = Double(rate?.rating ?? "0.0")

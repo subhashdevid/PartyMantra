@@ -117,9 +117,9 @@ struct WalletHistory: Codable {
     let amount: Int?
     let description: String?
     let order_id: String?
-//    let order_id_response: String?
+    //    let order_id_response: String?
     let payment_id: String?
-//    let payment_id_response: String?
+    //    let payment_id_response: String?
     let icon: String?
     let date: String?
 }
@@ -129,7 +129,7 @@ struct HomeModel: Codable {
     let collections: [HomeCollection]?
     let others: [HomeOthers]?
     let nearby: [NearByPlace]?
-//    let otherbanners: [OtherBanners]?
+    //    let otherbanners: [OtherBanners]?
 }
 
 struct HomeBanners: Codable {
@@ -196,7 +196,7 @@ struct eventModel: Codable {
     let time_to_start: String?
     let away: Int?
     let avgreviews: [avgreviewsModel]?
-
+    
 }
 
 
@@ -231,38 +231,40 @@ struct restaurantModel: Codable {
     let raing: Int?
     let discounts: String?
     let away:Int?
-//        "pivot": {
-//            "collection_id": 31,
-//            "restaurant_id": 8
-//        },
-let avgreviews: [avgreviewsModel]?
-
+    //        "pivot": {
+    //            "collection_id": 31,
+    //            "restaurant_id": 8
+    //        },
+    let avgreviews: [avgreviewsModel]?
+    
 }
 
 struct PartyModel: Codable {
-        let id: Int?
-        let name: String?
-        let description: String?
-        let address: String?
-        let short_address: String?
-        let lat: Double?
-        let lang: Double?
-        let contact_no: String?
-        let header_image: String?
-        let small_image: String?
-        let type: String?
-        let per_person_text: String?
-        let isactive: Int?
-        let open: String?
-        let close: String?
-        let allow_party: Int?
-        let priority: Int?
-        let timings: String?
-        let party_timings: String?
-        let tnc: String?
+    let id: Int?
+    let name: String?
+    let description: String?
+    let address: String?
+    let short_address: String?
+    let lat: Double?
+    let lang: Double?
+    let contact_no: String?
+    let header_image: String?
+    let small_image: String?
+    let type: String?
+    let per_person_text: String?
+    let isactive: Int?
+    let open: String?
+    let close: String?
+    let allow_party: Int?
+    let priority: Int?
+    let timings: String?
+    let party_timings: String?
+    let tnc: String?
     let raing: Int?
-        let discounts: String?
-        let away:Int?
+    let discounts: String?
+    let away:Int?
+    let avgreviews: [avgreviewsModel]?
+    
     //        "pivot": {
     //            "collection_id": 31,
     //            "restaurant_id": 8

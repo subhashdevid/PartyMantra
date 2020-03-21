@@ -184,7 +184,7 @@ class DiningOtherCell1: UICollectionViewCell {
             rateView.isHidden = false
             rateLbl.isHidden = false
             rateImg.isHidden = false
-            rateImg.image = UIImage(named: "StarIcon")
+            rateImg.image = UIImage(named: "starnew")
 
             let rate = restaurantData?.avgreviews?[0]
             let value = Double(rate?.rating ?? "0.0")
@@ -249,9 +249,7 @@ extension DiningOtherCell : UICollectionViewDelegate,UICollectionViewDataSource,
         if indexPath.section == 0 {
             let cell = collectionView
                 .dequeueReusableCell(withReuseIdentifier: "\(DiningOtherCell1.self)", for: indexPath) as? DiningOtherCell1
-                            
-//            cell?.configureCell(data: self.homeOthers?.restaurant?[indexPath.row])
-            
+                                        
             cell?.configureCell(restaurantData: self.homeOthers?.restaurant?[indexPath.row])
             collectionCell = cell
         } else if indexPath.section == 1 {
