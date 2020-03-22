@@ -8,18 +8,20 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class HomeViewController: BaseViewController, UISearchBarDelegate {
     
     @IBOutlet var topMenuView: UIView!
     
     @IBOutlet var topAddressView: UIView!
     @IBOutlet var addressLbl: UILabel!
     @IBOutlet var changeBtn: UIButton!
-
+    
     
     var topMenuBar: TopMenuBar!
     var homePageViewController: HomePageViewController?
     fileprivate var selectedIndex: Int?
+    
+    lazy var searchBar:UISearchBar = UISearchBar()
     
     
     override func viewDidLoad() {
@@ -29,7 +31,35 @@ class HomeViewController: BaseViewController {
         addressLbl.text = "AIG Gaur City Gautam Budh Nagar UP"
         
         addTopMenuView()
+        
+        
+        
+        
+        searchBar.searchBarStyle = UISearchBar.Style.prominent
+        searchBar.placeholder = " Search by Restaurant..."
+        searchBar.sizeToFit()
+        searchBar.isTranslucent = false
+        searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
+        
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String) {
+        
+    }
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        print(searchBar.text)
+        
+        
+        //send text to new screen
+        
+    }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "Party Mantra"
@@ -67,8 +97,8 @@ class HomeViewController: BaseViewController {
                 let list1 = ClubEventViewController.instantiate(appStoryboard: .home)
                 list1.type = "event"
                 
-//                let list1 = EventListViewController.instantiate(appStoryboard: .home)
-//                list1.type = ""
+                //                let list1 = EventListViewController.instantiate(appStoryboard: .home)
+                //                list1.type = ""
                 
                 let list2 = DiningViewController.instantiate(appStoryboard: .home)
                 list2.type = "restaurant"

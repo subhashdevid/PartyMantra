@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //}
         
         
-        UINavigationBar.appearance().barTintColor = .red
+        UINavigationBar.appearance().barTintColor = .white
         return true
     }
 
