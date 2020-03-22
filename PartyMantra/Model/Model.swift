@@ -152,13 +152,35 @@ struct HomeCollection: Codable {
     let type: String?
 }
 struct NearByPlace: Codable {
+//    let id: Int?
+//    let name: String?
+//    let cover_image: String?
+//    let small_image: String?
+//    let istop: Int?
+//    let about: String?
+//    let type: String?
+//    let event: [eventModel]?
+    
     let id: Int?
-    let name: String?
-    let cover_image: String?
-    let small_image: String?
-    let istop: Int?
-    let about: String?
-    let type: String?
+       let creator_id: Int?
+       let title: String?
+       let startdate: String?
+       let enddate: String?
+       let description: String?
+       let venue_name: String?
+       let venue_adderss: String?
+       let lat: String?
+       let lang: String?
+       let header_image: String?
+       let small_image: String?
+       let tnc: String?
+       let priority: Int?
+       let rating: Int?
+       let per_person_text: String?
+       let time_to_start: String?
+       let away: Int?
+       let avgreviews: [avgreviewsModel]?
+    
 }
 struct HomeOthers: Codable {
     let id: Int?

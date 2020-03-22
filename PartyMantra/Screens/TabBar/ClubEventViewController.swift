@@ -82,7 +82,7 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
                 return CGSize(width: self.view.width, height: 200)
             }
             else if indexPath.section == 1 || indexPath.section == 2{
-                return CGSize(width: self.view.width, height: 150)
+                return CGSize(width: self.view.width, height: 190)
             }
             else if indexPath.section == 3 {
                 
@@ -120,7 +120,6 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
                 }
                 let rowCount1 = count2 > 0 ? 1: 0
                 return CGSize(width: self.view.width, height: CGFloat(rowCount * 140) + CGFloat(rowCount1 * 181) + 40.0)
-                //3
             }
         }
         
@@ -194,9 +193,11 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
             }
             else if indexPath.section == 1{
                 let cell = collectionView
-                    .dequeueReusableCell(withReuseIdentifier: "\(EventCollectionCell.self)", for: indexPath) as? EventCollectionCell
-                cell?.configureCell(imgData: dataArr?.collections ?? [])
+                    .dequeueReusableCell(withReuseIdentifier: "NearByCollectionCell", for: indexPath) as? NearByCollectionCell
+               
+                cell?.configureCell(nearByPlaceModel: self.dataArr?.nearby ?? [])
                 cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
+                
                 collectionCell = cell
             }
             else if indexPath.section == 2{
@@ -274,11 +275,9 @@ class EventOtherCell1: UICollectionViewCell {
     var eventData: eventModel?
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
-    
     @IBOutlet weak var rateView: UIView!
     @IBOutlet weak var rateLbl: UILabel!
     @IBOutlet weak var rateImg: UIImageView!
-    
     
     
     func configureCell(data:eventModel?) {
@@ -306,9 +305,108 @@ class EventOtherCell1: UICollectionViewCell {
     }
 }
 
+class NearbyOtherCell: UICollectionViewCell {
+    
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblDesc: UILabel!
+    @IBOutlet weak var rateView: UIView!
+    @IBOutlet weak var rateLbl: UILabel!
+    @IBOutlet weak var rateImg: UIImageView!
+    
+
+    func configureCell(nearByPlace : NearByPlace?) {
+
+        lblName.text = nearByPlace?.title
+        lblDesc.text = nearByPlace?.venue_name
+        let url = URL(string: nearByPlace?.small_image ?? "")
+        imgView.contentMode = .scaleAspectFill
+        imgView.kf.setImage(with: url, placeholder: nil)
+        
+        if nearByPlace?.avgreviews?.count ?? 0 > 0 {
+            rateView.isHidden = false
+            rateLbl.isHidden = false
+            rateImg.isHidden = false
+            rateImg.image = UIImage(named: "starnew")
+
+            let rate = nearByPlace?.avgreviews?[0]
+            let value = Double(rate?.rating ?? "0.0")
+            rateLbl.text = String(format:"%.1f", value ?? 0.0)
+
+        }else{
+            rateView.isHidden = true
+            rateLbl.isHidden = true
+            rateImg.isHidden = true
+        }
+    }
+}
+
+
+
 protocol ClubEventOtherCellDelegate: class {
     func didEventCellPressed(row : Int)
 }
+
+class NearByCollectionCell: UICollectionViewCell {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var viewButton: UIButton!
+    
+    var nearPlaceModel =  [NearByPlace]()
+    weak var delegate:ClubEventOtherCellDelegate?
+    
+    func configureCell(nearByPlaceModel : [NearByPlace]) {
+        viewButton.layer.cornerRadius = 10
+        viewButton.layer.masksToBounds = true
+        self.nearPlaceModel = nearByPlaceModel
+        
+        collectionView.reloadData()
+    }
+    func cellPressAction(row : Int) {
+        if let del = self.delegate {
+            del.didEventCellPressed(row: row)
+        }
+    }
+}
+
+//NearbyOtherCell
+extension NearByCollectionCell : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            return self.nearPlaceModel.count
+    }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: 120, height: 150)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var collectionCell: UICollectionViewCell?
+        
+        let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: "NearbyOtherCell", for: indexPath) as? NearbyOtherCell
+        
+//        cell?.configureCell(nearByPlaceModel: self.nearByPlace[indexPath.row])
+        if self.nearPlaceModel.count > 0 {
+            cell?.configureCell(nearByPlace: self.nearPlaceModel[indexPath.row])
+        }
+        collectionCell = cell
+        return collectionCell ?? UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        cellPressAction(row: indexPath.row)
+    }
+}
+
+
+
+
 
 class EventOtherCell: UICollectionViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
