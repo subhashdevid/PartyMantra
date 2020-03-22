@@ -10,10 +10,10 @@ import UIKit
 
 class EventDetailsViewController: UIViewController  {
     @IBOutlet weak var tblView: UITableView!
-    
     var eventModel: eventModel?
-    var type: String?
+    var eventData : [EventlistModel] = []
     
+    var type: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,34 +38,24 @@ class EventDetailsViewController: UIViewController  {
             switch result {
             case let .success(response):
                 if let events = response.data {
-                    let eventList = EventlistModel.init(response: events.event)
-                    print(eventList.title ?? "")
+                    self?.eventData = [EventlistModel(response: events.event)]
+                    print(self?.eventData ?? nil)
+                    self?.tblView.reloadData()
                 }
-                
             case .failure: break
             }
         }
-        
     }
-
-
-    
-    
 }
 
 
 
-
-
-
-
-
+// MARK: Table view Delegate
 
 extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
     }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         8
     }
@@ -75,7 +65,6 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
         
         if indexPath.section == 0 {
             let cell =  tblView.dequeueReusableCell(withIdentifier: "GalleryViewCell")
-            
             return cell!
         }
         else  if indexPath.section == 1 {
