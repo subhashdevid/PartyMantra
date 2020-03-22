@@ -120,10 +120,19 @@
 		3B0411EC242731CE000C9402 /* Event Details View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3B0411ED24273932000C9402 /* EventModal */,
 				3B0411EB242731B7000C9402 /* EventDetailCells */,
 				BF99CEBF2425C37D0051E775 /* EventDetailsViewController.swift */,
 			);
 			path = "Event Details View Controller";
+			sourceTree = "<group>";
+		};
+		3B0411ED24273932000C9402 /* EventModal */ = {
+			isa = PBXGroup;
+			children = (
+				3B6754A7242683DC005C97CA /* EventDetail.swift */,
+			);
+			path = EventModal;
 			sourceTree = "<group>";
 		};
 		85BB2F2C4BC8D770BFF09230 /* Pods */ = {
@@ -223,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				BF8773722423BDD400CF8C5D /* Model.swift */,
-				3B6754A7242683DC005C97CA /* EventDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
