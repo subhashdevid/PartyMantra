@@ -1,30 +1,40 @@
 PODS:
+  - CocoaLumberjack (3.6.0):
+    - CocoaLumberjack/Core (= 3.6.0)
+  - CocoaLumberjack/Core (3.6.0)
   - Cosmos (21.0.0)
   - DynamicCodable (1.0)
   - Kingfisher (5.13.2):
     - Kingfisher/Core (= 5.13.2)
   - Kingfisher/Core (5.13.2)
+  - SVGKit (2.1.1):
+    - CocoaLumberjack (~> 3.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Cosmos (~> 21.0)
   - DynamicCodable (= 1.0)
   - Kingfisher (~> 5.0)
+  - SVGKit
   - SVProgressHUD
 
 SPEC REPOS:
   trunk:
+    - CocoaLumberjack
     - Cosmos
     - DynamicCodable
     - Kingfisher
+    - SVGKit
     - SVProgressHUD
 
 SPEC CHECKSUMS:
+  CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
   Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   DynamicCodable: 2cf558d057b3e6540552943254e1c9eeb706dde2
   Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
+  SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 1ef8e30bbbd7048e97c447ceab30e5a5f86fdb4f
+PODFILE CHECKSUM: 1b19eb570aaca56d7203d6796402d5c41619a2fd
 
 COCOAPODS: 1.8.4

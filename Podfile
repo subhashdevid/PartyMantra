@@ -11,6 +11,7 @@ target 'PartyMantra' do
   pod 'Kingfisher', '~> 5.0'
   pod 'Cosmos', '~> 21.0'
   pod 'DynamicCodable', '1.0'
+  pod 'SVGKit'
 
 
 

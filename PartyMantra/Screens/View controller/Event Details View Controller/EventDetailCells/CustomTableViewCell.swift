@@ -87,8 +87,10 @@ class AddressViewCell: UITableViewCell {
     func configureAddressCell(modal:EventlistModel){
         addressTitleLbl.text = "Address"
         addressSubTitleLbl.text = modal.venue_adderss ?? ""
-        distancelbl.text = "\(modal.away ?? 0)"
-        
+       
+        distancelbl.text = "\(modal.away ?? 0) away maps Navigation"
+        distancelbl.lineBreakMode = .byWordWrapping
+        distancelbl.numberOfLines = 2
     }
 
 }

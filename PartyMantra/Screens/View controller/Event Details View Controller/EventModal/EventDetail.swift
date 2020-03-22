@@ -79,6 +79,7 @@ class EventlistModel {
 
         self.per_person_text = response["per_person_text"] as? String
         self.time_to_start = response["time_to_start"] as? String
+        self.away = response["away"] as? Int
         
         self.partner = EventPartnerDetailModal.init(response: response["partner"] as? [String : Any] ?? [:])//
         let coverArr = response["covers"] as? [[String : Any]] ?? []
@@ -168,6 +169,8 @@ class EventCoversDetailModal {
     var event_id: Int?
     var partner_id: Int?
     var package_name: String?
+    var price : Int?
+    var custom_package_detail : String?
     var text_under_name: String?
     var isactive: Bool?
     var partneractive: Int?
@@ -187,6 +190,8 @@ class EventCoversDetailModal {
         self.text_under_name = response["text_under_name"] as? String
         self.isactive = response["isactive"] as? Bool
         self.partneractive = response["partneractive"] as? Int
+        self.price = response["price"] as? Int
+        self.custom_package_detail = response["custom_package_detail"] as? String
 
         self.package_type = response["package_type"] as? String
         self.fordining = response["fordining"] as? Int
