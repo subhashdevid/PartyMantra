@@ -39,7 +39,7 @@ class EventDetailsViewController: UIViewController  {
             case let .success(response):
                 if let events = response.data {
                     self?.eventData = [EventlistModel(response: events.event)]
-                    print(self?.eventData ?? nil)
+                   // print(self?.eventData[0].event ?? nil)
                     self?.tblView.reloadData()
                 }
             case .failure: break
@@ -64,12 +64,25 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
         let cell =  tblView.dequeueReusableCell(withIdentifier: "GalleryViewCell")
         
         if indexPath.section == 0 {
-            let cell =  tblView.dequeueReusableCell(withIdentifier: "GalleryViewCell")
-            return cell!
+            let cell : GalleryViewCell =  tblView.dequeueReusableCell(withIdentifier: "GalleryViewCell") as! GalleryViewCell
+            
+            if self.eventData.count > 0 {
+                let cellModal = self.eventData[0] as EventlistModel
+                print(cellModal)
+                cell.configureGallaryView(modal: cellModal)
+            }
+            
+            return cell
         }
         else  if indexPath.section == 1 {
-            let cell =  tblView.dequeueReusableCell(withIdentifier: "AddressViewCell")
-            return cell!
+            let cell : AddressViewCell =  tblView.dequeueReusableCell(withIdentifier: "AddressViewCell") as! AddressViewCell
+           
+            if self.eventData.count > 0 {
+                let cellModal = self.eventData[0] as EventlistModel
+                print(cellModal)
+                cell.configureAddressCell(modal: cellModal)
+            }
+            return cell
         }
         else  if indexPath.section == 1 {
             let cell =  tblView.dequeueReusableCell(withIdentifier: "AddressViewCell")

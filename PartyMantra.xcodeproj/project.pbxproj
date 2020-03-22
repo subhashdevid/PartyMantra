@@ -113,6 +113,7 @@
 		3B0411EB242731B7000C9402 /* EventDetailCells */ = {
 			isa = PBXGroup;
 			children = (
+				BF99CEC32425D6670051E775 /* CustomTableViewCell.swift */,
 			);
 			path = EventDetailCells;
 			sourceTree = "<group>";
@@ -164,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */,
-				BF99CEC32425D6670051E775 /* CustomTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";

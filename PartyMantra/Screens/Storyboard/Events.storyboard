@@ -243,8 +243,15 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <connections>
+                                            <outlet property="DateTitle" destination="WPq-JJ-qrR" id="Cqk-hg-stl"/>
+                                            <outlet property="bannarSubTitle" destination="5tt-4j-CGr" id="Cj6-e0-1ZP"/>
+                                            <outlet property="bannarTitle" destination="9o6-hh-7S0" id="XTd-Dd-pND"/>
                                             <outlet property="bannerimgView" destination="8Dl-RQ-r5f" id="3WS-wK-GEb"/>
+                                            <outlet property="endDateLbl" destination="PlO-kQ-bOo" id="NRm-PF-wUy"/>
+                                            <outlet property="locSubTitle" destination="5MZ-Pe-zze" id="kFS-Lt-NNV"/>
+                                            <outlet property="locTitle" destination="vas-S0-UJS" id="vBJ-3H-ahA"/>
                                             <outlet property="lowerView" destination="YRY-8C-ErB" id="6bH-WA-Zky"/>
+                                            <outlet property="startDateLbl" destination="Wjz-VL-cby" id="WMP-n1-sMD"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddressViewCell" rowHeight="122" id="KxA-hx-GGu" customClass="AddressViewCell" customModule="PartyMantra" customModuleProvider="target">
@@ -258,7 +265,7 @@
                                                     <rect key="frame" x="15" y="5" width="384" height="112"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aG5-pf-B4q">
-                                                            <rect key="frame" x="5" y="5" width="269" height="57"/>
+                                                            <rect key="frame" x="5" y="5" width="219" height="57"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marker" translatesAutoresizingMaskIntoConstraints="NO" id="LgI-Lx-JOr">
                                                                     <rect key="frame" x="5" y="5" width="26" height="26"/>
@@ -268,13 +275,13 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chirstmas Event" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gx8-My-a5z">
-                                                                    <rect key="frame" x="39" y="9" width="225" height="18"/>
+                                                                    <rect key="frame" x="39" y="9" width="175" height="18"/>
                                                                     <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chirstmas Event" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLS-5k-tMT">
-                                                                    <rect key="frame" x="39" y="29" width="225" height="26"/>
+                                                                    <rect key="frame" x="39" y="29" width="175" height="26"/>
                                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -294,10 +301,10 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Hq-Rt-tUl">
-                                                            <rect key="frame" x="279" y="5" width="100" height="102"/>
+                                                            <rect key="frame" x="229" y="5" width="150" height="102"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUy-EW-ZMx">
-                                                                    <rect key="frame" x="5" y="34" width="90" height="63"/>
+                                                                    <rect key="frame" x="5" y="34" width="140" height="63"/>
                                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="13"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -305,7 +312,7 @@
                                                             </subviews>
                                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="100" id="Jl1-te-JDp"/>
+                                                                <constraint firstAttribute="width" constant="150" id="Jl1-te-JDp"/>
                                                                 <constraint firstAttribute="bottom" secondItem="dUy-EW-ZMx" secondAttribute="bottom" constant="5" id="MDl-cg-ekb"/>
                                                                 <constraint firstItem="dUy-EW-ZMx" firstAttribute="leading" secondItem="5Hq-Rt-tUl" secondAttribute="leading" constant="5" id="hF4-XB-Pgs"/>
                                                                 <constraint firstAttribute="trailing" secondItem="dUy-EW-ZMx" secondAttribute="trailing" constant="5" id="hjI-aa-Wgm"/>
@@ -317,14 +324,14 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marker" translatesAutoresizingMaskIntoConstraints="NO" id="pAB-qc-Wml">
-                                                            <rect key="frame" x="316.5" y="8" width="25" height="25"/>
+                                                            <rect key="frame" x="291.5" y="8" width="25" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="25" id="DDS-ds-q7u"/>
                                                                 <constraint firstAttribute="height" constant="25" id="t9p-71-ecx"/>
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5l-2p-i1b">
-                                                            <rect key="frame" x="79.5" y="72" width="120" height="30"/>
+                                                            <rect key="frame" x="54.5" y="72" width="120" height="30"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starnew" translatesAutoresizingMaskIntoConstraints="NO" id="FM9-Qe-Jqv">
                                                                     <rect key="frame" x="5" y="5" width="20" height="20"/>
