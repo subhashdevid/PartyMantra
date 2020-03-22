@@ -19,6 +19,13 @@ class NotificationViewController: BaseViewController {
         getNotification()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.title = "Notification"
+    }
+
+    
+    
+    
     func getNotification() {
         let param: [String: Any] = [
             

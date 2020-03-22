@@ -16,9 +16,12 @@ class OrderViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        getOrderList()
+        //getOrderList()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.title = "Order"
+    }
     func getOrderList() {
         let param: [String: Any] = [
             

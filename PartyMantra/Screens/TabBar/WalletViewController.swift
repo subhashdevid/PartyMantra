@@ -20,7 +20,6 @@ class WalletViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        self.title=" Wallet History"
         addMoneyButton.addTarget(self, action: #selector(didSelectAddMoney), for: .touchUpInside)
 
 
@@ -149,6 +148,11 @@ extension WalletViewController: UICollectionViewDelegate, UICollectionViewDataSo
 //        let vc = DetailViewController.instantiate(appStoryboard: .home) as DetailViewController
 //        vc.product = dataArr[indexPath.row]
 //        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.navigationBar.topItem?.title = " "
+        self.navigationItem.title = "Wallet History"
     }
     
     
