@@ -12,6 +12,7 @@ enum AppStoryboard: String {
     case main = "Main"
     case home = "Home"
     case events = "Events"
+    case miscellaneous="Miscellaneous"
     case more = "MoreStoryBoard"
     
     var instance : UIStoryboard {

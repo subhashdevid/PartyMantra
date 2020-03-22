@@ -14,11 +14,17 @@ class WalletViewController: BaseViewController {
     var balance = WalletBalance(balance: 0)
     
     @IBOutlet weak var lblBalance: UILabel!
+    @IBOutlet weak var addMoneyButton: UIButton!
     
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
+        self.title=" Wallet History"
+        addMoneyButton.addTarget(self, action: #selector(didSelectAddMoney), for: .touchUpInside)
 
-        // Do any additional setup after loading the view.
+
+        
         getWalletHistory()
 //        getWalletBalance()
     }
@@ -63,19 +69,15 @@ class WalletViewController: BaseViewController {
         }
     }
     
-    @IBAction func clickedAddMoney() {
+    //MARK:didSelectAddMoney
+    
+    @objc func didSelectAddMoney() {
+        
+        let walletVc = AddBalanceViewController.instantiate(appStoryboard: .home) as AddBalanceViewController
+         self.navigationController?.pushViewController(walletVc, animated: true)
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  
 
 }
 
@@ -92,6 +94,7 @@ extension WalletViewController: UICollectionViewDelegate, UICollectionViewDataSo
          // load cell from Xib
          let cell = collectionView
          .dequeueReusableCell(withReuseIdentifier: "WalletCell", for: indexPath) as? WalletCell
+        
 
          // configure cell with data in it
          let notification = dataArr[indexPath.row]
@@ -161,6 +164,10 @@ class WalletCell: UICollectionViewCell {
     @IBOutlet weak var lblDate: UILabel!
     
     func configureCell(data: WalletHistory) {
+        bgView.backgroundColor = .clear
+        contentView.layer.cornerRadius = 10
+        contentView.layer.masksToBounds = true
+        contentView.backgroundColor = .groupTableViewBackground
         lblTitle.text = data.description
         lblPrice.text = "\(data.amount ?? 0)"
         lblDate.text = data.date

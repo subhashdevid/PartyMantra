@@ -52,14 +52,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "A7DE0154-68E2-41FB-B84A-823AA41A7828 - 8c1f1d8531ed692a"
+                  uuid = "A7DE0154-68E2-41FB-B84A-823AA41A7828 - 97a92b0b6827f62b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "PartyMantra.CollectionViewController.getCollectionList() -&gt; ()"
                   moduleName = "PartyMantra"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/subhashkumar/Desktop/PartyMantra/PartyMantra/Screens/TabBar/CollectionViewController.swift"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Screens/TabBar/CollectionViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
@@ -67,14 +67,14 @@
                   offsetFromSymbolStart = "681">
                </Location>
                <Location
-                  uuid = "A7DE0154-68E2-41FB-B84A-823AA41A7828 - d6bfeb41714c44c"
+                  uuid = "A7DE0154-68E2-41FB-B84A-823AA41A7828 - 16ddc83a4ede5b4d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (PartyMantra.DataResult&lt;PartyMantra.CollectionListModel&gt;) -&gt; () in PartyMantra.CollectionViewController.getCollectionList() -&gt; ()"
                   moduleName = "PartyMantra"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/subhashkumar/Desktop/PartyMantra/PartyMantra/Screens/TabBar/CollectionViewController.swift"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Screens/TabBar/CollectionViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
@@ -136,7 +136,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "9FAD5D68-F385-46CC-9FE8-5E89BD630B2F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PartyMantra/Screens/View controller/EventDetailsViewController.swift"
@@ -164,14 +164,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "66F3BDB9-37E1-40A8-BF63-423F7F99004C - 790ee9bdf206430"
+                  uuid = "66F3BDB9-37E1-40A8-BF63-423F7F99004C - aa6bed84c8895919"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (PartyMantra.DataResult&lt;PartyMantra.HomeModel&gt;) -&gt; () in PartyMantra.EventDetailsViewController.fetchEventDetail() -&gt; ()"
                   moduleName = "PartyMantra"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/subhashkumar/Desktop/PartyMantra/PartyMantra/Screens/View%20controller/EventDetailsViewController.swift"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Screens/View%20controller/EventDetailsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
@@ -179,14 +179,14 @@
                   offsetFromSymbolStart = "101">
                </Location>
                <Location
-                  uuid = "66F3BDB9-37E1-40A8-BF63-423F7F99004C - 790ee9bdf206430"
+                  uuid = "66F3BDB9-37E1-40A8-BF63-423F7F99004C - aa6bed84c8895919"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (PartyMantra.DataResult&lt;PartyMantra.HomeModel&gt;) -&gt; () in PartyMantra.EventDetailsViewController.fetchEventDetail() -&gt; ()"
                   moduleName = "PartyMantra"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/subhashkumar/Desktop/PartyMantra/PartyMantra/Screens/View%20controller/EventDetailsViewController.swift"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Screens/View%20controller/EventDetailsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
@@ -200,7 +200,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "43DBB48A-E0FE-4B82-8F12-391E15039E2F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PartyMantra/Screens/View controller/EventDetailsViewController.swift"
@@ -209,6 +209,86 @@
             startingLineNumber = "26"
             endingLineNumber = "26"
             landmarkName = "createUrl()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3B104497-EB7F-44A0-9B02-A2B068EE9245"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartyMantra/Screens/View controller/EventDetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "fetchEventDetail()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A16FC28F-27F1-4BE7-A51B-34AEF3157246"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartyMantra/Screens/View controller/EventDetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "fetchEventDetail()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A16FC28F-27F1-4BE7-A51B-34AEF3157246 - 78f93e43b8cb21f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartyMantra.EventDetailsViewController.fetchEventDetail() -&gt; ()"
+                  moduleName = "PartyMantra"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Screens/View%20controller/EventDetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "141">
+               </Location>
+               <Location
+                  uuid = "A16FC28F-27F1-4BE7-A51B-34AEF3157246 - aa6bed84c8895919"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PartyMantra.DataResult&lt;PartyMantra.HomeModel&gt;) -&gt; () in PartyMantra.EventDetailsViewController.fetchEventDetail() -&gt; ()"
+                  moduleName = "PartyMantra"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Screens/View%20controller/EventDetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "74">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "135E8056-D92F-4CC0-8467-1A8C8C535807"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartyMantra/Screens/TabBar/AddBalanceViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

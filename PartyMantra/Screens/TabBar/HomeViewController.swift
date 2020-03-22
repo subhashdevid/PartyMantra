@@ -11,6 +11,12 @@ import UIKit
 class HomeViewController: BaseViewController {
     
     @IBOutlet var topMenuView: UIView!
+    
+    @IBOutlet var topAddressView: UIView!
+    @IBOutlet var addressLbl: UILabel!
+    @IBOutlet var changeBtn: UIButton!
+
+    
     var topMenuBar: TopMenuBar!
     var homePageViewController: HomePageViewController?
     fileprivate var selectedIndex: Int?
@@ -19,8 +25,13 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.groupTableViewBackground
+        topAddressView.backgroundColor = .white
+        addressLbl.text = "AIG Gaur City Gautam Budh Nagar UP"
+        
         addTopMenuView()
     }
+    
+    
     
     private func addTopMenuView() {
         if let customView = Bundle.main.loadNibNamed("TopMenuBar", owner: self, options: nil)?.first as? TopMenuBar {
