@@ -110,6 +110,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B0411EB242731B7000C9402 /* EventDetailCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EventDetailCells;
+			sourceTree = "<group>";
+		};
+		3B0411EC242731CE000C9402 /* Event Details View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3B0411EB242731B7000C9402 /* EventDetailCells */,
+				BF99CEBF2425C37D0051E775 /* EventDetailsViewController.swift */,
+			);
+			path = "Event Details View Controller";
+			sourceTree = "<group>";
+		};
 		85BB2F2C4BC8D770BFF09230 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +146,7 @@
 		BF6D1ECF2424C32F00DC018C /* View controller */ = {
 			isa = PBXGroup;
 			children = (
-				BF99CEBF2425C37D0051E775 /* EventDetailsViewController.swift */,
+				3B0411EC242731CE000C9402 /* Event Details View Controller */,
 			);
 			path = "View controller";
 			sourceTree = "<group>";
