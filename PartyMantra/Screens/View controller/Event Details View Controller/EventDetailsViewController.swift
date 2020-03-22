@@ -10,7 +10,8 @@ import UIKit
 
 class EventDetailsViewController: UIViewController  {
     @IBOutlet weak var tblView: UITableView!
-    var eventModel: eventModel?
+
+    var eventID : Int = 0
     var eventData : [EventlistModel] = []
     
     var type: String?
@@ -23,10 +24,7 @@ class EventDetailsViewController: UIViewController  {
     }
     
     func createUrl() -> String {
-        var url = ""
-        if let eventId = eventModel?.id {
-            url = Server.shared.eventsUrl + "/\(eventId)/" + "\(type ?? "")"
-        }
+        let url = Server.shared.eventsUrl + "/\(eventID)/" + "\(type ?? "")"
         return url
     }
 

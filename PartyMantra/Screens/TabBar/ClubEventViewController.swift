@@ -44,24 +44,10 @@ class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate  {
         }
     }
     
-    func didEventCellPressed(row: Int) {
+    func didEventCellPressed(eventID: Int) {
         
         let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
-        if dataArr?.nearby?.count != 0 {
-            let data = dataArr?.others?[3]
-            if data?.event?.count != 0 {
-                vc.eventModel = data?.event?[row]
-            }
-        }
-        else{
-            let data = dataArr?.others?[2]
-                       if data?.event?.count != 0 {
-                           vc.eventModel = data?.event?[row]
-                       }
-        }
-       
-        
-        
+        vc.eventID = eventID
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -344,7 +330,7 @@ class NearbyOtherCell: UICollectionViewCell {
 
 
 protocol ClubEventOtherCellDelegate: class {
-    func didEventCellPressed(row : Int)
+    func didEventCellPressed(eventID: Int)
 }
 
 class NearByCollectionCell: UICollectionViewCell {
@@ -362,9 +348,9 @@ class NearByCollectionCell: UICollectionViewCell {
         
         collectionView.reloadData()
     }
-    func cellPressAction(row : Int) {
+    func cellPressAction(eventID : Int) {
         if let del = self.delegate {
-            del.didEventCellPressed(row: row)
+            del.didEventCellPressed(eventID: eventID)
         }
     }
 }
@@ -400,7 +386,6 @@ extension NearByCollectionCell : UICollectionViewDelegate,UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        cellPressAction(row: indexPath.row)
     }
 }
 
@@ -428,7 +413,7 @@ class EventOtherCell: UICollectionViewCell {
     }
     func cellPressAction(row : Int) {
         if let del = self.delegate {
-            del.didEventCellPressed(row: row)
+            del.didEventCellPressed(eventID: row)
         }
     }
     
@@ -480,7 +465,7 @@ extension EventOtherCell : UICollectionViewDelegate,UICollectionViewDataSource,U
         return collectionCell ?? UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        cellPressAction(row: indexPath.row)
+        cellPressAction(row: self.homeOthers?.event?[indexPath.row].id ?? 0)
     }
 }
 
