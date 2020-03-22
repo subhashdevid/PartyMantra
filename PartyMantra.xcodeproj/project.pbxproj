@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A30996FEE833B1C60685AC5 /* Pods_PartyMantra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */; };
 		3B6754A8242683DC005C97CA /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6754A7242683DC005C97CA /* EventDetail.swift */; };
+		BF2B8A602427443B00727866 /* Miscellaneous.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */; };
+		BF2B8A62242744CE00727866 /* WalletAddMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B8A61242744CE00727866 /* WalletAddMoneyViewController.swift */; };
 		BF6D1ED42424CBE300DC018C /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */; };
 		BF87734D2423AF6200CF8C5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87734C2423AF6200CF8C5D /* AppDelegate.swift */; };
 		BF8773542423AF6200CF8C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8773522423AF6200CF8C5D /* Main.storyboard */; };
@@ -54,6 +56,8 @@
 		250F4D8406A879E019532AD7 /* Pods-PartyMantra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyMantra.debug.xcconfig"; path = "Target Support Files/Pods-PartyMantra/Pods-PartyMantra.debug.xcconfig"; sourceTree = "<group>"; };
 		3B6754A7242683DC005C97CA /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
 		B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyMantra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Miscellaneous.storyboard; sourceTree = "<group>"; };
+		BF2B8A61242744CE00727866 /* WalletAddMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAddMoneyViewController.swift; sourceTree = "<group>"; };
 		BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		BF8773492423AF6200CF8C5D /* PartyMantra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyMantra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF87734C2423AF6200CF8C5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,9 +157,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BF2B8A5E242743B400727866 /* WalletAddMoney */ = {
+			isa = PBXGroup;
+			children = (
+				BF2B8A61242744CE00727866 /* WalletAddMoneyViewController.swift */,
+			);
+			path = WalletAddMoney;
+			sourceTree = "<group>";
+		};
 		BF6D1ECF2424C32F00DC018C /* View controller */ = {
 			isa = PBXGroup;
 			children = (
+				BF2B8A5E242743B400727866 /* WalletAddMoney */,
 				3B0411EC242731CE000C9402 /* Event Details View Controller */,
 			);
 			path = "View controller";
@@ -301,6 +314,7 @@
 			children = (
 				BF8773AE2423C1D300CF8C5D /* Home.storyboard */,
 				BF99CEC12425C3920051E775 /* Events.storyboard */,
+				BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -368,6 +382,7 @@
 				BF8773592423AF6300CF8C5D /* LaunchScreen.storyboard in Resources */,
 				BF8773562423AF6300CF8C5D /* Assets.xcassets in Resources */,
 				BF99CEC22425C3920051E775 /* Events.storyboard in Resources */,
+				BF2B8A602427443B00727866 /* Miscellaneous.storyboard in Resources */,
 				BF8773A72423C12B00CF8C5D /* TopMenuBarCollectionCell.xib in Resources */,
 				BF8773AF2423C1D300CF8C5D /* Home.storyboard in Resources */,
 				BF8773A92423C12B00CF8C5D /* TopMenuBar.xib in Resources */,
@@ -434,6 +449,7 @@
 				BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */,
 				BF8773932423C0F500CF8C5D /* OrderViewController.swift in Sources */,
 				BF6D1ED42424CBE300DC018C /* BannerTableViewCell.swift in Sources */,
+				BF2B8A62242744CE00727866 /* WalletAddMoneyViewController.swift in Sources */,
 				BF8773812423BF0B00CF8C5D /* Loader.swift in Sources */,
 				BF87739E2423C0F500CF8C5D /* ProfileViewController.swift in Sources */,
 				BF8773982423C0F500CF8C5D /* HomeViewController.swift in Sources */,
