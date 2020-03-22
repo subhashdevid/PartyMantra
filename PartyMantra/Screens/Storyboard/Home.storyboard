@@ -1941,23 +1941,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KO-CY-uXA">
-                                <rect key="frame" x="186" y="84" width="42" height="20.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="QCH-xL-JO7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wFX-nk-j5W">
-                                <rect key="frame" x="10" y="204" width="394" height="40"/>
+                                <rect key="frame" x="10" y="227" width="394" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="872-xz-rnZ">
                                         <rect key="frame" x="0.0" y="0.0" width="124.5" height="40"/>
                                         <color key="backgroundColor" name="ButtonColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="+1000">
+                                        <state key="normal">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
@@ -1982,17 +1973,70 @@
                                     <constraint firstAttribute="height" constant="40" id="YYU-Ad-oMv"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksb-wK-Q4V">
+                                <rect key="frame" x="10" y="94" width="394" height="19"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Rs Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oM4-tL-sJF">
+                                <rect key="frame" x="157" y="143" width="100" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="VHQ-LX-aue"/>
+                                    <constraint firstAttribute="width" constant="100" id="xPL-ND-uR5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKT-9k-CIP">
+                                <rect key="frame" x="157" y="178" width="100" height="2"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="JMm-MD-QqG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeW-8L-CyC">
+                                <rect key="frame" x="10" y="303" width="394" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5KZ-Ht-EJX"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="ULL-ZF-3Rs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
+                                <state key="normal" title="ADD MONEY">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="7KO-CY-uXA" firstAttribute="top" secondItem="W2r-px-V6u" secondAttribute="top" constant="40" id="E4T-d9-W1d"/>
-                            <constraint firstItem="7KO-CY-uXA" firstAttribute="centerX" secondItem="sk3-71-Ooj" secondAttribute="centerX" id="KMP-Of-69A"/>
+                            <constraint firstItem="Ksb-wK-Q4V" firstAttribute="leading" secondItem="W2r-px-V6u" secondAttribute="leading" constant="10" id="4C1-ZC-Ntj"/>
+                            <constraint firstItem="YeW-8L-CyC" firstAttribute="leading" secondItem="W2r-px-V6u" secondAttribute="leading" constant="10" id="D0g-hG-XeR"/>
+                            <constraint firstItem="iKT-9k-CIP" firstAttribute="trailing" secondItem="oM4-tL-sJF" secondAttribute="trailing" id="Ej3-x4-Wn0"/>
+                            <constraint firstItem="oM4-tL-sJF" firstAttribute="centerX" secondItem="Ksb-wK-Q4V" secondAttribute="centerX" id="HPm-Ef-OsN"/>
                             <constraint firstItem="W2r-px-V6u" firstAttribute="trailing" secondItem="wFX-nk-j5W" secondAttribute="trailing" constant="10" id="Mmc-O4-w7k"/>
+                            <constraint firstItem="iKT-9k-CIP" firstAttribute="top" secondItem="oM4-tL-sJF" secondAttribute="bottom" constant="1" id="TLo-iU-Jf7"/>
+                            <constraint firstItem="iKT-9k-CIP" firstAttribute="leading" secondItem="oM4-tL-sJF" secondAttribute="leading" id="Uv7-fS-rmy"/>
+                            <constraint firstItem="wFX-nk-j5W" firstAttribute="top" secondItem="oM4-tL-sJF" secondAttribute="bottom" constant="50" id="VYv-de-E8e"/>
+                            <constraint firstItem="YeW-8L-CyC" firstAttribute="top" secondItem="wFX-nk-j5W" secondAttribute="bottom" constant="36" id="YnY-hf-DR6"/>
+                            <constraint firstItem="Ksb-wK-Q4V" firstAttribute="top" secondItem="W2r-px-V6u" secondAttribute="top" constant="50" id="apd-sD-Bmk"/>
+                            <constraint firstItem="oM4-tL-sJF" firstAttribute="top" secondItem="Ksb-wK-Q4V" secondAttribute="bottom" constant="30" id="c6X-cd-8nC"/>
+                            <constraint firstItem="W2r-px-V6u" firstAttribute="trailing" secondItem="YeW-8L-CyC" secondAttribute="trailing" constant="10" id="ieR-4a-HZ6"/>
                             <constraint firstItem="wFX-nk-j5W" firstAttribute="leading" secondItem="sk3-71-Ooj" secondAttribute="leading" constant="10" id="mOc-nn-3Nc"/>
-                            <constraint firstItem="wFX-nk-j5W" firstAttribute="top" secondItem="7KO-CY-uXA" secondAttribute="bottom" constant="99.5" id="oO7-kG-TBE"/>
+                            <constraint firstItem="W2r-px-V6u" firstAttribute="trailing" secondItem="Ksb-wK-Q4V" secondAttribute="trailing" constant="10" id="vwg-b8-4aE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W2r-px-V6u"/>
                     </view>
+                    <connections>
+                        <outlet property="addMoneyButton" destination="YeW-8L-CyC" id="zCr-RV-GmA"/>
+                        <outlet property="amountOnethousandButton" destination="872-xz-rnZ" id="LhC-5V-BFS"/>
+                        <outlet property="amountTextField" destination="oM4-tL-sJF" id="tAj-by-Y4x"/>
+                        <outlet property="amountThreethousandButton" destination="ctr-oK-Otu" id="VFR-JF-Sha"/>
+                        <outlet property="amountTwothousandButton" destination="9gH-K9-Y5z" id="cPO-zc-Bwr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZw-OU-qmX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

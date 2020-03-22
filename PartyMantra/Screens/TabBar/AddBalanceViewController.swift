@@ -10,10 +10,39 @@ import UIKit
 
 class AddBalanceViewController: UIViewController {
     
-    @IBOutlet weak var amountTF: UITextField!
+    @IBOutlet weak var amountTextField: UITextField!
 
+    @IBOutlet weak var amountOnethousandButton: UIButton!
+    @IBOutlet weak var amountTwothousandButton: UIButton!
+    @IBOutlet weak var amountThreethousandButton: UIButton!
+    @IBOutlet weak var addMoneyButton: UIButton!
+
+
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        amountTextField.placeholder = "\u{20B9} Amount"
+        self.amountTextField.keyboardType=UIKeyboardType.numberPad
+
+        amountOnethousandButton.backgroundColor = .clear
+        amountOnethousandButton.setTitle("+ \u{20B9} 1000", for: .normal)
+        amountOnethousandButton.layer.cornerRadius = 7
+        amountOnethousandButton.layer.borderWidth = 1
+        amountOnethousandButton.layer.borderColor = UIColor.blue.cgColor
+        
+        amountTwothousandButton.backgroundColor = .clear
+        amountTwothousandButton.setTitle("+ \u{20B9} 2000", for: .normal)
+        amountTwothousandButton.layer.cornerRadius = 7
+        amountTwothousandButton.layer.borderWidth = 1
+        amountTwothousandButton.layer.borderColor = UIColor.blue.cgColor
+        
+        amountThreethousandButton.backgroundColor = .clear
+        amountThreethousandButton.setTitle("+ \u{20B9} 3000", for: .normal)
+        amountThreethousandButton.layer.cornerRadius = 7
+        amountThreethousandButton.layer.borderWidth = 1
+        amountThreethousandButton.layer.borderColor = UIColor.blue.cgColor
 
         // Do any additional setup after loading the view.
     }
