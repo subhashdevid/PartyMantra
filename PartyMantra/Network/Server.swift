@@ -47,6 +47,7 @@ class Server: NSObject, Codable { // checkpoint
     
     // Events
     var eventsUrl = "\(mainUrl)event"
+    var searchUrl = "\(mainUrl)search"
 
     
     

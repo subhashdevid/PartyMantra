@@ -7,16 +7,221 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D92F66FF-EEF8-493F-B8EA-AA089FB99296"
+            uuid = "97124189-63E6-4CC9-8630-7EF51A7D41A0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PartyMantra/Screens/TabBar/HomeViewController.swift"
+            filePath = "PartyMantra/Screens/View controller/WalletAddMoney/EventSearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "searchBarSearchButtonClicked(_:)"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "fetchSearchedEventDetail()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4154E860-3DF1-48E9-8D3C-AA8FB4C939D8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartyMantra/Screens/View controller/WalletAddMoney/EventSearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "fetchSearchedEventDetail()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4154E860-3DF1-48E9-8D3C-AA8FB4C939D8 - 9252afe51f9704c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PartyMantra.DataResult&lt;PartyMantra.SearchEventModel&gt;) -&gt; () in PartyMantra.EventSearchViewController.fetchSearchedEventDetail() -&gt; ()"
+                  moduleName = "PartyMantra"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Screens/View%20controller/WalletAddMoney/EventSearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "4154E860-3DF1-48E9-8D3C-AA8FB4C939D8 - 9252afe51f9704c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PartyMantra.DataResult&lt;PartyMantra.SearchEventModel&gt;) -&gt; () in PartyMantra.EventSearchViewController.fetchSearchedEventDetail() -&gt; ()"
+                  moduleName = "PartyMantra"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Screens/View%20controller/WalletAddMoney/EventSearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "12D1AECD-1875-4BBE-AAD0-354E48827B8E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartyMantra/Screens/View controller/Event Details View Controller/EventModal/EventDetail.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A177563C-CFA7-4C44-97F6-AF8AB729BC49"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartyMantra/Network/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "getRequest(url:parameters:responseKey:handler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "23E1AB10-397B-41F3-BE05-922800386380"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartyMantra/Network/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
+            landmarkName = "request(url:contentType:method:parameters:responseKey:handler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "23E1AB10-397B-41F3-BE05-922800386380 - fd4d40bcddc7dfba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of static PartyMantra.NetworkManager.request&lt;A where A: Swift.Decodable&gt;(url: Swift.Optional&lt;Swift.String&gt;, contentType: PartyMantra.RequestContentType, method: PartyMantra.RequestMethod, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, responseKey: Swift.Optional&lt;Swift.String&gt;, handler: Swift.Optional&lt;(PartyMantra.DataResult&lt;A&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PartyMantra"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Network/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "338"
+                  endingLineNumber = "338"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "23E1AB10-397B-41F3-BE05-922800386380 - 15c8e4824c5943b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 3 of static PartyMantra.NetworkManager.request&lt;A where A: Swift.Decodable&gt;(url: Swift.Optional&lt;Swift.String&gt;, contentType: PartyMantra.RequestContentType, method: PartyMantra.RequestMethod, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, responseKey: Swift.Optional&lt;Swift.String&gt;, handler: Swift.Optional&lt;(PartyMantra.DataResult&lt;A&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PartyMantra"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Network/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "338"
+                  endingLineNumber = "338"
+                  offsetFromSymbolStart = "10">
+               </Location>
+               <Location
+                  uuid = "23E1AB10-397B-41F3-BE05-922800386380 - f989b6f2f415f1b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 4 of static PartyMantra.NetworkManager.request&lt;A where A: Swift.Decodable&gt;(url: Swift.Optional&lt;Swift.String&gt;, contentType: PartyMantra.RequestContentType, method: PartyMantra.RequestMethod, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, responseKey: Swift.Optional&lt;Swift.String&gt;, handler: Swift.Optional&lt;(PartyMantra.DataResult&lt;A&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PartyMantra"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Network/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "338"
+                  endingLineNumber = "338"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "23E1AB10-397B-41F3-BE05-922800386380 - 4e4a98e33cd227b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 5 of static PartyMantra.NetworkManager.request&lt;A where A: Swift.Decodable&gt;(url: Swift.Optional&lt;Swift.String&gt;, contentType: PartyMantra.RequestContentType, method: PartyMantra.RequestMethod, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, responseKey: Swift.Optional&lt;Swift.String&gt;, handler: Swift.Optional&lt;(PartyMantra.DataResult&lt;A&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PartyMantra"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Network/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "338"
+                  endingLineNumber = "338"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "23E1AB10-397B-41F3-BE05-922800386380 - 62cb3125e5aa3732"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static PartyMantra.NetworkManager.request&lt;A where A: Swift.Decodable&gt;(url: Swift.Optional&lt;Swift.String&gt;, contentType: PartyMantra.RequestContentType, method: PartyMantra.RequestMethod, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, responseKey: Swift.Optional&lt;Swift.String&gt;, handler: Swift.Optional&lt;(PartyMantra.DataResult&lt;A&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PartyMantra"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Network/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "339"
+                  endingLineNumber = "339"
+                  offsetFromSymbolStart = "457">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C823F1A-F3DE-4E25-BA3E-0AA2012C6D18"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartyMantra/Network/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "init(statusCode:data:responseHeaders:message:timeInterval:type:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "693C7F74-9A14-4D9D-9A3D-5512331FFC2E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartyMantra/Screens/View controller/Event Details View Controller/EventModal/SearchEventModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "init(from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

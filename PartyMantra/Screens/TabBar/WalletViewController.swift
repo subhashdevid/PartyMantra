@@ -133,12 +133,6 @@ extension WalletViewController: UICollectionViewDelegate, UICollectionViewDataSo
             .dequeueReusableCell(withReuseIdentifier: "WalletCell", for: indexPath) as? WalletCell
         let notification = dataArr[indexPath.row]
         cell?.configureCell(data: notification)
-
-        
-
-      //  let url = URL(string: brand.image ?? "" )
-      //  cell?.imgView.kf.setImage(with: url, placeholder: nil)
-        
         collectionCell = cell
         
         return collectionCell ?? UICollectionViewCell()
@@ -173,7 +167,15 @@ class WalletCell: UICollectionViewCell {
         contentView.layer.masksToBounds = true
         contentView.backgroundColor = .groupTableViewBackground
         lblTitle.text = data.description
-        lblPrice.text = "\(data.amount ?? 0)"
+        lblPrice.text = "\u{20B9} \(data.amount ?? 0)"
         lblDate.text = data.date
+        
+        if data.type == "Debit" {
+            imgView.image = UIImage(named: "rupee_red")
+
+        }else{
+            imgView.image = UIImage(named: "rupee_green")
+
+        }
     }
 }

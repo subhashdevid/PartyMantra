@@ -53,13 +53,15 @@ class HomeViewController: BaseViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         print(searchBar.text)
-        
-        
-        //send text to new screen
-        
+        self.redirectToSearchScreen(searchStr: searchBar.text ?? "")
     }
     
-    
+    func redirectToSearchScreen(searchStr : String) -> Void {
+        
+        let searchVc = EventSearchViewController.instantiate(appStoryboard: .miscellaneous) as EventSearchViewController
+        searchVc.searchedString = searchStr
+        self.navigationController?.pushViewController(searchVc, animated: true)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "Party Mantra"
