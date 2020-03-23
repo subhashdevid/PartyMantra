@@ -7,32 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "53DCC966-AA58-4658-9CAA-DAC6629CE31C"
+            uuid = "EE84D47D-FD0E-4085-B597-ADA94EC0C330"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PartyMantra/Screens/View controller/Event Details View Controller/EventDetailCells/Packages/ViewMoreCells/ViewMoreTableViewCell.swift"
+            filePath = "PartyMantra/Screens/View controller/Event Details View Controller/EventDetailCells/Packages/PackagesTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "setUpCellCollectionView(modal:)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C7027C69-1F5E-4913-8022-7A3D5374B92B"
+            uuid = "3C2A05EE-7380-49B7-B8D7-D89ADC10E995"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PartyMantra/Screens/View controller/Event Details View Controller/EventDetailCells/Packages/ViewMoreCells/ViewMoreTableViewCell.swift"
+            filePath = "PartyMantra/Screens/View controller/Event Details View Controller/EventDetailCells/Packages/PackagesTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

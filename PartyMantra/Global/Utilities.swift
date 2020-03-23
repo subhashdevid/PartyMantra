@@ -18,6 +18,17 @@ class Utility{
         return namImjVar
     }
     
+    func heightForView(text:String, font:CGFloat, width:CGFloat) -> Int{
+        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.font = UIFont.systemFont(ofSize: font)
+        label.text = text
+
+        label.sizeToFit()
+        return Int(label.frame.height)
+    }
+
     
 }
 

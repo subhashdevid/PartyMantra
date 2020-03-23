@@ -9,8 +9,11 @@
 import UIKit
 
 class EventDetailsViewController: UIViewController  {
+    
+    
     @IBOutlet weak var tblView: UITableView!
 
+    var heightOfCell : Int = 0
     var eventID : Int = 0
     var eventData : [EventlistModel] = []
     
@@ -28,6 +31,7 @@ class EventDetailsViewController: UIViewController  {
         return url
     }
 
+   
     func fetchEventDetail() {
         
         let param: [String: Any] = [:]
@@ -52,6 +56,9 @@ class EventDetailsViewController: UIViewController  {
 // MARK: Table view Delegate
 
 extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSource {
+   
+    
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 8
@@ -131,10 +138,12 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
                        tblView.register(UINib(nibName: "PackagesTableViewCell", bundle: nil), forCellReuseIdentifier: "PackagesTableViewCell")
                        cell = tblView.dequeueReusableCell(withIdentifier: "PackagesTableViewCell") as? PackagesTableViewCell
                    }
+                
                  cell.backgroundColor = .groupTableViewBackground
                    if self.eventData.count > 0 {
                        let cellModal = self.eventData[0] as EventlistModel
                        print(cellModal)
+                       
                        cell.configurePackageCell(modal:cellModal)
                    }
                   return cell
@@ -158,8 +167,9 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
             return 0
         }else if indexPath.section == 5{
             if self.eventData.count > 0 {
-                let cellModal = self.eventData[0] as EventlistModel
-                return (CGFloat(cellModal.covers.count*45+40))
+                let cellModal = self.eventData[0].packages as [EventPackagesDetailModal]
+                let height = Int(((cellModal.count)*(200))+40)
+                return CGFloat(height)
             }
             return 0
         }

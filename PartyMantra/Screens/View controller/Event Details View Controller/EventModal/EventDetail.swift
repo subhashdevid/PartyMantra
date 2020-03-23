@@ -49,7 +49,7 @@ class EventlistModel {
   //  var avgreviews: avgreviewsModel?
     var covers: [EventCoversDetailModal] = []
     var facilities: [EventFacilitiesDetailModal] = []
-   // var packages: EventPackagesDetailModal?
+    var packages: [EventPackagesDetailModal] = []
     
     init() {
         
@@ -84,11 +84,17 @@ class EventlistModel {
         self.partner = EventPartnerDetailModal.init(response: response["partner"] as? [String : Any] ?? [:])//
         let coverArr = response["covers"] as? [[String : Any]] ?? []
         let facilitiesArr = response["facilities"] as? [[String : Any]] ?? []
+        let packageArr = response["packages"] as? [[String : Any]] ?? []
+        
         for item in coverArr {
             self.covers.append(EventCoversDetailModal(response: item))
         }
         for item in facilitiesArr {
             self.facilities.append(EventFacilitiesDetailModal(response: item))
+        }
+        
+        for item in packageArr {
+            self.packages.append(EventPackagesDetailModal(response: item))
         }
     }
     
@@ -212,9 +218,167 @@ class EventFacilitiesDetailModal {
 
        }
 }
-//struct EventPackagesDetailModal: Codable {
-//
-//
-//}
+class EventPackagesDetailModal {
+    var id: Int?
+    var event_id: Int?
+    var partner_id: Int?
+    var package_name: String?
+    var text_under_name: String?
+    var price: Int?
+    var custom_package_detail: String?
+    var isactive: Bool?
+    var partneractive: Bool?
+    var package_type: String?
+    var fordining: Bool?
+    var forparty: Bool?
+    var activemenus: Array<EventPackagesActiveMenuModal> = []
+    
+    init() {}
+       convenience init(response: [String:Any]) {
+        self.init()
+        self.id = response["id"] as? Int
+        self.event_id = response["event_id"] as? Int
+        self.partner_id = response["partner_id"] as? Int
+        self.package_name = response["package_name"] as? String
+        self.text_under_name = response["text_under_name"] as? String
+        self.price = response["price"] as? Int
+        self.custom_package_detail = response["custom_package_detail"] as? String
+        self.isactive = response["isactive"] as? Bool
+        self.partneractive = response["partneractive"] as? Bool
+        self.fordining = response["fordining"] as? Bool
+        self.forparty = response["forparty"] as? Bool
+        let activeMenuArr = response["activemenus"] as? Array<Dictionary<String,AnyObject>> ?? []
+        for item in activeMenuArr {
+            self.activemenus.append(EventPackagesActiveMenuModal(response: item))
+        }
+      
+
+       }
+}
+
+class EventPackagesActiveMenuModal {
+    var id: Int?
+       var name: String?
+       var image: String?
+       var price: Int?
+       var cut_pice: Int?
+       var category_id: Int?
+       var description: String?
+       var creator_id: Int?
+       var partneractive: Bool?
+       var partner_id: Int?
+       var pivot: Any?
+     
+       init() {}
+          convenience init(response: [String:Any]) {
+           self.init()
+           self.id = response["id"] as? Int
+           self.name = response["name"] as? String
+           self.image = response["image"] as? String
+           self.price = response["price"] as? Int
+           self.cut_pice = response["cut_pice"] as? Int
+           self.price = response["price"] as? Int
+           self.category_id = response["category_id"] as? Int
+           self.description = response["description"] as? String
+           self.partneractive = response["partneractive"] as? Bool
+           self.creator_id = response["creator_id"] as? Int
+           self.partneractive = response["partneractive"] as? Bool
+           self.partner_id = response["partner_id"] as? Int
+           self.pivot = response["pivot"] as? Any
+
+          }
+}
 
 
+
+/*
+
+ 
+ 
+ 
+ 
+ 
+ 
+{
+  "id": 11,
+  "event_id": 14,
+  "partner_id": 7,
+  "package_name": "Combo 3 + 3 veg",
+  "text_under_name": "awesome treat",
+  "price": 1000,
+  "custom_package_detail": "ssdsdsdsd skdjd dfkjfdf this also includes skdjskdjs fkjdfd dkfdfdfd",
+  "isactive": 1,
+  "partneractive": 1,
+  "package_type": "other",
+  "fordining": 1,
+  "forparty": 1,
+  "activemenus": [
+    {
+      "id": 2,
+      "name": "Spicy Mix",
+      "image": "http://partymantra.appoffice.xyz/uploads/menus/spicymix.jpeg",
+      "price": 500,
+      "cut_pice": 1000,
+      "category_id": 9,
+      "description": "Notice that we manually trigger the select2:select event and pass along the entire data object. This allows other handlers to access additional properties of the selected item.",
+      "partneractive": 1,
+      "creator_id": 9,
+      "partner_id": 6,
+      "pivot": {
+        "package_id": 11,
+        "menu_id": 2
+      }
+    },
+    {
+      "id": 4,
+      "name": "Soya chaap",
+      "image": "http://partymantra.appoffice.xyz/uploads/menus/eventicon4.jpg",
+      "price": 450,
+      "cut_pice": 500,
+      "category_id": 9,
+      "description": "sjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkf",
+      "partneractive": 1,
+      "creator_id": 9,
+      "partner_id": 1,
+      "pivot": {
+        "package_id": 11,
+        "menu_id": 4
+      }
+    },
+    {
+      "id": 5,
+      "name": "Butter Chicked",
+      "image": "http://partymantra.appoffice.xyz/uploads/menus/kadai.jpeg",
+      "price": 500,
+      "cut_pice": 600,
+      "category_id": 9,
+      "description": "sjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkfsjdks skjsf dfkfdlkf",
+      "partneractive": 1,
+      "creator_id": 9,
+      "partner_id": 6,
+      "pivot": {
+        "package_id": 11,
+        "menu_id": 5
+      }
+    },
+    {
+      "id": 6,
+      "name": "butter chicken",
+      "image": "http://partymantra.appoffice.xyz/uploads/menus/14-SM313247.jpg",
+      "price": 500,
+      "cut_pice": 400,
+      "category_id": 9,
+      "description": "best food etc",
+      "partneractive": 1,
+      "creator_id": 9,
+      "partner_id": 2,
+      "pivot": {
+        "package_id": 11,
+        "menu_id": 6
+      }
+    }
+  ]
+}
+
+
+*/
