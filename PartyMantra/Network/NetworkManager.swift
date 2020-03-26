@@ -194,6 +194,11 @@ class NetworkManager {
         getRequest(url: Server.shared.HomeUrl
             , parameters: parameters, handler: handler)
     }
+    
+    class func getProfile(parameters: [String: Any]?, handler: (APICompletion<ProfileModel>)? = nil) {
+        getRequest(url: Server.shared.ProfileUrl
+            , parameters: parameters, handler: handler)
+    }
     class func getSearchListing(parameters: [String: Any]?, handler: (APICompletion<SearchEventModel>)? = nil) {
         getRequest(url: Server.shared.searchUrl
             , parameters: parameters, handler: handler)

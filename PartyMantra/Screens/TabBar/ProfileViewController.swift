@@ -13,16 +13,18 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var mobileLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
-    
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var dobLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var profileImgView: UIImageView!
     
-
+    
+    
+    var profile : ProfileModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.fetchUserProfile()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +32,38 @@ class ProfileViewController: UIViewController {
     }
 
     
-    
+    func fetchUserProfile() {
+        let accessUserToken =  UserDefaults.standard.string(forKey: "AccessToken")
+        let param: [String: Any] = [
+            "token":accessUserToken ?? ""
+        ]
+        Loader.showHud()
+        NetworkManager.getProfile(parameters: param) {[weak self] result in
+            Loader.dismissHud()
+            switch result {
+            case let .success(response):
+                if let userProfile = response.data {
+                    self?.profile = userProfile
+                    self?.nameLabel.text = self?.profile?.name?.capitalized
+                    self?.mobileLabel.text = self?.profile?.mobile
+                    self?.emailLabel.text = self?.profile?.email
+                    self?.genderLabel.text = "Gender: \(self?.profile?.gender?.capitalized ?? "")"
+                        
+//
+                    self?.dobLabel.text = self?.profile?.dob
+                    self?.addressLabel.text = "Address: \(self?.profile?.address?.capitalized ?? "")"
+                                    
+                    let url = URL(string: userProfile.image ?? "")
+                    self?.profileImgView.contentMode = .scaleAspectFill
+                    self?.profileImgView.kf.setImage(with: url, placeholder: nil)
+
+                    
+                }
+                
+            case .failure: break
+            }
+        }
+    }
     
     
     
@@ -41,34 +74,26 @@ class ProfileViewController: UIViewController {
     @IBAction func clickedLogout() {
         
     }
-    
     @IBAction func clickedAboutUs() {
         let vc = WebViewController.instantiate(appStoryboard: .home)
-        vc.urlStr = "www.google.com"
+        vc.urlStr = "https://www.google.com"
+        vc.screenTitle = "About Us"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickedPrivacy() {
         let vc = WebViewController.instantiate(appStoryboard: .home)
-        vc.urlStr = "www.google.com"
+        vc.urlStr = "https://www.google.com"
+        vc.screenTitle = "Privacy Policy"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickedTerms() {
         let vc = WebViewController.instantiate(appStoryboard: .home)
-        vc.urlStr = "www.google.com"
+        vc.urlStr = "https://www.google.com"
+        vc.screenTitle = "Terms and Conditions"
+
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

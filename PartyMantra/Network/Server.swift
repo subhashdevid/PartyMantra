@@ -41,6 +41,7 @@ class Server: NSObject, Codable { // checkpoint
     var LoginUrl = "\(mainUrl)login"
     var VerifyUrl = "\(mainUrl)verify-otp"
     var HomeUrl = "\(mainUrl)home"
+    var ProfileUrl = "\(mainUrl)profile"
     
     // Collection
     var collectionUrl = "\(mainUrl)collections"

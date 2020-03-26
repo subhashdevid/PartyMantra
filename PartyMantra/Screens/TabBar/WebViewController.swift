@@ -12,12 +12,12 @@ import WebKit
 class WebViewController: BaseViewController {
 
     var urlStr: String?
+    var screenTitle: String?
+    
     @IBOutlet weak var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         let myURL = URL(string:urlStr ?? "")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
@@ -25,6 +25,9 @@ class WebViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.title = screenTitle
+    }
 
     /*
     // MARK: - Navigation
