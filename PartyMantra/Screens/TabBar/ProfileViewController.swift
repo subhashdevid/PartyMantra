@@ -69,9 +69,29 @@ class ProfileViewController: UIViewController {
     
     @IBAction func clickedUpdateProfile() {
         
+        //UpdateProfileViewController
+        let vc = UpdateProfileViewController.instantiate(appStoryboard: .home)
+               self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
+    
+
+    
     @IBAction func clickedLogout() {
+        let alert = UIAlertController(title: "Are you sure you want to logout ?", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+    
+        let OKAction = UIAlertAction(title: "Yes", style: .default, handler: { _ -> Void in
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.showLoginScreen()
+            
+            
+        })
+
+    alert.addAction(OKAction)
+    self.present(alert, animated: true)
         
     }
     @IBAction func clickedAboutUs() {

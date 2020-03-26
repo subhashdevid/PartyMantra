@@ -34,6 +34,10 @@
 		BF229CA92428C715004BD3F0 /* SearchEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF229CA82428C715004BD3F0 /* SearchEventModel.swift */; };
 		BF2B8A602427443B00727866 /* Miscellaneous.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */; };
 		BF2B8A62242744CE00727866 /* EventSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B8A61242744CE00727866 /* EventSearchViewController.swift */; };
+		BF2BBA4C242CF4E00064EC59 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2BBA4B242CF4E00064EC59 /* UpdateProfileViewController.swift */; };
+		BF2BBA4E242CFB050064EC59 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2BBA4D242CFB050064EC59 /* ProfileTableViewCell.swift */; };
+		BF2BBA51242D08900064EC59 /* ProfileNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2BBA4F242D08900064EC59 /* ProfileNewTableViewCell.swift */; };
+		BF2BBA52242D08900064EC59 /* ProfileNewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2BBA50242D08900064EC59 /* ProfileNewTableViewCell.xib */; };
 		BF6D1ED42424CBE300DC018C /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */; };
 		BF87734D2423AF6200CF8C5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87734C2423AF6200CF8C5D /* AppDelegate.swift */; };
 		BF8773542423AF6200CF8C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8773522423AF6200CF8C5D /* Main.storyboard */; };
@@ -104,6 +108,10 @@
 		BF229CA82428C715004BD3F0 /* SearchEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEventModel.swift; sourceTree = "<group>"; };
 		BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Miscellaneous.storyboard; sourceTree = "<group>"; };
 		BF2B8A61242744CE00727866 /* EventSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSearchViewController.swift; sourceTree = "<group>"; };
+		BF2BBA4B242CF4E00064EC59 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
+		BF2BBA4D242CFB050064EC59 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		BF2BBA4F242D08900064EC59 /* ProfileNewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNewTableViewCell.swift; sourceTree = "<group>"; };
+		BF2BBA50242D08900064EC59 /* ProfileNewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileNewTableViewCell.xib; sourceTree = "<group>"; };
 		BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		BF8773492423AF6200CF8C5D /* PartyMantra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyMantra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF87734C2423AF6200CF8C5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -301,6 +309,9 @@
 			isa = PBXGroup;
 			children = (
 				BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */,
+				BF2BBA4D242CFB050064EC59 /* ProfileTableViewCell.swift */,
+				BF2BBA4F242D08900064EC59 /* ProfileNewTableViewCell.swift */,
+				BF2BBA50242D08900064EC59 /* ProfileNewTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -411,6 +422,7 @@
 				BF8773902423C0F500CF8C5D /* ProfileViewController.swift */,
 				BF8773912423C0F500CF8C5D /* NotificationViewController.swift */,
 				BF8773922423C0F500CF8C5D /* CollectionViewController.swift */,
+				BF2BBA4B242CF4E00064EC59 /* UpdateProfileViewController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -512,6 +524,7 @@
 				3B041217242792DA000C9402 /* PackagesTableViewCell.xib in Resources */,
 				BF99CEC22425C3920051E775 /* Events.storyboard in Resources */,
 				3B0412192427952B000C9402 /* bag.svg in Resources */,
+				BF2BBA52242D08900064EC59 /* ProfileNewTableViewCell.xib in Resources */,
 				3B0411FD242756A5000C9402 /* correct.svg in Resources */,
 				BF2B8A602427443B00727866 /* Miscellaneous.storyboard in Resources */,
 				3B04120A24277088000C9402 /* CoverChargesTableViewCell.xib in Resources */,
@@ -589,9 +602,11 @@
 				BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */,
 				BF8773932423C0F500CF8C5D /* OrderViewController.swift in Sources */,
 				BF6D1ED42424CBE300DC018C /* BannerTableViewCell.swift in Sources */,
+				BF2BBA4C242CF4E00064EC59 /* UpdateProfileViewController.swift in Sources */,
 				BF2B8A62242744CE00727866 /* EventSearchViewController.swift in Sources */,
 				BF8773812423BF0B00CF8C5D /* Loader.swift in Sources */,
 				3B04120D2427762C000C9402 /* CoverTableViewCell.swift in Sources */,
+				BF2BBA51242D08900064EC59 /* ProfileNewTableViewCell.swift in Sources */,
 				BF87739E2423C0F500CF8C5D /* ProfileViewController.swift in Sources */,
 				BF8773982423C0F500CF8C5D /* HomeViewController.swift in Sources */,
 				BF87737F2423BF0B00CF8C5D /* NetworkManager.swift in Sources */,
@@ -601,6 +616,7 @@
 				BF87739F2423C0F500CF8C5D /* NotificationViewController.swift in Sources */,
 				BF87739B2423C0F500CF8C5D /* HomePageViewController.swift in Sources */,
 				BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */,
+				BF2BBA4E242CFB050064EC59 /* ProfileTableViewCell.swift in Sources */,
 				BF8773942423C0F500CF8C5D /* ClubEventViewController.swift in Sources */,
 				BF99CEC42425D6670051E775 /* CustomTableViewCell.swift in Sources */,
 				BF8773762423BDFD00CF8C5D /* GlobalFunction.swift in Sources */,

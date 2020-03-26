@@ -30,6 +30,12 @@ class LoginViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     override func viewForScrolling() -> UIScrollView? {
         return scrollView
     }
