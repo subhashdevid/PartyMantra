@@ -70,8 +70,11 @@ class ProfileViewController: UIViewController {
     @IBAction func clickedUpdateProfile() {
         
         //UpdateProfileViewController
-        let vc = UpdateProfileViewController.instantiate(appStoryboard: .home)
-               self.navigationController?.pushViewController(vc, animated: true)
+        //let vc = UpdateProfileViewController.instantiate(appStoryboard: .home)
+               //self.navigationController?.pushViewController(vc, animated: true)
+        
+        let vc = MyProfileUpdateViewController.instantiate(appStoryboard: .home)
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
