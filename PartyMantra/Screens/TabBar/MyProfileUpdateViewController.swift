@@ -13,6 +13,7 @@ enum FieldIdentifier: Int {
     case dob = 2
     case phone = 3
     case email = 4
+    case image=5
 }
 
 
@@ -79,6 +80,15 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
         if indexPath.section  == 0 && indexPath.row == 0{
             
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "ImgCell") as? MyProfileUpdateTableViewCell
+            
+            let url = URL(string: profile?.image ?? "")
+            cell?.logoImageView.contentMode = .scaleAspectFill
+            cell?.logoImageView.kf.setImage(with: url, placeholder: nil)
+            
+            cell?.logoEditImageView.layer.masksToBounds = true
+            cell?.logoEditImageView.layer.cornerRadius = 5
+            cell?.logoEditImageView.layer.borderWidth = 1
+            cell?.logoEditImageView.layer.borderColor = UIColor.yellow.cgColor
             
             return cell!
         }

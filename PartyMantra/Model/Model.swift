@@ -321,7 +321,7 @@ struct ProfileModel: Codable {
     var mobile: String?
     var address: String?
     var gender: String?
-    let image: String?
+    var image: String?
 
 
 }
