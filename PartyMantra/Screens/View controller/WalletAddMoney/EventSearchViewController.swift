@@ -82,4 +82,13 @@ extension EventSearchViewController : UITableViewDelegate, UITableViewDataSource
         
         return cell!
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         let model = self.eventData[indexPath.row]
+        
+        let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
+        vc.eventID = model.id ?? 0
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
 }
