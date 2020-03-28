@@ -314,14 +314,19 @@ struct CollectionPartiesListModel: Codable {
     let events: [PartyModel]?
 }
 
-// Profile
 struct ProfileModel: Codable {
-    let name: String?
-    let dob: String?
-    let email: String?
-    let mobile: String?
-    let address: String?
-    let gender: String?
+    var name: String?
+    var dob: String?
+    var email: String?
+    var mobile: String?
+    var address: String?
+    var gender: String?
     let image: String?
+
+
 }
+
+
+
+
 

@@ -32,6 +32,7 @@
 		3B04122224279BB4000C9402 /* ViewMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B04122024279BB4000C9402 /* ViewMoreCollectionViewCell.xib */; };
 		3B6754A8242683DC005C97CA /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6754A7242683DC005C97CA /* EventDetail.swift */; };
 		BF229CA92428C715004BD3F0 /* SearchEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF229CA82428C715004BD3F0 /* SearchEventModel.swift */; };
+		BF26AA2D242F3A2D00FC61BC /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */; };
 		BF272C34242DD25D00202A71 /* MyProfileUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF272C33242DD25D00202A71 /* MyProfileUpdateViewController.swift */; };
 		BF2B8A602427443B00727866 /* Miscellaneous.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */; };
 		BF2B8A62242744CE00727866 /* EventSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B8A61242744CE00727866 /* EventSearchViewController.swift */; };
@@ -106,6 +107,7 @@
 		3B6754A7242683DC005C97CA /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
 		B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyMantra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF229CA82428C715004BD3F0 /* SearchEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEventModel.swift; sourceTree = "<group>"; };
+		BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		BF272C33242DD25D00202A71 /* MyProfileUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUpdateViewController.swift; sourceTree = "<group>"; };
 		BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Miscellaneous.storyboard; sourceTree = "<group>"; };
 		BF2B8A61242744CE00727866 /* EventSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSearchViewController.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				BF8773722423BDD400CF8C5D /* Model.swift */,
+				BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 			files = (
 				BF8773A02423C0F500CF8C5D /* CollectionViewController.swift in Sources */,
 				BF8773792423BE5600CF8C5D /* AppExtension.swift in Sources */,
+				BF26AA2D242F3A2D00FC61BC /* UserProfile.swift in Sources */,
 				BF8773AC2423C17D00CF8C5D /* AutoScrollingCollectionView.swift in Sources */,
 				BF87739C2423C0F500CF8C5D /* WebViewController.swift in Sources */,
 				BF8773682423BB1C00CF8C5D /* UIViewExtension.swift in Sources */,

@@ -74,6 +74,7 @@ class ProfileViewController: UIViewController {
                //self.navigationController?.pushViewController(vc, animated: true)
         
         let vc = MyProfileUpdateViewController.instantiate(appStoryboard: .home)
+        vc.profile = self.profile
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
