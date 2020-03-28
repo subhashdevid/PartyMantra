@@ -25,6 +25,7 @@ class MyProfileUpdateViewController: UIViewController {
     
     var profile: ProfileModel?
 
+    let dropDown = DropDown()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,28 @@ class MyProfileUpdateViewController: UIViewController {
     
     
     @objc func dropdownAction (sender : UIButton) {
-        print(sender)
+        
+        guard let cell = sender.superview?.superview?.superview as? MyProfileUpdateTableViewCell else {
+            return
+        }
+            
+        let indexPath = self.tableView.indexPath(for: cell)
+
+        print(indexPath?.row)
+        
+        
+        let array = ["Male","Female","Other"]
+        self.dropDown.anchorView = cell.nameTextField.plainView
+        self.dropDown.bottomOffset = CGPoint(x: 0, y: (sender).bounds.height)
+        self.dropDown.dataSource.removeAll()
+        self.dropDown.dataSource = array
+        self.dropDown.selectionAction = { [unowned self] (index, item) in
+            self.profile?.gender = item
+            cell.nameTextField.text =  self.profile?.gender
+        }
+        self.dropDown.show()
+        
+        
     }
 }
 
@@ -124,6 +146,7 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
                 cell?.nameTextField.tag = FieldIdentifier.gender.rawValue
 
                 cell?.dropdownButton.isHidden = false
+                cell?.dropdownButton.backgroundColor = .clear
                 cell?.imgDropdown.isHidden = false
                 
                 cell?.dropdownButton?.addTarget(self, action: #selector(dropdownAction(sender:)), for: .touchUpInside)
@@ -142,6 +165,7 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
                 cell?.nameTextField.isUserInteractionEnabled = false
 
                 cell?.dropdownButton.isHidden = false
+                cell?.dropdownButton.backgroundColor = .clear
                 cell?.imgDropdown.isHidden = false
                 
                 //cell?.disclosureImgView.image = UIImage(named: "starnew")
