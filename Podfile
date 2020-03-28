@@ -12,7 +12,7 @@ target 'PartyMantra' do
   pod 'Cosmos', '~> 21.0'
   pod 'DynamicCodable', '1.0'
   pod 'SVGKit'
-
+  pod 'DropDown'
 
 
 

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import DropDown
+
+
 enum FieldIdentifier: Int {
     case name = 0
     case gender = 1
@@ -33,6 +36,11 @@ class MyProfileUpdateViewController: UIViewController {
         
       
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @objc func dropdownAction (sender : UIButton) {
+        print(sender)
     }
 }
 
@@ -118,6 +126,8 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
                 cell?.dropdownButton.isHidden = false
                 cell?.imgDropdown.isHidden = false
                 
+                cell?.dropdownButton?.addTarget(self, action: #selector(dropdownAction(sender:)), for: .touchUpInside)
+                cell?.nameTextField.isUserInteractionEnabled = false
                 // cell?.dropdownButton.image = UIImage(named: "dropdown")
                 cell?.nameView.layer.cornerRadius = 10
                 cell?.nameView.layer.masksToBounds = true
@@ -129,6 +139,7 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
                 cell?.nameLabel.text = "DOB"
                 cell?.nameTextField.text = self.profile?.dob ?? ""
                 cell?.nameTextField.tag = FieldIdentifier.dob.rawValue
+                cell?.nameTextField.isUserInteractionEnabled = false
 
                 cell?.dropdownButton.isHidden = false
                 cell?.imgDropdown.isHidden = false
@@ -144,6 +155,7 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
                 cell?.nameLabel.text = "Phone"
                 cell?.nameTextField.text = self.profile?.mobile ?? ""
                 cell?.nameTextField.tag = FieldIdentifier.phone.rawValue
+                cell?.nameTextField.isUserInteractionEnabled = true
 
                 cell?.dropdownButton.isHidden = true
                 cell?.imgDropdown.isHidden = true
@@ -159,6 +171,7 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
                 cell?.nameLabel.text = "Email"
                 cell?.nameTextField.text = self.profile?.email ?? ""
                 cell?.nameTextField.tag = FieldIdentifier.email.rawValue
+                cell?.nameTextField.isUserInteractionEnabled = true
 
                 cell?.dropdownButton.isHidden = true
                 cell?.imgDropdown.isHidden = true
