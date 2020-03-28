@@ -51,6 +51,9 @@ class MyProfileUpdateViewController: UIViewController {
         print(indexPath?.row)
         
         
+        
+        
+        
         let array = ["Male","Female","Other"]
         self.dropDown.anchorView = cell.nameTextField.plainView
         self.dropDown.bottomOffset = CGPoint(x: 0, y: (sender).bounds.height)
