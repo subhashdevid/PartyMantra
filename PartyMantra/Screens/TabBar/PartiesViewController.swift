@@ -25,8 +25,9 @@ class PartiesViewController: BaseViewController {
     func getListing() {
         
         var param: [String: Any] = [
-            
-            :]
+            "lat" : "28.604912200000",
+            "lang": "77.223133800000"
+        ]
         if type != "" {
             param["type"] = self.type
         }

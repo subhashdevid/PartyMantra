@@ -33,6 +33,7 @@
 		3B6754A8242683DC005C97CA /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6754A7242683DC005C97CA /* EventDetail.swift */; };
 		BF229CA92428C715004BD3F0 /* SearchEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF229CA82428C715004BD3F0 /* SearchEventModel.swift */; };
 		BF26AA2D242F3A2D00FC61BC /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */; };
+
 		BF272C34242DD25D00202A71 /* MyProfileUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF272C33242DD25D00202A71 /* MyProfileUpdateViewController.swift */; };
 		BF2B8A602427443B00727866 /* Miscellaneous.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */; };
 		BF2B8A62242744CE00727866 /* EventSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B8A61242744CE00727866 /* EventSearchViewController.swift */; };
@@ -196,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				3B6754A7242683DC005C97CA /* EventDetail.swift */,
-				BF229CA82428C715004BD3F0 /* SearchEventModel.swift */,
 			);
 			path = EventModal;
 			sourceTree = "<group>";
@@ -635,7 +635,6 @@
 				BF8773662423BB1C00CF8C5D /* BaseViewController.swift in Sources */,
 				BF8773732423BDD400CF8C5D /* Model.swift in Sources */,
 				BF87739A2423C0F500CF8C5D /* AddBalanceViewController.swift in Sources */,
-				BF229CA92428C715004BD3F0 /* SearchEventModel.swift in Sources */,
 				BF99CEC02425C37D0051E775 /* EventDetailsViewController.swift in Sources */,
 				BF8773972423C0F500CF8C5D /* WalletViewController.swift in Sources */,
 				BF8773962423C0F500CF8C5D /* DiningViewController.swift in Sources */,

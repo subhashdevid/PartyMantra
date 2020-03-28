@@ -11,45 +11,84 @@ import UIKit
 class EventSearchViewController: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     var searchedString : String?
+    var eventData : [EventlistModel] = []
+
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tblView.tableFooterView = UIView()
+        self.tblView.backgroundColor  = .groupTableViewBackground
+        
         self.fetchSearchedEventDetail()
+        
     }
         
     func fetchSearchedEventDetail() {
-        let param: [String: Any] = [
-            "search" : searchedString ?? ""
-        ]
         Loader.showHud()
-        NetworkManager.getSearchListing(parameters: param) {[weak self] result in
-            Loader.dismissHud()
-            switch result {
-            case let .success(response):
-                if let notification = response.data {
-                   print(notification)
+        var request = URLRequest(url: URL(string: "\(Server.shared.searchUrl)?search=\(searchedString ?? "")")!)
+        request.httpMethod = "GET"
+        URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
+            do {
+                Loader.dismissHud()
+                guard let responseData = data else {
+                  print("Error: did not receive data")
+                  return
+                }
+                guard let dataArray = try JSONSerialization.jsonObject(with: responseData, options: [])
+                    as? Array<Dictionary<String, Any>> else {
+                        print("error trying to convert data to JSON")
+                        return
+                }
+                print(dataArray)
+                
+                for dict in dataArray {
+                    let model = EventlistModel(response: dict)
+                    self.eventData.append(model)
+                }
+                DispatchQueue.main.async {
+                    self.tblView.reloadData()
                 }
                 
-            case .failure:
+            } catch {
                 Loader.dismissHud()
-                break
+                print("JSON Serialization error")
             }
-        }
+        }).resume()
     }
-    
-    
 }
+
 
 
 extension EventSearchViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        self.eventData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = self.tblView.dequeueReusableCell(withIdentifier: "CustomTableViewCell")
+        let cell = self.tblView.dequeueReusableCell(withIdentifier: "custom") as? CustomTableViewCell
+        let model = self.eventData[indexPath.row]
+        cell?.titleLbl.text = model.title
+        cell?.subtitleLbl.text = model.venue_name
+        cell?.addressLbl.text = model.venue_adderss
+        cell?.priceLbl.text = model.per_person_text
+        cell?.dateLbl.text = model.startdate
+        
+        let url = URL(string: model.small_image ?? "")
+        cell?.bannerimgView.contentMode = .scaleAspectFill
+        cell?.bannerimgView.kf.setImage(with: url, placeholder: nil)
+        
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         let model = self.eventData[indexPath.row]
+        
+        let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
+        vc.eventID = model.id ?? 0
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
 }
