@@ -42,6 +42,9 @@
 		BF2BBA4E242CFB050064EC59 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2BBA4D242CFB050064EC59 /* ProfileTableViewCell.swift */; };
 		BF2E42D9243081F30068C6BF /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2E42D8243081F30068C6BF /* Validation.swift */; };
 		BF2E42DB2430A0830068C6BF /* ImagePickerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2E42DA2430A0830068C6BF /* ImagePickerClass.swift */; };
+		BF2EEAF02430D6D500F286E9 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EEAEF2430D6D500F286E9 /* OTPViewController.swift */; };
+		BF2EEAF22430F6ED00F286E9 /* DPOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EEAF12430F6ED00F286E9 /* DPOTPView.swift */; };
+		BF2EEAF42431023400F286E9 /* LocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EEAF32431023400F286E9 /* LocationSelectViewController.swift */; };
 		BF6D1ED42424CBE300DC018C /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */; };
 		BF87734D2423AF6200CF8C5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87734C2423AF6200CF8C5D /* AppDelegate.swift */; };
 		BF8773542423AF6200CF8C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8773522423AF6200CF8C5D /* Main.storyboard */; };
@@ -121,6 +124,9 @@
 		BF2BBA4D242CFB050064EC59 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		BF2E42D8243081F30068C6BF /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		BF2E42DA2430A0830068C6BF /* ImagePickerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerClass.swift; sourceTree = "<group>"; };
+		BF2EEAEF2430D6D500F286E9 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		BF2EEAF12430F6ED00F286E9 /* DPOTPView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPOTPView.swift; sourceTree = "<group>"; };
+		BF2EEAF32431023400F286E9 /* LocationSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectViewController.swift; sourceTree = "<group>"; };
 		BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		BF8773492423AF6200CF8C5D /* PartyMantra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyMantra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF87734C2423AF6200CF8C5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -312,6 +318,8 @@
 				3B4F29CA2430A65D00832ADA /* CustomPickerViewController.swift */,
 				BF2B8A5E242743B400727866 /* WalletAddMoney */,
 				3B0411EC242731CE000C9402 /* Event Details View Controller */,
+				BF2EEAEF2430D6D500F286E9 /* OTPViewController.swift */,
+				BF2EEAF32431023400F286E9 /* LocationSelectViewController.swift */,
 			);
 			path = "View controller";
 			sourceTree = "<group>";
@@ -380,6 +388,7 @@
 		BF8773692423BB2800CF8C5D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				BF2EEAF12430F6ED00F286E9 /* DPOTPView.swift */,
 				BF8773782423BE5600CF8C5D /* AppExtension.swift */,
 				BF8773652423BB1C00CF8C5D /* UIViewExtension.swift */,
 			);
@@ -613,6 +622,7 @@
 				BF8773682423BB1C00CF8C5D /* UIViewExtension.swift in Sources */,
 				3B6754A8242683DC005C97CA /* EventDetail.swift in Sources */,
 				3B0411F224274E1D000C9402 /* MoreInfoTableViewCell.swift in Sources */,
+				BF2EEAF22430F6ED00F286E9 /* DPOTPView.swift in Sources */,
 				3B04121D24279768000C9402 /* ViewMoreTableViewCell.swift in Sources */,
 				BF8773A82423C12B00CF8C5D /* TopMenuBar.swift in Sources */,
 				BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */,
@@ -632,6 +642,7 @@
 				3B041216242792DA000C9402 /* PackagesTableViewCell.swift in Sources */,
 				BF272C34242DD25D00202A71 /* MyProfileUpdateViewController.swift in Sources */,
 				BF87739F2423C0F500CF8C5D /* NotificationViewController.swift in Sources */,
+				BF2EEAF02430D6D500F286E9 /* OTPViewController.swift in Sources */,
 				BF87739B2423C0F500CF8C5D /* HomePageViewController.swift in Sources */,
 				BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */,
 				BF2BBA4E242CFB050064EC59 /* ProfileTableViewCell.swift in Sources */,
@@ -652,6 +663,7 @@
 				BF8773662423BB1C00CF8C5D /* BaseViewController.swift in Sources */,
 				BF8773732423BDD400CF8C5D /* Model.swift in Sources */,
 				BF87739A2423C0F500CF8C5D /* AddBalanceViewController.swift in Sources */,
+				BF2EEAF42431023400F286E9 /* LocationSelectViewController.swift in Sources */,
 				BF99CEC02425C37D0051E775 /* EventDetailsViewController.swift in Sources */,
 				BF8773972423C0F500CF8C5D /* WalletViewController.swift in Sources */,
 				BF8773962423C0F500CF8C5D /* DiningViewController.swift in Sources */,

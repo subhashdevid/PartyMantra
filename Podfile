@@ -14,6 +14,8 @@ target 'PartyMantra' do
   pod 'SVGKit'
   pod 'DropDown'
   pod 'IQKeyboardManagerSwift'
+  pod "SwiftPhoneNumberFormatter"
+  pod 'DPOTPView'
 
 
 

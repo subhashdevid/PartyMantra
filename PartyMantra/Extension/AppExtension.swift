@@ -42,7 +42,8 @@ extension UIViewController {
 
 extension AppDelegate {
     func showLoginScreen() {
-        let vc = LoginViewController.instantiate(appStoryboard: .main)
+        let vc = LoginViewController.instantiate(appStoryboard: .main
+        )
         let nav = UINavigationController.init(rootViewController: vc)
         self.window?.rootViewController = nav
     }

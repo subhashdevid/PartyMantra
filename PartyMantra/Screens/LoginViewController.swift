@@ -7,118 +7,93 @@
 //
 
 import UIKit
+import SwiftPhoneNumberFormatter
 
 class LoginViewController: BaseViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    
-    @IBOutlet weak var txtMobile: UITextField!
-//    @IBOutlet weak var txtPassword: UITextField!
-    
+    @IBOutlet weak var txtMobile: PhoneFormattedTextField!
     @IBOutlet weak var btnLogin: UIButton!
+    var validation = Validation()
     
+    var mobileNumber = ""
+    var rawMobileNumber = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.init(named: "ViewBGColor")
-//        txtMobile.customTextFieldWithLeftImage(leftImage: "MobileIcon")
-//        txtPassword.customTextFieldWithLeftImage(leftImage: "PasswordIcon")
         
-        txtMobile.addAccessortViewToTextField()
-//        txtPassword.addAccessortViewToTextField()
-        
-//        btnLogin.customButtonForLoginSignUp()
-        // Do any additional setup after loading the view.
+        txtMobile.config.defaultConfiguration = PhoneFormat(defaultPhoneFormat: "### ###-##-##")
+        txtMobile.prefix = nil
+        self.txtMobile.textDidChangeBlock = { field in
+            if let text = field?.text, text != "" {
+                print(text)
+                self.mobileNumber = text
+            } else {
+                print("No text")
+            }
+        }
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        
     }
     
     override func viewForScrolling() -> UIScrollView? {
         return scrollView
     }
     
-    override func isKeyboardNotificationsEnabled() -> Bool {
-        return true
-    }
     
-    @IBAction func loginClicked() {
-        if txtMobile.text?.isValidPhone ?? false {
-//            if (txtPassword.text?.count ?? 0) > 0 {
-                let param: [String: Any] = [
-                    "mobile": txtMobile.text ?? ""//,
-//                    "password": txtPassword.text ?? ""
-                ]
-                Loader.showHud()
-                NetworkManager.LoginUser(parameters: param) {[weak self] result in
-                    
-                    Loader.dismissHud()
-                    switch result {
-                    case let .success(response):
-                        print(response)
-//                        if response.statusCode == 200 {
-//                            let otpVC = OTPViewController.instantiate(appStoryboard: .main) as! OTPViewController
-//                            otpVC.mobile = self?.txtMobile.text
-//                            self?.navigationController?.pushViewController(otpVC, animated: true)
-                            
-//                            if let user = response.data {
-                                
-//                                let encoder = JSONEncoder()
-//                                if let encoded = try? encoder.encode(user) {
-//                                    let defaults = UserDefaults.standard
-//                                    defaults.set(encoded, forKey: "USER")
-//                                }
-//                                UserDefaults.standard.set("1", forKey: "ISLOGIN")
-//                                UserDefaults.standard.synchronize()
-//                                Constants.appDelegate?.showHomeScreen()
-//                            }
-                            
-//                        } else {
-//                            self?.showAlert(response.message ?? "")
-//                        }
-                        
-                    case .failure: break
-                    }
-                    
-                }
-//            } else {
-//                self.showAlert("Please enter password");
-//            }
-        } else {
+    func validateUser()  {
+        self.rawMobileNumber = self.mobileNumber
+        
+        self.mobileNumber = self.mobileNumber.replacingOccurrences(of: "-", with: "")
+        self.mobileNumber = self.mobileNumber.replacingOccurrences(of: " ", with: "")
+
+        
+        
+        let isValidPhone = self.validation.validaPhoneNumber(phoneNumber: self.mobileNumber)
+        if isValidPhone {
+            self.loginUser(phone: self.mobileNumber )
+        }
+        else{
             self.showAlert("Please enter 10 digit mobile number")
         }
+    }
+    
+    
+    func loginUser(phone : String?) {
+        let param: [String: Any] = [
+            "mobile": phone ?? ""
+        ]
         
+        Loader.showHud()
+        NetworkManager.LoginUser(parameters: param) {[weak self] result in
+            Loader.dismissHud()
+            switch result {
+            case let .success(response):
+                print(response)
+                self?.redirectToOTP()
+            case .failure: break
+            }
+            
+        }
+    }
+    
+    func redirectToOTP() {
+
+        let vc = OTPViewController.instantiate(appStoryboard: .events) as OTPViewController
+        vc.mobile = self.rawMobileNumber
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
-    
-//    @IBAction func registerClicked() {
-//        let vc = FillInfoViewController.instantiate(appStoryboard: .main)
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
-//    
-//    @IBAction func forgetPasswordClicked() {
-//        let vc = ForgetPasswordViewController.instantiate(appStoryboard: .main)
-//        self.navigationController?.pushViewController(vc, animated: true)
-//        
-//    }
+    @IBAction func loginClicked() {
+        self.view.endEditing(true)
+        self.validateUser()
+    }
     
 }
-
-extension LoginViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        currentTF = textField
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        if textField == txtMobile {
-            txtMobile.becomeFirstResponder()
-//        } else {
-//            txtPassword.resignFirstResponder()
-//        }
-        return true
-    }
-}
-

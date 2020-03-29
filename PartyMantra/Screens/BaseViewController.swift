@@ -16,22 +16,8 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.init(named: "ViewBGColor")
-        
-        if isKeyboardNotificationsEnabled() {
-            registerKeyboardNotificaitons()
-        }
-        // Do any additional setup after loading the view.
     }
-    
-    func AddHamBurgerButton() {
-//        let button = UIButton.init(type: .custom)
-//        button.setImage(UIImage.init(named: "Hamburger"), for: .normal)
-//        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-//        
-//        let barButton = UIBarButtonItem.init(customView: button)
-//        self.navigationItem.leftBarButtonItem = barButton
-    }
-    
+
     func addRightButtons() {
         let buttonBell = UIButton.init(type: .custom)
         buttonBell.setImage(UIImage.init(named: "LocationImage"), for: .normal)
@@ -46,7 +32,6 @@ class BaseViewController: UIViewController {
         let barButton1 = UIBarButtonItem.init(customView: buttonLocation)
 
         self.navigationItem.rightBarButtonItems = [barButton,barButton1]
-
     }
     
     func addLeftBackButton() {
@@ -58,10 +43,6 @@ class BaseViewController: UIViewController {
         let barButton = UIBarButtonItem.init(customView: button)
         self.navigationItem.leftBarButtonItem = barButton
 
-    }
-    
-    func isKeyboardNotificationsEnabled() -> Bool {
-        return false
     }
 
     @objc func backButtonClicked() {
@@ -110,45 +91,3 @@ class BaseViewController: UIViewController {
     
 }
 
-extension BaseViewController {
-    
-
-    // MARK: - Keyboard Observer
-    
-    func registerKeyboardNotificaitons() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
-                                               name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
-                                               name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    // MARK: - Keyboard Notification handler methods
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            let bottomInset = keyboardSize.height-50
-            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: bottomInset, right: 0)
-            viewForScrolling()?.contentInset = contentInsets
-            viewForScrolling()?.scrollIndicatorInsets = contentInsets
-        }
-//        isShowingKeyboard = true
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-      
-            setScrollViewContentOffset(offset: 0)
-//            viewForScrolling()?.contentInset = UIEdgeInsets.zero
-//            viewForScrolling()?.scrollIndicatorInsets = UIEdgeInsets.zero
-            //  scrollView()?.setContentOffset(CGPoint.zero, animated: true)
-        
-//        isShowingKeyboard = false
-    }
-
-    func setScrollViewContentOffset(offset: CGFloat) {
-        if var currentContentInset = viewForScrolling()?.contentInset {
-            currentContentInset.bottom = offset
-            viewForScrolling()?.contentInset = currentContentInset
-            viewForScrolling()?.scrollIndicatorInsets = currentContentInset
-        }
-//        setUpBottomLayout(offset: offset)
-    }}
