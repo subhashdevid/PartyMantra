@@ -13,6 +13,7 @@ target 'PartyMantra' do
   pod 'DynamicCodable', '1.0'
   pod 'SVGKit'
   pod 'DropDown'
+  pod 'IQKeyboardManagerSwift'
 
 
 

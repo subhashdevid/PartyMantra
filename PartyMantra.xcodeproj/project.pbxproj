@@ -31,14 +31,14 @@
 		3B04122124279BB4000C9402 /* ViewMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B04121F24279BB4000C9402 /* ViewMoreCollectionViewCell.swift */; };
 		3B04122224279BB4000C9402 /* ViewMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B04122024279BB4000C9402 /* ViewMoreCollectionViewCell.xib */; };
 		3B6754A8242683DC005C97CA /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6754A7242683DC005C97CA /* EventDetail.swift */; };
-		BF229CA92428C715004BD3F0 /* SearchEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF229CA82428C715004BD3F0 /* SearchEventModel.swift */; };
 		BF26AA2D242F3A2D00FC61BC /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */; };
-
 		BF272C34242DD25D00202A71 /* MyProfileUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF272C33242DD25D00202A71 /* MyProfileUpdateViewController.swift */; };
 		BF2B8A602427443B00727866 /* Miscellaneous.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */; };
 		BF2B8A62242744CE00727866 /* EventSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B8A61242744CE00727866 /* EventSearchViewController.swift */; };
 		BF2BBA4C242CF4E00064EC59 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2BBA4B242CF4E00064EC59 /* UpdateProfileViewController.swift */; };
 		BF2BBA4E242CFB050064EC59 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2BBA4D242CFB050064EC59 /* ProfileTableViewCell.swift */; };
+		BF2E42D9243081F30068C6BF /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2E42D8243081F30068C6BF /* Validation.swift */; };
+		BF2E42DB2430A0830068C6BF /* ImagePickerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2E42DA2430A0830068C6BF /* ImagePickerClass.swift */; };
 		BF6D1ED42424CBE300DC018C /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */; };
 		BF87734D2423AF6200CF8C5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87734C2423AF6200CF8C5D /* AppDelegate.swift */; };
 		BF8773542423AF6200CF8C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8773522423AF6200CF8C5D /* Main.storyboard */; };
@@ -107,13 +107,14 @@
 		3B04122024279BB4000C9402 /* ViewMoreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewMoreCollectionViewCell.xib; sourceTree = "<group>"; };
 		3B6754A7242683DC005C97CA /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
 		B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyMantra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF229CA82428C715004BD3F0 /* SearchEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEventModel.swift; sourceTree = "<group>"; };
 		BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		BF272C33242DD25D00202A71 /* MyProfileUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUpdateViewController.swift; sourceTree = "<group>"; };
 		BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Miscellaneous.storyboard; sourceTree = "<group>"; };
 		BF2B8A61242744CE00727866 /* EventSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSearchViewController.swift; sourceTree = "<group>"; };
 		BF2BBA4B242CF4E00064EC59 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		BF2BBA4D242CFB050064EC59 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		BF2E42D8243081F30068C6BF /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		BF2E42DA2430A0830068C6BF /* ImagePickerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerClass.swift; sourceTree = "<group>"; };
 		BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		BF8773492423AF6200CF8C5D /* PartyMantra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyMantra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF87734C2423AF6200CF8C5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -389,6 +390,7 @@
 		BF87736D2423BDA400CF8C5D /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				BF2E42DA2430A0830068C6BF /* ImagePickerClass.swift */,
 				BF8773752423BDFD00CF8C5D /* Constants.swift */,
 				BF8773742423BDFD00CF8C5D /* GlobalFunction.swift */,
 				3B0411F9242755A2000C9402 /* Utilities.swift */,
@@ -426,6 +428,7 @@
 				BF8773922423C0F500CF8C5D /* CollectionViewController.swift */,
 				BF2BBA4B242CF4E00064EC59 /* UpdateProfileViewController.swift */,
 				BF272C33242DD25D00202A71 /* MyProfileUpdateViewController.swift */,
+				BF2E42D8243081F30068C6BF /* Validation.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -604,7 +607,9 @@
 				BF8773A82423C12B00CF8C5D /* TopMenuBar.swift in Sources */,
 				BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */,
 				BF8773932423C0F500CF8C5D /* OrderViewController.swift in Sources */,
+				BF2E42DB2430A0830068C6BF /* ImagePickerClass.swift in Sources */,
 				BF6D1ED42424CBE300DC018C /* BannerTableViewCell.swift in Sources */,
+				BF2E42D9243081F30068C6BF /* Validation.swift in Sources */,
 				BF2BBA4C242CF4E00064EC59 /* UpdateProfileViewController.swift in Sources */,
 				BF2B8A62242744CE00727866 /* EventSearchViewController.swift in Sources */,
 				BF8773812423BF0B00CF8C5D /* Loader.swift in Sources */,

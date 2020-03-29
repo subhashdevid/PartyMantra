@@ -20,12 +20,21 @@ enum FieldIdentifier: Int {
 }
 
 
-class MyProfileUpdateViewController: UIViewController {
+class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate {
+    
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnNext: UIButton!
     
     var profile: ProfileModel?
-
-    let dropDown = DropDown()
+    
+    var validation = Validation()
+    var imagePicker: ImagePicker!
+    
+    let dropDown = DropDown();
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +44,66 @@ class MyProfileUpdateViewController: UIViewController {
         self.tableView.estimatedRowHeight = 44.0
         self.tableView.tableFooterView = UIView()
         
-      
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func showAlert(alertTitle:String, messageBody: String){
+        
+        let alert = UIAlertController(title: alertTitle, message: messageBody,preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func addProfileImage(sender:UIButton) -> Void {
+        self.imagePicker.present(from: sender)
+    }
+    
+    
+    @IBAction func btnNext(_ sender: Any) {
+        
+        self.view.endEditing(true)
+        
+        guard let email = self.profile?.email,let phone = self.profile?.mobile,
+            let name = self.profile?.name else {
+                return
+        }
+        
+        if name.isEmpty {
+            showAlert(alertTitle: "Alert", messageBody: "Fields cannot be empty")
+            return
+        }
+        
+        let isValidatePhone = self.validation.validaPhoneNumber(phoneNumber: phone)
+        if (isValidatePhone == false) {
+            //print("Incorrect Phone")
+            
+            showAlert(alertTitle: "Alert", messageBody: "Please enter 10 digits phone number ")
+            return
+        }
+        
+        let isValidateEmail = self.validation.isValidEmail(email)
+        if (isValidateEmail == false) {
+            
+            showAlert(alertTitle: "Alert", messageBody: "Please enter valid email id ")
+            
+            return
+        }
+        
+        
+        
+        
+        
+    }
+    
+    func didSelect(image: UIImage?, tag: Int) {
+    
     }
     
     
@@ -45,10 +112,10 @@ class MyProfileUpdateViewController: UIViewController {
         guard let cell = sender.superview?.superview?.superview as? MyProfileUpdateTableViewCell else {
             return
         }
-            
+        
         let indexPath = self.tableView.indexPath(for: cell)
-
-        print(indexPath?.row ?? <#default value#>)
+        
+        //print(indexPath?.row ?? <#default value#>)
         
         
         
@@ -72,11 +139,15 @@ class MyProfileUpdateViewController: UIViewController {
 extension MyProfileUpdateViewController : UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        
         if FieldIdentifier.name.rawValue == textField.tag {
             self.profile?.name = textField.text
+            
         }
         else if FieldIdentifier.dob.rawValue == textField.tag {
             self.profile?.dob = textField.text
+            
             
         }
         else if FieldIdentifier.email.rawValue == textField.tag {
@@ -86,13 +157,19 @@ extension MyProfileUpdateViewController : UITextFieldDelegate {
         else if FieldIdentifier.phone.rawValue == textField.tag {
             self.profile?.mobile = textField.text
             
+            
         }
         
     }
     
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//   logic for mobile email
-//    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    //   logic for mobile email
+    //    }
 }
 extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -123,6 +200,8 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
             cell?.logoEditImageView.layer.borderWidth = 1
             cell?.logoEditImageView.layer.borderColor = UIColor.yellow.cgColor
             
+            cell?.logoImageButton.addTarget(self, action: #selector(addProfileImage(sender:)), for: .touchUpInside)
+            
             return cell!
         }
         else if indexPath.section  == 1{
@@ -147,7 +226,7 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
                 cell?.nameLabel.text = "Gender"
                 cell?.nameTextField.text = self.profile?.gender ?? ""
                 cell?.nameTextField.tag = FieldIdentifier.gender.rawValue
-
+                
                 cell?.dropdownButton.isHidden = false
                 cell?.dropdownButton.backgroundColor = .clear
                 cell?.imgDropdown.isHidden = false
@@ -166,7 +245,7 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
                 cell?.nameTextField.text = self.profile?.dob ?? ""
                 cell?.nameTextField.tag = FieldIdentifier.dob.rawValue
                 cell?.nameTextField.isUserInteractionEnabled = false
-
+                
                 cell?.dropdownButton.isHidden = false
                 cell?.dropdownButton.backgroundColor = .clear
                 cell?.imgDropdown.isHidden = false
@@ -183,7 +262,7 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
                 cell?.nameTextField.text = self.profile?.mobile ?? ""
                 cell?.nameTextField.tag = FieldIdentifier.phone.rawValue
                 cell?.nameTextField.isUserInteractionEnabled = true
-
+                
                 cell?.dropdownButton.isHidden = true
                 cell?.imgDropdown.isHidden = true
                 
@@ -199,7 +278,7 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
                 cell?.nameTextField.text = self.profile?.email ?? ""
                 cell?.nameTextField.tag = FieldIdentifier.email.rawValue
                 cell?.nameTextField.isUserInteractionEnabled = true
-
+                
                 cell?.dropdownButton.isHidden = true
                 cell?.imgDropdown.isHidden = true
                 

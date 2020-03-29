@@ -5,6 +5,7 @@ PODS:
   - Cosmos (21.0.0)
   - DropDown (2.3.13)
   - DynamicCodable (1.0)
+  - IQKeyboardManagerSwift (6.5.5)
   - Kingfisher (5.13.2):
     - Kingfisher/Core (= 5.13.2)
   - Kingfisher/Core (5.13.2)
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - Cosmos (~> 21.0)
   - DropDown
   - DynamicCodable (= 1.0)
+  - IQKeyboardManagerSwift
   - Kingfisher (~> 5.0)
   - SVGKit
   - SVProgressHUD
@@ -26,6 +28,7 @@ SPEC REPOS:
     - Cosmos
     - DropDown
     - DynamicCodable
+    - IQKeyboardManagerSwift
     - Kingfisher
     - SVGKit
     - SVProgressHUD
@@ -35,10 +38,11 @@ SPEC CHECKSUMS:
   Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   DynamicCodable: 2cf558d057b3e6540552943254e1c9eeb706dde2
+  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
   SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 969e598b5a45084e527a432233fc4a0b30eb9427
+PODFILE CHECKSUM: bf5dc50891bad3eed4486bceef484e990f010528
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1
