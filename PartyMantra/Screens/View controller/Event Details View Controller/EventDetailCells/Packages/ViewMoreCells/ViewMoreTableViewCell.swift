@@ -8,13 +8,11 @@
 
 import UIKit
 
-protocol GetHeightProtocol{
-    func getHeightOfCell(height: CGFloat) -> Void
-}
+
 
 class ViewMoreTableViewCell: UITableViewCell,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
 
-    var heightDelegate : GetHeightProtocol?
+    
     @IBOutlet weak var cellDetailLabel: UILabel!
     @IBOutlet weak var collectionCellView: UIView!
     @IBOutlet weak var viewMoreBtn: UIButton!
@@ -26,7 +24,9 @@ class ViewMoreTableViewCell: UITableViewCell,UICollectionViewDelegate,UICollecti
     @IBOutlet weak var cellItemLbl: UILabel!
     @IBOutlet weak var cellCostLabel: UILabel!
     
-    
+    var heughtOfCell = 0
+    var indexOfCell = 0
+   
     @IBOutlet weak var cellCollectionView: UICollectionView!
    
      var dataCount : Array<EventPackagesActiveMenuModal> = []
@@ -62,18 +62,15 @@ class ViewMoreTableViewCell: UITableViewCell,UICollectionViewDelegate,UICollecti
     }
     
     
-    func setUpCellCollectionView(modal:EventPackagesDetailModal) -> Void {
+    
+   
+    func setUpCellCollectionView(modal:EventPackagesDetailModal,index:Int) -> Void {
         print(modal.activemenus.count)
+        self.indexOfCell = index
         self.dataCount = modal.activemenus  as? [EventPackagesActiveMenuModal] ?? []
         if self.dataCount.count>0{
             cellDetailLabel.text = modal.custom_package_detail ?? ""
-          let height = Utility().heightForView(text: modal.custom_package_detail ?? "", font: 12.0, width: collectionCellView.frame.size.width-10 )
-              let totalIndex = Int(Int((self.dataCount.count)/2)*55 )
-            if totalIndex>0{
-                heightDelegate?.getHeightOfCell(height: CGFloat(totalIndex+height+95))
-            }else{
-                heightDelegate?.getHeightOfCell(height: CGFloat(0+height+95))
-            }
+          
             cellItemLbl.text = "\(modal.package_name) \(modal.text_under_name)"
             cellCostLabel.text = "\(modal.price)"
             countLbl.text = "0"
@@ -112,7 +109,7 @@ class ViewMoreTableViewCell: UITableViewCell,UICollectionViewDelegate,UICollecti
                + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
 
            let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-         return CGSize(width: size, height: 40)
+         return CGSize(width: size, height: 20)
     }
         
         

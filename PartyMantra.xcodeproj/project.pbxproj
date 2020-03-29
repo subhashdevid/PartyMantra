@@ -30,6 +30,9 @@
 		3B04121E24279768000C9402 /* ViewMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B04121C24279768000C9402 /* ViewMoreTableViewCell.xib */; };
 		3B04122124279BB4000C9402 /* ViewMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B04121F24279BB4000C9402 /* ViewMoreCollectionViewCell.swift */; };
 		3B04122224279BB4000C9402 /* ViewMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B04122024279BB4000C9402 /* ViewMoreCollectionViewCell.xib */; };
+		3B4F29C92430A60500832ADA /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4F29C82430A60500832ADA /* DatePicker.storyboard */; };
+		3B4F29CB2430A65E00832ADA /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F29CA2430A65D00832ADA /* CustomPickerViewController.swift */; };
+		3B4F29CD2430A66400832ADA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F29CC2430A66400832ADA /* DatePicker.swift */; };
 		3B6754A8242683DC005C97CA /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6754A7242683DC005C97CA /* EventDetail.swift */; };
 		BF26AA2D242F3A2D00FC61BC /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */; };
 		BF272C34242DD25D00202A71 /* MyProfileUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF272C33242DD25D00202A71 /* MyProfileUpdateViewController.swift */; };
@@ -105,6 +108,9 @@
 		3B04121C24279768000C9402 /* ViewMoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewMoreTableViewCell.xib; sourceTree = "<group>"; };
 		3B04121F24279BB4000C9402 /* ViewMoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B04122024279BB4000C9402 /* ViewMoreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewMoreCollectionViewCell.xib; sourceTree = "<group>"; };
+		3B4F29C82430A60500832ADA /* DatePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
+		3B4F29CA2430A65D00832ADA /* CustomPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
+		3B4F29CC2430A66400832ADA /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		3B6754A7242683DC005C97CA /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
 		B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyMantra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -302,6 +308,8 @@
 		BF6D1ECF2424C32F00DC018C /* View controller */ = {
 			isa = PBXGroup;
 			children = (
+				3B4F29CC2430A66400832ADA /* DatePicker.swift */,
+				3B4F29CA2430A65D00832ADA /* CustomPickerViewController.swift */,
 				BF2B8A5E242743B400727866 /* WalletAddMoney */,
 				3B0411EC242731CE000C9402 /* Event Details View Controller */,
 			);
@@ -458,6 +466,7 @@
 				BF8773AE2423C1D300CF8C5D /* Home.storyboard */,
 				BF99CEC12425C3920051E775 /* Events.storyboard */,
 				BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */,
+				3B4F29C82430A60500832ADA /* DatePicker.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -526,6 +535,7 @@
 				BF8773592423AF6300CF8C5D /* LaunchScreen.storyboard in Resources */,
 				3B04122224279BB4000C9402 /* ViewMoreCollectionViewCell.xib in Resources */,
 				3B0411F824274FF8000C9402 /* moreSubTableViewCell.xib in Resources */,
+				3B4F29C92430A60500832ADA /* DatePicker.storyboard in Resources */,
 				BF8773562423AF6300CF8C5D /* Assets.xcassets in Resources */,
 				3B041217242792DA000C9402 /* PackagesTableViewCell.xib in Resources */,
 				BF99CEC22425C3920051E775 /* Events.storyboard in Resources */,
@@ -626,6 +636,7 @@
 				BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */,
 				BF2BBA4E242CFB050064EC59 /* ProfileTableViewCell.swift in Sources */,
 				BF8773942423C0F500CF8C5D /* ClubEventViewController.swift in Sources */,
+				3B4F29CD2430A66400832ADA /* DatePicker.swift in Sources */,
 				BF99CEC42425D6670051E775 /* CustomTableViewCell.swift in Sources */,
 				BF8773762423BDFD00CF8C5D /* GlobalFunction.swift in Sources */,
 				3B04122124279BB4000C9402 /* ViewMoreCollectionViewCell.swift in Sources */,
@@ -636,6 +647,7 @@
 				BF8773A62423C12B00CF8C5D /* TopMenuBarCollectionCell.swift in Sources */,
 				BF87734D2423AF6200CF8C5D /* AppDelegate.swift in Sources */,
 				3B04120924277088000C9402 /* CoverChargesTableViewCell.swift in Sources */,
+				3B4F29CB2430A65E00832ADA /* CustomPickerViewController.swift in Sources */,
 				3B04120224276523000C9402 /* EventDescTableViewCell.swift in Sources */,
 				BF8773662423BB1C00CF8C5D /* BaseViewController.swift in Sources */,
 				BF8773732423BDD400CF8C5D /* Model.swift in Sources */,
