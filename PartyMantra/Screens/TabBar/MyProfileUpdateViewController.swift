@@ -48,7 +48,7 @@ class MyProfileUpdateViewController: UIViewController {
             
         let indexPath = self.tableView.indexPath(for: cell)
 
-        print(indexPath?.row)
+        print(indexPath?.row ?? <#default value#>)
         
         
         
