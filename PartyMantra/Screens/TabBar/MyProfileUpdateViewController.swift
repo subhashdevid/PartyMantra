@@ -20,7 +20,10 @@ enum FieldIdentifier: Int {
 }
 
 
-class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate {
+class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, PickerDelegate {
+   
+    
+  
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -105,6 +108,28 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate {
     func didSelect(image: UIImage?, tag: Int) {
     
     }
+    
+    
+//MARK: Date picker action
+    @objc func datePickerAction (sender : UIButton) {
+        let vc = CustomPickerViewController.instantiate(appStoryboard: .datepicker) as CustomPickerViewController
+
+        vc.delegate = self
+        vc.isFutureDateEnabled = false
+        vc.selectionTag = sender.tag
+        vc.senderPrev = sender
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func datePickerData(date: String, selectionTag: Int, sender: UIButton) {
+           guard let cell = sender.superview?.superview?.superview as? MyProfileUpdateTableViewCell else {
+               return
+           }
+           let indexPath = self.tableView.indexPath(for: cell)
+        cell.nameTextField.text = date
+        
+        
+       }
     
     
     @objc func dropdownAction (sender : UIButton) {
@@ -245,7 +270,7 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
                 cell?.nameTextField.text = self.profile?.dob ?? ""
                 cell?.nameTextField.tag = FieldIdentifier.dob.rawValue
                 cell?.nameTextField.isUserInteractionEnabled = false
-                
+                cell?.dropdownButton?.addTarget(self, action: #selector(datePickerAction(sender:)), for: .touchUpInside)
                 cell?.dropdownButton.isHidden = false
                 cell?.dropdownButton.backgroundColor = .clear
                 cell?.imgDropdown.isHidden = false

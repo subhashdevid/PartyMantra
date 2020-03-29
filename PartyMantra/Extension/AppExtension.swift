@@ -14,6 +14,7 @@ enum AppStoryboard: String {
     case events = "Events"
     case miscellaneous="Miscellaneous"
     case more = "MoreStoryBoard"
+    case datepicker = "DatePicker"
     
     var instance : UIStoryboard {
         return UIStoryboard(name: self.rawValue, bundle: Bundle.main)

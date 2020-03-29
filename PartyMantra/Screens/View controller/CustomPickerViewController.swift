@@ -8,8 +8,7 @@
 
 import UIKit
 protocol PickerDelegate {
-    func datePickerData(date: String,selectionTag:Int)
-    
+    func datePickerData(date: String,selectionTag:Int, sender : UIButton)
 }
 
 class CustomPickerViewController: UIViewController {
@@ -19,6 +18,7 @@ class CustomPickerViewController: UIViewController {
     var isFuturewithCurrentEnabled : Bool = false
     @IBOutlet weak var pickerView: UIView!
     var selectionTag = 0
+    var senderPrev : UIButton?
     // var datePicker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +102,8 @@ class CustomPickerViewController: UIViewController {
         
         if sender.text != ""{
             self.presentingViewController!.dismiss(animated: true, completion: nil)
-            self.delegate?.datePickerData(date: sender as! String, selectionTag: selectionTag)}
+           
+            self.delegate?.datePickerData(date: sender as! String, selectionTag: selectionTag, sender: self.senderPrev!)}
     }
     
 }
