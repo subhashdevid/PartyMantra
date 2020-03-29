@@ -8,12 +8,14 @@
 
 import UIKit
 
-class EventDetailsViewController: UIViewController  {
+class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
+    
     
     
     @IBOutlet weak var tblView: UITableView!
 
     var heightOfCell : Int = 0
+    var heightindex = 0
     var eventID : Int = 0
     var eventData : [EventlistModel] = []
     
@@ -138,7 +140,7 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
                        tblView.register(UINib(nibName: "PackagesTableViewCell", bundle: nil), forCellReuseIdentifier: "PackagesTableViewCell")
                        cell = tblView.dequeueReusableCell(withIdentifier: "PackagesTableViewCell") as? PackagesTableViewCell
                    }
-                
+            cell.heightDelegate = self
                  cell.backgroundColor = .groupTableViewBackground
                    if self.eventData.count > 0 {
                        let cellModal = self.eventData[0] as EventlistModel
@@ -166,10 +168,18 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
             }
             return 0
         }else if indexPath.section == 5{
-            if self.eventData.count > 0 {
+            
+            if self.eventData.count > 0 && self.heightOfCell>0 && self.heightindex == indexPath.row{
+                return CGFloat(self.heightOfCell)
+            }else{
+                if self.eventData.count > 0{
                 let cellModal = self.eventData[0].packages as [EventPackagesDetailModal]
-                let height = Int(((cellModal.count)*(200))+40)
-                return CGFloat(height)
+                let height = Int(((cellModal.count)*(139))+40)
+                    print(height)
+                    return CGFloat(height)
+                    
+                }
+                
             }
             return 0
         }
@@ -178,6 +188,23 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
         
     }
     
+    func getHeightFromArr(height:Int,restCellHeight:Int,isViewMoreBtnClicked:Bool,indexInt:Int) {
+        self.heightindex = indexInt
+        if self.eventData.count > 0{
+        let cellModal = self.eventData[0].packages as [EventPackagesDetailModal]
+            print("cellModalCount",cellModal.count)
+        
+        if isViewMoreBtnClicked {
+            self.heightOfCell = Int(140+height)
+            print(self.heightOfCell)
+            self.tblView.reloadData()
+        }else{
+           self.heightOfCell = Int(((cellModal.count)*(139))+40)
+           self.tblView.reloadData()
+        }
+        }
+    }
     
     
 }
+

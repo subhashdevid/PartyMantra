@@ -139,10 +139,10 @@
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grc-EP-cLz">
-                                <rect key="frame" x="5" y="106" width="300" height="189"/>
+                                <rect key="frame" x="5" y="109" width="300" height="194"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hrb-TH-v2u">
-                                        <rect key="frame" x="20" y="0.0" width="260" height="189"/>
+                                        <rect key="frame" x="20" y="0.0" width="260" height="194"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nXp-eY-MHc">
                                             <size key="itemSize" width="50" height="50"/>
@@ -165,8 +165,8 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5JD-Fq-bqm">
-                                <rect key="frame" x="6" y="87" width="297" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="6" y="79" width="297" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -175,16 +175,16 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="5JD-Fq-bqm" secondAttribute="trailing" constant="7" id="8Dc-cs-r0L"/>
                             <constraint firstItem="grc-EP-cLz" firstAttribute="leading" secondItem="J0C-Dd-NZy" secondAttribute="leading" constant="5" id="LzS-y4-uPU"/>
-                            <constraint firstAttribute="bottom" secondItem="grc-EP-cLz" secondAttribute="bottom" constant="8" id="MDh-b7-6oT"/>
+                            <constraint firstAttribute="bottom" secondItem="grc-EP-cLz" secondAttribute="bottom" id="MDh-b7-6oT"/>
                             <constraint firstItem="sEM-ef-mN6" firstAttribute="leading" secondItem="J0C-Dd-NZy" secondAttribute="leading" constant="5" id="eal-Du-fW7"/>
                             <constraint firstAttribute="trailing" secondItem="sEM-ef-mN6" secondAttribute="trailing" constant="5" id="fgu-cY-Vb9"/>
                             <constraint firstItem="5JD-Fq-bqm" firstAttribute="leading" secondItem="J0C-Dd-NZy" secondAttribute="leading" constant="6" id="fyI-PT-A41"/>
                             <constraint firstItem="TST-YK-1Xa" firstAttribute="leading" secondItem="J0C-Dd-NZy" secondAttribute="leading" constant="5" id="mTt-ve-F5c"/>
-                            <constraint firstItem="grc-EP-cLz" firstAttribute="top" secondItem="5JD-Fq-bqm" secondAttribute="bottom" constant="2" id="nk9-rT-ssI"/>
-                            <constraint firstItem="5JD-Fq-bqm" firstAttribute="top" secondItem="TST-YK-1Xa" secondAttribute="bottom" constant="7" id="p8y-dP-6X1"/>
+                            <constraint firstItem="grc-EP-cLz" firstAttribute="top" secondItem="5JD-Fq-bqm" secondAttribute="bottom" constant="14" id="nk9-rT-ssI"/>
+                            <constraint firstItem="5JD-Fq-bqm" firstAttribute="top" secondItem="TST-YK-1Xa" secondAttribute="bottom" constant="-1" id="p8y-dP-6X1"/>
                             <constraint firstItem="sEM-ef-mN6" firstAttribute="top" secondItem="J0C-Dd-NZy" secondAttribute="top" constant="5" id="uhO-4H-QGg"/>
                             <constraint firstAttribute="trailing" secondItem="grc-EP-cLz" secondAttribute="trailing" constant="5" id="vBt-tL-eU2"/>
-                            <constraint firstItem="TST-YK-1Xa" firstAttribute="top" secondItem="J0C-Dd-NZy" secondAttribute="top" constant="50" id="yfA-S5-5FC"/>
+                            <constraint firstItem="TST-YK-1Xa" firstAttribute="top" secondItem="sEM-ef-mN6" secondAttribute="bottom" constant="8" id="vE7-pI-bla"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWy-XN-dFz">
@@ -217,7 +217,7 @@
                 <outlet property="countLbl" destination="0KE-xh-bKh" id="HDh-KH-0h3"/>
                 <outlet property="minusBtn" destination="6wG-K5-O5S" id="9Ao-Y1-EI0"/>
                 <outlet property="minusIconImg" destination="cu9-yc-3oU" id="JuQ-SV-Fej"/>
-                <outlet property="viewMoreBtn" destination="TST-YK-1Xa" id="e4H-AB-LHZ"/>
+                <outlet property="viewMoreBtn" destination="TST-YK-1Xa" id="bus-q1-HUf"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="218.97321428571428"/>
         </tableViewCell>

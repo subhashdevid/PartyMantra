@@ -230,6 +230,7 @@ class EventPackagesDetailModal {
     var partneractive: Bool?
     var package_type: String?
     var fordining: Bool?
+    var heightInt: Int?
     var forparty: Bool?
     var activemenus: Array<EventPackagesActiveMenuModal> = []
     
@@ -251,7 +252,7 @@ class EventPackagesDetailModal {
         for item in activeMenuArr {
             self.activemenus.append(EventPackagesActiveMenuModal(response: item))
         }
-      
+        self.heightInt = 80
 
        }
 }
