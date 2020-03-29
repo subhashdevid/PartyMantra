@@ -29,6 +29,7 @@ class PackagesTableViewCell: UITableViewCell,UITableViewDelegate,UITableViewData
         cellIconImage.image = Utility().SetSVGImage("bag.svg")
         cellIconImage.image = cellIconImage.image?.imageWithColor(color1: .red)
         // Initialization code
+        cellTableView.isScrollEnabled = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -116,9 +117,9 @@ class PackagesTableViewCell: UITableViewCell,UITableViewDelegate,UITableViewData
     }
         let count = Int((cellModal.activemenus.count)/2)
         
-        self.newHeight = (self.heightOfCell+(count*30)+110)
+        self.newHeight = (self.heightOfCell+(count*35)+100)
         
-        heightDelegate?.getHeightFromArr(height: self.newHeight+110,restCellHeight:self.heightOfCell+110, isViewMoreBtnClicked: self.isViewMoreClicked, indexInt: sender.tag)
+        heightDelegate?.getHeightFromArr(height: self.newHeight+80,restCellHeight:self.heightOfCell+110, isViewMoreBtnClicked: self.isViewMoreClicked, indexInt: sender.tag)
        
         self.cellTableView.reloadData()
     }

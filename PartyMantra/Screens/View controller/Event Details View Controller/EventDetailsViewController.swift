@@ -16,6 +16,8 @@ class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
 
     var heightOfCell : Int = 0
     var heightindex = 0
+    var cellHeight = 0
+    var isCellClicked : Bool = false
     var eventID : Int = 0
     var eventData : [EventlistModel] = []
     
@@ -63,10 +65,12 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 8
+        return 9
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+            return 1
+        
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tblView.dequeueReusableCell(withIdentifier: "GalleryViewCell")
@@ -149,7 +153,48 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
                        cell.configurePackageCell(modal:cellModal)
                    }
                   return cell
-               }
+        }else if indexPath.section == 6{
+           var cell: EnterContactDetailsTableViewCell! = tblView.dequeueReusableCell(withIdentifier: "EnterContactDetailsTableViewCell") as? EnterContactDetailsTableViewCell
+            if cell == nil {
+                tblView.register(UINib(nibName: "EnterContactDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "EnterContactDetailsTableViewCell")
+                cell = tblView.dequeueReusableCell(withIdentifier: "EnterContactDetailsTableViewCell") as? EnterContactDetailsTableViewCell
+            }
+          cell.backgroundColor = .groupTableViewBackground
+            if self.eventData.count > 0 {
+                let cellModal = self.eventData[0] as EventlistModel
+                print(cellModal)
+                //cell.configureMoreInfoCell(modal:cellModal)
+            }
+           return cell
+        }else if indexPath.section == 7{
+           var cell: TermsAndConditionTableViewCell! = tblView.dequeueReusableCell(withIdentifier: "TermsAndConditionTableViewCell") as? TermsAndConditionTableViewCell
+            if cell == nil {
+                tblView.register(UINib(nibName: "TermsAndConditionTableViewCell", bundle: nil), forCellReuseIdentifier: "TermsAndConditionTableViewCell")
+                cell = tblView.dequeueReusableCell(withIdentifier: "TermsAndConditionTableViewCell") as? TermsAndConditionTableViewCell
+            }
+          cell.backgroundColor = .groupTableViewBackground
+            if self.eventData.count > 0 {
+                let cellModal = self.eventData[0] as EventlistModel
+                print(cellModal)
+                if self.isCellClicked{
+                    cell.termsAndConditionStr.text = cellModal.tnc
+                }else{
+                    cell.termsAndConditionStr.text = ""
+                }
+                
+                //cell.configureMoreInfoCell(modal:cellModal)
+            }
+           return cell
+        }else if indexPath.section == 8{
+           var cell: SubmitBtnTableViewCell! = tblView.dequeueReusableCell(withIdentifier: "SubmitBtnTableViewCell") as? SubmitBtnTableViewCell
+            if cell == nil {
+                tblView.register(UINib(nibName: "SubmitBtnTableViewCell", bundle: nil), forCellReuseIdentifier: "SubmitBtnTableViewCell")
+                cell = tblView.dequeueReusableCell(withIdentifier: "SubmitBtnTableViewCell") as? SubmitBtnTableViewCell
+            }
+             cell.backgroundColor = .groupTableViewBackground
+             cell.submitCellBtn.addTarget(self, action: #selector(didTapToOpenEventCart), for: .touchUpInside)
+           return cell
+        }
         
         return cell!
     }
@@ -168,43 +213,68 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
             }
             return 0
         }else if indexPath.section == 5{
-            
             if self.eventData.count > 0 && self.heightOfCell>0 && self.heightindex == indexPath.row{
+                print(self.heightOfCell)
                 return CGFloat(self.heightOfCell)
+                
+            }else if self.eventData.count > 0 && self.heightOfCell>0 && self.heightindex == 1{
+                print(self.heightOfCell)
+                               return CGFloat(self.heightOfCell)
             }else{
                 if self.eventData.count > 0{
                 let cellModal = self.eventData[0].packages as [EventPackagesDetailModal]
-                let height = Int(((cellModal.count)*(139))+40)
-                    print(height)
+                let height = Int(((cellModal.count)*(139))+60)
+                   
                     return CGFloat(height)
-                    
                 }
-                
+               
             }
+            
             return 0
+        }else if indexPath.section == 6{
+             return UITableView.automaticDimension
+        }else if indexPath.section == 7{
+            if self.isCellClicked{
+                return UITableView.automaticDimension
+            }else{
+                return 50
+            }
+           
         }
             return UITableView.automaticDimension
-            
-        
     }
+    
+    //50
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 7{
+            self.isCellClicked = !self.isCellClicked
+            self.tblView.reloadData()
+        }
+    }
+    
     
     func getHeightFromArr(height:Int,restCellHeight:Int,isViewMoreBtnClicked:Bool,indexInt:Int) {
         self.heightindex = indexInt
         if self.eventData.count > 0{
         let cellModal = self.eventData[0].packages as [EventPackagesDetailModal]
-            print("cellModalCount",cellModal.count)
-        
         if isViewMoreBtnClicked {
-            self.heightOfCell = Int(140+height)
+            self.heightOfCell = Int(125+height)
             print(self.heightOfCell)
             self.tblView.reloadData()
         }else{
-           self.heightOfCell = Int(((cellModal.count)*(139))+40)
+           self.heightOfCell = Int(((cellModal.count)*(145))+50)
            self.tblView.reloadData()
         }
         }
     }
     
+    
+    @objc func didTapToOpenEventCart(sender:UIButton) -> Void {
+        let vc = EventCartViewController.instantiate(appStoryboard: .events) as EventCartViewController
+
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 
