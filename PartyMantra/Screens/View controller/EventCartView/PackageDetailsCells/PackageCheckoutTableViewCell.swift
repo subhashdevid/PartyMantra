@@ -10,8 +10,6 @@ import UIKit
 
 class PackageCheckoutTableViewCell: UITableViewCell,UITableViewDelegate,UITableViewDataSource {
     
-    
-
     @IBOutlet weak var cellTableView: UITableView!
     override func awakeFromNib() {
         super.awakeFromNib()
