@@ -105,6 +105,10 @@
 		BF99CEC02425C37D0051E775 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CEBF2425C37D0051E775 /* EventDetailsViewController.swift */; };
 		BF99CEC22425C3920051E775 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF99CEC12425C3920051E775 /* Events.storyboard */; };
 		BF99CEC42425D6670051E775 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CEC32425D6670051E775 /* CustomTableViewCell.swift */; };
+		BF9EF0BB24319F9100ADB07F /* AddressSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0BA24319F9100ADB07F /* AddressSearchViewController.swift */; };
+		BF9EF0C02431A05900ADB07F /* NearByEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0BD2431A05900ADB07F /* NearByEnum.swift */; };
+		BF9EF0C12431A05900ADB07F /* GoogleApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0BE2431A05900ADB07F /* GoogleApiHelper.swift */; };
+		BF9EF0C22431A05900ADB07F /* GoogleApiHelper+Nearby.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0BF2431A05900ADB07F /* GoogleApiHelper+Nearby.swift */; };
 		BFE54B87242E438C006D813B /* MyProfileUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE54B86242E438C006D813B /* MyProfileUpdateTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -210,6 +214,10 @@
 		BF99CEBF2425C37D0051E775 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		BF99CEC12425C3920051E775 /* Events.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
 		BF99CEC32425D6670051E775 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		BF9EF0BA24319F9100ADB07F /* AddressSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewController.swift; sourceTree = "<group>"; };
+		BF9EF0BD2431A05900ADB07F /* NearByEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearByEnum.swift; sourceTree = "<group>"; };
+		BF9EF0BE2431A05900ADB07F /* GoogleApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleApiHelper.swift; sourceTree = "<group>"; };
+		BF9EF0BF2431A05900ADB07F /* GoogleApiHelper+Nearby.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GoogleApiHelper+Nearby.swift"; sourceTree = "<group>"; };
 		BFE54B86242E438C006D813B /* MyProfileUpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUpdateTableViewCell.swift; sourceTree = "<group>"; };
 		C323B65CE59EB81612CA5349 /* Pods-PartyMantra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyMantra.release.xcconfig"; path = "Target Support Files/Pods-PartyMantra/Pods-PartyMantra.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -422,6 +430,7 @@
 		BF6D1ECF2424C32F00DC018C /* View controller */ = {
 			isa = PBXGroup;
 			children = (
+				BF9EF0B924319F7C00ADB07F /* Address */,
 				3B4F29E12431133700832ADA /* EventCartView */,
 				3B4F29CC2430A66400832ADA /* DatePicker.swift */,
 				3B4F29CA2430A65D00832ADA /* CustomPickerViewController.swift */,
@@ -591,6 +600,25 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		BF9EF0B924319F7C00ADB07F /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				BF9EF0BC2431A05900ADB07F /* Source */,
+				BF9EF0BA24319F9100ADB07F /* AddressSearchViewController.swift */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		BF9EF0BC2431A05900ADB07F /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				BF9EF0BD2431A05900ADB07F /* NearByEnum.swift */,
+				BF9EF0BE2431A05900ADB07F /* GoogleApiHelper.swift */,
+				BF9EF0BF2431A05900ADB07F /* GoogleApiHelper+Nearby.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -741,6 +769,7 @@
 				BF8773AC2423C17D00CF8C5D /* AutoScrollingCollectionView.swift in Sources */,
 				BF87739C2423C0F500CF8C5D /* WebViewController.swift in Sources */,
 				BF8773682423BB1C00CF8C5D /* UIViewExtension.swift in Sources */,
+				BF9EF0C22431A05900ADB07F /* GoogleApiHelper+Nearby.swift in Sources */,
 				3B4F29F92431269A00832ADA /* SpecialEventDetailsTableViewCell.swift in Sources */,
 				3B6754A8242683DC005C97CA /* EventDetail.swift in Sources */,
 				3B0411F224274E1D000C9402 /* MoreInfoTableViewCell.swift in Sources */,
@@ -751,9 +780,11 @@
 				BF8773A82423C12B00CF8C5D /* TopMenuBar.swift in Sources */,
 				BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */,
 				BF8773932423C0F500CF8C5D /* OrderViewController.swift in Sources */,
+				BF9EF0BB24319F9100ADB07F /* AddressSearchViewController.swift in Sources */,
 				3B4F29FE24312A9200832ADA /* UseWalletTableViewCell.swift in Sources */,
 				3B4F29E72431189600832ADA /* EventDetailInfoTableViewCell.swift in Sources */,
 				BF2E42DB2430A0830068C6BF /* ImagePickerClass.swift in Sources */,
+				BF9EF0C02431A05900ADB07F /* NearByEnum.swift in Sources */,
 				BF6D1ED42424CBE300DC018C /* BannerTableViewCell.swift in Sources */,
 				BF2E42D9243081F30068C6BF /* Validation.swift in Sources */,
 				BF2BBA4C242CF4E00064EC59 /* UpdateProfileViewController.swift in Sources */,
@@ -787,6 +818,7 @@
 				3B0411F724274FF8000C9402 /* moreSubTableViewCell.swift in Sources */,
 				BFE54B87242E438C006D813B /* MyProfileUpdateTableViewCell.swift in Sources */,
 				BF8773A62423C12B00CF8C5D /* TopMenuBarCollectionCell.swift in Sources */,
+				BF9EF0C12431A05900ADB07F /* GoogleApiHelper.swift in Sources */,
 				BF87734D2423AF6200CF8C5D /* AppDelegate.swift in Sources */,
 				3B04120924277088000C9402 /* CoverChargesTableViewCell.swift in Sources */,
 				3B4F29CB2430A65E00832ADA /* CustomPickerViewController.swift in Sources */,

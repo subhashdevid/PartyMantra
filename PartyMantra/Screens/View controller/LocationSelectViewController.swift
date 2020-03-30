@@ -16,10 +16,14 @@ class LocationSelectViewController: BaseViewController {
         self.navigationController?.isNavigationBarHidden = true
 
         self.title = "Location"
-        // Do any additional setup after loading the view.
+        self.redirectToAddressScreen()
     }
     
-
+    func redirectToAddressScreen()  {
+           
+            let vc = AddressSearchViewController.instantiate(appStoryboard: .miscellaneous) as AddressSearchViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+       }
     /*
     // MARK: - Navigation
 
