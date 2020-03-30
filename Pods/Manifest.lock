@@ -17,7 +17,7 @@ PODS:
   - SwiftPhoneNumberFormatter (1.5)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.0)
+  - Alamofire
   - Cosmos (~> 21.0)
   - DPOTPView
   - DropDown
@@ -55,6 +55,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
 
-PODFILE CHECKSUM: 932decde01d345d9a49007d896f5d607a7207720
+PODFILE CHECKSUM: d4661846ff031dded67c403d36f2d2720f84db9c
 
 COCOAPODS: 1.9.1

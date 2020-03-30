@@ -16,6 +16,6 @@ target 'PartyMantra' do
   pod 'IQKeyboardManagerSwift'
   pod "SwiftPhoneNumberFormatter"
   pod 'DPOTPView'
-  pod 'Alamofire',
+  pod 'Alamofire'
 
 end
