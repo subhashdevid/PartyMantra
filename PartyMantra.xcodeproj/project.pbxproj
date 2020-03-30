@@ -109,6 +109,7 @@
 		BF9EF0C02431A05900ADB07F /* NearByEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0BD2431A05900ADB07F /* NearByEnum.swift */; };
 		BF9EF0C12431A05900ADB07F /* GoogleApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0BE2431A05900ADB07F /* GoogleApiHelper.swift */; };
 		BF9EF0C22431A05900ADB07F /* GoogleApiHelper+Nearby.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0BF2431A05900ADB07F /* GoogleApiHelper+Nearby.swift */; };
+		BF9EF0C42431D7A700ADB07F /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0C32431D7A700ADB07F /* Multipart.swift */; };
 		BFE54B87242E438C006D813B /* MyProfileUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE54B86242E438C006D813B /* MyProfileUpdateTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -218,6 +219,7 @@
 		BF9EF0BD2431A05900ADB07F /* NearByEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearByEnum.swift; sourceTree = "<group>"; };
 		BF9EF0BE2431A05900ADB07F /* GoogleApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleApiHelper.swift; sourceTree = "<group>"; };
 		BF9EF0BF2431A05900ADB07F /* GoogleApiHelper+Nearby.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GoogleApiHelper+Nearby.swift"; sourceTree = "<group>"; };
+		BF9EF0C32431D7A700ADB07F /* Multipart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multipart.swift; sourceTree = "<group>"; };
 		BFE54B86242E438C006D813B /* MyProfileUpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUpdateTableViewCell.swift; sourceTree = "<group>"; };
 		C323B65CE59EB81612CA5349 /* Pods-PartyMantra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyMantra.release.xcconfig"; path = "Target Support Files/Pods-PartyMantra/Pods-PartyMantra.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -527,6 +529,7 @@
 		BF87736D2423BDA400CF8C5D /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				BF9EF0C32431D7A700ADB07F /* Multipart.swift */,
 				BF2E42DA2430A0830068C6BF /* ImagePickerClass.swift */,
 				BF8773752423BDFD00CF8C5D /* Constants.swift */,
 				BF8773742423BDFD00CF8C5D /* GlobalFunction.swift */,
@@ -798,6 +801,7 @@
 				3B0411FA242755A2000C9402 /* Utilities.swift in Sources */,
 				BF8773672423BB1C00CF8C5D /* LoginViewController.swift in Sources */,
 				3B4F29F024311F4C00832ADA /* selectedPackageTableViewCell.swift in Sources */,
+				BF9EF0C42431D7A700ADB07F /* Multipart.swift in Sources */,
 				3B041216242792DA000C9402 /* PackagesTableViewCell.swift in Sources */,
 				BF272C34242DD25D00202A71 /* MyProfileUpdateViewController.swift in Sources */,
 				BF87739F2423C0F500CF8C5D /* NotificationViewController.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Alamofire
 
 
 class AddressSearchViewController: UIViewController {
@@ -56,19 +57,11 @@ class AddressSearchViewController: UIViewController {
             "lat": addressLat!,
             "lang": addressLong!
            ]
-        
            Loader.showHud()
-           NetworkManager.updateProfile(parameters: param) {[weak self] result in
-               Loader.dismissHud()
-               switch result {
-               case let .success(response):
-                   print(response)
-                
-                
-                
-               case .failure: break
-               }
-           }
+           
+        
+        
+        
        }
     
     func fetchUserProfile() {
