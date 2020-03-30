@@ -21,12 +21,17 @@ class WalletViewController: BaseViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         addMoneyButton.addTarget(self, action: #selector(didSelectAddMoney), for: .touchUpInside)
-
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.navigationBar.topItem?.title = " "
+        self.navigationItem.title = "Wallet History"
         
         getWalletHistory()
-//        getWalletBalance()
+        getWalletBalance()
     }
+    
     
     func getWalletHistory() {
         let param: [String: Any] = [
@@ -60,7 +65,9 @@ class WalletViewController: BaseViewController {
                 print(response)
                 if let notification = response.data {
                     self?.balance = notification
-                    self?.lblBalance.text = "\(self?.balance.balance ?? 0)"
+                    
+                    let amount = "\(self?.balance.balance ?? 0)"
+                    self?.lblBalance.text =  "\u{20B9}" + amount
                 }
                 
             case .failure: break
@@ -143,13 +150,7 @@ extension WalletViewController: UICollectionViewDelegate, UICollectionViewDataSo
 //        vc.product = dataArr[indexPath.row]
 //        self.navigationController?.pushViewController(vc, animated: true)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        
-        self.navigationController?.navigationBar.topItem?.title = " "
-        self.navigationItem.title = "Wallet History"
-    }
-    
-    
+
 }
 
 

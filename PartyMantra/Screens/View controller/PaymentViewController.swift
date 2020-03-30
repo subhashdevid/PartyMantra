@@ -16,33 +16,20 @@ class PaymentViewController: UIViewController {
     let defaultWidth : CGFloat = 120
     
     let razorpayKey = "rzp_test_zAvfify4pZWTAH"
-
-    var paymentAmount : String?
-    var amount = 0
+    
+    var orderId : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        amount = Int(paymentAmount ?? "0") ?? 0
-        amount = amount * 100
-        self.addMoneyToPay(amount: amount )
     }
     
-    func addMoneyToPay( amount : Int)  {
-            let param: [String: String] = [
-                "amount" : "\(amount)"
-            ]
-            // Loader.showHud()
-            
-            Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.addMoneyUrl, parameter: param as? [String : String], handler: { (response, isSuccess) in
+    func addMoneyToPay( amount : String, payOrderid :String)  {
+        let pay_amount = Int(amount)
+        orderId = payOrderid
+        
+        self.openRazorpayCheckout(amount: pay_amount)
+    }
 
-                if isSuccess{
-// internal : order id
-                    self.openRazorpayCheckout(amount: amount)
-                }
-            })
-        }
-  
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
         }
@@ -63,7 +50,7 @@ class PaymentViewController: UIViewController {
         }
         
     @IBAction func openCheckoutAction(_ sender: UIButton) {
-        self.openRazorpayCheckout(amount:amount)
+//        self.openRazorpayCheckout(amount:amount)
         }
         
     public func openRazorpayCheckout(amount: Int?) {
@@ -104,11 +91,34 @@ class PaymentViewController: UIViewController {
             print("success: ", payment_id)
             self.presentAlert(withTitle: "Success", message: "Payment Succeeded")
             
+            self.verifyWalletMoneyToServer(razorpay_payment_id: payment_id, razorpay_order_id: self.orderId ?? "" )
             
             //  razor pay id : success:  pay_EYS5s8Z7aTgQ8s
-
-            self.navigationController?.popViewController(animated: false)
+            
+            
         }
+        
+        
+        
+        func verifyWalletMoneyToServer( razorpay_payment_id : String?, razorpay_order_id : String)  {
+                   
+            let param: [String: String] = [
+                "razorpay_payment_id" : razorpay_payment_id ?? "",
+                "razorpay_order_id" : razorpay_order_id,
+                "Razorpay_signature" : "PartyMantra"
+            ]
+
+            Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.verifyMoneyUrl, parameter: param as? [String : String], handler: { (response, isSuccess) in
+
+                if isSuccess{
+                   let response = response as! Dictionary<String,Any>
+                    print(response)
+                    NotificationCenter.default.post(name: Notification.Name("NotificationIdentifier"), object: nil)
+                }
+            })
+        }
+        
+        
     }
 
     // RazorpayPaymentCompletionProtocolWithData - This will returns you the data in both error and success case. On payment failure you will get a code and description. In payment success you will get the payment id.
@@ -126,26 +136,15 @@ class PaymentViewController: UIViewController {
     }
 
 
-    extension PaymentViewController {
-        func presentAlert(withTitle title: String?, message : String?) {
-            DispatchQueue.main.async {
-                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                let OKAction = UIAlertAction(title: "Okay", style: .default)
-                alertController.addAction(OKAction)
-                self.present(alertController, animated: true, completion: nil)
-            }
+extension PaymentViewController {
+    func presentAlert(withTitle title: String?, message : String?) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "Okay", style: .default)
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
         }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
+    
 }
  
