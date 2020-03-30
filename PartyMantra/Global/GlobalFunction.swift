@@ -39,4 +39,9 @@ class GlobalFunction {
             imageView.image = Constants.defaultUserImage
         }
     }
+    
+    
 }
+
+
+

@@ -57,12 +57,21 @@ class AddressSearchViewController: UIViewController {
             "lat": addressLat!,
             "lang": addressLong!
            ]
-           Loader.showHud()
+          // Loader.showHud()
            
-        
-        
-        
-       }
+        Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.UpdateAddress, parameter: param as! [String : String], handler: { (response, isSuccess) in
+            
+            if isSuccess{
+                let  result = response as! Dictionary<String,Any>
+                //let  status = response["status"] 
+                print(result)
+                
+                
+            }
+            
+            
+        })
+    }
     
     func fetchUserProfile() {
             let accessUserToken =  UserDefaults.standard.string(forKey: "AccessToken")

@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.0.5)
+  - Alamofire (4.9.1)
   - CocoaLumberjack (3.6.0):
     - CocoaLumberjack/Core (= 3.6.0)
   - CocoaLumberjack/Core (3.6.0)
@@ -11,19 +11,21 @@ PODS:
   - Kingfisher (5.13.2):
     - Kingfisher/Core (= 5.13.2)
   - Kingfisher/Core (5.13.2)
+  - MBProgressHUD (1.1.0)
   - SVGKit (2.1.1):
     - CocoaLumberjack (~> 3.0)
   - SVProgressHUD (2.2.5)
   - SwiftPhoneNumberFormatter (1.5)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 4.9.1)
   - Cosmos (~> 21.0)
   - DPOTPView
   - DropDown
   - DynamicCodable (= 1.0)
   - IQKeyboardManagerSwift
   - Kingfisher (~> 5.0)
+  - MBProgressHUD (~> 1.1.0)
   - SVGKit
   - SVProgressHUD
   - SwiftPhoneNumberFormatter
@@ -38,12 +40,13 @@ SPEC REPOS:
     - DynamicCodable
     - IQKeyboardManagerSwift
     - Kingfisher
+    - MBProgressHUD
     - SVGKit
     - SVProgressHUD
     - SwiftPhoneNumberFormatter
 
 SPEC CHECKSUMS:
-  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
   Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   DPOTPView: 2cd6a4f99092079fb3e49c9c537d9bb799c778db
@@ -51,10 +54,11 @@ SPEC CHECKSUMS:
   DynamicCodable: 2cf558d057b3e6540552943254e1c9eeb706dde2
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
 
-PODFILE CHECKSUM: d4661846ff031dded67c403d36f2d2720f84db9c
+PODFILE CHECKSUM: c4f9e5443344cd7503c950f4099715bf3cdb26f7
 
 COCOAPODS: 1.9.1

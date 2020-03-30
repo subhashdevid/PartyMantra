@@ -12,6 +12,8 @@ import SVGKit
 
 class Utility{
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     func SetSVGImage(_ imageTitle:String) -> UIImage {
         let namSvgImgVar: SVGKImage = SVGKImage(named: imageTitle)
         let namImjVar: UIImage = namSvgImgVar.uiImage
@@ -29,6 +31,22 @@ class Utility{
         return Int(label.frame.height)
     }
 
+    func showSimpleAlert(_ title:String,_ message:String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
+            //Cancel Action
+        }))
+        alert.addAction(UIAlertAction(title: "Ok",
+                                      style: UIAlertAction.Style.default,
+                                      handler: {(_: UIAlertAction!) in
+                                        //Sign out action
+        }))
+        appDelegate.window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    
     
 }
 
