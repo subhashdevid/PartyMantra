@@ -11,9 +11,9 @@ import SwiftPhoneNumberFormatter
 
 class LoginViewController: BaseViewController {
     
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var txtMobile: PhoneFormattedTextField!
     @IBOutlet weak var btnLogin: UIButton!
+  
     var validation = Validation()
     
     var mobileNumber = ""
@@ -41,12 +41,7 @@ class LoginViewController: BaseViewController {
         self.navigationController?.isNavigationBarHidden = true
         
     }
-    
-    override func viewForScrolling() -> UIScrollView? {
-        return scrollView
-    }
-    
-    
+   
     func validateUser()  {
         self.rawMobileNumber = self.mobileNumber
         

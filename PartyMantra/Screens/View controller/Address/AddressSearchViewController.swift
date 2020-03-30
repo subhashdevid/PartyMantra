@@ -11,7 +11,7 @@ import MapKit
 import Alamofire
 
 
-class AddressSearchViewController: UIViewController {
+class AddressSearchViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var textfieldAddress: UITextField!
     @IBOutlet weak var tableviewSearch: UITableView!
@@ -30,6 +30,43 @@ class AddressSearchViewController: UIViewController {
     var mobileString : String?
 
     var autocompleteResults :[GApiResponse.Autocomplete] = []
+    
+    var locationManager: CLLocationManager!
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        if (CLLocationManager.locationServicesEnabled()) {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+                self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    //MARK:- CLLocationManager Delegate
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+       {
+
+           let location = locations.last! as CLLocation
+
+           let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+           let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+
+           self.mapview.setRegion(region, animated: true)
+       }
+    
     
     //search button action
     @IBAction func searchButtonPressed(_ sender: Any) {
@@ -98,16 +135,7 @@ class AddressSearchViewController: UIViewController {
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()        
-    }
-    override func viewWillAppear(_ animated: Bool) {
-                self.navigationController?.isNavigationBarHidden = true
-    }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
     func showResults(string:String){
         var input = GInput()
         input.keyword = string
