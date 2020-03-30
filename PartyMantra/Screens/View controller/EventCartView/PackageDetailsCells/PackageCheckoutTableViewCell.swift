@@ -15,6 +15,8 @@ class PackageCheckoutTableViewCell: UITableViewCell,UITableViewDelegate,UITableV
     @IBOutlet weak var cellTableView: UITableView!
     override func awakeFromNib() {
         super.awakeFromNib()
+       
+        cellTableView.isScrollEnabled = false
         // Initialization code
     }
 
@@ -25,7 +27,7 @@ class PackageCheckoutTableViewCell: UITableViewCell,UITableViewDelegate,UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

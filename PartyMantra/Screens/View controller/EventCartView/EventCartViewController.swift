@@ -101,7 +101,9 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1{
-          return  140
+         let numberOfCell = 3
+         let height = (numberOfCell-1)
+            return  (CGFloat(140+(30*height)))
         }
         return UITableView.automaticDimension
     }

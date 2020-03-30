@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
        // if let value = UserDefaults.standard.value(forKey: "ISLOGIN") as? String, value == "1" {
-//            showHomeScreen()
+           showHomeScreen()
        // } else {
-            showLoginScreen()
+           // showLoginScreen()
         //}
         
         

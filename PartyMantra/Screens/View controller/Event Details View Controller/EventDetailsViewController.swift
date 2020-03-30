@@ -223,7 +223,7 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
             }else{
                 if self.eventData.count > 0{
                 let cellModal = self.eventData[0].packages as [EventPackagesDetailModal]
-                let height = Int(((cellModal.count)*(139))+60)
+                let height = Int(((cellModal.count)*(140))+40)
                    
                     return CGFloat(height)
                 }
@@ -263,7 +263,7 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
             print(self.heightOfCell)
             self.tblView.reloadData()
         }else{
-           self.heightOfCell = Int(((cellModal.count)*(145))+50)
+           self.heightOfCell = Int(((cellModal.count)*(140))+40)
            self.tblView.reloadData()
         }
         }

@@ -99,7 +99,7 @@ class PackagesTableViewCell: UITableViewCell,UITableViewDelegate,UITableViewData
             if ((self.isViewMoreClicked) && (indexPath.row == self.senderInt)){
                 return CGFloat(self.newHeight)
              }else{
-                return CGFloat(self.heightOfCell+110)
+                return CGFloat(self.heightOfCell+100)
             }
             return 0
            }
@@ -119,7 +119,7 @@ class PackagesTableViewCell: UITableViewCell,UITableViewDelegate,UITableViewData
         
         self.newHeight = (self.heightOfCell+(count*35)+100)
         
-        heightDelegate?.getHeightFromArr(height: self.newHeight+80,restCellHeight:self.heightOfCell+110, isViewMoreBtnClicked: self.isViewMoreClicked, indexInt: sender.tag)
+        heightDelegate?.getHeightFromArr(height: self.newHeight+68,restCellHeight:self.heightOfCell+100, isViewMoreBtnClicked: self.isViewMoreClicked, indexInt: sender.tag)
        
         self.cellTableView.reloadData()
     }

@@ -71,8 +71,8 @@ class ViewMoreTableViewCell: UITableViewCell,UICollectionViewDelegate,UICollecti
         if self.dataCount.count>0{
             cellDetailLabel.text = modal.custom_package_detail ?? ""
           
-            cellItemLbl.text = "\(modal.package_name) \(modal.text_under_name)"
-            cellCostLabel.text = "\(modal.price)"
+            cellItemLbl.text = "\(modal.package_name ?? "") \(modal.text_under_name ?? "")"
+            cellCostLabel.text = "\(modal.price ?? 0)"
             countLbl.text = "0"
             
         }
