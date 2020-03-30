@@ -56,7 +56,7 @@ class AddressSearchViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     //MARK:- CLLocationManager Delegate
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
        {
 
            let location = locations.last! as CLLocation
@@ -86,10 +86,18 @@ class AddressSearchViewController: UIViewController, CLLocationManagerDelegate {
     
     
     func updateAddress() {
-        UserDetails.shared.set_address(addressString ?? "")
-        UserDetails.shared.set_address_lat(addressLat ?? "")
-        UserDetails.shared.set_address_long(addressLong ?? "")
-        UserDefaults.standard.synchronize()
+        
+        if (addressString?.isEmpty ?? false){
+            self.showAlert("Please enter your address")
+            return
+        }else{
+            
+            UserDetails.shared.set_address(addressString ?? "")
+            UserDetails.shared.set_address_lat(addressLat ?? "")
+            UserDetails.shared.set_address_long(addressLong ?? "")
+            UserDefaults.standard.synchronize()
+            
+        }
         
            let param: [String: Any] = [
             "address": addressString ?? "",
@@ -196,7 +204,11 @@ extension AddressSearchViewController : MKMapViewDelegate {
         GoogleApi.shared.callApi(.reverseGeo , input: input) { (response) in
             if let places = response.data as? [GApiResponse.ReverseGio], response.isValidFor(.reverseGeo) {
                 DispatchQueue.main.async {
-                    self.textfieldAddress.text = places.first?.formattedAddress
+                    
+                    if self.selectOption == "auto" {
+                        self.textfieldAddress.text = places.first?.formattedAddress
+                        self.addressString = self.textfieldAddress.text ?? ""
+                    }
                 }
             } else { print(response.error ?? "ERROR") }
         }

@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "23209B40-64CE-423F-AFFE-DBB8C8BDBA25"
+            uuid = "CBD1F965-A3A2-499B-9B0C-96599B9E746F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PartyMantra/Screens/TabBar/MyProfileUpdateViewController.swift"
+            filePath = "PartyMantra/Screens/View controller/Address/AddressSearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "didSelect(image:tag:)"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "mapView(_:regionDidChangeAnimated:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

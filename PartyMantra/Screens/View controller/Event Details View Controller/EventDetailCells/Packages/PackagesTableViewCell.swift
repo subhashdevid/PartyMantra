@@ -26,7 +26,7 @@ class PackagesTableViewCell: UITableViewCell,UITableViewDelegate,UITableViewData
     @IBOutlet weak var cellTableView: UITableView!
     override func awakeFromNib() {
         super.awakeFromNib()
-       // cellIconImage.image = Utility().SetSVGImage("bag.svg")
+        cellIconImage.image = UIImage.init(named: "bagIcon")
         cellIconImage.image = cellIconImage.image?.imageWithColor(color1: .red)
         // Initialization code
         cellTableView.isScrollEnabled = false
