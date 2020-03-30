@@ -19,6 +19,8 @@ class AddBalanceViewController: UIViewController {
     @IBOutlet weak var errorLbl: UILabel!
     
     var amount = ""
+    var pay = PaymentViewController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +74,12 @@ class AddBalanceViewController: UIViewController {
         }
         else{
             errorLbl.isHidden = true
-            showAlert(title: "Message", "Money Added...", goBack: false)
+            getAddMoney()
+            
+            
+        //showAlert(title: "Message", "Money Added...", goBack: false)
+            //let Vc = PaymentViewController.instantiate(appStoryboard: .home) as PaymentViewController
+            //self.navigationController?.pushViewController(Vc, animated: true)
         }
         
     }
@@ -127,6 +134,35 @@ class AddBalanceViewController: UIViewController {
         }
         
     }
+    
+    
+    
+    func getAddMoney()  {
+        
+        let vc = PaymentViewController.instantiate(appStoryboard: .home) as PaymentViewController
+        vc.paymentAmount = amount
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+//
+//        let param: [String: String] = [
+//            "amount" : amountTextField.text ?? ""
+//        ]
+//        // Loader.showHud()
+//
+//        Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.addMoneyUrl, parameter: param as? [String : String], handler: { (response, isSuccess) in
+//
+//            if isSuccess{
+//               //_ = response as! Dictionary<String,Any>
+//
+//                //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//                //appDelegate.showHomeScreen()
+//
+//
+//
+//            }
+//        })
+    }
+    
     
 }
 

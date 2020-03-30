@@ -56,6 +56,9 @@
 		3B4F29FF24312A9200832ADA /* UseWalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4F29FD24312A9200832ADA /* UseWalletTableViewCell.xib */; };
 		3B6754A8242683DC005C97CA /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6754A7242683DC005C97CA /* EventDetail.swift */; };
 		BF22AD392431DC7E005E4871 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD382431DC7E005E4871 /* Multipart.swift */; };
+		BF22AD3D2432107B005E4871 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD3C2432107B005E4871 /* PaymentViewController.swift */; };
+		BF22AD3E243219AA005E4871 /* Razorpay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF22AD3A24320CF6005E4871 /* Razorpay.framework */; };
+		BF22AD3F243219AA005E4871 /* Razorpay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF22AD3A24320CF6005E4871 /* Razorpay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF26AA2D242F3A2D00FC61BC /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */; };
 		BF272C34242DD25D00202A71 /* MyProfileUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF272C33242DD25D00202A71 /* MyProfileUpdateViewController.swift */; };
 		BF2B8A602427443B00727866 /* Miscellaneous.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */; };
@@ -113,6 +116,20 @@
 		BFE54B87242E438C006D813B /* MyProfileUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE54B86242E438C006D813B /* MyProfileUpdateTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BF22AD40243219AB005E4871 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BF22AD3F243219AA005E4871 /* Razorpay.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		250F4D8406A879E019532AD7 /* Pods-PartyMantra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyMantra.debug.xcconfig"; path = "Target Support Files/Pods-PartyMantra/Pods-PartyMantra.debug.xcconfig"; sourceTree = "<group>"; };
 		3B0411F024274E1D000C9402 /* MoreInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -164,6 +181,8 @@
 		3B6754A7242683DC005C97CA /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
 		B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyMantra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF22AD382431DC7E005E4871 /* Multipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipart.swift; sourceTree = "<group>"; };
+		BF22AD3A24320CF6005E4871 /* Razorpay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Razorpay.framework; sourceTree = "<group>"; };
+		BF22AD3C2432107B005E4871 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		BF272C33242DD25D00202A71 /* MyProfileUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUpdateViewController.swift; sourceTree = "<group>"; };
 		BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Miscellaneous.storyboard; sourceTree = "<group>"; };
@@ -229,6 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF22AD3E243219AA005E4871 /* Razorpay.framework in Frameworks */,
 				0A30996FEE833B1C60685AC5 /* Pods_PartyMantra.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +460,7 @@
 				3B0411EC242731CE000C9402 /* Event Details View Controller */,
 				BF2EEAEF2430D6D500F286E9 /* OTPViewController.swift */,
 				BF2EEAF32431023400F286E9 /* LocationSelectViewController.swift */,
+				BF22AD3C2432107B005E4871 /* PaymentViewController.swift */,
 			);
 			path = "View controller";
 			sourceTree = "<group>";
@@ -457,6 +478,7 @@
 		BF8773402423AF6200CF8C5D = {
 			isa = PBXGroup;
 			children = (
+				BF22AD3A24320CF6005E4871 /* Razorpay.framework */,
 				BF87734B2423AF6200CF8C5D /* PartyMantra */,
 				BF87734A2423AF6200CF8C5D /* Products */,
 				85BB2F2C4BC8D770BFF09230 /* Pods */,
@@ -634,6 +656,7 @@
 				BF8773462423AF6200CF8C5D /* Frameworks */,
 				BF8773472423AF6200CF8C5D /* Resources */,
 				9749217624C0D490159D9D84 /* [CP] Embed Pods Frameworks */,
+				BF22AD40243219AB005E4871 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -782,6 +805,7 @@
 				3B4F29F52431250400832ADA /* AllTaxesTableViewCell.swift in Sources */,
 				BF8773A82423C12B00CF8C5D /* TopMenuBar.swift in Sources */,
 				BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */,
+				BF22AD3D2432107B005E4871 /* PaymentViewController.swift in Sources */,
 				BF8773932423C0F500CF8C5D /* OrderViewController.swift in Sources */,
 				BF9EF0BB24319F9100ADB07F /* AddressSearchViewController.swift in Sources */,
 				3B4F29FE24312A9200832ADA /* UseWalletTableViewCell.swift in Sources */,
@@ -865,6 +889,7 @@
 		BF87735B2423AF6300CF8C5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -925,6 +950,7 @@
 		BF87735C2423AF6300CF8C5D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -982,6 +1008,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PartyMantra/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1001,6 +1031,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PartyMantra/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -29,10 +29,6 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
     var validation = Validation()
     var imagePicker: ImagePicker!
     let dropDown = DropDown();
-    
-    var profileAddress : String?
-    var profilenumber : String?
-
     var screen : String?
 
     override func viewDidLoad() {

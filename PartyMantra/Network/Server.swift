@@ -60,6 +60,7 @@ class Server: NSObject, Codable { // checkpoint
     var getWalletHistoryUrl = "\(mainUrl)wallet-history"
     var getOrderUrl = "\(mainUrl)order-history"
     var NotificationUrl = "\(mainUrl)notifications"
+    var addMoneyUrl="\(mainUrl)add-money"
 
 //    var resendOTP = "http://api.msg91.com/api/sendhttp.php"
     

@@ -321,5 +321,17 @@ struct AddressModel: Codable {
     var message: String?
 }
 
+struct AddMoneyModel:Codable{
+    let status:String?
+    let data :String?
+    let id :Int?
+    let order_id: String?
+    let amount: String?
+    
+    
+}
+
+
+
 
 

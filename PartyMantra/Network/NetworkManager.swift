@@ -247,7 +247,10 @@ class NetworkManager {
             , parameters: parameters, handler: handler)
     }
     
-    
+    class func getAddMoney(parameters: [String: Any]?, handler: (APICompletion<AddMoneyModel>)? = nil) {
+        getRequest(url: Server.shared.addMoneyUrl
+            , parameters: parameters, handler: handler)
+    }
     
     class func getNotification(parameters: [String: Any]?, handler: (APICompletion<[notificationModel]>)? = nil) {
         getRequest(url: Server.shared.NotificationUrl, parameters: parameters, handler: handler)
