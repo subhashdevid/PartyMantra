@@ -428,7 +428,6 @@
             </objects>
             <point key="canvasLocation" x="155.07246376811597" y="245.75892857142856"/>
         </scene>
-<<<<<<< Updated upstream
         <!--Location Select View Controller-->
         <scene sceneID="t7M-vz-vIa">
             <objects>
@@ -608,7 +607,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgQ-9b-OSP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-279" y="1116"/>
-=======
+            </scene>
         <!--View Controller-->
         <scene sceneID="GHH-m9-T8T">
             <objects>
@@ -1013,6 +1012,7 @@
             </objects>
             <point key="canvasLocation" x="1072" y="246"/>
         </scene>
+        
         <!--Event Cart View Controller-->
         <scene sceneID="Dpe-kD-Dhj">
             <objects>
@@ -1046,9 +1046,8 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vH-wK-AfQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1957" y="240"/>
->>>>>>> Stashed changes
         </scene>
-    </scenes>
+        </scenes>
     <resources>
         <image name="DefaultImage" width="17.333333969116211" height="17.333333969116211"/>
         <image name="calendar" width="96" height="96"/>
