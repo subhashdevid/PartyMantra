@@ -40,6 +40,7 @@ class Server: NSObject, Codable { // checkpoint
 
     var LoginUrl = "\(mainUrl)login"
     var VerifyUrl = "\(mainUrl)verify-otp"
+    var UpdateProfile = "\(mainUrl)update-profile"
     var HomeUrl = "\(mainUrl)home"
     var ProfileUrl = "\(mainUrl)profile"
     

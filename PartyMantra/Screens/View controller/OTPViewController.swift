@@ -60,8 +60,8 @@ class OTPViewController: BaseViewController {
     func loginUserWithOtp(otp : String?, mobile: String) {
        
            let param: [String: Any] = [
-               "mobile": otp ?? "",
-               "otp": mobile
+            "mobile": mobile ,
+               "otp": otp ?? ""
            ]
            
            Loader.showHud()
@@ -70,6 +70,10 @@ class OTPViewController: BaseViewController {
                switch result {
                case let .success(response):
                    print(response)
+                   UserDefaults.standard.set(response.data?.token, forKey: "AccessToken") //setObject
+                   UserDefaults.standard.synchronize()
+
+                   
                    self?.redirectToAddressScreen()
                case .failure: break
                }
@@ -80,6 +84,7 @@ class OTPViewController: BaseViewController {
     func redirectToAddressScreen()  {
         
         let vc = LocationSelectViewController.instantiate(appStoryboard: .events) as LocationSelectViewController
+        vc.mobile = self.mobile
                self.navigationController?.pushViewController(vc, animated: true)
     }
     

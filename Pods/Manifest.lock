@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.0.5)
   - CocoaLumberjack (3.6.0):
     - CocoaLumberjack/Core (= 3.6.0)
   - CocoaLumberjack/Core (3.6.0)
@@ -16,6 +17,7 @@ PODS:
   - SwiftPhoneNumberFormatter (1.5)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.0)
   - Cosmos (~> 21.0)
   - DPOTPView
   - DropDown
@@ -28,6 +30,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - CocoaLumberjack
     - Cosmos
     - DPOTPView
@@ -40,6 +43,7 @@ SPEC REPOS:
     - SwiftPhoneNumberFormatter
 
 SPEC CHECKSUMS:
+  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
   CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
   Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   DPOTPView: 2cd6a4f99092079fb3e49c9c537d9bb799c778db
@@ -51,6 +55,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
 
-PODFILE CHECKSUM: 05ea9d87f31379047759ef0b18e7cb563a8503c5
+PODFILE CHECKSUM: 932decde01d345d9a49007d896f5d607a7207720
 
 COCOAPODS: 1.9.1

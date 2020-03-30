@@ -10,6 +10,9 @@ import UIKit
 
 class LocationSelectViewController: BaseViewController {
 
+    var mobile : String?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -22,16 +25,9 @@ class LocationSelectViewController: BaseViewController {
     func redirectToAddressScreen()  {
            
             let vc = AddressSearchViewController.instantiate(appStoryboard: .miscellaneous) as AddressSearchViewController
+        
+        vc.mobileString = self.mobile
                 self.navigationController?.pushViewController(vc, animated: true)
        }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

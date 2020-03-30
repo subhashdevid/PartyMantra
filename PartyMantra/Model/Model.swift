@@ -325,8 +325,9 @@ struct ProfileModel: Codable {
 
 
 }
-
-
+struct AddressModel: Codable {
+    var message: String?
+}
 
 
 

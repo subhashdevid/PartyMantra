@@ -21,28 +21,26 @@ enum FieldIdentifier: Int {
 
 
 class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, PickerDelegate {
-   
-    
-  
-    
-    
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnNext: UIButton!
     
     var profile: ProfileModel?
-    
     var validation = Validation()
     var imagePicker: ImagePicker!
-    
     let dropDown = DropDown();
     
-    
-    
-    
+    var profileAddress : String?
+    var profilenumber : String?
+
+    var screen : String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "My Profile"
         
+
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44.0
         self.tableView.tableFooterView = UIView()
@@ -102,12 +100,42 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
         
         
         
+            self.updateProfile()
+                
+        
+        
         
     }
+    
+    
+    func updateProfile()  {
+        
+        let param: [String: Any] = [
+            :
+        ]
+        
+        Loader.showHud()
+        NetworkManager.updateProfile(parameters: param) {[weak self] result in
+            Loader.dismissHud()
+            switch result {
+            case let .success(response):
+                print(response)
+//                self?.redirectToAddressScreen()
+            case .failure: break
+            }
+        }
+    }
+    
+    
+    
     
     func didSelect(image: UIImage?, tag: Int) {
     
     }
+    
+    
+    
+    
     
     
 //MARK: Date picker action

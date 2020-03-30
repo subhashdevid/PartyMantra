@@ -15,9 +15,21 @@ class AddressSearchViewController: UIViewController {
     @IBOutlet weak var textfieldAddress: UITextField!
     @IBOutlet weak var tableviewSearch: UITableView!
     @IBOutlet weak var constraintSearchIconWidth: NSLayoutConstraint!
+    @IBOutlet weak var constraintSearchViewTop: NSLayoutConstraint!
+    
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var mapview: MKMapView!
+    var profile : ProfileModel?
+
+    var addressString : String?
+    var addressLat : String?
+    var addressLong : String?
+
+
     
+    
+    var mobileString : String?
+
     var autocompleteResults :[GApiResponse.Autocomplete] = []
     
     //search button action
@@ -25,10 +37,86 @@ class AddressSearchViewController: UIViewController {
         textfieldAddress.becomeFirstResponder()
     }
     
+    @IBAction func submitButtonPressed(_ sender: Any) {
+        
+        self.view.endEditing(true)
+        if addressString?.count != 0 {
+            self.updateAddress()
+        }
+        else{
+            
+        }
+    }
+    
+    
+    func updateAddress() {
+        
+           let param: [String: Any] = [
+            "address": addressString ?? "",
+            "lat": addressLat!,
+            "lang": addressLong!
+           ]
+        
+           Loader.showHud()
+           NetworkManager.updateProfile(parameters: param) {[weak self] result in
+               Loader.dismissHud()
+               switch result {
+               case let .success(response):
+                   print(response)
+                
+                
+                
+               case .failure: break
+               }
+           }
+       }
+    
+    func fetchUserProfile() {
+            let accessUserToken =  UserDefaults.standard.string(forKey: "AccessToken")
+            let param: [String: Any] = [
+                "token":accessUserToken ?? ""
+            ]
+            Loader.showHud()
+            NetworkManager.getProfile(parameters: param) {[weak self] result in
+                Loader.dismissHud()
+                switch result {
+                case let .success(response):
+                    if let userProfile = response.data {
+                        self?.profile = userProfile
+                        
+                        let vc = MyProfileUpdateViewController.instantiate(appStoryboard: .home) as MyProfileUpdateViewController
+                        self?.mobileString = self?.mobileString?.replacingOccurrences(of: "-", with: "")
+                        self?.mobileString = self?.mobileString?.replacingOccurrences(of: " ", with: "")
+                               
+                        self?.profile?.address = self?.addressString
+                        self?.profile?.mobile = self?.mobileString
+                        
+                        vc.profile = self?.profile
+                        vc.screen = "My Profile"
+                        self?.navigationController?.pushViewController(vc, animated: true)
+                        
+                        
+                        
+                    }
+                    
+                case .failure: break
+                }
+            }
+        }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()        
     }
+    override func viewWillAppear(_ animated: Bool) {
+                self.navigationController?.isNavigationBarHidden = true
+    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
     func showResults(string:String){
         var input = GInput()
         input.keyword = string
@@ -68,7 +156,9 @@ extension AddressSearchViewController : UITextFieldDelegate {
         return true
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        constraintSearchIconWidth.constant = 0.0 ; return true
+        constraintSearchViewTop.constant = -( UIScreen.main.bounds.size.height/2 - 40)
+        constraintSearchIconWidth.constant = 38.0
+        return true
     }
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         constraintSearchIconWidth.constant = 38.0 ; return true
@@ -82,6 +172,8 @@ extension AddressSearchViewController : MKMapViewDelegate {
         var input = GInput()
         let destination = GLocation.init(latitude: mapview.region.center.latitude, longitude: mapview.region.center.longitude)
         input.destinationCoordinate = destination
+        self.addressLat = "\(destination.latitude ?? 0.0)"
+        self.addressLong = "\(destination.longitude ?? 0.0)"
         GoogleApi.shared.callApi(.reverseGeo , input: input) { (response) in
             if let places = response.data as? [GApiResponse.ReverseGio], response.isValidFor(.reverseGeo) {
                 DispatchQueue.main.async {
@@ -106,7 +198,10 @@ extension AddressSearchViewController : UITableViewDataSource,UITableViewDelegat
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         textfieldAddress.text = autocompleteResults[indexPath.row].formattedAddress
+        constraintSearchViewTop.constant = 80
         textfieldAddress.resignFirstResponder()
+        addressString = textfieldAddress.text ?? ""
+        
         var input = GInput()
         input.keyword = autocompleteResults[indexPath.row].placeId
         GoogleApi.shared.callApi(.placeInformation,input: input) { (response) in

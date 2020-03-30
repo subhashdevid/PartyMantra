@@ -190,6 +190,16 @@ class NetworkManager {
         postRequest(url: Server.shared.VerifyUrl, parameters: parameters, handler: handler)
     }
 
+    class func updateProfile(parameters: [String: Any]?, handler: (APICompletion<AddressModel>)? = nil) {
+        postRequest(url: Server.shared.UpdateProfile, parameters: parameters, handler: handler)
+    
+    
+    }
+    
+    
+//    multipartRequest
+    
+    
     class func getHomeListing(parameters: [String: Any]?, handler: (APICompletion<HomeModel>)? = nil) {
         getRequest(url: Server.shared.HomeUrl
             , parameters: parameters, handler: handler)
@@ -311,7 +321,7 @@ class NetworkManager {
     
     class func postRequest<T: Decodable>(url: String?, parameters: [String: Any]? = nil, responseKey: String? = nil, handler: (APICompletion<T>)? = nil) {
         // print(url as Any)
-        request(url: url, method: .post, parameters: parameters, responseKey: responseKey, handler: handler)
+        request(url: url, method: .post ,parameters: parameters, responseKey: responseKey, handler: handler)
     }
     
     class func getRequest<T: Decodable>(url: String?, parameters: [String: Any]? = nil, responseKey: String? = nil, handler: (APICompletion<T>)? = nil) {

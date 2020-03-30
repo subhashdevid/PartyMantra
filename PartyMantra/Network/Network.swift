@@ -59,13 +59,8 @@ class Network {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        let accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9wYXJ0eW1hbnRyYS5hcHBvZmZpY2UueHl6XC9hcGlcL3ZlcmlmeS1vdHAiLCJpYXQiOjE1ODE3NjEzODIsIm5iZiI6MTU4MTc2MTM4MiwianRpIjoidGpYS25HM2lGSENaMXo4YiIsInN1YiI6MTgsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.R1C50lwnQ5Y7m7Dt5vK4WzOfxCcx8glDER1P_WGBuqw"
-        
-        UserDefaults.standard.set(accessToken, forKey: "AccessToken") //setObject
-        UserDefaults.standard.synchronize()
-
-        
-        request.setValue("Bearer \(accessToken ?? "")", forHTTPHeaderField: "Authorization")
+        let accessUserToken =  UserDefaults.standard.string(forKey: "AccessToken")
+        request.setValue("Bearer \(accessUserToken ?? "")", forHTTPHeaderField: "Authorization")
         
         
         request.httpMethod = self.apiResource.method.rawValue
