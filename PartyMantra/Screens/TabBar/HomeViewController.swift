@@ -16,7 +16,7 @@ class HomeViewController: BaseViewController, UISearchBarDelegate {
     @IBOutlet var addressLbl: UILabel!
     @IBOutlet var changeBtn: UIButton!
     
-    
+    var profile : ProfileModel?
     var topMenuBar: TopMenuBar!
     var homePageViewController: HomePageViewController?
     fileprivate var selectedIndex: Int?
@@ -28,10 +28,14 @@ class HomeViewController: BaseViewController, UISearchBarDelegate {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.groupTableViewBackground
         topAddressView.backgroundColor = .white
-        addressLbl.text = "AIG Gaur City Gautam Budh Nagar UP"
+        
+        
+        UserDefaults.standard.set("1", forKey: "ISLOGIN") //setObject
+                          UserDefaults.standard.synchronize()
+
         
         addTopMenuView()
-        
+        fetchUserProfile()
         
         
         
@@ -44,6 +48,28 @@ class HomeViewController: BaseViewController, UISearchBarDelegate {
         navigationItem.titleView = searchBar
         
     }
+    
+    func fetchUserProfile() {
+        let accessUserToken =  UserDefaults.standard.string(forKey: "AccessToken")
+        let param: [String: Any] = [
+            "token":accessUserToken ?? ""
+        ]
+        Loader.showHud()
+        NetworkManager.getProfile(parameters: param) {[weak self] result in
+            Loader.dismissHud()
+            switch result {
+            case let .success(response):
+                if let userProfile = response.data {
+                    self?.profile = userProfile
+                    self?.addressLbl.text = self?.profile?.address
+                    
+                }
+                
+            case .failure: break
+            }
+        }
+    }
+    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String) {
         

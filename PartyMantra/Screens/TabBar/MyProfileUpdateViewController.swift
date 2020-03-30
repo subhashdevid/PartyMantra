@@ -97,33 +97,31 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
             return
         }
         
-        
-        
-        
             self.updateProfile()
-                
-        
-        
-        
     }
     
     
     func updateProfile()  {
         
-        let param: [String: Any] = [
-            :
+        let param: [String: String] = [
+            
+            "name" : profile?.name ?? "",
+            "email" : profile?.email ?? "",
+            "dob" : profile?.dob ?? "",
+            "gender" : profile?.gender ?? ""
+            
         ]
+        // Loader.showHud()
         
-        Loader.showHud()
-        NetworkManager.updateProfile(parameters: param) {[weak self] result in
-            Loader.dismissHud()
-            switch result {
-            case let .success(response):
-                print(response)
-//                self?.redirectToAddressScreen()
-            case .failure: break
+        Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.UpdateProfile, parameter: param as? [String : String], handler: { (response, isSuccess) in
+            
+            if isSuccess{
+                _ = response as! Dictionary<String,Any>
+                
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.showHomeScreen()
             }
-        }
+        })
     }
     
     
@@ -155,7 +153,7 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
            }
            let indexPath = self.tableView.indexPath(for: cell)
         cell.nameTextField.text = date
-        
+        profile?.dob = date
         
        }
     
@@ -174,14 +172,14 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
         
         
         
-        let array = ["Male","Female","Other"]
+        let array = ["male","female","other"]
         self.dropDown.anchorView = cell.nameTextField.plainView
         self.dropDown.bottomOffset = CGPoint(x: 0, y: (sender).bounds.height)
         self.dropDown.dataSource.removeAll()
         self.dropDown.dataSource = array
         self.dropDown.selectionAction = { [unowned self] (index, item) in
             self.profile?.gender = item
-            cell.nameTextField.text =  self.profile?.gender
+            cell.nameTextField.text =  self.profile?.gender?.capitalized
         }
         self.dropDown.show()
         
@@ -277,7 +275,7 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
             else if indexPath.row  == 1{
                 let cell = self.tableView.dequeueReusableCell(withIdentifier: "NameTableViewCell") as? MyProfileUpdateTableViewCell
                 cell?.nameLabel.text = "Gender"
-                cell?.nameTextField.text = self.profile?.gender ?? ""
+                cell?.nameTextField.text = self.profile?.gender ?? "".capitalized
                 cell?.nameTextField.tag = FieldIdentifier.gender.rawValue
                 
                 cell?.dropdownButton.isHidden = false

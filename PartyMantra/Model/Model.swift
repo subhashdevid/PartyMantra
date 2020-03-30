@@ -152,15 +152,7 @@ struct HomeCollection: Codable {
     let type: String?
 }
 struct NearByPlace: Codable {
-//    let id: Int?
-//    let name: String?
-//    let cover_image: String?
-//    let small_image: String?
-//    let istop: Int?
-//    let about: String?
-//    let type: String?
-//    let event: [eventModel]?
-    
+
     let id: Int?
        let creator_id: Int?
        let title: String?
@@ -235,8 +227,8 @@ struct restaurantModel: Codable {
     let description: String?
     let address: String?
     let short_address: String?
-    let lat: Double?
-    let lang: Double?
+    let lat: String?
+    let lang: String?
     let contact_no: String?
     let header_image: String?
     let small_image: String?
@@ -267,8 +259,8 @@ struct PartyModel: Codable {
     let description: String?
     let address: String?
     let short_address: String?
-    let lat: Double?
-    let lang: Double?
+    let lat: String?
+    let lang: String?
     let contact_no: String?
     let header_image: String?
     let small_image: String?

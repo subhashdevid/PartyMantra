@@ -21,7 +21,7 @@ class Multipart{
         let baseurl = "\(urlString)"
         
         hud.show(animated: true)
-        hud.mode = MBProgressHUDMode.annularDeterminate
+        hud.mode = MBProgressHUDMode.indeterminate
         self.hud.label.text = "Loading"
         
         mainView.addSubview(hud)
@@ -76,7 +76,7 @@ class Multipart{
                     self.hud.hide(animated: true)
                         handler(responceDic,true)
                         
-                    Utility().showSimpleAlert("Alert", "\(responceDic["message"] as? String ?? "")")
+//                    Utility().showSimpleAlert("Alert", "\(responceDic["message"] as? String ?? "")")
                    
                         DispatchQueue.main.async {
                             self.hud.hide(animated: true)

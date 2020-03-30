@@ -31,7 +31,7 @@ extension Date {
             return ""
         }
         
-        dateFormatter.dateFormat = "dd/MM/yyyy"///this is what you want to convert format
+        dateFormatter.dateFormat = "yyyy-MM-dd"///this is what you want to convert format
         dateFormatter.timeZone = NSTimeZone(name: "IST") as TimeZone?
         let timeStamp = dateFormatter.string(from: convertedDate!)
         

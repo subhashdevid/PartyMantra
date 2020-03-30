@@ -459,6 +459,9 @@
                                 <state key="normal" title="Automatically">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnAutomaticAction:" destination="shh-Lk-h9M" eventType="touchUpInside" id="CO1-vm-gI8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWC-Sc-jZo">
                                 <rect key="frame" x="10" y="566" width="394" height="50"/>
@@ -469,6 +472,9 @@
                                 <state key="normal" title="Type Manually">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnManualAction:" destination="shh-Lk-h9M" eventType="touchUpInside" id="F6y-2L-qHD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -607,7 +613,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgQ-9b-OSP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-279" y="1116"/>
-            </scene>
+        </scene>
         <!--View Controller-->
         <scene sceneID="GHH-m9-T8T">
             <objects>
@@ -1012,7 +1018,6 @@
             </objects>
             <point key="canvasLocation" x="1072" y="246"/>
         </scene>
-        
         <!--Event Cart View Controller-->
         <scene sceneID="Dpe-kD-Dhj">
             <objects>
@@ -1047,7 +1052,7 @@
             </objects>
             <point key="canvasLocation" x="1957" y="240"/>
         </scene>
-        </scenes>
+    </scenes>
     <resources>
         <image name="DefaultImage" width="17.333333969116211" height="17.333333969116211"/>
         <image name="calendar" width="96" height="96"/>

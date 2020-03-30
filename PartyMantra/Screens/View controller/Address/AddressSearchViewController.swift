@@ -25,10 +25,8 @@ class AddressSearchViewController: UIViewController {
     var addressString : String?
     var addressLat : String?
     var addressLong : String?
+    var selectOption : String?
 
-
-    
-    
     var mobileString : String?
 
     var autocompleteResults :[GApiResponse.Autocomplete] = []
@@ -51,7 +49,6 @@ class AddressSearchViewController: UIViewController {
     
     
     func updateAddress() {
-        
            let param: [String: Any] = [
             "address": addressString ?? "",
             "lat": addressLat!,
@@ -59,17 +56,12 @@ class AddressSearchViewController: UIViewController {
            ]
           // Loader.showHud()
            
-        Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.UpdateAddress, parameter: param as! [String : String], handler: { (response, isSuccess) in
+        Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.UpdateAddress, parameter: param as? [String : String], handler: { (response, isSuccess) in
             
             if isSuccess{
-                let  result = response as! Dictionary<String,Any>
-                //let  status = response["status"] 
-                print(result)
-                
-                
+//                let  result = response as! Dictionary<String,Any>
+                self.fetchUserProfile()
             }
-            
-            
         })
     }
     
@@ -87,12 +79,6 @@ class AddressSearchViewController: UIViewController {
                         self?.profile = userProfile
                         
                         let vc = MyProfileUpdateViewController.instantiate(appStoryboard: .home) as MyProfileUpdateViewController
-                        self?.mobileString = self?.mobileString?.replacingOccurrences(of: "-", with: "")
-                        self?.mobileString = self?.mobileString?.replacingOccurrences(of: " ", with: "")
-                               
-                        self?.profile?.address = self?.addressString
-                        self?.profile?.mobile = self?.mobileString
-                        
                         vc.profile = self?.profile
                         vc.screen = "My Profile"
                         self?.navigationController?.pushViewController(vc, animated: true)

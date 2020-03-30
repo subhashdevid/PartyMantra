@@ -19,11 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GoogleApi.shared.initialiseWithKey("AIzaSyBdnpGnI038nDRtvM7LbCrBClPnLeXvpfc")
         IQKeyboardManager.shared.enable = true
         
-       // if let value = UserDefaults.standard.value(forKey: "ISLOGIN") as? String, value == "1" {
-//           showHomeScreen()
-       // } else {
+        if let value = UserDefaults.standard.value(forKey: "ISLOGIN") as? String, value == "1" {
+           showHomeScreen()
+        } else {
             showLoginScreen()
-        //}
+        }
         
         
         UINavigationBar.appearance().barTintColor = .white

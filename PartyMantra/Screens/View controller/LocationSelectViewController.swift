@@ -17,17 +17,22 @@ class LocationSelectViewController: BaseViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationController?.isNavigationBarHidden = true
-
         self.title = "Location"
-        self.redirectToAddressScreen()
     }
     
-    func redirectToAddressScreen()  {
-           
-            let vc = AddressSearchViewController.instantiate(appStoryboard: .miscellaneous) as AddressSearchViewController
-        
-        vc.mobileString = self.mobile
-                self.navigationController?.pushViewController(vc, animated: true)
-       }
+    @IBAction func btnAutomaticAction(_ sender: Any) {
+        let vc = AddressSearchViewController.instantiate(appStoryboard: .miscellaneous) as AddressSearchViewController
+                vc.selectOption = "auto"
+               vc.mobileString = self.mobile
+                       self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func btnManualAction(_ sender: Any) {
+        let vc = AddressSearchViewController.instantiate(appStoryboard: .miscellaneous) as AddressSearchViewController
+                vc.selectOption = "manual"
+               vc.mobileString = self.mobile
+                       self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 
 }
