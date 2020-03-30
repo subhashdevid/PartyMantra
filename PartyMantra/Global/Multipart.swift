@@ -13,10 +13,12 @@ import MBProgressHUD
 
 class Multipart{
    
-   
+    var hud: MBProgressHUD = MBProgressHUD()
     let accessUserToken : String =  UserDefaults.standard.string(forKey: "AccessToken") ?? ""
 
     func saveDataUsingMultipart(mainView : UIView,urlString : String,parameter:[String:String]! ,handler:@escaping((Any,Bool)-> Void)) -> Void {
+        
+        
         
         let baseurl = "\(urlString)"
         let headers : HTTPHeaders =
@@ -70,20 +72,27 @@ class Multipart{
     
     func UploadImageUsingMultipart(mainView : UIView,urlString : String, image:UIImage,handler:@escaping((Any,Bool)-> Void)) -> Void {
         
+        hud.show(animated: true)
+        hud.mode = MBProgressHUDMode.annularDeterminate
+        self.hud.label.text = "Loading"
+        mainView.addSubview(hud)
+        
+        
         let baseurl = "\(urlString)"
         let headers : HTTPHeaders =
             ["Authorization" : "Bearer \(accessUserToken)"]
         Alamofire.upload(multipartFormData: { multipartFormData in
             if let imageData = image.jpegData(compressionQuality: 0.2) {
-                        let random = arc4random()
-                        multipartFormData.append(imageData, withName: "file", fileName: "PsrtyMatra\(random).png", mimeType: "image/png")
+                let random = arc4random()
+                multipartFormData.append(imageData, withName: "file", fileName: "PsrtyMatra\(random).png", mimeType: "image/png")
             }
-//            for (key, value) in parameter {
-//                multipartFormData.append(value.data(using: String.Encoding.utf8)! , withName: key)
-//            }
+            //            for (key, value) in parameter {
+            //                multipartFormData.append(value.data(using: String.Encoding.utf8)! , withName: key)
+            //            }
         }, to:baseurl,
            method:.post,
            headers: headers,
+           
            encodingCompletion: { encodingResult in
             
             switch encodingResult {
@@ -92,34 +101,46 @@ class Multipart{
                 
                 upload.uploadProgress(closure: { (progress) in
                     
-//                self.hud.progress = Float(progress.fractionCompleted)
-//                self.hud.label.text = "Completed(\(Int((progress.fractionCompleted)*100))%)"
-//                //  print("Upload Progress: \(progress.fractionCompleted)")
+                    self.hud.progress = Float(progress.fractionCompleted)
+                    self.hud.label.text = "Completed(\(Int((progress.fractionCompleted)*100))%)"
+                    //  print("Upload Progress: \(progress.fractionCompleted)")
                 })
                 
                 upload.response { response in
                     debugPrint(response)
-                    
+                   self.hud.hide(animated: true)
                     do {
                         let responseObject = try JSONSerialization.jsonObject(with: response.data!, options: JSONSerialization.ReadingOptions.allowFragments)
-                        
                         let responceDic = responseObject as! NSDictionary
-                        
-                        handler(responceDic,true)
-                        
+                        if (responceDic["status"] as? Int ?? 0) == 200{
+                            handler(responceDic,true)
+                            Utility().AddAlert("Image Upload", "\(responceDic["message"] as? String ?? "")")
+                          
+                            DispatchQueue.main.async {
+                                self.hud.hide(animated: true)
+                            }
+                        }else{
+                           
+                            Utility().AddAlert("Image Upload", "\(responceDic["message"] as? String ?? "")")
+                            
+                            handler(responceDic,false)
+                        }
                     } catch let error as NSError {
                         print("error: \(error.localizedDescription)")
                     }
                 }
             case .failure(let encodingError):
                 //progress bar
-                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                    
+                }
                 print(encodingError)
             }
         })
     }
-    
-    
+            
+
+
     
     //image array
     
@@ -174,7 +195,7 @@ class Multipart{
 
                         handler(responceDic,true)
                        
-                          Utility().showSimpleAlert("Image Upload", "\(responceDic["message"] as? String ?? "")")
+                         Utility().AddAlert("Image Upload", "\(responceDic["message"] as? String ?? "")")
                         
                       
                     } catch let error as NSError {

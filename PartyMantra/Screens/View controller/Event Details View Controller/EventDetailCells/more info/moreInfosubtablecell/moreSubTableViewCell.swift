@@ -24,7 +24,7 @@ class moreSubTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureCellInfoDetail(modal:EventFacilitiesDetailModal) -> Void {
-        cellImageIcon.image = Utility().SetSVGImage("correct.svg")
+       // cellImageIcon.image = Utility().SetSVGImage("correct.svg")
         cellImageIcon.image = cellImageIcon.image?.imageWithColor(color1: .gray)
         cellDetailLbl.text = modal.name
     }

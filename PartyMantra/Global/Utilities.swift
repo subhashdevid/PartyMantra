@@ -31,7 +31,7 @@ class Utility{
         return Int(label.frame.height)
     }
 
-    func showSimpleAlert(_ title:String,_ message:String) {
+    func AddAlert(_ title:String,_ message:String) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
 

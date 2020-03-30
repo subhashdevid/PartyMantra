@@ -41,18 +41,14 @@ open class ImagePicker: NSObject {
         }
         
         return UIAlertAction(title: title, style: .default) { [unowned self] _ in
-           
-           
-                
-                self.pickerController.sourceType = type
-                self.presentationController?.present(self.pickerController, animated: true)
+            self.pickerController.sourceType = type
+            self.presentationController?.present(self.pickerController, animated: true)
             
            
         }
     }
     
     public func present(from sourceView: UIView) {
-        
         self.tag = sourceView.tag
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

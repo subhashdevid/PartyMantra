@@ -126,10 +126,25 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
     
     
     func didSelect(image: UIImage?, tag: Int) {
-    
+        let indexPath = IndexPath(row: tag, section: 0)
+        let profileCell = tableView.cellForRow(at: indexPath) as? MyProfileUpdateTableViewCell
+        
+       profileCell?.logoImageView.contentMode = .scaleAspectFill
+       profileCell?.logoImageView.image = image
+       
+        
+        
     }
     
-    
+//    func uploadProfileImageUpload(image:UIImage,imageView:UIImageView) -> Void {
+//        Multipart().UploadImageUsingMultipart(mainView: self.view, urlString: <#T##String#>, image: image) { (response, isSuccess) in
+//            if isSuccess{
+//
+//                
+//
+//            }
+//        }
+//    }
     
     
     

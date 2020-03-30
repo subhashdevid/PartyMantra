@@ -39,10 +39,11 @@ class ViewMoreTableViewCell: UITableViewCell,UICollectionViewDelegate,UICollecti
                addIconBtn.layer.borderWidth = 1
                addIconBtn.layer.borderColor = UIColor.darkGray.cgColor
                
-                addIconImg.image = Utility().SetSVGImage("more.svg")
-                addIconImg.image = addIconImg.image?.imageWithColor(color1: .red)
-                minusIconImg.image = Utility().SetSVGImage("minus.svg")
-                minusIconImg.image = minusIconImg.image?.imageWithColor(color1: .red)
+        addIconImg.image = UIImage.init(named: "addIcon")
+        addIconImg.image?.imageWithColor(color1: .red)
+        minusIconImg.image = UIImage.init(named: "minus")
+        minusIconImg.image = minusIconImg.image?.imageWithColor(color1: .red)
+        
                
                minusBtn.layer.cornerRadius = minusBtn.frame.size.width/2
                minusBtn.layer.masksToBounds = true

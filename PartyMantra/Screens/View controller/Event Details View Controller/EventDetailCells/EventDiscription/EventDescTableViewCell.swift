@@ -29,7 +29,7 @@ class EventDescTableViewCell: UITableViewCell {
     }
     
     func configureCellEventDescView(modal:EventlistModel) -> Void {
-        cellImageIcon.image = Utility().SetSVGImage("event.svg")
+        cellImageIcon.image = UIImage.init(named: "calendertoday")
         cellImageIcon.image = cellImageIcon.image?.imageWithColor(color1: .darkGray)
         cellTitleLbl.text = "Event Description"
         cellDetailLable.text = modal.description

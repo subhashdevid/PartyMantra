@@ -25,6 +25,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>PartyManta will access your current location.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>PartyMatnra will be using camera for profile </string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>PartyMatnra will be using gallary for profile </string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
