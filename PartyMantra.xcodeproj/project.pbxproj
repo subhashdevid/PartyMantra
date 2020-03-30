@@ -497,12 +497,9 @@
 		BF8773692423BB2800CF8C5D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< Updated upstream
 				BF2EEAF12430F6ED00F286E9 /* DPOTPView.swift */,
-=======
 				3B4F29D32430FDA800832ADA /* UITableView+Ext.swift */,
 				3B4F29D42430FDA800832ADA /* UIView+Extensions.swift */,
->>>>>>> Stashed changes
 				BF8773782423BE5600CF8C5D /* AppExtension.swift */,
 				BF8773652423BB1C00CF8C5D /* UIViewExtension.swift */,
 			);
@@ -773,11 +770,8 @@
 				3B041216242792DA000C9402 /* PackagesTableViewCell.swift in Sources */,
 				BF272C34242DD25D00202A71 /* MyProfileUpdateViewController.swift in Sources */,
 				BF87739F2423C0F500CF8C5D /* NotificationViewController.swift in Sources */,
-<<<<<<< Updated upstream
 				BF2EEAF02430D6D500F286E9 /* OTPViewController.swift in Sources */,
-=======
 				3B4F29D12430F6C700832ADA /* EnterContactDetailsTableViewCell.swift in Sources */,
->>>>>>> Stashed changes
 				BF87739B2423C0F500CF8C5D /* HomePageViewController.swift in Sources */,
 				BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */,
 				3B4F29DF243110E000832ADA /* SubmitBtnTableViewCell.swift in Sources */,
