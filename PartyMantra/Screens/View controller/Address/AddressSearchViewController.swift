@@ -49,15 +49,20 @@ class AddressSearchViewController: UIViewController {
     
     
     func updateAddress() {
+        UserDetails.shared.set_address(addressString ?? "")
+        UserDetails.shared.set_address_lat(addressLat ?? "")
+        UserDetails.shared.set_address_long(addressLong ?? "")
+        UserDefaults.standard.synchronize()
+        
            let param: [String: Any] = [
             "address": addressString ?? "",
             "lat": addressLat!,
             "lang": addressLong!
            ]
-          // Loader.showHud()
-           
+        
+        Loader.showHud()
         Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.UpdateAddress, parameter: param as? [String : String], handler: { (response, isSuccess) in
-            
+            Loader.dismissHud()
             if isSuccess{
 //                let  result = response as! Dictionary<String,Any>
                 self.fetchUserProfile()
@@ -82,9 +87,7 @@ class AddressSearchViewController: UIViewController {
                         vc.profile = self?.profile
                         vc.screen = "My Profile"
                         self?.navigationController?.pushViewController(vc, animated: true)
-                        
-                        
-                        
+                       
                     }
                     
                 case .failure: break

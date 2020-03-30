@@ -114,6 +114,8 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
             if isSuccess{
                 _ = response as! Dictionary<String,Any>
                 
+                
+                
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.showHomeScreen()
             }
@@ -240,7 +242,7 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
             
             let url = URL(string: profile?.image ?? "")
             cell?.logoImageView.contentMode = .scaleAspectFill
-            cell?.logoImageView.kf.setImage(with: url, placeholder: nil)
+            cell?.logoImageView.kf.setImage(with: url, placeholder: UIImage.init(named: "user"))
             
             cell?.logoEditImageView.layer.masksToBounds = true
             cell?.logoEditImageView.layer.cornerRadius = 5

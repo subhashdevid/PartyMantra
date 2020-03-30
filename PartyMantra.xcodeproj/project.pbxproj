@@ -55,6 +55,7 @@
 		3B4F29FE24312A9200832ADA /* UseWalletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F29FC24312A9200832ADA /* UseWalletTableViewCell.swift */; };
 		3B4F29FF24312A9200832ADA /* UseWalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4F29FD24312A9200832ADA /* UseWalletTableViewCell.xib */; };
 		3B6754A8242683DC005C97CA /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6754A7242683DC005C97CA /* EventDetail.swift */; };
+		3B9A2BA324323AC3001CD2A7 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9A2BA224323AC3001CD2A7 /* UserDetails.swift */; };
 		BF22AD392431DC7E005E4871 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD382431DC7E005E4871 /* Multipart.swift */; };
 		BF22AD3D2432107B005E4871 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD3C2432107B005E4871 /* PaymentViewController.swift */; };
 		BF22AD3E243219AA005E4871 /* Razorpay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF22AD3A24320CF6005E4871 /* Razorpay.framework */; };
@@ -179,6 +180,7 @@
 		3B4F29FC24312A9200832ADA /* UseWalletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseWalletTableViewCell.swift; sourceTree = "<group>"; };
 		3B4F29FD24312A9200832ADA /* UseWalletTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UseWalletTableViewCell.xib; sourceTree = "<group>"; };
 		3B6754A7242683DC005C97CA /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
+		3B9A2BA224323AC3001CD2A7 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyMantra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF22AD382431DC7E005E4871 /* Multipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipart.swift; sourceTree = "<group>"; };
 		BF22AD3A24320CF6005E4871 /* Razorpay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Razorpay.framework; sourceTree = "<group>"; };
@@ -567,6 +569,7 @@
 				BF87737C2423BF0B00CF8C5D /* Network.swift */,
 				BF87737D2423BF0B00CF8C5D /* Loader.swift */,
 				BF87737E2423BF0B00CF8C5D /* Server.swift */,
+				3B9A2BA224323AC3001CD2A7 /* UserDetails.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -815,6 +818,7 @@
 				BF6D1ED42424CBE300DC018C /* BannerTableViewCell.swift in Sources */,
 				BF2E42D9243081F30068C6BF /* Validation.swift in Sources */,
 				BF2BBA4C242CF4E00064EC59 /* UpdateProfileViewController.swift in Sources */,
+				3B9A2BA324323AC3001CD2A7 /* UserDetails.swift in Sources */,
 				BF2B8A62242744CE00727866 /* EventSearchViewController.swift in Sources */,
 				BF8773812423BF0B00CF8C5D /* Loader.swift in Sources */,
 				3B04120D2427762C000C9402 /* CoverTableViewCell.swift in Sources */,

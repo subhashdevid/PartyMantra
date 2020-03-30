@@ -10,6 +10,8 @@ import SVProgressHUD
 import Foundation
 
 class Loader {
+
+    
     
     static func showHud() {
         SVProgressHUD.setDefaultMaskType(.none)

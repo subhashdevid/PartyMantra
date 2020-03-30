@@ -35,7 +35,6 @@ class HomeViewController: BaseViewController, UISearchBarDelegate {
 
         
         addTopMenuView()
-        fetchUserProfile()
         
         
         
@@ -48,6 +47,7 @@ class HomeViewController: BaseViewController, UISearchBarDelegate {
         navigationItem.titleView = searchBar
         
     }
+    
     
     func fetchUserProfile() {
         let accessUserToken =  UserDefaults.standard.string(forKey: "AccessToken")
@@ -90,6 +90,8 @@ class HomeViewController: BaseViewController, UISearchBarDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.fetchUserProfile()
+              
         self.navigationItem.title = "Party Mantra"
     }
     
