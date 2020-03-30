@@ -89,10 +89,10 @@ class HomeViewController: BaseViewController, UISearchBarDelegate {
         self.navigationController?.pushViewController(searchVc, animated: true)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.fetchUserProfile()
-              
+    override func viewDidAppear(_ animated: Bool) {
+        self.fetchUserProfile()              
         self.navigationItem.title = "Party Mantra"
+
     }
     
     

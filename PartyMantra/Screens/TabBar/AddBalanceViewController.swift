@@ -21,7 +21,6 @@ class AddBalanceViewController: UIViewController {
     var amount = ""
     var pay = PaymentViewController()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +32,13 @@ class AddBalanceViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
+
+    }
+    
+    
+    @objc func methodOfReceivedNotification(notification: Notification) {
+        self.navigationController?.popViewController(animated: false)
     }
     
     func setUpUI() -> Void {
@@ -74,7 +80,7 @@ class AddBalanceViewController: UIViewController {
         }
         else{
             errorLbl.isHidden = true
-            getAddMoney()
+            addWalletMoney(payAmount: amount)
             
             
         //showAlert(title: "Message", "Money Added...", goBack: false)
@@ -137,32 +143,32 @@ class AddBalanceViewController: UIViewController {
     
     
     
-    func getAddMoney()  {
-        
-        let vc = PaymentViewController.instantiate(appStoryboard: .home) as PaymentViewController
-        vc.paymentAmount = amount
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-//
-//        let param: [String: String] = [
-//            "amount" : amountTextField.text ?? ""
-//        ]
-//        // Loader.showHud()
-//
-//        Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.addMoneyUrl, parameter: param as? [String : String], handler: { (response, isSuccess) in
-//
-//            if isSuccess{
-//               //_ = response as! Dictionary<String,Any>
-//
-//                //let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                //appDelegate.showHomeScreen()
-//
-//
-//
-//            }
-//        })
+    func addWalletMoney( payAmount : String)  {
+               
+        let param: [String: String] = [
+            "amount" : payAmount
+        ]
+
+        Loader.showHud()
+        Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.addMoneyUrl, parameter: param as? [String : String], handler: { (response, isSuccess) in
+
+            if isSuccess{
+                Loader.dismissHud()
+               let response = response as! Dictionary<String,Any>
+                
+                print(response)
+
+                let responseDict = response["data"] as! Dictionary<String,Any>
+                print(responseDict)
+                
+                let payStr = (responseDict["amount"] ?? "0")
+                let orderIDStr = (responseDict["order_id"] ?? "0")
+
+                self.pay.addMoneyToPay(amount: "\(payStr)", payOrderid: "\(orderIDStr)")
+                
+            }
+        })
     }
-    
     
 }
 

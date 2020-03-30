@@ -61,7 +61,11 @@ class Server: NSObject, Codable { // checkpoint
     var getOrderUrl = "\(mainUrl)order-history"
     var NotificationUrl = "\(mainUrl)notifications"
     var addMoneyUrl="\(mainUrl)add-money"
+    var verifyMoneyUrl="\(mainUrl)verify-recharge"
 
+    
+    
+    
 //    var resendOTP = "http://api.msg91.com/api/sendhttp.php"
     
     var serverTimeInterval: TimeInterval = Date().timeIntervalSince1970
