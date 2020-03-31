@@ -10,8 +10,10 @@ import UIKit
 import MapKit
 import Alamofire
 
-
-class AddressSearchViewController: UIViewController, CLLocationManagerDelegate {
+protocol AddressChangeDelegate: class {
+    func returnChangedAddress(address: String, latitude: String, longitude: String)
+}
+class AddressSearchViewController: UIViewController, CLLocationManagerDelegate{
     
     @IBOutlet weak var textfieldAddress: UITextField!
     @IBOutlet weak var tableviewSearch: UITableView!
@@ -26,18 +28,18 @@ class AddressSearchViewController: UIViewController, CLLocationManagerDelegate {
     var addressLat : String?
     var addressLong : String?
     var selectOption : String?
-
     var mobileString : String?
-
     var autocompleteResults :[GApiResponse.Autocomplete] = []
-    
     var locationManager: CLLocationManager!
+
+    var post_screen : String?
+    var post_title : String?
+    weak var delegateAddress:AddressChangeDelegate?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+                
         if (CLLocationManager.locationServicesEnabled()) {
             locationManager = CLLocationManager()
             locationManager.delegate = self
@@ -48,7 +50,14 @@ class AddressSearchViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-                self.navigationController?.isNavigationBarHidden = true
+        
+        if self.post_screen == "home" {
+            self.navigationController?.isNavigationBarHidden = false
+            self.navigationController?.title = self.post_title
+
+        }else{
+            self.navigationController?.isNavigationBarHidden = true
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,21 +76,18 @@ class AddressSearchViewController: UIViewController, CLLocationManagerDelegate {
            self.mapview.setRegion(region, animated: true)
        }
     
-    
     //search button action
     @IBAction func searchButtonPressed(_ sender: Any) {
         textfieldAddress.becomeFirstResponder()
     }
     
     @IBAction func submitButtonPressed(_ sender: Any) {
-        
         self.view.endEditing(true)
-        if addressString?.count != 0 {
-            self.updateAddress()
-        }
-        else{
-            
-        }
+            if addressString?.count != 0 {
+                self.updateAddress()
+            }
+            else{
+            }
     }
     
     
@@ -109,8 +115,12 @@ class AddressSearchViewController: UIViewController, CLLocationManagerDelegate {
         Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.UpdateAddress, parameter: param as? [String : String], handler: { (response, isSuccess) in
             Loader.dismissHud()
             if isSuccess{
-//                let  result = response as! Dictionary<String,Any>
-                self.fetchUserProfile()
+                if self.post_screen == "home" {
+                    self.delegateAddress?.returnChangedAddress(address: self.addressString ?? "", latitude: self.addressLat ?? "", longitude: self.addressLong ?? "")
+                    self.navigationController?.popViewController(animated: true)
+                }else{
+                    self.fetchUserProfile()
+                }
             }
         })
     }
@@ -183,8 +193,14 @@ extension AddressSearchViewController : UITextFieldDelegate {
         return true
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        constraintSearchViewTop.constant = -( UIScreen.main.bounds.size.height/2 - 40)
-        constraintSearchIconWidth.constant = 38.0
+        if self.post_screen == "home" {
+            constraintSearchViewTop.constant = -( UIScreen.main.bounds.size.height/2 - 80)
+                   constraintSearchIconWidth.constant = 38.0
+        }
+        else{
+            constraintSearchViewTop.constant = -( UIScreen.main.bounds.size.height/2 - 40)
+                   constraintSearchIconWidth.constant = 38.0
+        }
         return true
     }
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {

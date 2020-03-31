@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController, UISearchBarDelegate {
+class HomeViewController: BaseViewController, UISearchBarDelegate , AddressChangeDelegate {
     
     @IBOutlet var topMenuView: UIView!
     
@@ -31,8 +31,8 @@ class HomeViewController: BaseViewController, UISearchBarDelegate {
         
         
         UserDefaults.standard.set("1", forKey: "ISLOGIN") //setObject
-                          UserDefaults.standard.synchronize()
-
+        UserDefaults.standard.synchronize()
+        
         
         addTopMenuView()
         
@@ -45,7 +45,28 @@ class HomeViewController: BaseViewController, UISearchBarDelegate {
         searchBar.backgroundImage = UIImage()
         searchBar.delegate = self
         navigationItem.titleView = searchBar
+        self.changeBtn.addTarget(self, action: #selector(changedAddressAction), for: .touchUpInside)
+    }
+    
+    //MARK:- AddressChange Delegate
+    func returnChangedAddress(address: String, latitude: String, longitude: String) {
+        self.addressLbl.text = address
         
+        UserDetails.shared.set_address(address )
+        UserDetails.shared.set_address_lat(latitude )
+        UserDetails.shared.set_address_long(longitude )
+        UserDefaults.standard.synchronize()
+        
+    }
+    
+    @objc func changedAddressAction()  {
+        
+        let addressVC = AddressSearchViewController.instantiate(appStoryboard: .miscellaneous) as AddressSearchViewController
+        
+        addressVC.delegateAddress = self
+        addressVC.post_title = "Select Address"
+        addressVC.post_screen = "home"
+        self.navigationController?.pushViewController(addressVC, animated: true)
     }
     
     
@@ -92,7 +113,7 @@ class HomeViewController: BaseViewController, UISearchBarDelegate {
     override func viewDidAppear(_ animated: Bool) {
         self.fetchUserProfile()              
         self.navigationItem.title = "Party Mantra"
-
+        
     }
     
     
