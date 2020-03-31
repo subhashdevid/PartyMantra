@@ -60,6 +60,8 @@
 		BF22AD3D2432107B005E4871 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD3C2432107B005E4871 /* PaymentViewController.swift */; };
 		BF22AD3E243219AA005E4871 /* Razorpay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF22AD3A24320CF6005E4871 /* Razorpay.framework */; };
 		BF22AD3F243219AA005E4871 /* Razorpay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF22AD3A24320CF6005E4871 /* Razorpay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BF22AD4224331546005E4871 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD4124331546005E4871 /* EventListViewController.swift */; };
+		BF22AD44243323DA005E4871 /* EventListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD43243323DA005E4871 /* EventListModel.swift */; };
 		BF26AA2D242F3A2D00FC61BC /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */; };
 		BF272C34242DD25D00202A71 /* MyProfileUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF272C33242DD25D00202A71 /* MyProfileUpdateViewController.swift */; };
 		BF2B8A602427443B00727866 /* Miscellaneous.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */; };
@@ -185,6 +187,8 @@
 		BF22AD382431DC7E005E4871 /* Multipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipart.swift; sourceTree = "<group>"; };
 		BF22AD3A24320CF6005E4871 /* Razorpay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Razorpay.framework; sourceTree = "<group>"; };
 		BF22AD3C2432107B005E4871 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		BF22AD4124331546005E4871 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
+		BF22AD43243323DA005E4871 /* EventListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListModel.swift; sourceTree = "<group>"; };
 		BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		BF272C33242DD25D00202A71 /* MyProfileUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUpdateViewController.swift; sourceTree = "<group>"; };
 		BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Miscellaneous.storyboard; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				3B6754A7242683DC005C97CA /* EventDetail.swift */,
+				BF22AD43243323DA005E4871 /* EventListModel.swift */,
 			);
 			path = EventModal;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 				BF2EEAEF2430D6D500F286E9 /* OTPViewController.swift */,
 				BF2EEAF32431023400F286E9 /* LocationSelectViewController.swift */,
 				BF22AD3C2432107B005E4871 /* PaymentViewController.swift */,
+				BF22AD4124331546005E4871 /* EventListViewController.swift */,
 			);
 			path = "View controller";
 			sourceTree = "<group>";
@@ -809,6 +815,7 @@
 				BF8773A82423C12B00CF8C5D /* TopMenuBar.swift in Sources */,
 				BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */,
 				BF22AD3D2432107B005E4871 /* PaymentViewController.swift in Sources */,
+				BF22AD44243323DA005E4871 /* EventListModel.swift in Sources */,
 				BF8773932423C0F500CF8C5D /* OrderViewController.swift in Sources */,
 				BF9EF0BB24319F9100ADB07F /* AddressSearchViewController.swift in Sources */,
 				3B4F29FE24312A9200832ADA /* UseWalletTableViewCell.swift in Sources */,
@@ -846,6 +853,7 @@
 				BF8773762423BDFD00CF8C5D /* GlobalFunction.swift in Sources */,
 				3B04122124279BB4000C9402 /* ViewMoreCollectionViewCell.swift in Sources */,
 				BF8773992423C0F500CF8C5D /* CollectionDetailViewController.swift in Sources */,
+				BF22AD4224331546005E4871 /* EventListViewController.swift in Sources */,
 				BF8773802423BF0B00CF8C5D /* Network.swift in Sources */,
 				3B0411F724274FF8000C9402 /* moreSubTableViewCell.swift in Sources */,
 				BFE54B87242E438C006D813B /* MyProfileUpdateTableViewCell.swift in Sources */,

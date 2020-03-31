@@ -48,7 +48,8 @@ class Server: NSObject, Codable { // checkpoint
     
     // Collection
     var collectionUrl = "\(mainUrl)collections"
-    
+    var collectioEventUrl = "\(mainUrl)collection"
+
     // Events
     var eventsUrl = "\(mainUrl)event"
     var searchUrl = "\(mainUrl)search"

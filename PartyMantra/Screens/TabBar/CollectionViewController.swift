@@ -20,7 +20,6 @@ class CollectionViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         getCollectionList()
-//        getWalletBalance()
     }
     
     func getCollectionList() {
@@ -69,7 +68,7 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
      
-        return CGSize(width: self.view.width, height: 300)
+        return CGSize(width: self.view.width, height: 170)
      }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -96,21 +95,26 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = CollectionDetailViewController.instantiate(appStoryboard: .home)
+//        let vc = CollectionDetailViewController.instantiate(appStoryboard: .home)
+//        vc.collectionID = dataArr[indexPath.row].id
+//
+//
+//        switch type {
+//        case "":
+//            vc.type = "events"
+//        case "restaurant":
+//            vc.type = "restaurants"
+//            case "party":
+//                vc.type = "party"
+//        default:
+//            vc.type = "events"
+//        }
+//
+        
+        
+        let vc = EventListViewController.instantiate(appStoryboard: .events)
+        vc.type = "events"
         vc.collectionID = dataArr[indexPath.row].id
-        
-        
-        switch type {
-        case "":
-            vc.type = "events"
-        case "restaurant":
-            vc.type = "restaurants"
-            case "party":
-                vc.type = "party"
-        default:
-            vc.type = "events"
-        }
-        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

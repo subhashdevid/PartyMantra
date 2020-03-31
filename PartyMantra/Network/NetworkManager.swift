@@ -215,6 +215,10 @@ class NetworkManager {
         getRequest(url: Server.shared.collectionUrl, parameters: parameters, handler: handler)
     }
     
+    class func getCollectionEventListing(url: String, parameters: [String: Any]?, handler: (APICompletion<EventListModel>)? = nil) {
+        getRequest(url: url, parameters: parameters, handler: handler)
+    }
+    
     class func getCollectionClubDetailListing(url: String, parameters: [String: Any]?, handler: (APICompletion<CollectionClubListModel>)? = nil) {
         getRequest(url: url, parameters: parameters, handler: handler)
     }

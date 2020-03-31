@@ -205,7 +205,7 @@ struct eventModel: Codable {
     let small_image: String?
     let tnc: String?
     let priority: Int?
-    let rating: Int?
+    let rating: String?
     let per_person_text: String?
     let time_to_start: String?
     let away: Int?

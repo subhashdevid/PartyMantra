@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate  {
+class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate, ClubEventCollectionCellDelegate  {
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -51,9 +52,13 @@ class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate  {
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
-    
-    
-    
+   
+    func didCollectionEventCellPressed(eventID: Int) {
+        let vc = EventListViewController.instantiate(appStoryboard: .events)
+               vc.type = "events"
+               vc.collectionID = eventID
+               self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -192,6 +197,8 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
                 cell?.configureCell(imgData: dataArr?.collections ?? [])
                 cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
                 collectionCell = cell
+                cell?.club_delegate = self
+
             }
                 
             else if indexPath.section == 3 {
@@ -217,6 +224,7 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
                     .dequeueReusableCell(withReuseIdentifier: "\(EventCollectionCell.self)", for: indexPath) as? EventCollectionCell
                 cell?.configureCell(imgData: dataArr?.collections ?? [])
                 cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
+                cell?.club_delegate = self
                 collectionCell = cell
             }
             else if indexPath.section == 2 {
@@ -242,13 +250,12 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
     
     @objc func viewCollection() {
         let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
-        vc.type = self.type
+        vc.type = "events"
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
     @objc func viewEvent(sender: UIButton) {
         let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
-        vc.type = self.type
+        vc.type = "events"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -475,14 +482,22 @@ class EventCollectionCell: UICollectionViewCell {
     @IBOutlet weak var viewButton: UIButton!
     
     var imageData = [HomeCollection]()
-    
+    weak var club_delegate:ClubEventCollectionCellDelegate?
+
     func configureCell(imgData:[HomeCollection]) {
         viewButton.layer.cornerRadius = 10
         viewButton.layer.masksToBounds = true
-        
         imageData = imgData
         collectionView.reloadData()
     }
+    
+    func cellCollectionPressAction(eventID : Int) {
+        if let del = self.club_delegate {
+            del.didCollectionEventCellPressed(eventID: eventID)
+        }
+    }
+    
+    
 }
 
 extension EventCollectionCell : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -508,9 +523,15 @@ extension EventCollectionCell : UICollectionViewDelegate,UICollectionViewDataSou
         let url = URL(string: imgBanner.small_image ?? "")
         
         cell.cellImage.kf.setImage(with: url, placeholder: nil)
+        cell.club_delegate = self as? ClubEventCollectionCellDelegate
+
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        cellPressAction(row: self.homeOthers?.event?[indexPath.row].id ?? 0)
+       
+        cellCollectionPressAction(eventID: self.imageData[indexPath.row].id ?? 0)
+
         
     }
     
@@ -562,14 +583,24 @@ extension ImageBannerCell : UICollectionViewDelegate,UICollectionViewDataSource,
     
 }
 
+protocol ClubEventCollectionCellDelegate: class {
+    func didCollectionEventCellPressed(eventID: Int)
+}
 
 class ImageCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var cellImage: UIImageView!
     
+    @IBOutlet weak var cellImage: UIImageView!
+    weak var club_delegate:ClubEventCollectionCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.cellImage.contentMode = .scaleToFill
     }
     
+    func cellCollectionPressAction(eventID : Int) {
+        if let del = self.club_delegate {
+            del.didCollectionEventCellPressed(eventID: eventID)
+        }
+    }
 }

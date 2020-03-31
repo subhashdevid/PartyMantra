@@ -273,7 +273,7 @@ class collectionDetailEventCell: UICollectionViewCell {
         lblAway.text = "\(data.away ?? 0)"
         lblStarted.text = data.time_to_start
         
-        lblRating.text = "\(data.rating ?? 0)"
+        lblRating.text = "\(data.rating ?? "0")"
         let url = URL(string: data.small_image ?? "")
         imgView.kf.setImage(with: url, placeholder: nil)
     }
