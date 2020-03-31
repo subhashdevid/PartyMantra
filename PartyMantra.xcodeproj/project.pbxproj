@@ -30,6 +30,7 @@
 		3B04121E24279768000C9402 /* ViewMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B04121C24279768000C9402 /* ViewMoreTableViewCell.xib */; };
 		3B04122124279BB4000C9402 /* ViewMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B04121F24279BB4000C9402 /* ViewMoreCollectionViewCell.swift */; };
 		3B04122224279BB4000C9402 /* ViewMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B04122024279BB4000C9402 /* ViewMoreCollectionViewCell.xib */; };
+		3B0C4AA82433A4C2005AAE60 /* OrderlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C4AA72433A4C2005AAE60 /* OrderlistModel.swift */; };
 		3B4F29C92430A60500832ADA /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4F29C82430A60500832ADA /* DatePicker.storyboard */; };
 		3B4F29CB2430A65E00832ADA /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F29CA2430A65D00832ADA /* CustomPickerViewController.swift */; };
 		3B4F29CD2430A66400832ADA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F29CC2430A66400832ADA /* DatePicker.swift */; };
@@ -157,6 +158,7 @@
 		3B04121C24279768000C9402 /* ViewMoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewMoreTableViewCell.xib; sourceTree = "<group>"; };
 		3B04121F24279BB4000C9402 /* ViewMoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B04122024279BB4000C9402 /* ViewMoreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewMoreCollectionViewCell.xib; sourceTree = "<group>"; };
+		3B0C4AA72433A4C2005AAE60 /* OrderlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderlistModel.swift; sourceTree = "<group>"; };
 		3B4F29C82430A60500832ADA /* DatePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		3B4F29CA2430A65D00832ADA /* CustomPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
 		3B4F29CC2430A66400832ADA /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
@@ -368,6 +370,14 @@
 			path = ViewMoreCells;
 			sourceTree = "<group>";
 		};
+		3B0C4AA62433A49B005AAE60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B0C4AA72433A4C2005AAE60 /* OrderlistModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3B4F29CE2430F5D400832ADA /* EnterContactDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,6 +533,7 @@
 		BF8773602423B9EE00CF8C5D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3B0C4AA62433A49B005AAE60 /* Model */,
 				BF6D1ED22424CBA400DC018C /* Cell */,
 				BF6D1ECF2424C32F00DC018C /* View controller */,
 				BF8773AD2423C1C100CF8C5D /* Storyboard */,
@@ -840,6 +851,7 @@
 				3B041216242792DA000C9402 /* PackagesTableViewCell.swift in Sources */,
 				BF272C34242DD25D00202A71 /* MyProfileUpdateViewController.swift in Sources */,
 				BF87739F2423C0F500CF8C5D /* NotificationViewController.swift in Sources */,
+				3B0C4AA82433A4C2005AAE60 /* OrderlistModel.swift in Sources */,
 				BF2EEAF02430D6D500F286E9 /* OTPViewController.swift in Sources */,
 				3B4F29D12430F6C700832ADA /* EnterContactDetailsTableViewCell.swift in Sources */,
 				BF87739B2423C0F500CF8C5D /* HomePageViewController.swift in Sources */,

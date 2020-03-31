@@ -11,17 +11,20 @@ import UIKit
 class OrderViewController: BaseViewController {
 @IBOutlet weak var collectionView: UICollectionView!
     var dataArr = [orderModel]()
+    var ordersData : [OrderDetaillistModel] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //getOrderList()
+        getOrderList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "Order"
     }
+    
     func getOrderList() {
         let param: [String: Any] = [
             
@@ -33,7 +36,12 @@ class OrderViewController: BaseViewController {
             case let .success(response):
                 print(response)
                 if let orderList = response.data {
-                    self?.dataArr = orderList
+                   self?.ordersData.removeAll()
+                    for dict in orderList.ordersdetail {
+                        print(dict)
+                        let model = OrderDetaillistModel.init(response: dict as? [String:Any] ?? [:])
+                        self?.ordersData.append(model)
+                    }
                     self?.collectionView.reloadData()
                 }
                 
@@ -41,15 +49,6 @@ class OrderViewController: BaseViewController {
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -67,8 +66,7 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return dataArr.count
+        return self.ordersData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -77,14 +75,9 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
         
         let cell = collectionView
             .dequeueReusableCell(withReuseIdentifier: "OrderCell", for: indexPath) as? OrderCell
-        let notification = dataArr[indexPath.row]
-        cell?.configureCell(data: notification)
-
-        
-
-      //  let url = URL(string: brand.image ?? "" )
-      //  cell?.imgView.kf.setImage(with: url, placeholder: nil)
-        
+        let orderDataDetails = (self.ordersData[indexPath.row] as? OrderDetaillistModel)!
+        cell?.configureCell(data: orderDataDetails)
+   
         collectionCell = cell
         
         return collectionCell ?? UICollectionViewCell()
@@ -93,6 +86,8 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let vc = DetailViewController.instantiate(appStoryboard: .home) as DetailViewController
 //        vc.product = dataArr[indexPath.row]
+        
+        // refid
 //        self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -109,11 +104,12 @@ class OrderCell: UICollectionViewCell {
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblPaid: UILabel!
     
-    func configureCell(data: orderModel) {
-        lblName.text = data.title
+    func configureCell(data: OrderDetaillistModel) {
+       lblName.text = data.title
         lblPrice.text = "₹\(data.total ?? 0)"
         lblDate.text = data.updated_at
         lblPaid.text = data.payment_status
         GlobalFunction.shared.downloadImage(imageView: imgView, urlStr: data.image ?? "")
+    
     }
 }

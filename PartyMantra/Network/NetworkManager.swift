@@ -236,10 +236,12 @@ class NetworkManager {
     
     
     
-    class func getOrderList(parameters: [String: Any]?, handler: (APICompletion<[orderModel]>)? = nil) {
+    class func getOrderList(parameters: [String: Any]?, handler: (APICompletion<OrderlistModel>)? = nil) {
         getRequest(url: Server.shared.getOrderUrl
             , parameters: parameters, handler: handler)
     }
+    
+    
     
     class func getWalletBalace(parameters: [String: Any]?, handler: (APICompletion<WalletBalance>)? = nil) {
         getRequest(url: Server.shared.getWalletBalanceUrl
