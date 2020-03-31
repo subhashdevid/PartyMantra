@@ -18,12 +18,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var profileImgView: UIImageView!
     
+    @IBOutlet weak var scroll: UIScrollView!
     
-    
-    var profile : ProfileModel?
+    var profile : ProfileModel?  //CGSizeMake(self.view.frame.width,self.view.frame.height+100)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scroll.contentSize = CGSize(width: self.view.frame.width,height: self.view.frame.height+100)
         self.fetchUserProfile()
     }
     
