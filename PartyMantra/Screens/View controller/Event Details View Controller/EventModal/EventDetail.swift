@@ -183,6 +183,7 @@ class EventCoversDetailModal {
     var package_type: String?
     var fordining: Int?
     var forparty: Int?
+    var packageCount: Int?
     
     init() { }
     
@@ -233,6 +234,8 @@ class EventPackagesDetailModal {
     var heightInt: Int?
     var forparty: Bool?
     var activemenus: Array<EventPackagesActiveMenuModal> = []
+    var packageCount: Int?
+
     
     init() {}
        convenience init(response: [String:Any]) {

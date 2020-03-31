@@ -10,7 +10,12 @@ import UIKit
 
 class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
     
-    
+    enum FieldIdentifier: Int {
+        case name = 0
+        case email = 1
+        case mobile = 2
+    }
+
     
     @IBOutlet weak var tblView: UITableView!
 
@@ -20,8 +25,11 @@ class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
     var isCellClicked : Bool = false
     var eventID : Int = 0
     var eventData : [EventlistModel] = []
-    
     var type: String?
+    
+    var emailString : String?
+    var nameString : String?
+    var mobileString : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,11 +61,52 @@ class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
             }
         }
     }
+    
+    func addCoverBtn()  {
+        
+    }
+    
+    func minusCoverBtn()  {
+        
+    }
+    
+    
 }
 
+extension EventDetailsViewController : UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if FieldIdentifier.name.rawValue == textField.tag {
 
+            return true
+               }
+               else if FieldIdentifier.email.rawValue == textField.tag {
+                   return true
+               }
+               else if FieldIdentifier.mobile.rawValue == textField.tag {
+                   return true
+               }
+        return true
 
-// MARK: Table view Delegate
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if FieldIdentifier.name.rawValue == textField.tag {
+            nameString = textField.text
+            
+        }
+        else if FieldIdentifier.email.rawValue == textField.tag {
+            emailString = textField.text
+        }
+        else if FieldIdentifier.mobile.rawValue == textField.tag {
+            mobileString = textField.text
+        }
+        
+        
+    }
+    
+}
 
 extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSource {
    
@@ -159,7 +208,18 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
                 tblView.register(UINib(nibName: "EnterContactDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "EnterContactDetailsTableViewCell")
                 cell = tblView.dequeueReusableCell(withIdentifier: "EnterContactDetailsTableViewCell") as? EnterContactDetailsTableViewCell
             }
-          cell.backgroundColor = .groupTableViewBackground
+           
+            cell.emailIdFld.delegate = self
+            cell.nameTextFld.delegate = self
+            cell.mobileNoFld.delegate = self
+            
+            cell?.emailIdFld.tag = FieldIdentifier.email.rawValue
+            cell?.nameTextFld.tag = FieldIdentifier.name.rawValue
+            cell?.mobileNoFld.tag = FieldIdentifier.mobile.rawValue
+
+            
+          
+            cell.backgroundColor = .groupTableViewBackground
             if self.eventData.count > 0 {
                 let cellModal = self.eventData[0] as EventlistModel
                 print(cellModal)
@@ -193,6 +253,9 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
             }
              cell.backgroundColor = .groupTableViewBackground
              cell.submitCellBtn.addTarget(self, action: #selector(didTapToOpenEventCart), for: .touchUpInside)
+            
+            
+            
            return cell
         }
         
@@ -269,10 +332,22 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
         }
     }
     
+    func validateEventPackages () {
+        
+        let eventModel = self.eventData
+        print(eventModel)
+        
+        
+    }
     
     @objc func didTapToOpenEventCart(sender:UIButton) -> Void {
+       // API call
+        self.validateEventPackages()
+        
+        
+        
+//
         let vc = EventCartViewController.instantiate(appStoryboard: .events) as EventCartViewController
-
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

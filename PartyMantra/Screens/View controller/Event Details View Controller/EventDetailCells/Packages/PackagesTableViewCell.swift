@@ -39,6 +39,38 @@ class PackagesTableViewCell: UITableViewCell,UITableViewDelegate,UITableViewData
     }
     
    
+    @objc func addCoverAction( sender : UIButton)  {
+          print("add btn pressed")
+          let model = self.dataCount[sender.tag] as! EventPackagesDetailModal
+          if model.packageCount ?? 0 <= 5 {
+              model.packageCount = (model.packageCount ?? 0) + 1
+          }
+          else {
+              model.packageCount = model.packageCount ?? 0 + 0
+          }
+        guard let cell = sender.superview?.superview?.superview?.superview?.superview?.superview as? ViewMoreTableViewCell else {
+              return
+          }
+          cell.countLbl.text = "\(model.packageCount ?? 0)"
+      }
+      
+    @objc func minusCoverAction(sender : UIButton)  {
+        print("minus btn pressed")
+        
+        let model = self.dataCount[sender.tag] as! EventPackagesDetailModal
+        if model.packageCount ?? 0 <= 0 {
+            model.packageCount = (model.packageCount ?? 0) - 0
+        }
+        else {
+            model.packageCount = (model.packageCount ?? 0) - 1
+        }
+        guard let cell = sender.superview?.superview?.superview?.superview?.superview?.superview as? ViewMoreTableViewCell else {
+            return
+        }
+        cell.countLbl.text = "\(model.packageCount ?? 0)"
+    }
+    
+    
     func configurePackageCell(modal:EventlistModel) -> Void {
                //self.dataCount = modal.covers  as? [EventCoversDetailModal] ?? []
                
@@ -57,9 +89,14 @@ class PackagesTableViewCell: UITableViewCell,UITableViewDelegate,UITableViewData
                     if cell == nil {
                         cellTableView.register(UINib(nibName: "ViewMoreTableViewCell", bundle: nil), forCellReuseIdentifier: "ViewMoreTableViewCell")
                         cell = cellTableView.dequeueReusableCell(withIdentifier: "ViewMoreTableViewCell") as? ViewMoreTableViewCell
-                    }
+                }
                     
-            
+            cell.addIconBtn.addTarget(self, action: #selector(addCoverAction(sender:)), for: .touchUpInside)
+                                  cell.addIconBtn.tag = indexPath.row
+                                  cell.minusBtn.addTarget(self, action: #selector(minusCoverAction(sender:)), for: .touchUpInside)
+                                  cell.minusBtn.tag = indexPath.row
+                
+                
                 cell.viewMoreBtn.tag = indexPath.row
                 cell.viewMoreBtn.addTarget(self, action: #selector(isViewMoreBtnClicked(sender:)), for: .touchUpInside)
                     if self.dataCount.count>0{
@@ -71,7 +108,7 @@ class PackagesTableViewCell: UITableViewCell,UITableViewDelegate,UITableViewData
                    
                         
                         self.heightOfCell = Utility().heightForView(text: cellModal.custom_package_detail ?? "", font: 12.0, width: cell.collectionCellView.frame.size.width-10 )
-                        cell.cellDetailLabel.frame = CGRect(x: 0, y: 0, width: Int(size.width), height: self.heightOfCell)
+                        cell.cellDetailLabel.frame = CGRect(x: 0, y: 0, width: Int(size.width), height: self.heightOfCell+40)
                        
                 }
                     

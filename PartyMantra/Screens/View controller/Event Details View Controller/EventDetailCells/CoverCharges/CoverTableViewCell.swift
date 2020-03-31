@@ -47,7 +47,7 @@ class CoverTableViewCell: UITableViewCell {
     func configureCoverChargesCellView(modal:EventCoversDetailModal) -> Void {
         cellItemLbl.text = modal.package_name
         cellCostLabel.text = "\(modal.price ?? 0)"
-        countLbl.text = "0"
+        countLbl.text = "\(modal.packageCount ?? 0)"
         
         
         

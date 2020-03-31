@@ -32,7 +32,7 @@
                                     <constraint firstAttribute="height" constant="34" id="t0m-aC-tGL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -44,6 +44,9 @@
                                         <real key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="KGk-i7-Jjw" id="NUI-b2-XNo"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Email Id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GCa-0C-WZ6">
                                 <rect key="frame" x="10" y="78" width="280" height="34"/>
@@ -63,6 +66,9 @@
                                         <real key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="KGk-i7-Jjw" id="9gT-34-Y0T"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E3v-uW-9mr">
                                 <rect key="frame" x="10" y="122" width="280" height="34"/>
@@ -82,6 +88,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="KGk-i7-Jjw" id="NjU-Pl-jv0"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,9 +121,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="emailIdFld" destination="GCa-0C-WZ6" id="UUI-zR-ZeQ"/>
-                <outlet property="mobileNoFld" destination="E3v-uW-9mr" id="Vn1-ga-X5K"/>
-                <outlet property="nameTextFld" destination="own-lb-KmD" id="vMb-ks-sd7"/>
+                <outlet property="emailIdFld" destination="GCa-0C-WZ6" id="r2C-4Z-NJH"/>
+                <outlet property="mobileNoFld" destination="E3v-uW-9mr" id="NFq-C0-jJQ"/>
+                <outlet property="nameTextFld" destination="own-lb-KmD" id="AN2-FM-wUC"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="188.16964285714286"/>
         </tableViewCell>
