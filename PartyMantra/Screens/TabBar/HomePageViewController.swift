@@ -34,28 +34,8 @@ class HomePageViewController: UIPageViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        self.updateAddress()
+//        self.updateAddress()
     }
-    
-    
-    
-     func updateAddress() {
-              let param: [String: Any] = [
-                "address": UserDetails.shared.get_address_detail() ?? "",
-                "lat": UserDetails.shared.get_address_latitude(),
-                "lang": UserDetails.shared.get_address_longitude()
-               ]
-            print(param)
-            Loader.showHud()
-            Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.UpdateAddress, parameter: param as? [String : String], handler: { (response, isSuccess) in
-                Loader.dismissHud()
-                if isSuccess{
-                    
-    //                let  result = response as! Dictionary<String,Any>
-                   
-                }
-            })
-        }
     
     
     @objc func disableSwipe(notification _: NSNotification) {

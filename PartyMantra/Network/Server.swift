@@ -55,7 +55,7 @@ class Server: NSObject, Codable { // checkpoint
     var searchUrl = "\(mainUrl)search"
 
     
-    
+    var orderDetailUrl = "\(mainUrl)order-details"
     var collectionDetailUrl = "\(mainUrl)collection"
     var getWalletBalanceUrl = "\(mainUrl)wallet-balance"
     var getWalletHistoryUrl = "\(mainUrl)wallet-history"

@@ -350,6 +350,21 @@
             </objects>
             <point key="canvasLocation" x="395.6521739130435" y="656.25"/>
         </scene>
+        <!--Order Detail View Controller-->
+        <scene sceneID="phf-bA-Kj9">
+            <objects>
+                <viewController storyboardIdentifier="OrderDetailViewController" id="Mcn-8a-YFO" customClass="OrderDetailViewController" customModule="PartyMantra" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eeL-fL-sjy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="4on-H4-02c"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mvK-yc-3QV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="943"/>
+        </scene>
     </scenes>
     <resources>
         <image name="marker" width="96" height="96"/>

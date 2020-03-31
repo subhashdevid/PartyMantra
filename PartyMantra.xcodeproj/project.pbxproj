@@ -117,6 +117,7 @@
 		BF9EF0C02431A05900ADB07F /* NearByEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0BD2431A05900ADB07F /* NearByEnum.swift */; };
 		BF9EF0C12431A05900ADB07F /* GoogleApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0BE2431A05900ADB07F /* GoogleApiHelper.swift */; };
 		BF9EF0C22431A05900ADB07F /* GoogleApiHelper+Nearby.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0BF2431A05900ADB07F /* GoogleApiHelper+Nearby.swift */; };
+		BFA6CAD62433BF0B00A866D9 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA6CAD52433BF0B00A866D9 /* OrderDetailViewController.swift */; };
 		BFE54B87242E438C006D813B /* MyProfileUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE54B86242E438C006D813B /* MyProfileUpdateTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -247,6 +248,7 @@
 		BF9EF0BD2431A05900ADB07F /* NearByEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearByEnum.swift; sourceTree = "<group>"; };
 		BF9EF0BE2431A05900ADB07F /* GoogleApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleApiHelper.swift; sourceTree = "<group>"; };
 		BF9EF0BF2431A05900ADB07F /* GoogleApiHelper+Nearby.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GoogleApiHelper+Nearby.swift"; sourceTree = "<group>"; };
+		BFA6CAD52433BF0B00A866D9 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		BFE54B86242E438C006D813B /* MyProfileUpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUpdateTableViewCell.swift; sourceTree = "<group>"; };
 		C323B65CE59EB81612CA5349 /* Pods-PartyMantra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyMantra.release.xcconfig"; path = "Target Support Files/Pods-PartyMantra/Pods-PartyMantra.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -469,6 +471,7 @@
 		BF6D1ECF2424C32F00DC018C /* View controller */ = {
 			isa = PBXGroup;
 			children = (
+				BFA6CAD32433BEE200A866D9 /* Order */,
 				BF9EF0B924319F7C00ADB07F /* Address */,
 				3B4F29E12431133700832ADA /* EventCartView */,
 				3B4F29CC2430A66400832ADA /* DatePicker.swift */,
@@ -664,6 +667,22 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		BFA6CAD32433BEE200A866D9 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				BFA6CAD42433BEF200A866D9 /* VC */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		BFA6CAD42433BEF200A866D9 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				BFA6CAD52433BF0B00A866D9 /* OrderDetailViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -856,6 +875,7 @@
 				3B4F29D12430F6C700832ADA /* EnterContactDetailsTableViewCell.swift in Sources */,
 				BF87739B2423C0F500CF8C5D /* HomePageViewController.swift in Sources */,
 				BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */,
+				BFA6CAD62433BF0B00A866D9 /* OrderDetailViewController.swift in Sources */,
 				3B4F29DF243110E000832ADA /* SubmitBtnTableViewCell.swift in Sources */,
 				BF2BBA4E242CFB050064EC59 /* ProfileTableViewCell.swift in Sources */,
 				3B4F29D62430FDA800832ADA /* UIView+Extensions.swift in Sources */,

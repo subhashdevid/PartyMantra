@@ -209,8 +209,6 @@ class NetworkManager {
         getRequest(url: Server.shared.ProfileUrl
             , parameters: parameters, handler: handler)
     }
-    
-    
     class func getCollectionListing(parameters: [String: Any]?, handler: (APICompletion<CollectionListModel>)? = nil) {
         getRequest(url: Server.shared.collectionUrl, parameters: parameters, handler: handler)
     }
@@ -218,6 +216,10 @@ class NetworkManager {
     class func getCollectionEventListing(url: String, parameters: [String: Any]?, handler: (APICompletion<EventListModel>)? = nil) {
         getRequest(url: url, parameters: parameters, handler: handler)
     }
+    
+    class func getOrderDetails(url: String, parameters: [String: Any]?, handler: (APICompletion<OrderCheckoutDetailsModel>)? = nil) {
+           getRequest(url: url, parameters: parameters, handler: handler)
+       }
     
     class func getCollectionClubDetailListing(url: String, parameters: [String: Any]?, handler: (APICompletion<CollectionClubListModel>)? = nil) {
         getRequest(url: url, parameters: parameters, handler: handler)

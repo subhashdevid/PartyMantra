@@ -10,7 +10,6 @@ import UIKit
 
 class OrderViewController: BaseViewController {
 @IBOutlet weak var collectionView: UICollectionView!
-    var dataArr = [orderModel]()
     var ordersData : [OrderDetaillistModel] = []
 
     
@@ -84,11 +83,9 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let vc = DetailViewController.instantiate(appStoryboard: .home) as DetailViewController
-//        vc.product = dataArr[indexPath.row]
-        
-        // refid
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = OrderDetailViewController.instantiate(appStoryboard: .miscellaneous) as OrderDetailViewController
+        vc.orderId = ordersData[indexPath.row].refid
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
