@@ -39,6 +39,7 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     
     func getCollectionClubDetailList() {
         Loader.showHud()
+        
         let param: [String: Any] = [
             
             :]
@@ -49,6 +50,7 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
                 print(response)
                 if let eventlist = response.data {
                     self?.imgUrl = eventlist.image
+                    self?.eventCollectionData.removeAll()
                     for dict in eventlist.events {
                         let model = EventCollectionlistModel.init(response: dict as? [String:Any] ?? [:])
                         self?.eventCollectionData.append(model)
@@ -77,6 +79,7 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tblView.dequeueReusableCell(withIdentifier: "imgCell") as? CustomTableViewCell
         cell?.bannerimgView.kf.setImage(with: URL(string: imgUrl ), placeholder: nil)
+        cell?.bannerimgView.contentMode = .scaleAspectFill
         
         if indexPath.section == 1 {
             let cell = self.tblView.dequeueReusableCell(withIdentifier: "custom") as? CustomTableViewCell
@@ -86,10 +89,14 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
             cell?.addressLbl.text = model.venue_adderss
             cell?.priceLbl.text = model.per_person_text
             cell?.dateLbl.text = model.startdate
+            cell?.distanceLbl.text = NSString(format:"%d", model.away ?? "0") as String + " Km away"
             
+                cell?.startLbl.text = model.time_to_start
+            //cell?.ratingLbl.text=model.rating
             let url = URL(string: model.small_image ?? "")
             cell?.bannerimgView.contentMode = .scaleAspectFill
             cell?.bannerimgView.kf.setImage(with: url, placeholder: nil)
+            
             
             return cell!
         }

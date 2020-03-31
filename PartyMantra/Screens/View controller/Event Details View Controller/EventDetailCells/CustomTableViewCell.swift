@@ -16,6 +16,9 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var subtitleLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var priceLbl: UILabel!
+    @IBOutlet weak var ratingLbl: UILabel!
+    @IBOutlet weak var distanceLbl: UILabel!
+    @IBOutlet weak var startLbl: UILabel!
     
     override func awakeFromNib() {
         

@@ -76,6 +76,10 @@ extension EventSearchViewController : UITableViewDelegate, UITableViewDataSource
         cell?.priceLbl.text = model.per_person_text
         cell?.dateLbl.text = model.startdate
         
+        cell?.distanceLbl.text = NSString(format:"%d", model.away ?? "0") as String + " Km away"
+    
+        cell?.startLbl.text = model.time_to_start
+        
         let url = URL(string: model.small_image ?? "")
         cell?.bannerimgView.contentMode = .scaleAspectFill
         cell?.bannerimgView.kf.setImage(with: url, placeholder: nil)

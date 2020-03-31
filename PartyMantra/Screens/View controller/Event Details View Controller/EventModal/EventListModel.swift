@@ -58,8 +58,11 @@ class EventCollectionlistModel {
     var priority: Int?
     var per_person_text: String?
     var time_to_start: String?
+  
+
     var away: Int?
     var avgreviews: avgreviewsModel?
+    var rating: String?
 
     init() {
         
@@ -71,7 +74,7 @@ class EventCollectionlistModel {
         self.id = response["id"] as? Int
         self.creator_id = response["creator_id"] as? Int ?? 0
         self.title = response["title"] as? String
-
+        self.rating = response["rating"] as? String
         self.startdate = response["startdate"] as? String
         self.enddate = response["enddate"] as? String
         self.description = response["description"] as? String
