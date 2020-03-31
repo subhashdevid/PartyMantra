@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate, ClubEventCollectionCellDelegate  {
+class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate, ClubEventCollectionCellDelegate,NearByCollectionCellDelegate  {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -46,18 +46,22 @@ class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate, Cl
     }
     
     func didEventCellPressed(eventID: Int) {
-        
         let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
         vc.eventID = eventID
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
-   
+    
     func didCollectionEventCellPressed(eventID: Int) {
         let vc = EventListViewController.instantiate(appStoryboard: .events)
-               vc.type = "events"
-               vc.collectionID = eventID
-               self.navigationController?.pushViewController(vc, animated: true)
+        vc.type = "events"
+        vc.collectionID = eventID
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func didNearByEventCellPressed(eventID: Int) {
+        let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
+        vc.eventID = eventID
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -190,7 +194,9 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
                 cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
                 
                 collectionCell = cell
-            }
+                cell?.nearbyCell_delegate = self
+
+                }
             else if indexPath.section == 2{
                 let cell = collectionView
                     .dequeueReusableCell(withReuseIdentifier: "\(EventCollectionCell.self)", for: indexPath) as? EventCollectionCell
@@ -336,9 +342,12 @@ class NearbyOtherCell: UICollectionViewCell {
 
 
 
-protocol ClubEventOtherCellDelegate: class {
-    func didEventCellPressed(eventID: Int)
+
+
+protocol NearByCollectionCellDelegate: class {
+    func didNearByEventCellPressed(eventID: Int)
 }
+
 
 class NearByCollectionCell: UICollectionViewCell {
 
@@ -346,7 +355,7 @@ class NearByCollectionCell: UICollectionViewCell {
     @IBOutlet weak var viewButton: UIButton!
     
     var nearPlaceModel =  [NearByPlace]()
-    weak var delegate:ClubEventOtherCellDelegate?
+    weak var nearbyCell_delegate:NearByCollectionCellDelegate?
     
     func configureCell(nearByPlaceModel : [NearByPlace]) {
         viewButton.layer.cornerRadius = 10
@@ -356,8 +365,8 @@ class NearByCollectionCell: UICollectionViewCell {
         collectionView.reloadData()
     }
     func cellPressAction(eventID : Int) {
-        if let del = self.delegate {
-            del.didEventCellPressed(eventID: eventID)
+        if let del = self.nearbyCell_delegate {
+            del.didNearByEventCellPressed(eventID: eventID)
         }
     }
 }
@@ -389,16 +398,22 @@ extension NearByCollectionCell : UICollectionViewDelegate,UICollectionViewDataSo
             cell?.configureCell(nearByPlace: self.nearPlaceModel[indexPath.row])
         }
         collectionCell = cell
+
         return collectionCell ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        cellPressAction(eventID: self.nearPlaceModel[indexPath.row].id ?? 0)
+
     }
 }
 
 
 
-
+protocol ClubEventOtherCellDelegate: class {
+    func didEventCellPressed(eventID: Int)
+}
 
 class EventOtherCell: UICollectionViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
