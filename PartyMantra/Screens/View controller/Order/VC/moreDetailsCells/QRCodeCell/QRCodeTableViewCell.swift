@@ -1,19 +1,16 @@
 //
-//  EventDetailInfoTableViewCell.swift
+//  QRCodeTableViewCell.swift
 //  PartyMantra
 //
-//  Created by Vibhash Kumar on 29/03/20.
+//  Created by Vibhash Kumar on 01/04/20.
 //  Copyright © 2020 Shikha. All rights reserved.
 //
 
 import UIKit
 
-class EventDetailInfoTableViewCell: UITableViewCell {
+class QRCodeTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var dateDurationLabel: UILabel!
-    @IBOutlet weak var eventTitleLabel: UILabel!
-    @IBOutlet weak var eventTimmingLabel: UILabel!
-    @IBOutlet weak var venueLabel: UILabel!
+    @IBOutlet weak var qrCodeImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

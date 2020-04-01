@@ -357,13 +357,32 @@
                     <view key="view" contentMode="scaleToFill" id="eeL-fL-sjy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QKE-iu-5he">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Mcn-8a-YFO" id="f0e-qI-BAX"/>
+                                    <outlet property="delegate" destination="Mcn-8a-YFO" id="5rz-aZ-tvN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4on-H4-02c" firstAttribute="bottom" secondItem="QKE-iu-5he" secondAttribute="bottom" id="9k8-jA-Ots"/>
+                            <constraint firstItem="4on-H4-02c" firstAttribute="trailing" secondItem="QKE-iu-5he" secondAttribute="trailing" id="oV0-0c-RAZ"/>
+                            <constraint firstItem="QKE-iu-5he" firstAttribute="top" secondItem="4on-H4-02c" secondAttribute="top" id="u0c-X9-bxC"/>
+                            <constraint firstItem="QKE-iu-5he" firstAttribute="leading" secondItem="4on-H4-02c" secondAttribute="leading" id="wRf-aZ-Fek"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4on-H4-02c"/>
                     </view>
+                    <connections>
+                        <outlet property="orderCheckoutTableview" destination="QKE-iu-5he" id="9Vf-DP-UCb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvK-yc-3QV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1046" y="943"/>
+            <point key="canvasLocation" x="-555" y="1436"/>
         </scene>
     </scenes>
     <resources>

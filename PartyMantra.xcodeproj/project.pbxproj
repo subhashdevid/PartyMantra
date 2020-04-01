@@ -57,6 +57,10 @@
 		3B4F29FF24312A9200832ADA /* UseWalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4F29FD24312A9200832ADA /* UseWalletTableViewCell.xib */; };
 		3B6754A8242683DC005C97CA /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6754A7242683DC005C97CA /* EventDetail.swift */; };
 		3B9A2BA324323AC3001CD2A7 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9A2BA224323AC3001CD2A7 /* UserDetails.swift */; };
+		3BE8C0B824344B3800417384 /* detailPackageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE8C0B624344B3800417384 /* detailPackageTableViewCell.swift */; };
+		3BE8C0B924344B3800417384 /* detailPackageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE8C0B724344B3800417384 /* detailPackageTableViewCell.xib */; };
+		3BE8C0BD24344D7900417384 /* QRCodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE8C0BB24344D7900417384 /* QRCodeTableViewCell.swift */; };
+		3BE8C0BE24344D7900417384 /* QRCodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE8C0BC24344D7900417384 /* QRCodeTableViewCell.xib */; };
 		BF22AD392431DC7E005E4871 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD382431DC7E005E4871 /* Multipart.swift */; };
 		BF22AD3D2432107B005E4871 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD3C2432107B005E4871 /* PaymentViewController.swift */; };
 		BF22AD3E243219AA005E4871 /* Razorpay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF22AD3A24320CF6005E4871 /* Razorpay.framework */; };
@@ -186,6 +190,10 @@
 		3B4F29FD24312A9200832ADA /* UseWalletTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UseWalletTableViewCell.xib; sourceTree = "<group>"; };
 		3B6754A7242683DC005C97CA /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
 		3B9A2BA224323AC3001CD2A7 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
+		3BE8C0B624344B3800417384 /* detailPackageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailPackageTableViewCell.swift; sourceTree = "<group>"; };
+		3BE8C0B724344B3800417384 /* detailPackageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = detailPackageTableViewCell.xib; sourceTree = "<group>"; };
+		3BE8C0BB24344D7900417384 /* QRCodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeTableViewCell.swift; sourceTree = "<group>"; };
+		3BE8C0BC24344D7900417384 /* QRCodeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeTableViewCell.xib; sourceTree = "<group>"; };
 		B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyMantra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF22AD382431DC7E005E4871 /* Multipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipart.swift; sourceTree = "<group>"; };
 		BF22AD3A24320CF6005E4871 /* Razorpay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Razorpay.framework; sourceTree = "<group>"; };
@@ -443,6 +451,25 @@
 			path = PackageDetailsCells;
 			sourceTree = "<group>";
 		};
+		3BE8C0B524344ADA00417384 /* moreDetailsCells */ = {
+			isa = PBXGroup;
+			children = (
+				3BE8C0BA24344D6100417384 /* QRCodeCell */,
+				3BE8C0B624344B3800417384 /* detailPackageTableViewCell.swift */,
+				3BE8C0B724344B3800417384 /* detailPackageTableViewCell.xib */,
+			);
+			path = moreDetailsCells;
+			sourceTree = "<group>";
+		};
+		3BE8C0BA24344D6100417384 /* QRCodeCell */ = {
+			isa = PBXGroup;
+			children = (
+				3BE8C0BB24344D7900417384 /* QRCodeTableViewCell.swift */,
+				3BE8C0BC24344D7900417384 /* QRCodeTableViewCell.xib */,
+			);
+			path = QRCodeCell;
+			sourceTree = "<group>";
+		};
 		85BB2F2C4BC8D770BFF09230 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,6 +705,7 @@
 		BFA6CAD42433BEF200A866D9 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				3BE8C0B524344ADA00417384 /* moreDetailsCells */,
 				BFA6CAD52433BF0B00A866D9 /* OrderDetailViewController.swift */,
 			);
 			path = VC;
@@ -761,7 +789,9 @@
 				3B4F29D22430F6C700832ADA /* EnterContactDetailsTableViewCell.xib in Resources */,
 				3B0411FD242756A5000C9402 /* correct.svg in Resources */,
 				BF2B8A602427443B00727866 /* Miscellaneous.storyboard in Resources */,
+				3BE8C0B924344B3800417384 /* detailPackageTableViewCell.xib in Resources */,
 				3B04120A24277088000C9402 /* CoverChargesTableViewCell.xib in Resources */,
+				3BE8C0BE24344D7900417384 /* QRCodeTableViewCell.xib in Resources */,
 				BF8773A72423C12B00CF8C5D /* TopMenuBarCollectionCell.xib in Resources */,
 				3B04121224277BFC000C9402 /* minus.svg in Resources */,
 				3B04121124277BFC000C9402 /* more.svg in Resources */,
@@ -896,6 +926,7 @@
 				3B4F29CB2430A65E00832ADA /* CustomPickerViewController.swift in Sources */,
 				3B04120224276523000C9402 /* EventDescTableViewCell.swift in Sources */,
 				BF8773662423BB1C00CF8C5D /* BaseViewController.swift in Sources */,
+				3BE8C0BD24344D7900417384 /* QRCodeTableViewCell.swift in Sources */,
 				BF8773732423BDD400CF8C5D /* Model.swift in Sources */,
 				BF87739A2423C0F500CF8C5D /* AddBalanceViewController.swift in Sources */,
 				BF2EEAF42431023400F286E9 /* LocationSelectViewController.swift in Sources */,
@@ -903,6 +934,7 @@
 				BF8773972423C0F500CF8C5D /* WalletViewController.swift in Sources */,
 				BF8773962423C0F500CF8C5D /* DiningViewController.swift in Sources */,
 				BF8773822423BF0B00CF8C5D /* Server.swift in Sources */,
+				3BE8C0B824344B3800417384 /* detailPackageTableViewCell.swift in Sources */,
 				BF8773772423BDFD00CF8C5D /* Constants.swift in Sources */,
 				3B4F29DA2430FF5F00832ADA /* TermsAndConditionTableViewCell.swift in Sources */,
 			);

@@ -54,8 +54,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rC8-al-Uww">
+                                <rect key="frame" x="5" y="69" width="178" height="0.0"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Date and Time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ff0-3H-Aao">
-                                <rect key="frame" x="5" y="71" width="178" height="38"/>
+                                <rect key="frame" x="5" y="70" width="178" height="39"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
@@ -71,17 +78,20 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="rC8-al-Uww" firstAttribute="top" secondItem="uEz-Lh-1Xg" secondAttribute="bottom" constant="1" id="3HW-ui-G7h"/>
                             <constraint firstItem="USz-Os-C2v" firstAttribute="leading" secondItem="l3r-z4-tQd" secondAttribute="trailing" constant="5" id="3Qr-DJ-5Je"/>
                             <constraint firstItem="ff0-3H-Aao" firstAttribute="trailing" secondItem="uEz-Lh-1Xg" secondAttribute="trailing" id="3rs-kK-wBP"/>
-                            <constraint firstItem="ff0-3H-Aao" firstAttribute="top" secondItem="uEz-Lh-1Xg" secondAttribute="bottom" constant="3" id="7SA-dG-avp"/>
                             <constraint firstItem="vO9-SO-mcr" firstAttribute="top" secondItem="5UQ-qJ-ZZo" secondAttribute="top" constant="6" id="KLz-14-VOA"/>
                             <constraint firstItem="vO9-SO-mcr" firstAttribute="leading" secondItem="MiU-qs-WJS" secondAttribute="trailing" constant="5" id="MDn-Es-x0j"/>
+                            <constraint firstItem="ff0-3H-Aao" firstAttribute="top" secondItem="rC8-al-Uww" secondAttribute="bottom" constant="1" id="Ms0-7v-rCs"/>
+                            <constraint firstItem="rC8-al-Uww" firstAttribute="trailing" secondItem="uEz-Lh-1Xg" secondAttribute="trailing" id="OlY-6t-0dW"/>
                             <constraint firstItem="l3r-z4-tQd" firstAttribute="leading" secondItem="MiU-qs-WJS" secondAttribute="leading" id="Ooe-nq-No8"/>
                             <constraint firstItem="USz-Os-C2v" firstAttribute="top" secondItem="MiU-qs-WJS" secondAttribute="bottom" constant="5" id="Rcc-1b-LA4"/>
                             <constraint firstItem="uEz-Lh-1Xg" firstAttribute="leading" secondItem="MiU-qs-WJS" secondAttribute="leading" id="TFp-US-3Iu"/>
                             <constraint firstItem="uEz-Lh-1Xg" firstAttribute="top" secondItem="USz-Os-C2v" secondAttribute="bottom" constant="3" id="aVZ-hT-7aH"/>
                             <constraint firstAttribute="trailing" secondItem="vO9-SO-mcr" secondAttribute="trailing" constant="5" id="avD-Wg-k0g"/>
                             <constraint firstItem="ff0-3H-Aao" firstAttribute="leading" secondItem="uEz-Lh-1Xg" secondAttribute="leading" id="awW-PF-pmr"/>
+                            <constraint firstItem="rC8-al-Uww" firstAttribute="leading" secondItem="uEz-Lh-1Xg" secondAttribute="leading" id="cAP-PL-O3o"/>
                             <constraint firstItem="MiU-qs-WJS" firstAttribute="leading" secondItem="5UQ-qJ-ZZo" secondAttribute="leading" constant="5" id="fyQ-xx-Dsb"/>
                             <constraint firstItem="MiU-qs-WJS" firstAttribute="top" secondItem="5UQ-qJ-ZZo" secondAttribute="top" constant="6" id="j9m-aA-FAy"/>
                             <constraint firstAttribute="bottom" secondItem="vO9-SO-mcr" secondAttribute="bottom" constant="6" id="jty-nZ-MXC"/>
@@ -106,6 +116,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateDurationLabel" destination="uEz-Lh-1Xg" id="UZl-NG-G1Z"/>
+                <outlet property="eventTimmingLabel" destination="rC8-al-Uww" id="ifh-Qm-tz9"/>
+                <outlet property="eventTitleLabel" destination="MiU-qs-WJS" id="LHO-x1-PRP"/>
+                <outlet property="venueLabel" destination="ff0-3H-Aao" id="3ww-QQ-A18"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="67.299107142857139"/>
         </tableViewCell>
     </objects>
