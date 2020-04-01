@@ -224,11 +224,14 @@ class NetworkManager {
     class func getEventDetailListing(url: String, parameters: [String: Any]?, handler: (APICompletion<EventDetailsModal>)? = nil) {
         getRequest(url: url, parameters: parameters, handler: handler)
     }
+    //PartyDetailsModal
+//    class func getPartyDetailListing(url: String, parameters: [String: Any]?, handler: (APICompletion<PartyDetailsModel>)? = nil) {
+//        getRequest(url: url, parameters: parameters, handler: handler)
+//    }
     
-    class func getPartyDetailListing(url: String, parameters: [String: Any]?, handler: (APICompletion<PartyDetailsModel>)? = nil) {
-        getRequest(url: url, parameters: parameters, handler: handler)
-    }
-    
+    class func getPartyDetailListing(url: String, parameters: [String: Any]?, handler: (APICompletion<PartyDetailsModal>)? = nil) {
+           getRequest(url: url, parameters: parameters, handler: handler)
+       }
     class func getCollectionDiningDetailListing(url: String, parameters: [String: Any]?, handler: (APICompletion<CollectionDiningListModel>)? = nil) {
         getRequest(url: url, parameters: parameters, handler: handler)
     }

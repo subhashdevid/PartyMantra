@@ -26,7 +26,6 @@ class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
     var eventID : Int = 0
     var eventData : [EventlistModel] = []
     var type: String?
-    var partyData : PartyDetailsModel?
     var emailString : String?
     var nameString : String?
     var mobileString : String?
@@ -85,9 +84,9 @@ class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
             Loader.dismissHud()
             switch result {
             case let .success(response):
-                if let parties = response.data {
-                    self?.partyData = parties
-                    print(self?.partyData)
+                if let events = response.data {
+                    self?.eventData = [EventlistModel(response: events.party)]
+                    // print(self?.eventData[0].event ?? nil)
                     self?.tblView.reloadData()
                 }
             case .failure: break
@@ -308,30 +307,48 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
             return 0
         }else if indexPath.section == 4{
             if self.eventData.count > 0 {
-                let cellModal = self.eventData[0] as EventlistModel
-                return (CGFloat(cellModal.covers.count*45+40))
+                if self.eventData[0].covers.count > 0 {
+                    let cellModal = self.eventData[0] as EventlistModel
+                    return (CGFloat(cellModal.covers.count*45+40))
+                }else{
+                    return 0
+                }
             }
             return 0
         }else if indexPath.section == 5{
-            if self.eventData.count > 0 && self.heightOfCell>0 && self.heightindex == indexPath.row{
-                print(self.heightOfCell)
-                return CGFloat(self.heightOfCell)
-                
-            }else if self.eventData.count > 0 && self.heightOfCell>0 && self.heightindex == 1{
-                print(self.heightOfCell)
-                               return CGFloat(self.heightOfCell)
-            }else{
-                if self.eventData.count > 0{
-                let cellModal = self.eventData[0].packages as [EventPackagesDetailModal]
-                let height = Int(((cellModal.count)*(140))+40)
-                   
-                    return CGFloat(height)
-                }
-               
-            }
+                 
             
+            if eventData.count > 0 {
+               
+                if self.eventData[0].packages.count > 0 {
+                    
+                               if self.eventData.count > 0 && self.heightOfCell>0 && self.heightindex == indexPath.row{
+                                   print(self.heightOfCell)
+                                   return CGFloat(self.heightOfCell)
+                                   
+                               }else if self.eventData.count > 0 && self.heightOfCell>0 && self.heightindex == 1{
+                                   print(self.heightOfCell)
+                                                  return CGFloat(self.heightOfCell)
+                               }else{
+                                   if self.eventData.count > 0{
+                                   let cellModal = self.eventData[0].packages as [EventPackagesDetailModal]
+                                   let height = Int(((cellModal.count)*(140))+40)
+                                      
+                                       return CGFloat(height)
+                                   }
+                               }
+                }else{
+                    return 0
+                }
+            }
             return 0
         }else if indexPath.section == 6{
+            
+            if self.eventData.count > 0 {
+                if self.eventData[0].type == "restaurant"{
+                    return 0
+                }
+            }
              return UITableView.automaticDimension
         }else if indexPath.section == 7{
             if self.isCellClicked{

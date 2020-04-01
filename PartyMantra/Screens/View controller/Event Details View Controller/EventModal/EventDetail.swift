@@ -24,6 +24,21 @@ struct EventDetailsModal: Codable {
     }
 }
 
+struct PartyDetailsModal: Codable {
+    var party: [String: Any]
+    enum CodingKeys: String, CodingKey {
+        case party
+    }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        party = try values.decode([String: Any].self, forKey: .party)
+    }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(party, forKey: .party)
+    }
+}
+
 
 class EventlistModel {
     
@@ -46,10 +61,24 @@ class EventlistModel {
     var time_to_start: String?
     var away: Int?
     var partner: EventPartnerDetailModal?
-  //  var avgreviews: avgreviewsModel?
+    var avgreviews: [avgreviewsModel]?
     var covers: [EventCoversDetailModal] = []
     var facilities: [EventFacilitiesDetailModal] = []
     var packages: [EventPackagesDetailModal] = []
+
+    var name:String?
+    var address: String?
+    var short_address: String?
+    var contact_no: String?
+    var type: String?
+    var isactive: Int?
+    var open: String?
+    var close: String?
+    var allow_party: Int?
+    var timings: String?
+    var party_timings: String?
+    var discounts: String?
+
     
     init() {
         
@@ -96,6 +125,26 @@ class EventlistModel {
         for item in packageArr {
             self.packages.append(EventPackagesDetailModal(response: item))
         }
+        
+        self.name = response["name"] as? String
+        self.address = response["address"] as? String
+        self.short_address = response["short_address"] as? String
+        self.contact_no = response["contact_no"] as? String
+        
+        self.type = response["type"] as? String
+        self.isactive = response["isactive"] as? Int
+        self.open = response["open"] as? String
+        self.close = response["close"] as? String
+        
+        self.timings = response["timings"] as? String
+        self.allow_party = response["allow_party"] as? Int
+        self.party_timings = response["party_timings"] as? String
+        self.discounts = response["discounts"] as? String
+        
+        
+        
+        
+        
     }
     
 }

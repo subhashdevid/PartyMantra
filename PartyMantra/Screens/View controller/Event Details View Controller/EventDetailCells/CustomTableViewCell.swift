@@ -62,14 +62,28 @@ class GalleryViewCell: UITableViewCell {
         let url = URL(string: modal.header_image ?? "")
            bannerimgView.contentMode = .scaleAspectFill
            bannerimgView.kf.setImage(with: url, placeholder: nil)
-        bannarTitle.text = modal.title ?? ""
-        bannarSubTitle.text = modal.partner?.name ?? ""
-         locTitle.text = modal.venue_name ?? ""
-         locSubTitle.text = modal.venue_adderss ?? ""
-         DateTitle.text = "Date and Time"
-         startDateLbl.text = modal.startdate ?? ""
-        endDateLbl.text = modal.enddate ?? ""
-       }
+        
+        if modal.type == "restaurant" {
+            bannarTitle.text = modal.name ?? ""
+            bannarSubTitle.text = modal.partner?.name ?? ""
+             locTitle.text = modal.name ?? ""
+             locSubTitle.text = modal.short_address ?? ""
+             DateTitle.text = "Date and Time"
+             startDateLbl.text = "\(modal.open ?? "") - \(modal.close ?? "")"
+                //modal.open ?? ""
+            endDateLbl.text = ""
+        }
+        else{
+            bannarTitle.text = modal.title ?? ""
+            bannarSubTitle.text = modal.partner?.name ?? ""
+             locTitle.text = modal.venue_name ?? ""
+             locSubTitle.text = modal.venue_adderss ?? ""
+             DateTitle.text = "Date and Time"
+             startDateLbl.text = modal.startdate ?? ""
+            endDateLbl.text = modal.enddate ?? ""
+        }
+        
+    }
 
 }
 
@@ -97,12 +111,26 @@ class AddressViewCell: UITableViewCell {
     }
     
     func configureAddressCell(modal:EventlistModel){
-        addressTitleLbl.text = "Address"
-        addressSubTitleLbl.text = modal.venue_adderss ?? ""
-       
-        distancelbl.text = "\(modal.away ?? 0) away maps Navigation"
-        distancelbl.lineBreakMode = .byWordWrapping
-        distancelbl.numberOfLines = 2
+      
+        
+        if modal.type == "restaurant" {
+            addressTitleLbl.text = "Address"
+                  addressSubTitleLbl.text = modal.address ?? ""
+                  let kms = Double((modal.away ?? 0))
+                            
+                            distancelbl.text = "\(kms/1000) km away maps Navigation"
+                                  distancelbl.lineBreakMode = .byWordWrapping
+                                  distancelbl.numberOfLines = 2
+        }
+        else{
+            addressTitleLbl.text = "Address"
+                  addressSubTitleLbl.text = modal.venue_adderss ?? ""
+            let kms = Double((modal.away ?? 0))
+            
+            distancelbl.text = "\(kms/1000) km away maps Navigation"
+                  distancelbl.lineBreakMode = .byWordWrapping
+                  distancelbl.numberOfLines = 2
+        }
     }
 
 }
