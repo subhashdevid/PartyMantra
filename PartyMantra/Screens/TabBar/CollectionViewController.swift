@@ -88,32 +88,22 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
             .dequeueReusableCell(withReuseIdentifier: "collectionListCell", for: indexPath) as? collectionListCell
         let notification = dataArr[indexPath.row]
         cell?.configureCell(data: notification)
-        
         collectionCell = cell
-        
         return collectionCell ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let vc = CollectionDetailViewController.instantiate(appStoryboard: .home)
-//        vc.collectionID = dataArr[indexPath.row].id
-//
-//
-//        switch type {
-//        case "":
-//            vc.type = "events"
-//        case "restaurant":
-//            vc.type = "restaurants"
-//            case "party":
-//                vc.type = "party"
-//        default:
-//            vc.type = "events"
-//        }
-//
-        
-        
         let vc = EventListViewController.instantiate(appStoryboard: .events)
-        vc.type = "events"
+        switch type {
+        case "events":
+            vc.type = "events"
+        case "restaurant":
+            vc.type = "restaurants"
+            case "party":
+                vc.type = "party"
+        default:
+            vc.type = "events"
+        }
         vc.collectionID = dataArr[indexPath.row].id
         self.navigationController?.pushViewController(vc, animated: true)
     }

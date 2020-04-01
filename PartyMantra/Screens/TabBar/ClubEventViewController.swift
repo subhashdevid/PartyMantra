@@ -22,9 +22,10 @@ class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate, Cl
     }
     
     func fetchClubEvents() {
+    
         var param: [String: Any] = [
-            "lat" : "28.604912200000",
-            "lang": "77.223133800000"
+            "lat" : UserDetails.shared.get_address_latitude(),
+            "lang": UserDetails.shared.get_address_longitude()
         ]
         if type != "" {
             param["type"] = self.type
@@ -392,8 +393,6 @@ extension NearByCollectionCell : UICollectionViewDelegate,UICollectionViewDataSo
         
         let cell = collectionView
             .dequeueReusableCell(withReuseIdentifier: "NearbyOtherCell", for: indexPath) as? NearbyOtherCell
-        
-//        cell?.configureCell(nearByPlaceModel: self.nearByPlace[indexPath.row])
         if self.nearPlaceModel.count > 0 {
             cell?.configureCell(nearByPlace: self.nearPlaceModel[indexPath.row])
         }
@@ -464,7 +463,6 @@ extension EventOtherCell : UICollectionViewDelegate,UICollectionViewDataSource,U
             return CGSize(width: Constants.windowWidth, height: 180)
         }
         return CGSize(width: 100, height: 130)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -480,10 +478,6 @@ extension EventOtherCell : UICollectionViewDelegate,UICollectionViewDataSource,U
             cell?.configureCell(imgData: self.homeOthers?.banners ?? [])
             collectionCell = cell
         }
-        
-        
-        
-        
         return collectionCell ?? UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

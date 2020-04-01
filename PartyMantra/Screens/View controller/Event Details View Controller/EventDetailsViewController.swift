@@ -26,7 +26,7 @@ class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
     var eventID : Int = 0
     var eventData : [EventlistModel] = []
     var type: String?
-    
+    var partyData : PartyDetailsModel?
     var emailString : String?
     var nameString : String?
     var mobileString : String?
@@ -35,9 +35,17 @@ class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
         super.viewDidLoad()
         tblView.estimatedRowHeight = 44
         tblView.separatorStyle = .none
-        fetchEventDetail()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if self.type == "party" {
+            fetchPartyDetail()
+        }else{
+            fetchEventDetail()
+        }
+
+    }
     func createUrl() -> String {
         let url = Server.shared.eventsUrl + "/\(eventID)/" + "\(type ?? "")"
         return url
@@ -61,6 +69,35 @@ class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
             }
         }
     }
+    
+    //MARK:- Party details API
+    
+    func createPartyUrl() -> String {
+        let url = Server.shared.partyUrl + "/\(eventID)"
+        return url
+    }
+    
+    func fetchPartyDetail() {
+        
+        let param: [String: Any] = [:]
+        Loader.showHud()
+        NetworkManager.getPartyDetailListing(url: createPartyUrl(),parameters: param) {[weak self] result in
+            Loader.dismissHud()
+            switch result {
+            case let .success(response):
+                if let parties = response.data {
+                    self?.partyData = parties
+                    print(self?.partyData)
+                    self?.tblView.reloadData()
+                }
+            case .failure: break
+            }
+        }
+    }
+    
+    
+    
+    
     
     func addCoverBtn()  {
         

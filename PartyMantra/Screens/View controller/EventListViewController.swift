@@ -28,8 +28,10 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func createUrl() -> String {
-        let param: [String: Any] = [
-            :]
+        var param: [String: Any] = [
+                   "lat" : UserDetails.shared.get_address_latitude(),
+                   "lang": UserDetails.shared.get_address_longitude()
+               ]
         var url = ""
         if let collectionID = collectionID {
             url = Server.shared.collectionDetailUrl + "/\(collectionID)/" + "\(type ?? "")"
@@ -64,6 +66,9 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
+    
+    
+    
     //MARK: Table view delegate
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,12 +96,16 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
             cell?.dateLbl.text = model.startdate
             cell?.distanceLbl.text = NSString(format:"%d", model.away ?? "0") as String + " Km away"
             
-                cell?.startLbl.text = model.time_to_start
+            cell?.startLbl.text = model.time_to_start
             //cell?.ratingLbl.text=model.rating
             let url = URL(string: model.small_image ?? "")
             cell?.bannerimgView.contentMode = .scaleAspectFill
             cell?.bannerimgView.kf.setImage(with: url, placeholder: nil)
             
+            if type == "restaurants" || type == "party" {
+                cell?.titleLbl.text = model.name
+                        cell?.subtitleLbl.text = model.short_address
+            }
             
             return cell!
         }
@@ -108,8 +117,10 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
             let model = self.eventCollectionData[indexPath.row]
            
            let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
-           vc.eventID = model.id ?? 0
-           self.navigationController?.pushViewController(vc, animated: true)
+            vc.eventID = model.id ?? 0
+
+        vc.type = self.type
+        self.navigationController?.pushViewController(vc, animated: true)
            
        }
     
@@ -117,6 +128,9 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 200
+        }
+        if indexPath.section == 1 {
+            return 120
         }
         return UITableView.automaticDimension
     }

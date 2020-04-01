@@ -314,13 +314,10 @@ struct ProfileModel: Codable {
     var address: String?
     var gender: String?
     var image: String?
-
-
 }
 struct AddressModel: Codable {
     var message: String?
 }
-
 struct AddMoneyModel:Codable{
     let status:String?
     let data :String?
@@ -328,8 +325,6 @@ struct AddMoneyModel:Codable{
     let order_id: String?
     let amount: String?
 }
-
-
 struct OrderCheckoutModel:Codable{
     let status:String?
     let orderid :String?
@@ -347,7 +342,6 @@ struct OrderCheckoutModel:Codable{
     let subtotal :Int?
     let taxes :Int?
     let qrcode: String?
-
 }
 
 struct CheckoutPackagesModel: Codable {
@@ -357,3 +351,56 @@ struct CheckoutPackagesModel: Codable {
     let package_type: String?
 }
 
+struct PartyDetailsModel: Codable {
+    let party : PartyCheckoutModel?
+}
+
+struct PartyCheckoutModel: Codable {
+
+    let id :Int?
+    let name:String?
+    let description :String?
+    let address: String?
+    let short_address: String?
+   
+    
+    
+    let avgreviews: [avgreviewsModel]?
+    let packages : [CheckoutPackagesModel]?
+    let facilities : [Partyfacilities]?
+
+}
+
+struct Partyfacilities: Codable {
+    let name:String?
+}
+
+
+/*
+ "party": {
+ "id": 8,
+ "name": "QUBITOS PUNJABI BAGH",
+ "description": "New restaurant in Town",
+ "address": "47 nwa club road punjabi bagh",
+ "short_address": "Punjabi bagh club road",
+
+
+ "lat": "22.500000000000",
+ "lang": "23.500000000000",
+ "contact_no": "9911333331",
+ "header_image": "http://partymantra.appoffice.xyz/uploads/partners/p20384-149000591658cfaf9c7652e.jpg",
+ "small_image": "http://partymantra.appoffice.xyz/uploads/partners/big_wup.jpg",
+ "type": "restaurant",
+ "per_person_text": "1000",
+ "isactive": 1,
+ "open": "11:00Am",
+ "close": "11.45pm",
+ "allow_party": 1,
+ "priority": 10,
+ "timings": "01:00pm,01:30pm,02:00pm,02:30pm",
+ "party_timings": "01:00-07:00pm, 07:30-11:45pm",
+ "tnc": null,
+ "discounts": "Pay bill using TPM & get 10% instant discount",
+ "away": 3567,
+ 
+ **/

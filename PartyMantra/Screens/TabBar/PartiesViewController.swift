@@ -8,25 +8,25 @@
 
 import UIKit
 
-class PartiesViewController: BaseViewController {
+class PartiesViewController: BaseViewController, PartyOtherCellDelegate, ClubEventCollectionCellDelegate,NearByCollectionCellDelegate {
+    
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
     var dataArr: HomeModel?
     var type: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        getListing()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchPartyList()
     }
     
-    func getListing() {
-        
+    
+    func fetchPartyList() {
         var param: [String: Any] = [
-            "lat" : "28.604912200000",
-            "lang": "77.223133800000"
+            "lat" : UserDetails.shared.get_address_latitude(),
+            "lang": UserDetails.shared.get_address_longitude()
         ]
         if type != "" {
             param["type"] = self.type
@@ -41,11 +41,34 @@ class PartiesViewController: BaseViewController {
                     self?.collectionView.reloadData()
                     print(self?.dataArr?.collections as Any)
                 }
-                
             case .failure: break
             }
         }
     }
+    
+    func didNearByEventCellPressed(eventID: Int) {
+          let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
+                 vc.eventID = eventID
+                 self.navigationController?.pushViewController(vc, animated: true)
+      }
+      
+      
+        func didCollectionEventCellPressed(eventID: Int) {
+            let vc = EventListViewController.instantiate(appStoryboard: .events)
+                   vc.type = "party"
+                   vc.collectionID = eventID
+                   self.navigationController?.pushViewController(vc, animated: true)
+        }
+      
+    func didPartyCellPressed(eventID: Int) {
+        let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
+        vc.eventID = eventID
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    
+    
 }
 
 extension PartiesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -53,42 +76,88 @@ extension PartiesViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.section == 0 {
-            return CGSize(width: self.view.width, height: 200)
-        }
-        else if indexPath.section == 1{
-            return CGSize(width: self.view.width, height: 150)
-        }
-        else if indexPath.section == 2 {
-            
-            let data = dataArr?.others?[indexPath.row]
-            let count1: Int = data?.party?.count ?? 0
-            let count2: Int = data?.banners?.count ?? 0
-            
-            var rowCount = count1/3
-            
-            if count1 % 3 != 0 {
-                rowCount = rowCount + 1
+       
+        
+        if dataArr?.nearby?.count != 0 {
+            if indexPath.section == 0 {
+                return CGSize(width: self.view.width, height: 200)
             }
-            let rowCount1 = count2 > 0 ? 1: 0
-            return CGSize(width: self.view.width, height: CGFloat(rowCount * 140) + CGFloat(rowCount1 * 181) + 40.0)
-            //3
+            else if indexPath.section == 1 || indexPath.section == 2 {
+                return CGSize(width: self.view.width, height: 150)
+            }
+            else if indexPath.section == 2 {
+                
+                let data = dataArr?.others?[indexPath.row]
+                let count1: Int = data?.party?.count ?? 0
+                let count2: Int = data?.banners?.count ?? 0
+                
+                var rowCount = count1/3
+                
+                if count1 % 3 != 0 {
+                    rowCount = rowCount + 1
+                }
+                let rowCount1 = count2 > 0 ? 1: 0
+                return CGSize(width: self.view.width, height: CGFloat(rowCount * 140) + CGFloat(rowCount1 * 181) + 40.0)
+                //3
+            }
         }
+        else {
+            if indexPath.section == 0 {
+                return CGSize(width: self.view.width, height: 200)
+            }
+            else if indexPath.section == 1{
+                return CGSize(width: self.view.width, height: 150)
+            }
+            else if indexPath.section == 2 {
+                
+                let data = dataArr?.others?[indexPath.row]
+                let count1: Int = data?.party?.count ?? 0
+                let count2: Int = data?.banners?.count ?? 0
+                
+                var rowCount = count1/3
+                
+                if count1 % 3 != 0 {
+                    rowCount = rowCount + 1
+                }
+                let rowCount1 = count2 > 0 ? 1: 0
+                return CGSize(width: self.view.width, height: CGFloat(rowCount * 140) + CGFloat(rowCount1 * 181) + 40.0)
+                //3
+            }
+        }
+        
+        
+        
         return CGSize(width: self.view.width, height: 150)
     }
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        if dataArr?.nearby?.count != 0 {
+            return 4
+        }
+        else {
+            return 3
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else if section == 1 {
-            return 1
-        } else if section == 2 {
-            return dataArr?.others?.count ?? 0
+        
+        if dataArr?.nearby?.count != 0 {
+            if section == 0 {
+                return 1
+            } else if section == 1  || section == 2{
+                return 1
+            } else if section == 3 {
+                return dataArr?.others?.count ?? 0
+            }
+        }else{
+            if section == 0 {
+                return 1
+            } else if section == 1 {
+                return 1
+            } else if section == 2 {
+                return dataArr?.others?.count ?? 0
+            }
         }
         return 0
     }
@@ -118,48 +187,87 @@ extension PartiesViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         var collectionCell: UICollectionViewCell?
         
-        if indexPath.section == 0 {
-            let cell = collectionView
-                .dequeueReusableCell(withReuseIdentifier: "\(ImageBannerCell.self)", for: indexPath) as? ImageBannerCell
-            cell?.configureCell(imgData: dataArr?.banners ?? [])
-            collectionCell = cell
+        if dataArr?.nearby?.count != 0 {
+            if indexPath.section == 0 {
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "\(ImageBannerCell.self)", for: indexPath) as? ImageBannerCell
+                cell?.configureCell(imgData: dataArr?.banners ?? [])
+                collectionCell = cell
+            }
+                else if indexPath.section == 1{
+                              let cell = collectionView
+                                                 .dequeueReusableCell(withReuseIdentifier: "NearByCollectionCell", for: indexPath) as? NearByCollectionCell
+                                            
+                                             cell?.configureCell(nearByPlaceModel: self.dataArr?.nearby ?? [])
+                                             cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
+                                             
+                                             collectionCell = cell
+                              cell?.nearbyCell_delegate = self as NearByCollectionCellDelegate
+                              
+                          }
+            else if indexPath.section == 2{
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "\(EventCollectionCell.self)", for: indexPath) as? EventCollectionCell
+                cell?.configureCell(imgData: dataArr?.collections ?? [])
+                cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
+                cell?.club_delegate = self
+                collectionCell = cell
+           
+            }
+            else if indexPath.section == 3 {
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "\(PartyOtherCell.self)", for: indexPath) as? PartyOtherCell
+                cell?.configureCell(homeOthers: dataArr?.others?[indexPath.row])
+                cell?.viewButton.tag = indexPath.row
+                cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
+                collectionCell = cell
+            }
         }
-        else if indexPath.section == 1{
-            let cell = collectionView
-                .dequeueReusableCell(withReuseIdentifier: "\(EventCollectionCell.self)", for: indexPath) as? EventCollectionCell
-            cell?.configureCell(imgData: dataArr?.collections ?? [])
-            cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
-            collectionCell = cell
+        else{
+            if indexPath.section == 0 {
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "\(ImageBannerCell.self)", for: indexPath) as? ImageBannerCell
+                cell?.configureCell(imgData: dataArr?.banners ?? [])
+                collectionCell = cell
+            }
+            else if indexPath.section == 1{
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "\(EventCollectionCell.self)", for: indexPath) as? EventCollectionCell
+                cell?.configureCell(imgData: dataArr?.collections ?? [])
+                cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
+                collectionCell = cell
+                cell?.club_delegate = self
+
+            }
+            else if indexPath.section == 2 {
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "\(PartyOtherCell.self)", for: indexPath) as? PartyOtherCell
+                cell?.configureCell(homeOthers: dataArr?.others?[indexPath.row])
+                cell?.viewButton.tag = indexPath.row
+                cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
+                collectionCell = cell
+            }
         }
-        else if indexPath.section == 2 {
-            let cell = collectionView
-                .dequeueReusableCell(withReuseIdentifier: "\(PartyOtherCell.self)", for: indexPath) as? PartyOtherCell
-            cell?.configureCell(homeOthers: dataArr?.others?[indexPath.row])
-            cell?.viewButton.tag = indexPath.row
-            cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
-            collectionCell = cell
-        }
+        
+        
+        
         return collectionCell ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //        let vc = DetailViewController.instantiate(appStoryboard: .home) as DetailViewController
-        //        vc.product = dataArr[indexPath.row]
-        //        self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func viewCollection() {
-        let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
-        vc.type = self.type
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @objc func viewEvent(sender: UIButton) {
-        let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
-        vc.type = self.type
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-    }
+     @objc func viewCollection() {
+           let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
+           vc.type = "party"
+           self.navigationController?.pushViewController(vc, animated: true)
+       }
+       @objc func viewEvent(sender: UIButton) {
+           let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
+           vc.type = "party"
+           self.navigationController?.pushViewController(vc, animated: true)
+       }
+       
 }
 
 class PartyOtherCell1: UICollectionViewCell {
@@ -199,13 +307,18 @@ class PartyOtherCell1: UICollectionViewCell {
 }
 
 
+protocol PartyOtherCellDelegate: class {
+    func didPartyCellPressed(eventID: Int)
+}
+
 class PartyOtherCell: UICollectionViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     var homeOthers: HomeOthers?
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var viewButton: UIButton!
-    
+    weak var party_delegate:PartyOtherCellDelegate?
+
     func configureCell(homeOthers:HomeOthers?) {
         lblName.text = homeOthers?.name
         lblDesc.text = homeOthers?.about
@@ -215,6 +328,12 @@ class PartyOtherCell: UICollectionViewCell {
         self.homeOthers = homeOthers
         collectionView.reloadData()
     }
+    
+    func cellPressAction(row : Int) {
+           if let del = self.party_delegate {
+               del.didPartyCellPressed(eventID: row)
+           }
+       }
 }
 extension PartyOtherCell : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
