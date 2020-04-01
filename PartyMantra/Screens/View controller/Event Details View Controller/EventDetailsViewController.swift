@@ -46,7 +46,7 @@ class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
 
     }
     func createUrl() -> String {
-        let url = Server.shared.eventsUrl + "/\(eventID)/" + "\(type ?? "")"
+        let url = Server.shared.eventsUrl + "/\(eventID)"
         return url
     }
 
