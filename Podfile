@@ -18,5 +18,6 @@ target 'PartyMantra' do
   pod 'DPOTPView'
   pod 'Alamofire', '~> 4.9.1'
   pod 'MBProgressHUD','~> 1.1.0'
-  
+  pod 'EzPopup'
+
 end

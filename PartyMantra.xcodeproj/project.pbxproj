@@ -61,6 +61,7 @@
 		3BE8C0B924344B3800417384 /* detailPackageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE8C0B724344B3800417384 /* detailPackageTableViewCell.xib */; };
 		3BE8C0BD24344D7900417384 /* QRCodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE8C0BB24344D7900417384 /* QRCodeTableViewCell.swift */; };
 		3BE8C0BE24344D7900417384 /* QRCodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE8C0BC24344D7900417384 /* QRCodeTableViewCell.xib */; };
+		BF20CABC2434F2B400E76FAF /* CancelOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF20CABB2434F2B400E76FAF /* CancelOrderViewController.swift */; };
 		BF22AD392431DC7E005E4871 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD382431DC7E005E4871 /* Multipart.swift */; };
 		BF22AD3D2432107B005E4871 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD3C2432107B005E4871 /* PaymentViewController.swift */; };
 		BF22AD3E243219AA005E4871 /* Razorpay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF22AD3A24320CF6005E4871 /* Razorpay.framework */; };
@@ -195,6 +196,7 @@
 		3BE8C0BB24344D7900417384 /* QRCodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeTableViewCell.swift; sourceTree = "<group>"; };
 		3BE8C0BC24344D7900417384 /* QRCodeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeTableViewCell.xib; sourceTree = "<group>"; };
 		B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyMantra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF20CABB2434F2B400E76FAF /* CancelOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderViewController.swift; sourceTree = "<group>"; };
 		BF22AD382431DC7E005E4871 /* Multipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipart.swift; sourceTree = "<group>"; };
 		BF22AD3A24320CF6005E4871 /* Razorpay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Razorpay.framework; sourceTree = "<group>"; };
 		BF22AD3C2432107B005E4871 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
@@ -707,6 +709,7 @@
 			children = (
 				3BE8C0B524344ADA00417384 /* moreDetailsCells */,
 				BFA6CAD52433BF0B00A866D9 /* OrderDetailViewController.swift */,
+				BF20CABB2434F2B400E76FAF /* CancelOrderViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -905,6 +908,7 @@
 				3B4F29D12430F6C700832ADA /* EnterContactDetailsTableViewCell.swift in Sources */,
 				BF87739B2423C0F500CF8C5D /* HomePageViewController.swift in Sources */,
 				BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */,
+				BF20CABC2434F2B400E76FAF /* CancelOrderViewController.swift in Sources */,
 				BFA6CAD62433BF0B00A866D9 /* OrderDetailViewController.swift in Sources */,
 				3B4F29DF243110E000832ADA /* SubmitBtnTableViewCell.swift in Sources */,
 				BF2BBA4E242CFB050064EC59 /* ProfileTableViewCell.swift in Sources */,

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EzPopup
+
 
 class OrderViewController: BaseViewController {
 @IBOutlet weak var collectionView: UICollectionView!
@@ -48,7 +50,15 @@ class OrderViewController: BaseViewController {
             }
         }
     }
-
+    
+    
+    @objc func didtapCancelOrder() {
+        
+        let vc = CancelOrderViewController.instantiate(appStoryboard: .miscellaneous) as CancelOrderViewController
+        let popupVC = PopupViewController(contentController: vc, popupWidth: 380, popupHeight: 380)
+        popupVC.cornerRadius = 20
+        present(popupVC, animated: true)
+    }
 }
 
 extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -77,6 +87,7 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let orderDataDetails = (self.ordersData[indexPath.row] as? OrderDetaillistModel)!
         cell?.configureCell(data: orderDataDetails)
    
+        cell?.cancelOrderbtn.addTarget(self, action: #selector(didtapCancelOrder), for: .allTouchEvents)
         collectionCell = cell
         
         return collectionCell ?? UICollectionViewCell()
@@ -101,12 +112,15 @@ class OrderCell: UICollectionViewCell {
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblPaid: UILabel!
     
+    @IBOutlet weak var cancelOrderbtn: UIButton!
+    @IBOutlet weak var viewMoreOrderbtn: UIButton!
+    @IBOutlet weak var reviewOrderbtn: UIButton!
+
     func configureCell(data: OrderDetaillistModel) {
        lblName.text = data.title
         lblPrice.text = "₹\(data.total ?? 0)"
         lblDate.text = data.updated_at
         lblPaid.text = data.payment_status
         GlobalFunction.shared.downloadImage(imageView: imgView, urlStr: data.image ?? "")
-    
     }
 }
