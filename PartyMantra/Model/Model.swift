@@ -327,11 +327,33 @@ struct AddMoneyModel:Codable{
     let id :Int?
     let order_id: String?
     let amount: String?
-    
-    
 }
 
 
+struct OrderCheckoutModel:Codable{
+    let status:String?
+    let orderid :String?
+    let title: String?
+    let image: String?
+    let packages : [CheckoutPackagesModel]?
+    
+    let date: String?
+    let totalpass: Int?
+    let name: String?
+    let mobile: String?
+    let email: String?
+    let ratio: String?
+    let amount: Int?
+    let subtotal :Int?
+    let taxes :Int?
+    let qrcode: String?
 
+}
 
+struct CheckoutPackagesModel: Codable {
+    let package:String?
+    let pass :Int?
+    let price: Int?
+    let package_type: String?
+}
 

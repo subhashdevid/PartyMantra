@@ -195,11 +195,7 @@ class NetworkManager {
     
     
     }
-    
-    
-//    multipartRequest
-    
-    
+  
     class func getHomeListing(parameters: [String: Any]?, handler: (APICompletion<HomeModel>)? = nil) {
         getRequest(url: Server.shared.HomeUrl
             , parameters: parameters, handler: handler)
@@ -217,7 +213,7 @@ class NetworkManager {
         getRequest(url: url, parameters: parameters, handler: handler)
     }
     
-    class func getOrderDetails(url: String, parameters: [String: Any]?, handler: (APICompletion<OrderCheckoutDetailsModel>)? = nil) {
+    class func getOrderDetails(url: String, parameters: [String: Any]?, handler: (APICompletion<OrderCheckoutModel>)? = nil) {
            getRequest(url: url, parameters: parameters, handler: handler)
        }
     

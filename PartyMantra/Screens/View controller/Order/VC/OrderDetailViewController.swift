@@ -11,7 +11,7 @@ import UIKit
 class OrderDetailViewController: BaseViewController {
 
     var orderId : String?
-    
+    var checkoutModel : OrderCheckoutModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,17 +47,12 @@ class OrderDetailViewController: BaseViewController {
             Loader.dismissHud()
             switch result {
             case let .success(response):
-                print(response)
-                
-//                if let eventlist = response.data {
-//                    self?.imgUrl = eventlist.image
-//                    self?.eventCollectionData.removeAll()
-//                    for dict in eventlist.events {
-//                        let model = EventCollectionlistModel.init(response: dict as? [String:Any] ?? [:])
-//                        self?.eventCollectionData.append(model)
-//                    }
+                if let checkout = response.data {
+                    self?.checkoutModel = checkout
+                    print(self?.checkoutModel!)
+
 //                    self?.tblView.reloadData()
-//                }
+                }
                 
             case .failure: break
             }
