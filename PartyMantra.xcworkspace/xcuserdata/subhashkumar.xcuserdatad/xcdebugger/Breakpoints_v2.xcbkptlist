@@ -3,4 +3,86 @@
    uuid = "044F1F80-A2AB-4029-9946-1B1949E85F7B"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D8377A64-8BFE-486B-ADD9-8FFBAE529C87"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartyMantra/Screens/TabBar/PartiesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "didNearByEventCellPressed(eventID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C6F1755-84B3-49E8-B218-E163A5E256CB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartyMantra/Screens/TabBar/ClubEventViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "fetchClubEvents()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8C6F1755-84B3-49E8-B218-E163A5E256CB - 1fe8c2baa883229e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartyMantra.ClubEventViewController.fetchClubEvents() -&gt; ()"
+                  moduleName = "PartyMantra"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Screens/TabBar/ClubEventViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "1026">
+               </Location>
+               <Location
+                  uuid = "8C6F1755-84B3-49E8-B218-E163A5E256CB - 38275c377fd37e76"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PartyMantra.DataResult&lt;PartyMantra.HomeModel&gt;) -&gt; () in PartyMantra.ClubEventViewController.fetchClubEvents() -&gt; ()"
+                  moduleName = "PartyMantra"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subhashkumar/Documents/GIT_Project/PartyMantra/PartyMantra/Screens/TabBar/ClubEventViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "150">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C519F336-1712-4ED7-953A-31EC164D4299"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PartyMantra/Screens/TabBar/ClubEventViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "fetchClubEvents()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

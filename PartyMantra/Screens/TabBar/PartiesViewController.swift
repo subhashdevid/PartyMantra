@@ -49,6 +49,7 @@ class PartiesViewController: BaseViewController, PartyOtherCellDelegate, ClubEve
     func didNearByEventCellPressed(eventID: Int) {
           let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
                  vc.eventID = eventID
+        vc.type = "party"
                  self.navigationController?.pushViewController(vc, animated: true)
       }
       
