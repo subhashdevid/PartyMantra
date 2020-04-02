@@ -68,6 +68,7 @@
 		BF22AD3F243219AA005E4871 /* Razorpay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF22AD3A24320CF6005E4871 /* Razorpay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF22AD4224331546005E4871 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD4124331546005E4871 /* EventListViewController.swift */; };
 		BF22AD44243323DA005E4871 /* EventListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD43243323DA005E4871 /* EventListModel.swift */; };
+		BF22F1502435B12B009B1DCE /* CancelOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22F14F2435B12B009B1DCE /* CancelOrderTableViewCell.swift */; };
 		BF26AA2D242F3A2D00FC61BC /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */; };
 		BF272C34242DD25D00202A71 /* MyProfileUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF272C33242DD25D00202A71 /* MyProfileUpdateViewController.swift */; };
 		BF2B8A602427443B00727866 /* Miscellaneous.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */; };
@@ -202,6 +203,7 @@
 		BF22AD3C2432107B005E4871 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		BF22AD4124331546005E4871 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		BF22AD43243323DA005E4871 /* EventListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListModel.swift; sourceTree = "<group>"; };
+		BF22F14F2435B12B009B1DCE /* CancelOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderTableViewCell.swift; sourceTree = "<group>"; };
 		BF26AA2C242F3A2D00FC61BC /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		BF272C33242DD25D00202A71 /* MyProfileUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUpdateViewController.swift; sourceTree = "<group>"; };
 		BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Miscellaneous.storyboard; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 				BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */,
 				BF2BBA4D242CFB050064EC59 /* ProfileTableViewCell.swift */,
 				BFE54B86242E438C006D813B /* MyProfileUpdateTableViewCell.swift */,
+				BF22F14F2435B12B009B1DCE /* CancelOrderTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -896,6 +899,7 @@
 				3B4F29E32431135A00832ADA /* EventCartViewController.swift in Sources */,
 				BF8773982423C0F500CF8C5D /* HomeViewController.swift in Sources */,
 				BF87737F2423BF0B00CF8C5D /* NetworkManager.swift in Sources */,
+				BF22F1502435B12B009B1DCE /* CancelOrderTableViewCell.swift in Sources */,
 				3B0411FA242755A2000C9402 /* Utilities.swift in Sources */,
 				BF8773672423BB1C00CF8C5D /* LoginViewController.swift in Sources */,
 				3B4F29F024311F4C00832ADA /* selectedPackageTableViewCell.swift in Sources */,

@@ -65,6 +65,7 @@ class Server: NSObject, Codable { // checkpoint
     var NotificationUrl = "\(mainUrl)notifications"
     var addMoneyUrl="\(mainUrl)add-money"
     var verifyMoneyUrl="\(mainUrl)verify-recharge"
+    var cancelOrderUrl = "\(mainUrl)cancel-order"
 
     
     

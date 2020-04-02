@@ -11,17 +11,22 @@ import DynamicCodable
 
 struct OrderlistModel: Codable {
     var ordersdetail: [Any]
+    var cancel_reasons: [String : Any]
+    
     
     enum CodingKeys: String, CodingKey {
         case ordersdetail
+        case cancel_reasons
     }
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         ordersdetail = try values.decode([Any].self, forKey: .ordersdetail)
+        cancel_reasons = try values.decode([String:Any].self, forKey: .cancel_reasons)
     }
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
          try container.encode(ordersdetail, forKey: .ordersdetail)
+        try container.encode(cancel_reasons, forKey: .cancel_reasons)
     }
 }
 
