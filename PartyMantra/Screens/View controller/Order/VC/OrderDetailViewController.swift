@@ -14,6 +14,7 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
 
     var orderId : String?
     var checkoutModel : OrderCheckoutModel?
+    var refid: String?
     
     @IBOutlet weak var orderCheckoutTableview: UITableView!
     override func viewDidLoad() {
@@ -34,7 +35,7 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
                ]
       
         var url = ""
-        if let orderId = orderId {
+        if let refid = refid {
             url = Server.shared.orderDetailUrl + "/\(orderId)"
         }
         return url

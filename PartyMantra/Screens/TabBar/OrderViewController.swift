@@ -14,16 +14,16 @@ class OrderViewController: BaseViewController {
 @IBOutlet weak var collectionView: UICollectionView!
     var ordersData : [OrderDetaillistModel] = []
 
+    var cancel_dict : [String : Any]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        getOrderList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "Order"
+        getOrderList()
+
     }
     
     func getOrderList() {
@@ -38,11 +38,15 @@ class OrderViewController: BaseViewController {
                 print(response)
                 if let orderList = response.data {
                    self?.ordersData.removeAll()
+                    
+                    self?.cancel_dict = orderList.cancel_reasons
+                    
                     for dict in orderList.ordersdetail {
                         print(dict)
                         let model = OrderDetaillistModel.init(response: dict as? [String:Any] ?? [:])
                         self?.ordersData.append(model)
                     }
+                    
                     self?.collectionView.reloadData()
                 }
                 
@@ -52,9 +56,14 @@ class OrderViewController: BaseViewController {
     }
     
     
-    @objc func didtapCancelOrder() {
+    @objc func didtapCancelOrder(sender : UIButton?) {
+        
+        let order = (self.ordersData[sender?.tag ?? 0] as? OrderDetaillistModel)!
+
         
         let vc = CancelOrderViewController.instantiate(appStoryboard: .miscellaneous) as CancelOrderViewController
+        vc.cancel_dict = self.cancel_dict
+        vc.refid = order.refid
         let popupVC = PopupViewController(contentController: vc, popupWidth: 380, popupHeight: 380)
         popupVC.cornerRadius = 20
         present(popupVC, animated: true)
@@ -86,8 +95,9 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
             .dequeueReusableCell(withReuseIdentifier: "OrderCell", for: indexPath) as? OrderCell
         let orderDataDetails = (self.ordersData[indexPath.row] as? OrderDetaillistModel)!
         cell?.configureCell(data: orderDataDetails)
-   
-        cell?.cancelOrderbtn.addTarget(self, action: #selector(didtapCancelOrder), for: .allTouchEvents)
+        
+        cell?.cancelOrderbtn.tag = indexPath.row
+        cell?.cancelOrderbtn.addTarget(self, action: #selector(didtapCancelOrder(sender:)), for: .allTouchEvents)
         collectionCell = cell
         
         return collectionCell ?? UICollectionViewCell()
