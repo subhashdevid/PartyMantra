@@ -10,6 +10,9 @@ import UIKit
 
 class AllTaxesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var totalAmountLbl: UILabel!
+    @IBOutlet weak var packageTotalTitle: UILabel!
+    @IBOutlet weak var taxedAmountLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +22,14 @@ class AllTaxesTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    func configureTaxCell(modal:OrderCheckoutModel?) -> Void {
+        packageTotalTitle.text = "Platform + Tax"
+        totalAmountLbl.text = "\(modal?.amount ?? 0)"
+        taxedAmountLbl.text = "\(modal?.taxes ?? 0)"
+        
     }
     
 }

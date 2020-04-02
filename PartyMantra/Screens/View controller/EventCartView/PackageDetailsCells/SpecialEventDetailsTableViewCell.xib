@@ -129,6 +129,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 <constraints>
                     <constraint firstItem="vAY-f4-Oh3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="WYf-HI-1ey"/>
                     <constraint firstAttribute="trailing" secondItem="vAY-f4-Oh3" secondAttribute="trailing" constant="10" id="cFF-n5-tqQ"/>
@@ -137,6 +138,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="email" destination="ghQ-j7-shV" id="qRQ-Ls-nFG"/>
+                <outlet property="mobile" destination="fUB-5i-7O5" id="4y9-TC-dIP"/>
+                <outlet property="name" destination="nbd-yI-9A1" id="bvA-Gy-vQX"/>
+                <outlet property="ratio" destination="2iN-s3-IOj" id="4NH-en-hwN"/>
+            </connections>
             <point key="canvasLocation" x="134.78260869565219" y="154.35267857142856"/>
         </tableViewCell>
     </objects>

@@ -90,7 +90,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="gjD-TX-YJR" secondAttribute="trailing" constant="2" id="39A-Nf-AGU"/>
                                     <constraint firstItem="gjD-TX-YJR" firstAttribute="leading" secondItem="lIa-61-gJX" secondAttribute="trailing" constant="2" id="4Al-Qp-0Rg"/>
@@ -152,6 +152,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 <constraints>
                     <constraint firstItem="T2r-85-k3B" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Fk3-QJ-CHS"/>
                     <constraint firstAttribute="trailing" secondItem="T2r-85-k3B" secondAttribute="trailing" constant="10" id="s2f-yO-5gD"/>
@@ -160,6 +161,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="packageTotalTitle" destination="3rL-CG-wik" id="Qxz-Md-jJ4"/>
+                <outlet property="taxedAmountLbl" destination="aD6-uT-B8L" id="myB-dP-UBM"/>
+                <outlet property="totalAmountLbl" destination="TuQ-hh-vAb" id="aBN-HX-IeW"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="109.48660714285714"/>
         </tableViewCell>
     </objects>
