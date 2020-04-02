@@ -10,6 +10,9 @@ import UIKit
 
 class selectedPackageTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var itemName: UILabel!
+    @IBOutlet weak var passLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

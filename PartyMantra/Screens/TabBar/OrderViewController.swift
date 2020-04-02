@@ -96,6 +96,7 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = OrderDetailViewController.instantiate(appStoryboard: .miscellaneous) as OrderDetailViewController
         vc.orderId = ordersData[indexPath.row].refid
+        vc.orderModal = ordersData[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
