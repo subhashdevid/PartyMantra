@@ -12,9 +12,11 @@ class detailPackageTableViewCell: UITableViewCell,UITableViewDataSource,UITableV
     
 
     @IBOutlet weak var cellTableView: UITableView!
+    var packagesData : [CheckoutPackagesModel]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        cellTableView.separatorStyle = .none
         // Initialization code
     }
 
@@ -24,10 +26,15 @@ class detailPackageTableViewCell: UITableViewCell,UITableViewDataSource,UITableV
         // Configure the view for the selected state
     }
     
+    func configureCheckoutListTableView(dataModal: OrderCheckoutModel?) -> Void {
+        self.packagesData = dataModal?.packages
+        self.cellTableView.reloadData()
+    }
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.packagesData?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,8 +43,13 @@ class detailPackageTableViewCell: UITableViewCell,UITableViewDataSource,UITableV
             cellTableView.register(UINib(nibName: "selectedPackageTableViewCell", bundle: nil), forCellReuseIdentifier: "selectedPackageTableViewCell")
             cell = cellTableView.dequeueReusableCell(withIdentifier: "selectedPackageTableViewCell") as? selectedPackageTableViewCell
         }
-                    
-          return cell
+           
+        let package = self.packagesData?[indexPath.row]
+        cell.itemName.text = package?.package
+        cell.passLabel.text = "\(package?.pass ?? 0) Pass"
+        cell.amountLabel.text = "₹ \(package?.price ?? 0)"
+        
+        return cell
     }
     
 }

@@ -29,15 +29,24 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nPI-rU-leh" firstAttribute="leading" secondItem="srT-QB-Jwa" secondAttribute="leading" constant="5" id="Nd4-ok-teZ"/>
                             <constraint firstAttribute="bottom" secondItem="nPI-rU-leh" secondAttribute="bottom" constant="5" id="QFU-44-HhA"/>
                             <constraint firstItem="nPI-rU-leh" firstAttribute="top" secondItem="srT-QB-Jwa" secondAttribute="top" constant="5" id="bUI-W4-Tbf"/>
                             <constraint firstAttribute="trailing" secondItem="nPI-rU-leh" secondAttribute="trailing" constant="5" id="yTJ-kw-cUJ"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 <constraints>
                     <constraint firstItem="srT-QB-Jwa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="FzK-CW-E7g"/>
                     <constraint firstAttribute="bottom" secondItem="srT-QB-Jwa" secondAttribute="bottom" constant="10" id="Hqi-gM-hMr"/>

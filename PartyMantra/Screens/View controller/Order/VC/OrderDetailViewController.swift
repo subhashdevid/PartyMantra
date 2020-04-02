@@ -13,6 +13,7 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
     
 
     var orderId : String?
+    var orderModal : OrderDetaillistModel?
     var checkoutModel : OrderCheckoutModel?
     var refid: String?
     
@@ -55,7 +56,7 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
                     self?.checkoutModel = checkout
                     print(self?.checkoutModel!)
 
-//                    self?.tblView.reloadData()
+                    self?.orderCheckoutTableview.reloadData()
                 }
                 
             case .failure: break
@@ -76,8 +77,7 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
                 orderCheckoutTableview.register(UINib(nibName: "EventDetailInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "EventDetailInfoTableViewCell")
                 cell = orderCheckoutTableview.dequeueReusableCell(withIdentifier: "EventDetailInfoTableViewCell") as? EventDetailInfoTableViewCell
             }
-            
-            
+            cell.configureCheckoutCell(checkOutModal: self.checkoutModel,orderModal:orderModal)
             return cell
             
         }else if indexPath.row == 1{
@@ -86,7 +86,7 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
                 orderCheckoutTableview.register(UINib(nibName: "detailPackageTableViewCell", bundle: nil), forCellReuseIdentifier: "detailPackageTableViewCell")
                 cell = orderCheckoutTableview.dequeueReusableCell(withIdentifier: "detailPackageTableViewCell") as? detailPackageTableViewCell
             }
-            
+            cell.configureCheckoutListTableView(dataModal : self.checkoutModel)
             return cell
             
         }else if indexPath.row == 2{
@@ -114,6 +114,7 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
                 cell = orderCheckoutTableview.dequeueReusableCell(withIdentifier: "QRCodeTableViewCell") as? QRCodeTableViewCell
             }
             
+            cell.qrCodeImage.image =  self.checkoutModel?.image
             return cell
         }
     }
@@ -122,8 +123,9 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1{
-         let numberOfCell = 3
-           return  (CGFloat(45*numberOfCell))
+             
+            let numberOfCell = self.checkoutModel?.packages?.count ?? 0
+           return  (CGFloat(40*numberOfCell))
         }else{
             return UITableView.automaticDimension
         }
