@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Cosmos
 class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var bannerimgView: UIImageView!
@@ -19,6 +19,9 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var ratingLbl: UILabel!
     @IBOutlet weak var distanceLbl: UILabel!
     @IBOutlet weak var startLbl: UILabel!
+    
+    @IBOutlet weak var rateView: CosmosView!
+
     
     override func awakeFromNib() {
         
@@ -49,9 +52,12 @@ class GalleryViewCell: UITableViewCell {
     @IBOutlet weak var startDateLbl: UILabel!
     @IBOutlet weak var endDateLbl: UILabel!
        
+    @IBOutlet weak var rateView: CosmosView!
+
     override func awakeFromNib() {
            super.awakeFromNib()
         lowerView.bringSubviewToFront(bannerimgView)
+
        }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -83,6 +89,12 @@ class GalleryViewCell: UITableViewCell {
             endDateLbl.text = modal.enddate ?? ""
         }
         
+        rateView.settings.fillMode = .half
+        if modal.avgEventreviews.count > 0 {
+            let rate = modal.avgEventreviews[0]
+            let value = Double(rate.rating ?? "0.0")
+            rateView.rating = value ?? 0.0
+        }
     }
 
 }

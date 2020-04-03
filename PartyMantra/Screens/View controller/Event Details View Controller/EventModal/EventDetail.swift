@@ -61,7 +61,7 @@ class EventlistModel {
     var time_to_start: String?
     var away: Int?
     var partner: EventPartnerDetailModal?
-    var avgreviews: [avgreviewsModel]?
+    var avgEventreviews: [AvgEventReviewsModel] = []
     var covers: [EventCoversDetailModal] = []
     var facilities: [EventFacilitiesDetailModal] = []
     var packages: [EventPackagesDetailModal] = []
@@ -114,7 +114,8 @@ class EventlistModel {
         let coverArr = response["covers"] as? [[String : Any]] ?? []
         let facilitiesArr = response["facilities"] as? [[String : Any]] ?? []
         let packageArr = response["packages"] as? [[String : Any]] ?? []
-        
+        let reviewArr = response["avgreviews"] as? [[String : Any]] ?? []
+
         for item in coverArr {
             self.covers.append(EventCoversDetailModal(response: item))
         }
@@ -125,6 +126,10 @@ class EventlistModel {
         for item in packageArr {
             self.packages.append(EventPackagesDetailModal(response: item))
         }
+        
+        for item in reviewArr {
+                   self.avgEventreviews.append(AvgEventReviewsModel(response: item))
+               }
         
         self.name = response["name"] as? String
         self.address = response["address"] as? String
@@ -148,6 +153,19 @@ class EventlistModel {
     }
     
 }
+
+class AvgEventReviewsModel {
+    var reviews: Double?
+    var rating: String?
+    init() {
+    }
+    convenience init(response: [String:Any]) {
+        self.init()
+        self.reviews = response["reviews"] as? Double
+        self.rating = response["rating"] as? String
+    }
+}
+
 
 class EventPartnerDetailModal{
 
