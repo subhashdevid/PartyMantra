@@ -131,6 +131,8 @@ class OrderCell: UICollectionViewCell {
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblPaid: UILabel!
+    @IBOutlet weak var lblRefid: UILabel!
+
     
     @IBOutlet weak var cancelOrderbtn: UIButton!
     @IBOutlet weak var viewMoreOrderbtn: UIButton!
@@ -141,6 +143,16 @@ class OrderCell: UICollectionViewCell {
         lblPrice.text = "₹\(data.total ?? 0)"
         lblDate.text = data.updated_at
         lblPaid.text = data.payment_status
+        lblRefid.text = data.refid
         GlobalFunction.shared.downloadImage(imageView: imgView, urlStr: data.image ?? "")
+   
+        if data.payment_status == "cancel-request" {
+            cancelOrderbtn.isHidden = true
+            lblPaid.textColor = .red
+        }else{
+            cancelOrderbtn.isHidden = false
+            lblPaid.textColor = .green
+            lblPaid.font = UIFont.systemFont(ofSize: 15)
+        }
     }
 }
