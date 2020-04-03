@@ -53,7 +53,7 @@ class AddressSearchViewController: UIViewController, CLLocationManagerDelegate{
         
         if self.post_screen == "home" {
             self.navigationController?.isNavigationBarHidden = false
-            self.navigationController?.title = self.post_title
+            self.navigationController?.navigationItem.title = self.post_title
 
         }else{
             self.navigationController?.isNavigationBarHidden = true

@@ -34,7 +34,6 @@ class HomePageViewController: UIPageViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-//        self.updateAddress()
     }
     
     

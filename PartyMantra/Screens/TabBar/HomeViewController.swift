@@ -28,16 +28,12 @@ class HomeViewController: BaseViewController, UISearchBarDelegate , AddressChang
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.groupTableViewBackground
         topAddressView.backgroundColor = .white
-        
-        
+    
         UserDefaults.standard.set("1", forKey: "ISLOGIN") //setObject
         UserDefaults.standard.synchronize()
         
-        
         addTopMenuView()
-        
-        
-        
+    
         searchBar.searchBarStyle = UISearchBar.Style.prominent
         searchBar.placeholder = " Search by Restaurant..."
         searchBar.sizeToFit()
@@ -67,6 +63,24 @@ class HomeViewController: BaseViewController, UISearchBarDelegate , AddressChang
         addressVC.post_title = "Select Address"
         addressVC.post_screen = "home"
         self.navigationController?.pushViewController(addressVC, animated: true)
+    }
+    
+    
+    func updateAddress() {
+    
+           let param: [String: Any] = [
+            "address": UserDetails.shared.get_address_detail() ?? "",
+            "lat": UserDetails.shared.get_address_latitude(),
+            "lang": UserDetails.shared.get_address_longitude()
+           ]
+        
+        Loader.showHud()
+        Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.UpdateAddress, parameter: param as? [String : String], handler: { (response, isSuccess) in
+            Loader.dismissHud()
+            if isSuccess{
+                    self.fetchUserProfile()
+                }
+        })
     }
     
     
@@ -111,7 +125,7 @@ class HomeViewController: BaseViewController, UISearchBarDelegate , AddressChang
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.fetchUserProfile()              
+        self.updateAddress()              
         self.navigationItem.title = "Party Mantra"
         
     }
