@@ -31,16 +31,16 @@ class EventDetailInfoTableViewCell: UITableViewCell {
     
     func configureCheckoutCell(checkOutModal:OrderCheckoutModel?,orderModal:OrderDetaillistModel?){
         
-        eventTitleLabel.text = checkOutModal?.title
+        eventTitleLabel.text = orderModal?.title
         dateDurationLabel.text = checkOutModal?.date
         dateAndTimeLabel.text = orderModal?.order_date
         addressTitleLbl.text = "Address"
         venueLabel.text = orderModal?.details[0].entity?.venue_adderss
         dateAndTimeTitleLbl.text = "Date and Time."
-        let url = URL(string: checkOutModal?.image ?? "")
-        eventImageView.contentMode = .scaleAspectFill
-        eventImageView.kf.setImage(with: url, placeholder: nil)
-        
+        let urlString = checkOutModal?.image ?? ""
+       
+        GlobalFunction.shared.downloadImage(imageView: eventImageView, urlStr: urlString )
+      
        
         
     }

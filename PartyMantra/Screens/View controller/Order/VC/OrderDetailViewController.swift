@@ -38,7 +38,7 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
       
         var url = ""
         if let refid = refid {
-            url = Server.shared.orderDetailUrl + "/\(orderId)"
+            url = Server.shared.orderDetailUrl + "/\(refid)"
         }
         return url
     }
@@ -116,10 +116,12 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
                 orderCheckoutTableview.register(UINib(nibName: "QRCodeTableViewCell", bundle: nil), forCellReuseIdentifier: "QRCodeTableViewCell")
                 cell = orderCheckoutTableview.dequeueReusableCell(withIdentifier: "QRCodeTableViewCell") as? QRCodeTableViewCell
             }
-            let str = self.checkoutModel?.qrcode ?? ""
-            cell.qrCodeImage.contentMode = .scaleAspectFill
-            cell.qrCodeImage.kf.setImage(with: URL(string: str) , placeholder: nil)
-           
+            
+                   let url = URL(string: self.checkoutModel?.qrcode ?? "")
+                   cell?.qrCodeImage.contentMode = .scaleAspectFill
+                   cell?.qrCodeImage.kf.setImage(with: url, placeholder: nil)
+                  
+            
             return cell
         }
     }
@@ -130,7 +132,7 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
         if indexPath.row == 1{
              
             let numberOfCell = self.checkoutModel?.packages?.count ?? 0
-           return  (CGFloat(40*numberOfCell))
+           return  (CGFloat(37*numberOfCell+20))
         }else{
             return UITableView.automaticDimension
         }

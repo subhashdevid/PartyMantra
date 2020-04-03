@@ -127,6 +127,7 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let vc = OrderDetailViewController.instantiate(appStoryboard: .miscellaneous) as OrderDetailViewController
         vc.refid = ordersData[sender?.tag ?? 0].refid
         vc.orderModal = ordersData[sender?.tag ?? 0]
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -10,11 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="38" id="KGk-i7-Jjw" customClass="selectedPackageTableViewCell" customModule="PartyMantra" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="38"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="33" id="KGk-i7-Jjw" customClass="selectedPackageTableViewCell" customModule="PartyMantra" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="38"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKt-L2-sHy">
@@ -122,10 +122,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="kIM-J7-7kn" secondAttribute="bottom" constant="2" id="93v-ql-WfF"/>
                             <constraint firstItem="kIM-J7-7kn" firstAttribute="leading" secondItem="wKt-L2-sHy" secondAttribute="leading" constant="5" id="Aiw-RT-FYw"/>
                             <constraint firstAttribute="bottom" secondItem="kIM-J7-7kn" secondAttribute="bottom" constant="2" id="EAy-Ii-Eti"/>
                             <constraint firstAttribute="trailing" secondItem="kIM-J7-7kn" secondAttribute="trailing" constant="5" id="ETd-X5-CgF"/>
-                            <constraint firstAttribute="height" constant="29" id="dCx-TV-n8N"/>
+                            <constraint firstItem="kIM-J7-7kn" firstAttribute="top" secondItem="wKt-L2-sHy" secondAttribute="top" constant="2" id="Gnm-kW-ypJ"/>
                             <constraint firstAttribute="bottom" secondItem="kIM-J7-7kn" secondAttribute="bottom" constant="2" id="eq1-Tu-aRU"/>
                             <constraint firstItem="wGB-Te-dTJ" firstAttribute="centerY" secondItem="wKt-L2-sHy" secondAttribute="centerY" id="iC4-Ip-oQ6"/>
                             <constraint firstItem="kIM-J7-7kn" firstAttribute="top" secondItem="wKt-L2-sHy" secondAttribute="top" constant="2" id="m6J-BT-Qwx"/>
@@ -138,7 +139,7 @@
                     <constraint firstAttribute="trailing" secondItem="wKt-L2-sHy" secondAttribute="trailing" id="5Qd-Av-Mhv"/>
                     <constraint firstItem="wKt-L2-sHy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="P2V-C8-f5v"/>
                     <constraint firstItem="wKt-L2-sHy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="SLM-6V-uh1"/>
-                    <constraint firstAttribute="bottom" secondItem="wKt-L2-sHy" secondAttribute="bottom" constant="2" id="elq-0S-tUc"/>
+                    <constraint firstAttribute="bottom" secondItem="wKt-L2-sHy" secondAttribute="bottom" id="elq-0S-tUc"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -147,7 +148,7 @@
                 <outlet property="itemName" destination="RM8-8m-5NZ" id="VTv-GT-FS7"/>
                 <outlet property="passLabel" destination="ewk-vQ-JRb" id="8q5-Gj-eU1"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="130.58035714285714"/>
+            <point key="canvasLocation" x="137.68115942028987" y="128.90625"/>
         </tableViewCell>
     </objects>
 </document>
