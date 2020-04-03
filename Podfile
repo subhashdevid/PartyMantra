@@ -20,5 +20,6 @@ target 'PartyMantra' do
   pod 'MBProgressHUD','~> 1.1.0'
   pod 'EzPopup'
   pod 'UITextView+Placeholder'
+  pod 'Cosmos', '~> 21.0'
 
 end

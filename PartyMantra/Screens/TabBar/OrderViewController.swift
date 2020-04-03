@@ -66,6 +66,16 @@ class OrderViewController: BaseViewController {
         popupVC.cornerRadius = 20
         present(popupVC, animated: true)
     }
+    
+    @objc func didtapReviewOrder(sender : UIButton?) {
+          
+          let order = (self.ordersData[sender?.tag ?? 0] as? OrderDetaillistModel)!
+          let vc = OrderReviewViewController.instantiate(appStoryboard: .miscellaneous) as OrderReviewViewController
+        vc.orderId = "\(order.id ?? 0)"
+        self.navigationController?.pushViewController(vc, animated: true)
+      }
+    
+    
 }
 
 extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -99,7 +109,8 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
         collectionCell = cell
         cell?.viewMoreOrderbtn.tag = indexPath.row
         cell?.viewMoreOrderbtn.addTarget(self, action: #selector(didtapToViewOrder), for: .touchUpInside)
-        
+        cell?.reviewOrderbtn.addTarget(self, action: #selector(didtapReviewOrder(sender:)), for: .touchUpInside)
+
         return collectionCell ?? UICollectionViewCell()
     }
     

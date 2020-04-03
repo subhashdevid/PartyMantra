@@ -70,6 +70,51 @@ class Multipart{
     }
     
     
+    func formDataAPICall(mainView : UIView,urlString : String,parameter:[String:Any]! ,handler:@escaping((Any,Bool)-> Void)) -> Void {
+        
+        let baseurl = "\(urlString)"
+        let headers : HTTPHeaders =
+            ["Authorization" : "Bearer \(accessUserToken)"]
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            
+            for (key, value) in parameter {
+                if let temp = value as? String {
+                    multipartFormData.append(temp.data(using: .utf8)!, withName: key)
+                }
+                if let temp = value  as? Int {
+                    multipartFormData.append("\(temp)".data(using: .utf8)!, withName: key)
+                }
+            }
+        }, to:baseurl,
+           method:.post,
+           headers: headers,
+           encodingCompletion: { encodingResult in
+            
+            switch encodingResult {
+            case .success(let upload, _, _):
+                upload.uploadProgress(closure: { (progress) in
+                })
+                
+                upload.response { response in
+                    debugPrint(response)
+                    
+                    do {
+                        let responseObject = try JSONSerialization.jsonObject(with: response.data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                        
+                        let responceDic = responseObject as! NSDictionary
+                        
+                        handler(responceDic,true)
+                        
+                    } catch let error as NSError {
+                        print("error: \(error.localizedDescription)")
+                    }
+                }
+            case .failure(let encodingError):
+                print(encodingError)
+            }
+        })
+    }
+
     func UploadImageUsingMultipart(mainView : UIView,urlString : String, image:UIImage,handler:@escaping((Any,Bool)-> Void)) -> Void {
         
         hud.show(animated: true)

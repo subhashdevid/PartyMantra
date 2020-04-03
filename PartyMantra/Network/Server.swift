@@ -66,8 +66,8 @@ class Server: NSObject, Codable { // checkpoint
     var addMoneyUrl="\(mainUrl)add-money"
     var verifyMoneyUrl="\(mainUrl)verify-recharge"
     var cancelOrderUrl = "\(mainUrl)cancel-order"
+    var reviewOrderUrl = "\(mainUrl)submit-review"
 
-    
     
     
 //    var resendOTP = "http://api.msg91.com/api/sendhttp.php"

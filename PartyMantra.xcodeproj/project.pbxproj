@@ -62,6 +62,7 @@
 		3BE8C0BD24344D7900417384 /* QRCodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE8C0BB24344D7900417384 /* QRCodeTableViewCell.swift */; };
 		3BE8C0BE24344D7900417384 /* QRCodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE8C0BC24344D7900417384 /* QRCodeTableViewCell.xib */; };
 		BF20CABC2434F2B400E76FAF /* CancelOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF20CABB2434F2B400E76FAF /* CancelOrderViewController.swift */; };
+		BF217D5724376814000C7FAE /* OrderReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217D5624376814000C7FAE /* OrderReviewViewController.swift */; };
 		BF22AD392431DC7E005E4871 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD382431DC7E005E4871 /* Multipart.swift */; };
 		BF22AD3D2432107B005E4871 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD3C2432107B005E4871 /* PaymentViewController.swift */; };
 		BF22AD3E243219AA005E4871 /* Razorpay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF22AD3A24320CF6005E4871 /* Razorpay.framework */; };
@@ -198,6 +199,7 @@
 		3BE8C0BC24344D7900417384 /* QRCodeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeTableViewCell.xib; sourceTree = "<group>"; };
 		B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyMantra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF20CABB2434F2B400E76FAF /* CancelOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderViewController.swift; sourceTree = "<group>"; };
+		BF217D5624376814000C7FAE /* OrderReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderReviewViewController.swift; sourceTree = "<group>"; };
 		BF22AD382431DC7E005E4871 /* Multipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipart.swift; sourceTree = "<group>"; };
 		BF22AD3A24320CF6005E4871 /* Razorpay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Razorpay.framework; sourceTree = "<group>"; };
 		BF22AD3C2432107B005E4871 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
@@ -713,6 +715,7 @@
 				3BE8C0B524344ADA00417384 /* moreDetailsCells */,
 				BFA6CAD52433BF0B00A866D9 /* OrderDetailViewController.swift */,
 				BF20CABB2434F2B400E76FAF /* CancelOrderViewController.swift */,
+				BF217D5624376814000C7FAE /* OrderReviewViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -936,6 +939,7 @@
 				BF8773662423BB1C00CF8C5D /* BaseViewController.swift in Sources */,
 				3BE8C0BD24344D7900417384 /* QRCodeTableViewCell.swift in Sources */,
 				BF8773732423BDD400CF8C5D /* Model.swift in Sources */,
+				BF217D5724376814000C7FAE /* OrderReviewViewController.swift in Sources */,
 				BF87739A2423C0F500CF8C5D /* AddBalanceViewController.swift in Sources */,
 				BF2EEAF42431023400F286E9 /* LocationSelectViewController.swift in Sources */,
 				BF99CEC02425C37D0051E775 /* EventDetailsViewController.swift in Sources */,
