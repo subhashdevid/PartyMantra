@@ -60,14 +60,22 @@
                                                                     <rect key="frame" x="1" y="1" width="382" height="93"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chirstmas Event" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9o6-hh-7S0">
-                                                                            <rect key="frame" x="5" y="10" width="267" height="20"/>
+                                                                            <rect key="frame" x="5" y="10" width="277" height="20"/>
                                                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODn-uO-r2y">
-                                                                            <rect key="frame" x="277" y="5" width="105" height="30"/>
+                                                                            <rect key="frame" x="287" y="5" width="105" height="30"/>
                                                                             <subviews>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fod-Zn-fi7">
+                                                                                    <rect key="frame" x="29.5" y="0.0" width="46" height="30"/>
+                                                                                    <userDefinedRuntimeAttributes>
+                                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                            <integer key="value" value="15"/>
+                                                                                        </userDefinedRuntimeAttribute>
+                                                                                    </userDefinedRuntimeAttributes>
+                                                                                </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGx-c1-nDd">
                                                                                     <rect key="frame" x="18.5" y="5" width="68.5" height="20.5"/>
                                                                                     <fontDescription key="fontDescription" name="Arial-ItalicMT" family="Arial" pointSize="18"/>
@@ -78,10 +86,19 @@
                                                                             <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="105" id="I0C-Hf-FwS"/>
+                                                                                <constraint firstItem="Fod-Zn-fi7" firstAttribute="centerY" secondItem="ODn-uO-r2y" secondAttribute="centerY" id="TTU-OY-EGN"/>
                                                                                 <constraint firstAttribute="height" constant="30" id="XGz-9h-aiq"/>
+                                                                                <constraint firstItem="Fod-Zn-fi7" firstAttribute="width" secondItem="ODn-uO-r2y" secondAttribute="width" multiplier="0.438095" id="bV0-ar-NbH"/>
+                                                                                <constraint firstItem="Fod-Zn-fi7" firstAttribute="centerX" secondItem="ODn-uO-r2y" secondAttribute="centerX" id="e5o-cd-Cpr"/>
                                                                                 <constraint firstItem="RGx-c1-nDd" firstAttribute="centerY" secondItem="ODn-uO-r2y" secondAttribute="centerY" id="gAh-KH-8Wb"/>
                                                                                 <constraint firstItem="RGx-c1-nDd" firstAttribute="centerX" secondItem="ODn-uO-r2y" secondAttribute="centerX" id="jmM-wk-KXq"/>
+                                                                                <constraint firstItem="Fod-Zn-fi7" firstAttribute="height" secondItem="ODn-uO-r2y" secondAttribute="height" id="uyN-S2-KAo"/>
                                                                             </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                                                    <integer key="value" value="15"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chirstmas Event" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tt-4j-CGr">
                                                                             <rect key="frame" x="5" y="35" width="372" height="18"/>
@@ -113,7 +130,7 @@
                                                                         <constraint firstItem="9o6-hh-7S0" firstAttribute="leading" secondItem="WF2-nM-Mw0" secondAttribute="leading" constant="5" id="KQi-1k-jfD"/>
                                                                         <constraint firstItem="5tt-4j-CGr" firstAttribute="leading" secondItem="9o6-hh-7S0" secondAttribute="leading" id="Qzz-Ht-19d"/>
                                                                         <constraint firstItem="pby-kn-Apf" firstAttribute="leading" secondItem="5tt-4j-CGr" secondAttribute="leading" id="SYK-os-pRw"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="ODn-uO-r2y" secondAttribute="trailing" id="dxd-y4-TmG"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="ODn-uO-r2y" secondAttribute="trailing" constant="-10" id="dxd-y4-TmG"/>
                                                                         <constraint firstItem="ODn-uO-r2y" firstAttribute="top" secondItem="WF2-nM-Mw0" secondAttribute="top" constant="5" id="hXo-ZZ-CmS"/>
                                                                         <constraint firstItem="9o6-hh-7S0" firstAttribute="centerY" secondItem="ODn-uO-r2y" secondAttribute="centerY" id="kwe-1B-3n4"/>
                                                                         <constraint firstAttribute="trailing" secondItem="5tt-4j-CGr" secondAttribute="trailing" constant="5" id="le3-eT-Zth"/>
@@ -256,6 +273,7 @@
                                             <outlet property="locTitle" destination="vas-S0-UJS" id="vBJ-3H-ahA"/>
                                             <outlet property="lowerView" destination="YRY-8C-ErB" id="6bH-WA-Zky"/>
                                             <outlet property="rateView" destination="pby-kn-Apf" id="FTb-75-Bc0"/>
+                                            <outlet property="reviewbtn" destination="Fod-Zn-fi7" id="CMy-av-T9K"/>
                                             <outlet property="startDateLbl" destination="Wjz-VL-cby" id="WMP-n1-sMD"/>
                                         </connections>
                                     </tableViewCell>

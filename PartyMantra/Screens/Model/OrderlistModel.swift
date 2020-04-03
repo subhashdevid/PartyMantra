@@ -70,6 +70,10 @@ class OrderDetaillistModel {
     
 }
 
+
+    
+
+
 class OrderlistDetailsModel {
     
     var id: Int?

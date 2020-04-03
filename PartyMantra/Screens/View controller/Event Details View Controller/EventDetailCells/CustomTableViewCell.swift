@@ -53,6 +53,9 @@ class GalleryViewCell: UITableViewCell {
     @IBOutlet weak var endDateLbl: UILabel!
        
     @IBOutlet weak var rateView: CosmosView!
+    @IBOutlet weak var reviewbtn: UIButton!
+
+    
 
     override func awakeFromNib() {
            super.awakeFromNib()

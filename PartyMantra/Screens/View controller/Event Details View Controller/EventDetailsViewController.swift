@@ -142,6 +142,19 @@ extension EventDetailsViewController : UITextFieldDelegate {
         
     }
     
+    
+    @objc func didtapReviewOrder(sender : UIButton?) {
+        
+        if self.eventData.count > 0 {
+            let model = self.eventData[0] as EventlistModel
+            print(model.id)
+            let vc = ReviewsViewController.instantiate(appStoryboard: .miscellaneous) as ReviewsViewController
+            
+            vc.eventId = "\(model.id ?? 0)"
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
 }
 
 extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSource {
@@ -169,6 +182,7 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
                 cell.configureGallaryView(modal: cellModal)
             }
             
+            cell.reviewbtn.addTarget(self, action: #selector(didtapReviewOrder(sender:)), for: .touchUpInside)
             return cell
         }
         else  if indexPath.section == 1 {

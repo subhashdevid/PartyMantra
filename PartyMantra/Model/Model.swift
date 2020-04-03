@@ -350,3 +350,15 @@ struct CheckoutPackagesModel: Codable {
     let price: Int?
     let package_type: String?
 }
+
+struct ReviewModel:Codable{
+    
+    let rating: Int?
+    let description: String?
+    let created_at: String?
+    let user: String?
+    let name: String?
+    let id: Int?
+    let image: String?
+    
+}
