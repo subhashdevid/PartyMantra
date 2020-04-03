@@ -117,14 +117,9 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
                 cell = orderCheckoutTableview.dequeueReusableCell(withIdentifier: "QRCodeTableViewCell") as? QRCodeTableViewCell
             }
             let str = self.checkoutModel?.qrcode ?? ""
-            let searchURL : NSURL = NSURL(string: str)!
-
-            
-//            let str = "\( ?? "")/"
-//            let url = URL(string: str )
             cell.qrCodeImage.contentMode = .scaleAspectFill
-             //      cell.qrCodeImage.kf.setImage(with: searchURL as? URL , placeholder: nil)
-            cell.qrCodeImage.downloaded(from: str)
+            cell.qrCodeImage.kf.setImage(with: URL(string: str) , placeholder: nil)
+           
             return cell
         }
     }
@@ -146,23 +141,3 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
 
 
 
-extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() {
-                self.image = image
-            }
-        }.resume()
-    }
-    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
-        guard let url = URL(string: link) else { return }
-        downloaded(from: url, contentMode: mode)
-    }
-}

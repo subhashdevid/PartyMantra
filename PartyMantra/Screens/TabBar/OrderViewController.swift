@@ -59,8 +59,6 @@ class OrderViewController: BaseViewController {
     @objc func didtapCancelOrder(sender : UIButton?) {
         
         let order = (self.ordersData[sender?.tag ?? 0] as? OrderDetaillistModel)!
-
-        
         let vc = CancelOrderViewController.instantiate(appStoryboard: .miscellaneous) as CancelOrderViewController
         vc.cancel_dict = self.cancel_dict
         vc.refid = order.refid
@@ -99,14 +97,25 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
         cell?.cancelOrderbtn.tag = indexPath.row
         cell?.cancelOrderbtn.addTarget(self, action: #selector(didtapCancelOrder(sender:)), for: .allTouchEvents)
         collectionCell = cell
+        cell?.viewMoreOrderbtn.tag = indexPath.row
+        cell?.viewMoreOrderbtn.addTarget(self, action: #selector(didtapToViewOrder), for: .touchUpInside)
         
         return collectionCell ?? UICollectionViewCell()
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let vc = OrderDetailViewController.instantiate(appStoryboard: .miscellaneous) as OrderDetailViewController
+//        vc.refid = ordersData[indexPath.row].refid
+//        vc.orderModal = ordersData[indexPath.row]
+//        self.navigationController?.pushViewController(vc, animated: true)
+//    }
+    
+    
+    @objc func didtapToViewOrder(sender : UIButton?) {
+        
         let vc = OrderDetailViewController.instantiate(appStoryboard: .miscellaneous) as OrderDetailViewController
-        vc.orderId = ordersData[indexPath.row].refid
-        vc.orderModal = ordersData[indexPath.row]
+        vc.refid = ordersData[sender?.tag ?? 0].refid
+        vc.orderModal = ordersData[sender?.tag ?? 0]
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
