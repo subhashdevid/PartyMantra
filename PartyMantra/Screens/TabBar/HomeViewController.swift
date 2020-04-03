@@ -69,7 +69,7 @@ class HomeViewController: BaseViewController, UISearchBarDelegate , AddressChang
     func updateAddress() {
     
            let param: [String: Any] = [
-            "address": UserDetails.shared.get_address_detail() ?? "",
+            "address": UserDetails.shared.get_address_detail() ,
             "lat": UserDetails.shared.get_address_latitude(),
             "lang": UserDetails.shared.get_address_longitude()
            ]
@@ -125,7 +125,7 @@ class HomeViewController: BaseViewController, UISearchBarDelegate , AddressChang
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.updateAddress()              
+        self.updateAddress()
         self.navigationItem.title = "Party Mantra"
         
     }
