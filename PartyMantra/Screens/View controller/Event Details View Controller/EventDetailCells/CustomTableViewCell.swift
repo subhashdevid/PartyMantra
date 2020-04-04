@@ -91,7 +91,7 @@ class GalleryViewCell: UITableViewCell {
              startDateLbl.text = modal.startdate ?? ""
             endDateLbl.text = modal.enddate ?? ""
         }
-        
+        rateView.isUserInteractionEnabled = false
         rateView.settings.fillMode = .half
         if modal.avgEventreviews.count > 0 {
             let rate = modal.avgEventreviews[0]
