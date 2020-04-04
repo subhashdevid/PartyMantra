@@ -1,5 +1,5 @@
 //
-//  GallaryInfoTableViewCell.swift
+//  MenuDetailTableViewCell.swift
 //  PartyMantra
 //
 //  Created by Vibhash Kumar on 04/04/20.
@@ -8,12 +8,14 @@
 
 import UIKit
 
-class GallaryInfoTableViewCell: UITableViewCell {
+class MenuDetailTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var cellTitleLabel: UILabel!
-    @IBOutlet weak var cellSubTitleLabel: UILabel!
-    @IBOutlet weak var cellDetailLabel: UILabel!
-    @IBOutlet weak var reviewBtn: UIButton!
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var minusBtn: UIButton!
+    @IBOutlet weak var menuPricelabel: UILabel!
+    @IBOutlet weak var menuTitleLabel: UILabel!
+    @IBOutlet weak var menuImageIcon: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

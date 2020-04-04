@@ -37,6 +37,18 @@
 		3B14A6722438B28A00E2CF1A /* GallaryActionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B14A6702438B28A00E2CF1A /* GallaryActionTableViewCell.xib */; };
 		3B14A6752438B65B00E2CF1A /* GallaryInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14A6732438B65B00E2CF1A /* GallaryInfoTableViewCell.swift */; };
 		3B14A6762438B65B00E2CF1A /* GallaryInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B14A6742438B65B00E2CF1A /* GallaryInfoTableViewCell.xib */; };
+		3B14A6792438DC0A00E2CF1A /* RestaurentOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14A6772438DC0A00E2CF1A /* RestaurentOptionTableViewCell.swift */; };
+		3B14A67A2438DC0A00E2CF1A /* RestaurentOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B14A6782438DC0A00E2CF1A /* RestaurentOptionTableViewCell.xib */; };
+		3B14A67D2438E15200E2CF1A /* PromoRestaurentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14A67B2438E15200E2CF1A /* PromoRestaurentTableViewCell.swift */; };
+		3B14A67E2438E15200E2CF1A /* PromoRestaurentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B14A67C2438E15200E2CF1A /* PromoRestaurentTableViewCell.xib */; };
+		3B14A6862438EB8900E2CF1A /* RestBannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14A6842438EB8900E2CF1A /* RestBannerTableViewCell.swift */; };
+		3B14A6872438EB8900E2CF1A /* RestBannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B14A6852438EB8900E2CF1A /* RestBannerTableViewCell.xib */; };
+		3B14A68A2438EEAD00E2CF1A /* RestImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14A6882438EEAD00E2CF1A /* RestImageCollectionViewCell.swift */; };
+		3B14A68B2438EEAD00E2CF1A /* RestImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B14A6892438EEAD00E2CF1A /* RestImageCollectionViewCell.xib */; };
+		3B14A68E2438F5EA00E2CF1A /* RestMenuListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14A68C2438F5EA00E2CF1A /* RestMenuListTableViewCell.swift */; };
+		3B14A68F2438F5EA00E2CF1A /* RestMenuListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B14A68D2438F5EA00E2CF1A /* RestMenuListTableViewCell.xib */; };
+		3B14A6922438F6D200E2CF1A /* MenuDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14A6902438F6D200E2CF1A /* MenuDetailTableViewCell.swift */; };
+		3B14A6932438F6D200E2CF1A /* MenuDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B14A6912438F6D200E2CF1A /* MenuDetailTableViewCell.xib */; };
 		3B4F29C92430A60500832ADA /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4F29C82430A60500832ADA /* DatePicker.storyboard */; };
 		3B4F29CB2430A65E00832ADA /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F29CA2430A65D00832ADA /* CustomPickerViewController.swift */; };
 		3B4F29CD2430A66400832ADA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F29CC2430A66400832ADA /* DatePicker.swift */; };
@@ -182,6 +194,18 @@
 		3B14A6702438B28A00E2CF1A /* GallaryActionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallaryActionTableViewCell.xib; sourceTree = "<group>"; };
 		3B14A6732438B65B00E2CF1A /* GallaryInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryInfoTableViewCell.swift; sourceTree = "<group>"; };
 		3B14A6742438B65B00E2CF1A /* GallaryInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallaryInfoTableViewCell.xib; sourceTree = "<group>"; };
+		3B14A6772438DC0A00E2CF1A /* RestaurentOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurentOptionTableViewCell.swift; sourceTree = "<group>"; };
+		3B14A6782438DC0A00E2CF1A /* RestaurentOptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurentOptionTableViewCell.xib; sourceTree = "<group>"; };
+		3B14A67B2438E15200E2CF1A /* PromoRestaurentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoRestaurentTableViewCell.swift; sourceTree = "<group>"; };
+		3B14A67C2438E15200E2CF1A /* PromoRestaurentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromoRestaurentTableViewCell.xib; sourceTree = "<group>"; };
+		3B14A6842438EB8900E2CF1A /* RestBannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestBannerTableViewCell.swift; sourceTree = "<group>"; };
+		3B14A6852438EB8900E2CF1A /* RestBannerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestBannerTableViewCell.xib; sourceTree = "<group>"; };
+		3B14A6882438EEAD00E2CF1A /* RestImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B14A6892438EEAD00E2CF1A /* RestImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		3B14A68C2438F5EA00E2CF1A /* RestMenuListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestMenuListTableViewCell.swift; sourceTree = "<group>"; };
+		3B14A68D2438F5EA00E2CF1A /* RestMenuListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestMenuListTableViewCell.xib; sourceTree = "<group>"; };
+		3B14A6902438F6D200E2CF1A /* MenuDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailTableViewCell.swift; sourceTree = "<group>"; };
+		3B14A6912438F6D200E2CF1A /* MenuDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuDetailTableViewCell.xib; sourceTree = "<group>"; };
 		3B4F29C82430A60500832ADA /* DatePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		3B4F29CA2430A65D00832ADA /* CustomPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
 		3B4F29CC2430A66400832ADA /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
@@ -429,6 +453,18 @@
 				3B14A6702438B28A00E2CF1A /* GallaryActionTableViewCell.xib */,
 				3B14A6732438B65B00E2CF1A /* GallaryInfoTableViewCell.swift */,
 				3B14A6742438B65B00E2CF1A /* GallaryInfoTableViewCell.xib */,
+				3B14A6772438DC0A00E2CF1A /* RestaurentOptionTableViewCell.swift */,
+				3B14A6782438DC0A00E2CF1A /* RestaurentOptionTableViewCell.xib */,
+				3B14A67B2438E15200E2CF1A /* PromoRestaurentTableViewCell.swift */,
+				3B14A67C2438E15200E2CF1A /* PromoRestaurentTableViewCell.xib */,
+				3B14A6842438EB8900E2CF1A /* RestBannerTableViewCell.swift */,
+				3B14A6852438EB8900E2CF1A /* RestBannerTableViewCell.xib */,
+				3B14A6882438EEAD00E2CF1A /* RestImageCollectionViewCell.swift */,
+				3B14A6892438EEAD00E2CF1A /* RestImageCollectionViewCell.xib */,
+				3B14A68C2438F5EA00E2CF1A /* RestMenuListTableViewCell.swift */,
+				3B14A68D2438F5EA00E2CF1A /* RestMenuListTableViewCell.xib */,
+				3B14A6902438F6D200E2CF1A /* MenuDetailTableViewCell.swift */,
+				3B14A6912438F6D200E2CF1A /* MenuDetailTableViewCell.xib */,
 			);
 			path = ResraurentCell;
 			sourceTree = "<group>";
@@ -835,6 +871,7 @@
 				BF8773562423AF6300CF8C5D /* Assets.xcassets in Resources */,
 				3B041217242792DA000C9402 /* PackagesTableViewCell.xib in Resources */,
 				3B14A6722438B28A00E2CF1A /* GallaryActionTableViewCell.xib in Resources */,
+				3B14A6932438F6D200E2CF1A /* MenuDetailTableViewCell.xib in Resources */,
 				3B4F29DB2430FF5F00832ADA /* TermsAndConditionTableViewCell.xib in Resources */,
 				3B4F29F124311F4C00832ADA /* selectedPackageTableViewCell.xib in Resources */,
 				3B14A66A2438B0E100E2CF1A /* Dinning.storyboard in Resources */,
@@ -845,11 +882,15 @@
 				3B0411FD242756A5000C9402 /* correct.svg in Resources */,
 				BF2B8A602427443B00727866 /* Miscellaneous.storyboard in Resources */,
 				3BE8C0B924344B3800417384 /* detailPackageTableViewCell.xib in Resources */,
+				3B14A68F2438F5EA00E2CF1A /* RestMenuListTableViewCell.xib in Resources */,
 				3B04120A24277088000C9402 /* CoverChargesTableViewCell.xib in Resources */,
+				3B14A6872438EB8900E2CF1A /* RestBannerTableViewCell.xib in Resources */,
 				3BE8C0BE24344D7900417384 /* QRCodeTableViewCell.xib in Resources */,
+				3B14A68B2438EEAD00E2CF1A /* RestImageCollectionViewCell.xib in Resources */,
 				BF8773A72423C12B00CF8C5D /* TopMenuBarCollectionCell.xib in Resources */,
 				3B04121224277BFC000C9402 /* minus.svg in Resources */,
 				3B04121124277BFC000C9402 /* more.svg in Resources */,
+				3B14A67E2438E15200E2CF1A /* PromoRestaurentTableViewCell.xib in Resources */,
 				3B4F29E82431189600832ADA /* EventDetailInfoTableViewCell.xib in Resources */,
 				3B04120E2427762C000C9402 /* CoverTableViewCell.xib in Resources */,
 				3B04120324276523000C9402 /* EventDescTableViewCell.xib in Resources */,
@@ -859,6 +900,7 @@
 				BF8773542423AF6200CF8C5D /* Main.storyboard in Resources */,
 				3B04121E24279768000C9402 /* ViewMoreTableViewCell.xib in Resources */,
 				3B4F29FF24312A9200832ADA /* UseWalletTableViewCell.xib in Resources */,
+				3B14A67A2438DC0A00E2CF1A /* RestaurentOptionTableViewCell.xib in Resources */,
 				3B4F29FA2431269A00832ADA /* SpecialEventDetailsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -928,6 +970,7 @@
 				3B04121D24279768000C9402 /* ViewMoreTableViewCell.swift in Sources */,
 				3B4F29EC24311C2900832ADA /* PackageCheckoutTableViewCell.swift in Sources */,
 				3B4F29F52431250400832ADA /* AllTaxesTableViewCell.swift in Sources */,
+				3B14A68A2438EEAD00E2CF1A /* RestImageCollectionViewCell.swift in Sources */,
 				BF8773A82423C12B00CF8C5D /* TopMenuBar.swift in Sources */,
 				BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */,
 				3B14A66D2438B16900E2CF1A /* RestaurentViewController.swift in Sources */,
@@ -955,6 +998,7 @@
 				BF8773672423BB1C00CF8C5D /* LoginViewController.swift in Sources */,
 				3B4F29F024311F4C00832ADA /* selectedPackageTableViewCell.swift in Sources */,
 				BF22AD392431DC7E005E4871 /* Multipart.swift in Sources */,
+				3B14A6862438EB8900E2CF1A /* RestBannerTableViewCell.swift in Sources */,
 				BFC62A342438B4F900A803C1 /* ReviewsListModel.swift in Sources */,
 				3B041216242792DA000C9402 /* PackagesTableViewCell.swift in Sources */,
 				BF272C34242DD25D00202A71 /* MyProfileUpdateViewController.swift in Sources */,
@@ -972,6 +1016,7 @@
 				BF2BBA4E242CFB050064EC59 /* ProfileTableViewCell.swift in Sources */,
 				3B4F29D62430FDA800832ADA /* UIView+Extensions.swift in Sources */,
 				BF8773942423C0F500CF8C5D /* ClubEventViewController.swift in Sources */,
+				3B14A68E2438F5EA00E2CF1A /* RestMenuListTableViewCell.swift in Sources */,
 				3B4F29CD2430A66400832ADA /* DatePicker.swift in Sources */,
 				BF99CEC42425D6670051E775 /* CustomTableViewCell.swift in Sources */,
 				BF8773762423BDFD00CF8C5D /* GlobalFunction.swift in Sources */,
@@ -991,14 +1036,17 @@
 				3BE8C0BD24344D7900417384 /* QRCodeTableViewCell.swift in Sources */,
 				BF8773732423BDD400CF8C5D /* Model.swift in Sources */,
 				BF217D5724376814000C7FAE /* OrderReviewViewController.swift in Sources */,
+				3B14A6792438DC0A00E2CF1A /* RestaurentOptionTableViewCell.swift in Sources */,
 				BF87739A2423C0F500CF8C5D /* AddBalanceViewController.swift in Sources */,
 				BF2EEAF42431023400F286E9 /* LocationSelectViewController.swift in Sources */,
 				BF99CEC02425C37D0051E775 /* EventDetailsViewController.swift in Sources */,
 				BF8773972423C0F500CF8C5D /* WalletViewController.swift in Sources */,
+				3B14A6922438F6D200E2CF1A /* MenuDetailTableViewCell.swift in Sources */,
 				BF8773962423C0F500CF8C5D /* DiningViewController.swift in Sources */,
 				BF8773822423BF0B00CF8C5D /* Server.swift in Sources */,
 				3BE8C0B824344B3800417384 /* detailPackageTableViewCell.swift in Sources */,
 				BF217D5B243782CF000C7FAE /* ReviewTableViewCell.swift in Sources */,
+				3B14A67D2438E15200E2CF1A /* PromoRestaurentTableViewCell.swift in Sources */,
 				BF8773772423BDFD00CF8C5D /* Constants.swift in Sources */,
 				3B4F29DA2430FF5F00832ADA /* TermsAndConditionTableViewCell.swift in Sources */,
 			);

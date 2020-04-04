@@ -115,15 +115,21 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let model = self.eventCollectionData[indexPath.row]
-           
-           let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
+           if type == "restaurants"{
+            let vc = RestaurentViewController.instantiate(appStoryboard: .dinning) as RestaurentViewController
             vc.eventID = model.id ?? 0
-
-        vc.type = self.type
-        self.navigationController?.pushViewController(vc, animated: true)
-           
-       }
-    
+            
+            vc.type = self.type
+            self.navigationController?.pushViewController(vc, animated: true)
+           }else {
+            let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
+             vc.eventID = model.id ?? 0
+             
+             vc.type = self.type
+             self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {

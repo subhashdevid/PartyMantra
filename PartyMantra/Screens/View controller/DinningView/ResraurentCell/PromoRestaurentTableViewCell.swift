@@ -1,5 +1,5 @@
 //
-//  GallaryInfoTableViewCell.swift
+//  PromoRestaurentTableViewCell.swift
 //  PartyMantra
 //
 //  Created by Vibhash Kumar on 04/04/20.
@@ -8,12 +8,10 @@
 
 import UIKit
 
-class GallaryInfoTableViewCell: UITableViewCell {
+class PromoRestaurentTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var cellTitleLabel: UILabel!
-    @IBOutlet weak var cellSubTitleLabel: UILabel!
-    @IBOutlet weak var cellDetailLabel: UILabel!
-    @IBOutlet weak var reviewBtn: UIButton!
+    @IBOutlet weak var promoDetailLbl: UILabel!
+    @IBOutlet weak var cashBackPercentLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

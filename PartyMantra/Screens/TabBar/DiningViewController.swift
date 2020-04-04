@@ -50,7 +50,8 @@ class DiningViewController: BaseViewController , DiningOtherCellDelegate, ClubEv
     
     func didNearByEventCellPressed(eventID: Int) {
         let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
-               vc.eventID = eventID
+              vc.type = "restaurants"
+        vc.eventID = eventID
                self.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -12,6 +12,7 @@ enum AppStoryboard: String {
     case main = "Main"
     case home = "Home"
     case events = "Events"
+    case dinning = "Dinning"
     case miscellaneous="Miscellaneous"
     case more = "MoreStoryBoard"
     case datepicker = "DatePicker"

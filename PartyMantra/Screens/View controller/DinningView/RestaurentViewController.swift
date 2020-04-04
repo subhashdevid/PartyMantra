@@ -13,6 +13,10 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
     
 
     @IBOutlet weak var restaurentTblView: UITableView!
+    
+    
+       var eventID : Int = 0
+       var type: String?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +27,7 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return 5
+           return 6
        }
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,24 +41,60 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
             return cell
         }else if  indexPath.row == 1 {
             var cell: GallaryInfoTableViewCell! = restaurentTblView.dequeueReusableCell(withIdentifier: "GallaryInfoTableViewCell") as? GallaryInfoTableViewCell
-                       if cell == nil {
-                           restaurentTblView.register(UINib(nibName: "GallaryInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "GallaryInfoTableViewCell")
-                           cell = restaurentTblView.dequeueReusableCell(withIdentifier: "GallaryInfoTableViewCell") as? GallaryInfoTableViewCell
-                       }
-                       
-                       return cell
-            
-            
-            
-        }else{
-            var cell: GallaryActionTableViewCell! = restaurentTblView.dequeueReusableCell(withIdentifier: "GallaryActionTableViewCell") as? GallaryActionTableViewCell
             if cell == nil {
-                restaurentTblView.register(UINib(nibName: "GallaryActionTableViewCell", bundle: nil), forCellReuseIdentifier: "GallaryActionTableViewCell")
-                cell = restaurentTblView.dequeueReusableCell(withIdentifier: "GallaryActionTableViewCell") as? GallaryActionTableViewCell
+                restaurentTblView.register(UINib(nibName: "GallaryInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "GallaryInfoTableViewCell")
+                cell = restaurentTblView.dequeueReusableCell(withIdentifier: "GallaryInfoTableViewCell") as? GallaryInfoTableViewCell
+            }
+            
+            return cell
+            
+            
+            
+        }else if  indexPath.row == 2 {
+            var cell: RestaurentOptionTableViewCell! = restaurentTblView.dequeueReusableCell(withIdentifier: "RestaurentOptionTableViewCell") as? RestaurentOptionTableViewCell
+            if cell == nil {
+                restaurentTblView.register(UINib(nibName: "RestaurentOptionTableViewCell", bundle: nil), forCellReuseIdentifier: "RestaurentOptionTableViewCell")
+                cell = restaurentTblView.dequeueReusableCell(withIdentifier: "RestaurentOptionTableViewCell") as? RestaurentOptionTableViewCell
+            }
+            
+            return cell
+            
+           
+            
+        }else if  indexPath.row == 3 {
+        var cell: PromoRestaurentTableViewCell! = restaurentTblView.dequeueReusableCell(withIdentifier: "PromoRestaurentTableViewCell") as? PromoRestaurentTableViewCell
+        if cell == nil {
+            restaurentTblView.register(UINib(nibName: "PromoRestaurentTableViewCell", bundle: nil), forCellReuseIdentifier: "PromoRestaurentTableViewCell")
+            cell = restaurentTblView.dequeueReusableCell(withIdentifier: "PromoRestaurentTableViewCell") as? PromoRestaurentTableViewCell
+        }
+        
+        return cell
+        }else if  indexPath.row == 4 {
+        var cell: RestBannerTableViewCell! = restaurentTblView.dequeueReusableCell(withIdentifier: "RestBannerTableViewCell") as? RestBannerTableViewCell
+        if cell == nil {
+            restaurentTblView.register(UINib(nibName: "RestBannerTableViewCell", bundle: nil), forCellReuseIdentifier: "RestBannerTableViewCell")
+            cell = restaurentTblView.dequeueReusableCell(withIdentifier: "RestBannerTableViewCell") as? RestBannerTableViewCell
+        }
+        
+        return cell
+           
+        }else{
+            var cell:  RestMenuListTableViewCell! = restaurentTblView.dequeueReusableCell(withIdentifier: "RestMenuListTableViewCell") as?  RestMenuListTableViewCell
+            if cell == nil {
+                restaurentTblView.register(UINib(nibName: "RestMenuListTableViewCell", bundle: nil), forCellReuseIdentifier: "RestMenuListTableViewCell")
+                cell = restaurentTblView.dequeueReusableCell(withIdentifier: "RestMenuListTableViewCell") as?  RestMenuListTableViewCell
             }
             
             return cell
         }
     }
 
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 5{
+            return 85*5
+        }else{
+            return UITableView.automaticDimension
+        }
+    }
 }
