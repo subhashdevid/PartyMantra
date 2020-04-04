@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="185" id="KGk-i7-Jjw" customClass="GallaryActionTableViewCell" customModule="PartyMantra" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xjk-Kb-YMY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpp-tR-bXS">
+                        <rect key="frame" x="220" y="139" width="120" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYJ-je-fVw">
+                                <rect key="frame" x="22" y="9.5" width="58.5" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HgC-ow-TKP">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="2jY-at-BD8"/>
+                            <constraint firstItem="HgC-ow-TKP" firstAttribute="top" secondItem="cpp-tR-bXS" secondAttribute="top" id="Jap-QD-GZ7"/>
+                            <constraint firstItem="CYJ-je-fVw" firstAttribute="centerX" secondItem="cpp-tR-bXS" secondAttribute="centerX" constant="-8.75" id="KZE-9t-coB"/>
+                            <constraint firstAttribute="trailing" secondItem="HgC-ow-TKP" secondAttribute="trailing" constant="20" symbolic="YES" id="ZXg-5L-35a"/>
+                            <constraint firstItem="CYJ-je-fVw" firstAttribute="centerY" secondItem="cpp-tR-bXS" secondAttribute="centerY" id="baH-i0-VAS"/>
+                            <constraint firstAttribute="height" constant="40" id="fHO-1M-qLr"/>
+                            <constraint firstAttribute="bottom" secondItem="HgC-ow-TKP" secondAttribute="bottom" id="fcQ-Ri-zH5"/>
+                            <constraint firstItem="HgC-ow-TKP" firstAttribute="leading" secondItem="cpp-tR-bXS" secondAttribute="leading" id="xvf-iB-ydd"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="xjk-Kb-YMY" secondAttribute="trailing" id="dix-nA-tgP"/>
+                    <constraint firstAttribute="bottom" secondItem="xjk-Kb-YMY" secondAttribute="bottom" id="icX-uF-wQ2"/>
+                    <constraint firstAttribute="bottom" secondItem="cpp-tR-bXS" secondAttribute="bottom" constant="6" id="k5D-RE-vuW"/>
+                    <constraint firstAttribute="trailing" secondItem="cpp-tR-bXS" secondAttribute="trailing" constant="-20" id="oR5-8A-Vvo"/>
+                    <constraint firstItem="xjk-Kb-YMY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pGD-8G-8yU"/>
+                    <constraint firstItem="xjk-Kb-YMY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wgy-a7-c6w"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="gallaryBtn" destination="HgC-ow-TKP" id="zOJ-0D-utu"/>
+                <outlet property="gallaryImageView" destination="xjk-Kb-YMY" id="TbJ-oa-BDw"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="183.81696428571428"/>
+        </tableViewCell>
+    </objects>
+</document>
