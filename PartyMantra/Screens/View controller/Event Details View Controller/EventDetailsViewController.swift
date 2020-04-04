@@ -151,7 +151,7 @@ extension EventDetailsViewController : UITextFieldDelegate {
             let vc = ReviewsViewController.instantiate(appStoryboard: .miscellaneous) as ReviewsViewController
             
             vc.eventId = "\(model.id ?? 0)"
-            vc.type=self.type
+            vc.type = self.type
             
             self.navigationController?.pushViewController(vc, animated: true)
         }

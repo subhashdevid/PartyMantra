@@ -47,22 +47,23 @@ class PartiesViewController: BaseViewController, PartyOtherCellDelegate, ClubEve
     }
     
     func didNearByEventCellPressed(eventID: Int) {
-          let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
-                 vc.eventID = eventID
+        let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
+        vc.eventID = eventID
         vc.type = "party"
-                 self.navigationController?.pushViewController(vc, animated: true)
-      }
-      
-      
-        func didCollectionEventCellPressed(eventID: Int) {
-            let vc = EventListViewController.instantiate(appStoryboard: .events)
-                   vc.type = "party"
-                   vc.collectionID = eventID
-                   self.navigationController?.pushViewController(vc, animated: true)
-        }
-      
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    func didCollectionEventCellPressed(eventID: Int) {
+        let vc = EventListViewController.instantiate(appStoryboard: .events)
+        vc.type = "party"
+        vc.collectionID = eventID
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func didPartyCellPressed(eventID: Int) {
         let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
+        vc.type = "party"
         vc.eventID = eventID
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -77,7 +78,7 @@ extension PartiesViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-       
+        
         
         if dataArr?.nearby?.count != 0 {
             if indexPath.section == 0 {
@@ -195,17 +196,17 @@ extension PartiesViewController: UICollectionViewDelegate, UICollectionViewDataS
                 cell?.configureCell(imgData: dataArr?.banners ?? [])
                 collectionCell = cell
             }
-                else if indexPath.section == 1{
-                              let cell = collectionView
-                                                 .dequeueReusableCell(withReuseIdentifier: "NearByCollectionCell", for: indexPath) as? NearByCollectionCell
-                                            
-                                             cell?.configureCell(nearByPlaceModel: self.dataArr?.nearby ?? [])
-                                             cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
-                                             
-                                             collectionCell = cell
-                              cell?.nearbyCell_delegate = self as NearByCollectionCellDelegate
-                              
-                          }
+            else if indexPath.section == 1{
+                let cell = collectionView
+                    .dequeueReusableCell(withReuseIdentifier: "NearByCollectionCell", for: indexPath) as? NearByCollectionCell
+                
+                cell?.configureCell(nearByPlaceModel: self.dataArr?.nearby ?? [])
+                cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
+                
+                collectionCell = cell
+                cell?.nearbyCell_delegate = self as NearByCollectionCellDelegate
+                
+            }
             else if indexPath.section == 2{
                 let cell = collectionView
                     .dequeueReusableCell(withReuseIdentifier: "\(EventCollectionCell.self)", for: indexPath) as? EventCollectionCell
@@ -213,7 +214,7 @@ extension PartiesViewController: UICollectionViewDelegate, UICollectionViewDataS
                 cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
                 cell?.club_delegate = self
                 collectionCell = cell
-           
+                
             }
             else if indexPath.section == 3 {
                 let cell = collectionView
@@ -222,6 +223,7 @@ extension PartiesViewController: UICollectionViewDelegate, UICollectionViewDataS
                 cell?.viewButton.tag = indexPath.row
                 cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
                 collectionCell = cell
+                cell?.party_delegate = self
             }
         }
         else{
@@ -238,7 +240,7 @@ extension PartiesViewController: UICollectionViewDelegate, UICollectionViewDataS
                 cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
                 collectionCell = cell
                 cell?.club_delegate = self
-
+                
             }
             else if indexPath.section == 2 {
                 let cell = collectionView
@@ -247,6 +249,8 @@ extension PartiesViewController: UICollectionViewDelegate, UICollectionViewDataS
                 cell?.viewButton.tag = indexPath.row
                 cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
                 collectionCell = cell
+                cell?.party_delegate = self
+                
             }
         }
         
@@ -258,17 +262,17 @@ extension PartiesViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
     
-     @objc func viewCollection() {
-           let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
-           vc.type = "party"
-           self.navigationController?.pushViewController(vc, animated: true)
-       }
-       @objc func viewEvent(sender: UIButton) {
-           let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
-           vc.type = "party"
-           self.navigationController?.pushViewController(vc, animated: true)
-       }
-       
+    @objc func viewCollection() {
+        let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
+        vc.type = "party"
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func viewEvent(sender: UIButton) {
+        let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
+        vc.type = "party"
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 class PartyOtherCell1: UICollectionViewCell {
@@ -298,7 +302,7 @@ class PartyOtherCell1: UICollectionViewCell {
             let rate = partydata?.avgreviews?[0]
             let value = Double(rate?.rating ?? "0.0")
             rateLbl.text = String(format:"%.1f", value ?? 0.0)
-        
+            
         }else{
             rateView.isHidden = true
             rateLbl.isHidden = true
@@ -319,7 +323,7 @@ class PartyOtherCell: UICollectionViewCell {
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var viewButton: UIButton!
     weak var party_delegate:PartyOtherCellDelegate?
-
+    
     func configureCell(homeOthers:HomeOthers?) {
         lblName.text = homeOthers?.name
         lblDesc.text = homeOthers?.about
@@ -331,10 +335,10 @@ class PartyOtherCell: UICollectionViewCell {
     }
     
     func cellPressAction(row : Int) {
-           if let del = self.party_delegate {
-               del.didPartyCellPressed(eventID: row)
-           }
-       }
+        if let del = self.party_delegate {
+            del.didPartyCellPressed(eventID: row)
+        }
+    }
 }
 extension PartyOtherCell : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
@@ -368,9 +372,9 @@ extension PartyOtherCell : UICollectionViewDelegate,UICollectionViewDataSource,U
         if indexPath.section == 0 {
             let cell = collectionView
                 .dequeueReusableCell(withReuseIdentifier: "\(PartyOtherCell1.self)", for: indexPath) as? PartyOtherCell1
-//            cell?.configureCell(data: self.homeOthers?.party?[indexPath.row])
+            //            cell?.configureCell(data: self.homeOthers?.party?[indexPath.row])
             cell?.configureCell(partydata: self.homeOthers?.party?[indexPath.row])
-        
+            
             collectionCell = cell
         } else if indexPath.section == 1 {
             let cell = collectionView
@@ -381,11 +385,13 @@ extension PartyOtherCell : UICollectionViewDelegate,UICollectionViewDataSource,U
         
         
         
-
+        
         return collectionCell ?? UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        cellPressAction(row: self.homeOthers?.party?[indexPath.row].id ?? 0)
+
     }
     
     

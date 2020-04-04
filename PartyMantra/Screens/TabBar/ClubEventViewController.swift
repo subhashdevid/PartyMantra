@@ -22,7 +22,7 @@ class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate, Cl
     }
     
     func fetchClubEvents() {
-    
+        
         var param: [String: Any] = [
             "lat" : UserDetails.shared.get_address_latitude(),
             "lang": UserDetails.shared.get_address_longitude()
@@ -49,6 +49,7 @@ class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate, Cl
     func didEventCellPressed(eventID: Int) {
         let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
         vc.eventID = eventID
+        vc.type = "events"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -61,6 +62,7 @@ class ClubEventViewController: BaseViewController,ClubEventOtherCellDelegate, Cl
     
     func didNearByEventCellPressed(eventID: Int) {
         let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
+        vc.type = "events"
         vc.eventID = eventID
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -190,14 +192,14 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
             else if indexPath.section == 1{
                 let cell = collectionView
                     .dequeueReusableCell(withReuseIdentifier: "NearByCollectionCell", for: indexPath) as? NearByCollectionCell
-               
+                
                 cell?.configureCell(nearByPlaceModel: self.dataArr?.nearby ?? [])
                 cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
                 
                 collectionCell = cell
                 cell?.nearbyCell_delegate = self
-
-                }
+                
+            }
             else if indexPath.section == 2{
                 let cell = collectionView
                     .dequeueReusableCell(withReuseIdentifier: "\(EventCollectionCell.self)", for: indexPath) as? EventCollectionCell
@@ -205,7 +207,7 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
                 cell?.viewButton.addTarget(self, action: #selector(viewCollection), for: .touchUpInside)
                 collectionCell = cell
                 cell?.club_delegate = self
-
+                
             }
                 
             else if indexPath.section == 3 {
@@ -314,9 +316,9 @@ class NearbyOtherCell: UICollectionViewCell {
     @IBOutlet weak var rateLbl: UILabel!
     @IBOutlet weak var rateImg: UIImageView!
     
-
+    
     func configureCell(nearByPlace : NearByPlace?) {
-
+        
         lblName.text = nearByPlace?.title
         lblDesc.text = nearByPlace?.venue_name
         let url = URL(string: nearByPlace?.small_image ?? "")
@@ -328,11 +330,11 @@ class NearbyOtherCell: UICollectionViewCell {
             rateLbl.isHidden = false
             rateImg.isHidden = false
             rateImg.image = UIImage(named: "starnew")
-
+            
             let rate = nearByPlace?.avgreviews?[0]
             let value = Double(rate?.rating ?? "0.0")
             rateLbl.text = String(format:"%.1f", value ?? 0.0)
-
+            
         }else{
             rateView.isHidden = true
             rateLbl.isHidden = true
@@ -351,7 +353,7 @@ protocol NearByCollectionCellDelegate: class {
 
 
 class NearByCollectionCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var viewButton: UIButton!
     
@@ -380,12 +382,12 @@ extension NearByCollectionCell : UICollectionViewDelegate,UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return self.nearPlaceModel.count
+        return self.nearPlaceModel.count
     }
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 120, height: 150)
+        return CGSize(width: 120, height: 150)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -397,14 +399,14 @@ extension NearByCollectionCell : UICollectionViewDelegate,UICollectionViewDataSo
             cell?.configureCell(nearByPlace: self.nearPlaceModel[indexPath.row])
         }
         collectionCell = cell
-
+        
         return collectionCell ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         cellPressAction(eventID: self.nearPlaceModel[indexPath.row].id ?? 0)
-
+        
     }
 }
 
@@ -492,7 +494,7 @@ class EventCollectionCell: UICollectionViewCell {
     
     var imageData = [HomeCollection]()
     weak var club_delegate:ClubEventCollectionCellDelegate?
-
+    
     func configureCell(imgData:[HomeCollection]) {
         viewButton.layer.cornerRadius = 10
         viewButton.layer.masksToBounds = true
@@ -533,14 +535,14 @@ extension EventCollectionCell : UICollectionViewDelegate,UICollectionViewDataSou
         
         cell.cellImage.kf.setImage(with: url, placeholder: nil)
         cell.club_delegate = self as? ClubEventCollectionCellDelegate
-
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        cellPressAction(row: self.homeOthers?.event?[indexPath.row].id ?? 0)
-       
+        //        cellPressAction(row: self.homeOthers?.event?[indexPath.row].id ?? 0)
+        
         cellCollectionPressAction(eventID: self.imageData[indexPath.row].id ?? 0)
-
+        
         
     }
     
@@ -601,7 +603,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cellImage: UIImageView!
     weak var club_delegate:ClubEventCollectionCellDelegate?
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.cellImage.contentMode = .scaleToFill
