@@ -70,7 +70,37 @@ class OrderDetaillistModel {
     
 }
 
+class OrderReviewlistModel {
+    
+    var rating: Int?
+    var description: String?
+    var created_at: String?
+    var user: String?
+    var id: Int?
+    var name: String?
+    var image: String?
 
+
+    init() {
+        
+    }
+    convenience init(response: [String:Any]) {
+        
+        self.init()
+        
+        self.id = response["id"] as? Int
+        self.rating = response["rating"] as? Int
+        self.description = response["description"] as? String ?? ""
+        self.created_at = response["created_at"] as? String ?? ""
+        self.user = response["user"] as? String ?? ""
+        self.name = response["name"] as? String ?? ""
+        self.description = response["description"] as? String ?? ""
+        
+        
+        
+        }
+        
+    }
     
 
 

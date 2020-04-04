@@ -11,15 +11,18 @@ import UIKit
 class ReviewsViewController: UIViewController {
 
     var eventId : String?
+    var type: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        //getReviewList()
         
-
+  createUrl()
         }
+    
+    func createUrl() -> String {
+        let url = Server.shared.reviewListUrl + (type ?? "") + (eventId ?? "") + "reviews"
+        return url
+    }
     
             }
         

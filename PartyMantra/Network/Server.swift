@@ -68,6 +68,7 @@ class Server: NSObject, Codable { // checkpoint
     var cancelOrderUrl = "\(mainUrl)cancel-order"
     var reviewOrderUrl = "\(mainUrl)submit-review"
     var reviewListUrl = "\(mainUrl)"
+    
 
     
     

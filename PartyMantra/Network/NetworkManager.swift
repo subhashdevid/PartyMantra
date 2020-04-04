@@ -217,9 +217,6 @@ class NetworkManager {
            getRequest(url: url, parameters: parameters, handler: handler)
        }
     
-    class func getReviewList(url: String, parameters: [String: Any]?, handler: (APICompletion<ReviewModel>)? = nil) {
-        getRequest(url: url, parameters: parameters, handler: handler)
-    }
     
     class func getCollectionClubDetailListing(url: String, parameters: [String: Any]?, handler: (APICompletion<CollectionClubListModel>)? = nil) {
         getRequest(url: url, parameters: parameters, handler: handler)
