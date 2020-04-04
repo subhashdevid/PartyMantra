@@ -25,11 +25,12 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scroll.contentSize = CGSize(width: self.view.frame.width,height: self.view.frame.height+100)
-        self.fetchUserProfile()
+       // self.fetchUserProfile()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "Profile"
+        self.fetchUserProfile()
     }
 
     

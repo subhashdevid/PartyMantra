@@ -45,6 +45,7 @@ class OrderReviewViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
+        
         comment = textView.text
     }
     
