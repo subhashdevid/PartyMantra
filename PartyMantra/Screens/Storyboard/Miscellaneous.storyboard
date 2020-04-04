@@ -553,6 +553,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="o2I-mn-hfU" id="uCA-zN-Hny"/>
+                                    <outlet property="delegate" destination="o2I-mn-hfU" id="l2X-fL-ZxJ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -564,6 +568,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S60-SA-IGd"/>
                     </view>
+                    <connections>
+                        <outlet property="reviewTableview" destination="MTy-OA-fma" id="uUA-li-w7H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RxU-Us-lar" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
