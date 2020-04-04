@@ -25,8 +25,25 @@ class ReviewTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+    
+    func configureReviewCell(reviewModal: ReviewsListModel?){
+        dateLbl.text = reviewModal?.created_at
+        titlelbl.text = reviewModal?.user?.name
+        subTitlelbl.text = reviewModal?.description
+
+        cosmosView.isUserInteractionEnabled = false
+        cosmosView.settings.fillMode = .half
+
+        let rate = reviewModal?.rating
+        cosmosView.rating = Double(rate ?? Int(0.0))
+        
+        //let imgBanner = self.imageData[indexPath.row]
+        let url = URL(string: reviewModal?.user?.image ?? "")
+        bannerImg.kf.setImage(with: url, placeholder: nil)
+
+    }
+    
 
 }
+

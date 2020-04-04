@@ -11,9 +11,12 @@ import Alamofire
 
 class ReviewsViewController: UIViewController {
     var reviewData : [ReviewsListModel] = []
+    //var reviewModel : ReviewsListModel?
     
     var eventId : String?
     var type: String?
+    
+    @IBOutlet weak var reviewTableview: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +44,18 @@ class ReviewsViewController: UIViewController {
         Alamofire.request(reviewlistEndpoint, method: .get, encoding: JSONEncoding.default)
             .responseJSON { response in
                 if let data = response.result.value{
-                    //print(data)
+                    print(data)
                     Loader.dismissHud()
                     if  (data as? [[String : Any]]) != nil{
+                        
+                        self.reviewData.removeAll()
                         for dict in data as? [[String : Any]] ?? [[:]] {
                             print(dict)
                             let model = ReviewsListModel.init(response: dict)
                             self.reviewData.append(model)
                         }
                         
-                        //reload
+                        self.reviewTableview.reloadData()
                     }
                 }
         }
@@ -58,14 +63,26 @@ class ReviewsViewController: UIViewController {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
+
+extension ReviewsViewController : UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.reviewData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.reviewTableview.dequeueReusableCell(withIdentifier: "ReviewTableViewCell") as? ReviewTableViewCell
+        let modelobj = self.reviewData[indexPath.row]
+        
+        cell?.configureReviewCell(reviewModal: modelobj)
+
+        
+        return cell!
+}
+
+
+
+
+}
+
 
