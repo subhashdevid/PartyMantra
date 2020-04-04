@@ -31,6 +31,12 @@
 		3B04122124279BB4000C9402 /* ViewMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B04121F24279BB4000C9402 /* ViewMoreCollectionViewCell.swift */; };
 		3B04122224279BB4000C9402 /* ViewMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B04122024279BB4000C9402 /* ViewMoreCollectionViewCell.xib */; };
 		3B0C4AA82433A4C2005AAE60 /* OrderlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C4AA72433A4C2005AAE60 /* OrderlistModel.swift */; };
+		3B14A66A2438B0E100E2CF1A /* Dinning.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B14A6692438B0E100E2CF1A /* Dinning.storyboard */; };
+		3B14A66D2438B16900E2CF1A /* RestaurentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14A66C2438B16900E2CF1A /* RestaurentViewController.swift */; };
+		3B14A6712438B28A00E2CF1A /* GallaryActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14A66F2438B28A00E2CF1A /* GallaryActionTableViewCell.swift */; };
+		3B14A6722438B28A00E2CF1A /* GallaryActionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B14A6702438B28A00E2CF1A /* GallaryActionTableViewCell.xib */; };
+		3B14A6752438B65B00E2CF1A /* GallaryInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14A6732438B65B00E2CF1A /* GallaryInfoTableViewCell.swift */; };
+		3B14A6762438B65B00E2CF1A /* GallaryInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B14A6742438B65B00E2CF1A /* GallaryInfoTableViewCell.xib */; };
 		3B4F29C92430A60500832ADA /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4F29C82430A60500832ADA /* DatePicker.storyboard */; };
 		3B4F29CB2430A65E00832ADA /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F29CA2430A65D00832ADA /* CustomPickerViewController.swift */; };
 		3B4F29CD2430A66400832ADA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F29CC2430A66400832ADA /* DatePicker.swift */; };
@@ -169,6 +175,12 @@
 		3B04121F24279BB4000C9402 /* ViewMoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B04122024279BB4000C9402 /* ViewMoreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewMoreCollectionViewCell.xib; sourceTree = "<group>"; };
 		3B0C4AA72433A4C2005AAE60 /* OrderlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderlistModel.swift; sourceTree = "<group>"; };
+		3B14A6692438B0E100E2CF1A /* Dinning.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dinning.storyboard; sourceTree = "<group>"; };
+		3B14A66C2438B16900E2CF1A /* RestaurentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurentViewController.swift; sourceTree = "<group>"; };
+		3B14A66F2438B28A00E2CF1A /* GallaryActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryActionTableViewCell.swift; sourceTree = "<group>"; };
+		3B14A6702438B28A00E2CF1A /* GallaryActionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallaryActionTableViewCell.xib; sourceTree = "<group>"; };
+		3B14A6732438B65B00E2CF1A /* GallaryInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryInfoTableViewCell.swift; sourceTree = "<group>"; };
+		3B14A6742438B65B00E2CF1A /* GallaryInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GallaryInfoTableViewCell.xib; sourceTree = "<group>"; };
 		3B4F29C82430A60500832ADA /* DatePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		3B4F29CA2430A65D00832ADA /* CustomPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
 		3B4F29CC2430A66400832ADA /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
@@ -398,6 +410,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3B14A66B2438B12600E2CF1A /* DinningView */ = {
+			isa = PBXGroup;
+			children = (
+				3B14A66E2438B24900E2CF1A /* ResraurentCell */,
+				3B14A66C2438B16900E2CF1A /* RestaurentViewController.swift */,
+			);
+			path = DinningView;
+			sourceTree = "<group>";
+		};
+		3B14A66E2438B24900E2CF1A /* ResraurentCell */ = {
+			isa = PBXGroup;
+			children = (
+				3B14A66F2438B28A00E2CF1A /* GallaryActionTableViewCell.swift */,
+				3B14A6702438B28A00E2CF1A /* GallaryActionTableViewCell.xib */,
+				3B14A6732438B65B00E2CF1A /* GallaryInfoTableViewCell.swift */,
+				3B14A6742438B65B00E2CF1A /* GallaryInfoTableViewCell.xib */,
+			);
+			path = ResraurentCell;
+			sourceTree = "<group>";
+		};
 		3B4F29CE2430F5D400832ADA /* EnterContactDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +540,7 @@
 		BF6D1ECF2424C32F00DC018C /* View controller */ = {
 			isa = PBXGroup;
 			children = (
+				3B14A66B2438B12600E2CF1A /* DinningView */,
 				BFA6CAD32433BEE200A866D9 /* Order */,
 				BF9EF0B924319F7C00ADB07F /* Address */,
 				3B4F29E12431133700832ADA /* EventCartView */,
@@ -683,6 +716,7 @@
 				BF99CEC12425C3920051E775 /* Events.storyboard */,
 				BF2B8A5F2427443B00727866 /* Miscellaneous.storyboard */,
 				3B4F29C82430A60500832ADA /* DatePicker.storyboard */,
+				3B14A6692438B0E100E2CF1A /* Dinning.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -797,10 +831,13 @@
 				3B4F29F62431250400832ADA /* AllTaxesTableViewCell.xib in Resources */,
 				BF8773562423AF6300CF8C5D /* Assets.xcassets in Resources */,
 				3B041217242792DA000C9402 /* PackagesTableViewCell.xib in Resources */,
+				3B14A6722438B28A00E2CF1A /* GallaryActionTableViewCell.xib in Resources */,
 				3B4F29DB2430FF5F00832ADA /* TermsAndConditionTableViewCell.xib in Resources */,
 				3B4F29F124311F4C00832ADA /* selectedPackageTableViewCell.xib in Resources */,
+				3B14A66A2438B0E100E2CF1A /* Dinning.storyboard in Resources */,
 				BF99CEC22425C3920051E775 /* Events.storyboard in Resources */,
 				3B0412192427952B000C9402 /* bag.svg in Resources */,
+				3B14A6762438B65B00E2CF1A /* GallaryInfoTableViewCell.xib in Resources */,
 				3B4F29D22430F6C700832ADA /* EnterContactDetailsTableViewCell.xib in Resources */,
 				3B0411FD242756A5000C9402 /* correct.svg in Resources */,
 				BF2B8A602427443B00727866 /* Miscellaneous.storyboard in Resources */,
@@ -876,6 +913,7 @@
 				BF8773792423BE5600CF8C5D /* AppExtension.swift in Sources */,
 				BF26AA2D242F3A2D00FC61BC /* UserProfile.swift in Sources */,
 				3B4F29D52430FDA800832ADA /* UITableView+Ext.swift in Sources */,
+				3B14A6752438B65B00E2CF1A /* GallaryInfoTableViewCell.swift in Sources */,
 				BF8773AC2423C17D00CF8C5D /* AutoScrollingCollectionView.swift in Sources */,
 				BF87739C2423C0F500CF8C5D /* WebViewController.swift in Sources */,
 				BF8773682423BB1C00CF8C5D /* UIViewExtension.swift in Sources */,
@@ -889,6 +927,7 @@
 				3B4F29F52431250400832ADA /* AllTaxesTableViewCell.swift in Sources */,
 				BF8773A82423C12B00CF8C5D /* TopMenuBar.swift in Sources */,
 				BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */,
+				3B14A66D2438B16900E2CF1A /* RestaurentViewController.swift in Sources */,
 				BF22AD3D2432107B005E4871 /* PaymentViewController.swift in Sources */,
 				BF22AD44243323DA005E4871 /* EventListModel.swift in Sources */,
 				BF8773932423C0F500CF8C5D /* OrderViewController.swift in Sources */,
@@ -923,6 +962,7 @@
 				BF87739B2423C0F500CF8C5D /* HomePageViewController.swift in Sources */,
 				BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */,
 				BF20CABC2434F2B400E76FAF /* CancelOrderViewController.swift in Sources */,
+				3B14A6712438B28A00E2CF1A /* GallaryActionTableViewCell.swift in Sources */,
 				BFA6CAD62433BF0B00A866D9 /* OrderDetailViewController.swift in Sources */,
 				3B4F29DF243110E000832ADA /* SubmitBtnTableViewCell.swift in Sources */,
 				BF2BBA4E242CFB050064EC59 /* ProfileTableViewCell.swift in Sources */,
