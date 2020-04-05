@@ -26,7 +26,7 @@ class ReviewsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reviewLbl.isHidden = true
-        reviewTableview.isHidden = false
+        reviewTableview.isHidden = true
         self.reviewlistEndpointCall()
     }
     
