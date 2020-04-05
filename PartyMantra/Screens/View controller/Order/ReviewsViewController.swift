@@ -17,6 +17,7 @@ class ReviewsViewController: UIViewController {
     var type: String?
     
     @IBOutlet weak var reviewTableview: UITableView!
+    @IBOutlet weak var reviewLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,8 @@ class ReviewsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        reviewLbl.isHidden = true
+        reviewTableview.isHidden = false
         self.reviewlistEndpointCall()
     }
     
@@ -47,22 +50,29 @@ class ReviewsViewController: UIViewController {
                     print(data)
                     Loader.dismissHud()
                     if  (data as? [[String : Any]]) != nil{
-                        
                         self.reviewData.removeAll()
                         for dict in data as? [[String : Any]] ?? [[:]] {
                             print(dict)
                             let model = ReviewsListModel.init(response: dict)
                             self.reviewData.append(model)
                         }
+
+                        if self.reviewData.count > 0 {
+                            self.reviewLbl.isHidden = true
+                            self.reviewTableview.isHidden = false
+                            
+                        }else{
+                            self.reviewLbl.isHidden = false
+                            self.reviewTableview.isHidden = true
+                        }
                         
                         self.reviewTableview.reloadData()
-                    }
+                        
                 }
-        }
+            }
         
+        }
     }
-    
-    
 }
 
 extension ReviewsViewController : UITableViewDelegate, UITableViewDataSource{
@@ -75,14 +85,8 @@ extension ReviewsViewController : UITableViewDelegate, UITableViewDataSource{
         let modelobj = self.reviewData[indexPath.row]
         
         cell?.configureReviewCell(reviewModal: modelobj)
-
-        
         return cell!
-}
-
-
-
-
+    }
 }
 
 
