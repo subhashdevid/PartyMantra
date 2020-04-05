@@ -12,10 +12,13 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
    
     
 
+    var dataDict : Dictionary<String,AnyObject> = [:]
     @IBOutlet weak var eventCarttableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(dataDict)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -46,7 +49,9 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
                 cell = eventCarttableView.dequeueReusableCell(withIdentifier: "EventDetailInfoTableViewCell") as? EventDetailInfoTableViewCell
             }
             cell.backgroundColor = .groupTableViewBackground
+            cell.configureEventDetailCheckoutCell(data: dataDict)
             //  cell.submitCellBtn.addTarget(self, action: #selector(didTapToOpenEventCart), for: .touchUpInside)
+            
             return cell
         }else if indexPath.row == 1{
             var cell: PackageCheckoutTableViewCell! = eventCarttableView.dequeueReusableCell(withIdentifier: "PackageCheckoutTableViewCell") as? PackageCheckoutTableViewCell
@@ -55,6 +60,7 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
                  cell = eventCarttableView.dequeueReusableCell(withIdentifier: "PackageCheckoutTableViewCell") as? PackageCheckoutTableViewCell
              }
               cell.backgroundColor = .groupTableViewBackground
+            cell.getPackageDetails(data: dataDict)
             //  cell.submitCellBtn.addTarget(self, action: #selector(didTapToOpenEventCart), for: .touchUpInside)
             return cell
         }else if indexPath.row == 2{
@@ -64,6 +70,7 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
                  cell = eventCarttableView.dequeueReusableCell(withIdentifier: "AllTaxesTableViewCell") as? AllTaxesTableViewCell
              }
               cell.backgroundColor = .groupTableViewBackground
+            cell.configureEventTaxCell(dataDict: dataDict)
             //  cell.submitCellBtn.addTarget(self, action: #selector(didTapToOpenEventCart), for: .touchUpInside)
             return cell
         }else if indexPath.row == 3{

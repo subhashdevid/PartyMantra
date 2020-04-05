@@ -61,10 +61,7 @@ extension RestBannerTableViewCell : UICollectionViewDelegate,UICollectionViewDat
         }
         cell.backgroundColor = .red
         
-       // let imgBanner = self.imageData[indexPath.row]
-       // let url = URL(string: imgBanner.image ?? "")
-        
-       // cell.cellImageIcon.kf.setImage(with: url, placeholder: nil)
+       
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

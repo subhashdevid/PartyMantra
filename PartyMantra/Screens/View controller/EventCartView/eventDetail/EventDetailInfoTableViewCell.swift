@@ -45,5 +45,21 @@ class EventDetailInfoTableViewCell: UITableViewCell {
         
     }
     
+    func configureEventDetailCheckoutCell(data:Dictionary<String,AnyObject>?){
+        let dict = data?["data"] as? Dictionary<String,AnyObject> ?? [:]
+        eventTitleLabel.text = dict["title"] as? String ?? ""
+        dateDurationLabel.text = dict["date"] as? String ?? ""
+           dateAndTimeLabel.text = ""
+           addressTitleLbl.text = "Address"
+        venueLabel.text = dict["address"] as? String ?? ""
+           dateAndTimeTitleLbl.text = "Date and Time."
+        let urlString = dict["image"] as? String ?? ""
+          
+           GlobalFunction.shared.downloadImage(imageView: eventImageView, urlStr: urlString )
+         
+          
+           
+       }
+    
     
 }

@@ -49,7 +49,7 @@
                                             <constraint firstAttribute="width" constant="26" id="dPh-yb-Y3A"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="26"/>
-                                        <state key="normal" title="-">
+                                        <state key="normal">
                                             <color key="titleColor" name="D81B60"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -71,8 +71,8 @@
                                             <constraint firstAttribute="width" constant="26" id="nHx-vN-Z9Z"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
-                                        <state key="normal" title="+">
-                                            <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="corner">
@@ -86,14 +86,32 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addIcon" translatesAutoresizingMaskIntoConstraints="NO" id="g1d-AX-dpe">
+                                        <rect key="frame" x="67.5" y="24" width="19" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="19" id="Tak-d4-4dQ"/>
+                                            <constraint firstAttribute="height" constant="21" id="twu-fi-cNe"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="minus" translatesAutoresizingMaskIntoConstraints="NO" id="sws-rH-lFc">
+                                        <rect key="frame" x="10.5" y="24" width="19" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="M71-6z-J9f"/>
+                                            <constraint firstAttribute="width" constant="19" id="gyp-QX-BXF"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Hrw-w2-7QP" firstAttribute="centerY" secondItem="6Cj-oP-nid" secondAttribute="centerY" id="1aV-hb-Goh"/>
+                                    <constraint firstItem="sws-rH-lFc" firstAttribute="centerY" secondItem="k23-ZE-Dc9" secondAttribute="centerY" id="1rD-v5-Cp8"/>
+                                    <constraint firstItem="g1d-AX-dpe" firstAttribute="centerX" secondItem="5Jp-pm-4UM" secondAttribute="centerX" id="7F4-Bd-Rsh"/>
                                     <constraint firstItem="5Jp-pm-4UM" firstAttribute="leading" secondItem="Hrw-w2-7QP" secondAttribute="trailing" constant="9.5" id="9ff-fN-uq3"/>
                                     <constraint firstAttribute="width" constant="98" id="9uq-gY-ZKM"/>
                                     <constraint firstItem="k23-ZE-Dc9" firstAttribute="centerY" secondItem="Hrw-w2-7QP" secondAttribute="centerY" id="AHV-04-0Wd"/>
                                     <constraint firstAttribute="height" constant="69" id="GGV-VJ-uYM"/>
+                                    <constraint firstItem="sws-rH-lFc" firstAttribute="centerX" secondItem="k23-ZE-Dc9" secondAttribute="centerX" id="UYn-ow-BOM"/>
+                                    <constraint firstItem="g1d-AX-dpe" firstAttribute="centerY" secondItem="5Jp-pm-4UM" secondAttribute="centerY" id="W6q-3h-9wq"/>
                                     <constraint firstItem="k23-ZE-Dc9" firstAttribute="leading" secondItem="6Cj-oP-nid" secondAttribute="leading" constant="7" id="fhS-gU-uOF"/>
                                     <constraint firstItem="5Jp-pm-4UM" firstAttribute="centerY" secondItem="Hrw-w2-7QP" secondAttribute="centerY" id="iFE-yO-5x7"/>
                                     <constraint firstItem="Hrw-w2-7QP" firstAttribute="centerX" secondItem="6Cj-oP-nid" secondAttribute="centerX" id="xbz-Mz-3dZ"/>
@@ -144,11 +162,15 @@
                 <outlet property="menuPricelabel" destination="7jP-Xx-hl2" id="ZM4-8H-OqU"/>
                 <outlet property="menuTitleLabel" destination="0Vo-h8-oHC" id="SWL-iN-Dbk"/>
                 <outlet property="minusBtn" destination="k23-ZE-Dc9" id="XSO-pi-iVO"/>
+                <outlet property="minusImge" destination="sws-rH-lFc" id="RsH-Sb-KAW"/>
+                <outlet property="plusImage" destination="g1d-AX-dpe" id="Lpd-5S-0gQ"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="142.29910714285714"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="addIcon" width="24" height="24"/>
+        <image name="minus" width="24" height="24"/>
         <namedColor name="D81B60">
             <color red="0.84700000286102295" green="0.10599999874830246" blue="0.37599998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

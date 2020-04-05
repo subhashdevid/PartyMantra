@@ -178,6 +178,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cellTableView" destination="mQe-yF-5PE" id="iYf-X4-mMD"/>
+                <outlet property="totalAmountLbl" destination="g6i-QI-L9B" id="VDu-mP-R1u"/>
+                <outlet property="totalPassLbl" destination="r15-Pe-MJg" id="a8c-UP-5CC"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="160.37946428571428"/>
         </tableViewCell>

@@ -22,8 +22,37 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
 
         // Do any additional setup after loading the view.
     }
-    
+   
+    override func viewWillAppear(_ animated: Bool) {
+        self.fetchEventDetail()
+    }
 
+    func createUrl() -> String {
+           let url = Server.shared.restaurentUrl + "/\(eventID)"
+        print(url)
+           return url
+       }
+
+      
+       func fetchEventDetail() {
+           
+           let param: [String: Any] = [:]
+           Loader.showHud()
+           NetworkManager.getEventDetailListing(url: createUrl(),parameters: param) {[weak self] result in
+               Loader.dismissHud()
+               switch result {
+               case let .success(response):
+                   if let events = response.data {
+                     //  self?.eventData = [EventlistModel(response: events.event)]
+                      // print(self?.eventData[0].event ?? nil)
+                     //  self?.tblView.reloadData()
+                   }
+               case .failure: break
+               }
+           }
+       }
+    
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,7 +121,7 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 5{
-            return 85*5
+            return 85*5+10
         }else{
             return UITableView.automaticDimension
         }

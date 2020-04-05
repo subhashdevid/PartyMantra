@@ -406,19 +406,80 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
         
         let eventModel = self.eventData
         print(eventModel)
+        let veg_packageId = eventModel[0].packages[0].packageCount as? Int ?? 0
+        let nonveg_packageId = eventModel[0].packages[1].packageCount as? Int ?? 0
+       var itemId = 0
+        if nonveg_packageId>0{
+            itemId = eventModel[0].packages[1].id ?? 0
+        }else if veg_packageId>0{
+            itemId = eventModel[0].packages[0].id ?? 0
+        }else{
+            if (eventModel[0].covers[0].packageCount ?? 0)>0||(eventModel[0].covers[1].packageCount ?? 0)>0||(eventModel[0].covers[2].packageCount ?? 0)>0{
+                if (eventModel[0].covers[0].packageCount ?? 0)>0{
+                    itemId = eventModel[0].covers[0].id ?? 0
+                }
+                if (eventModel[0].covers[1].packageCount ?? 0)>0{
+                    itemId = eventModel[0].covers[1].id ?? 0
+                }
+                if (eventModel[0].covers[2].packageCount ?? 0)>0{
+                    itemId = eventModel[0].covers[1].id ?? 0
+                }
+                
+            }else{
+                self.showAlert("Please select atleast one cover or package")
+            }
+        }
+        let packagePass = (eventModel[0].packages[0].packageCount ?? 0)+(eventModel[0].packages[1].packageCount ?? 0)
+        let totalPass = (eventModel[0].covers[0].packageCount ?? 0)+(eventModel[0].covers[1].packageCount ?? 0)+(eventModel[0].covers[2].packageCount ?? 0)
+        let param: [String: String] = [
+            "type" : "event" ,
+                      "email" : emailString ?? "",
+                      "mobile" : mobileString ?? "",
+                      "name" : nameString ?? "",
+                      "men" : "\(eventModel[0].covers[0].packageCount ?? 0)" ?? "",
+                      "women" : "\(eventModel[0].covers[1].packageCount ?? 0)" ?? "",
+                      "couple" : "\(eventModel[0].covers[2].packageCount ?? 0)" ?? "",
+                      "pass[]" : "\(packagePass+totalPass)" ?? "",
+                     // "itemid" :  as AnyObject,
+                      "itemid[]" : "\(itemId)" ?? ""
+                      
+                  ]
         
-        
+        self.bookOrder(json: param)
     }
+    
+    func bookOrder(json:[String:String])  {
+           
+        
+           // Loader.showHud()
+           
+           Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.bookOrder, parameter: json as? [String : String], handler: { (response, isSuccess) in
+               
+               if isSuccess{
+                   let result = response as! Dictionary<String,Any>
+                print(result)
+                if ((result["status_code"]as? Int ?? 0)==422){
+                    self.showAlert(result["message"]as? String ?? "" )
+                }else{
+                  
+                    let vc = EventCartViewController.instantiate(appStoryboard: .events) as EventCartViewController
+                    vc.dataDict = result as Dictionary<String, AnyObject>
+                    self.navigationController?.pushViewController(vc, animated: true)
+                                     
+                }
+               }
+           })
+       }
+    
+    
+    
+    
+    
     
     @objc func didTapToOpenEventCart(sender:UIButton) -> Void {
        // API call
         self.validateEventPackages()
-        
-        
-        
-//
-        let vc = EventCartViewController.instantiate(appStoryboard: .events) as EventCartViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+     
     }
     
 }

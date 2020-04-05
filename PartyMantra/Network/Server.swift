@@ -41,6 +41,7 @@ class Server: NSObject, Codable { // checkpoint
     var LoginUrl = "\(mainUrl)login"
     var VerifyUrl = "\(mainUrl)verify-otp"
     var UpdateProfile = "\(mainUrl)update-profile"
+    var bookOrder = "\(mainUrl)book"
     var UpdateAddress = "\(mainUrl)update-address"
 
     var HomeUrl = "\(mainUrl)home"
@@ -52,6 +53,7 @@ class Server: NSObject, Codable { // checkpoint
 
     // Events
     var eventsUrl = "\(mainUrl)event"
+    var restaurentUrl = "\(mainUrl)restaurent"
     var partyUrl = "\(mainUrl)party"
 
     var searchUrl = "\(mainUrl)search"

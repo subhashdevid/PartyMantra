@@ -32,4 +32,14 @@ class AllTaxesTableViewCell: UITableViewCell {
         
     }
     
+    func configureEventTaxCell(dataDict:Dictionary<String,AnyObject>) -> Void {
+         let dict = dataDict["data"] as? Dictionary<String,AnyObject> ?? [:]
+               
+        
+        packageTotalTitle.text = "Platform + Tax"
+           totalAmountLbl.text = "\(dict["subtotal"]as? Int ?? 0)"
+           taxedAmountLbl.text = "\(dict["taxes"]as? Int ?? 0)"
+           
+       }
+    
 }
