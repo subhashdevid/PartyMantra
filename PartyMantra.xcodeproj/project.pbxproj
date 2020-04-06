@@ -74,6 +74,7 @@
 		3B4F29FE24312A9200832ADA /* UseWalletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F29FC24312A9200832ADA /* UseWalletTableViewCell.swift */; };
 		3B4F29FF24312A9200832ADA /* UseWalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4F29FD24312A9200832ADA /* UseWalletTableViewCell.xib */; };
 		3B6754A8242683DC005C97CA /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6754A7242683DC005C97CA /* EventDetail.swift */; };
+		3B8FAB7B243B059900E359F7 /* DinningRestModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8FAB7A243B059900E359F7 /* DinningRestModal.swift */; };
 		3B9A2BA324323AC3001CD2A7 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9A2BA224323AC3001CD2A7 /* UserDetails.swift */; };
 		3BE8C0B824344B3800417384 /* detailPackageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE8C0B624344B3800417384 /* detailPackageTableViewCell.swift */; };
 		3BE8C0B924344B3800417384 /* detailPackageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE8C0B724344B3800417384 /* detailPackageTableViewCell.xib */; };
@@ -231,6 +232,7 @@
 		3B4F29FC24312A9200832ADA /* UseWalletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseWalletTableViewCell.swift; sourceTree = "<group>"; };
 		3B4F29FD24312A9200832ADA /* UseWalletTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UseWalletTableViewCell.xib; sourceTree = "<group>"; };
 		3B6754A7242683DC005C97CA /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
+		3B8FAB7A243B059900E359F7 /* DinningRestModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinningRestModal.swift; sourceTree = "<group>"; };
 		3B9A2BA224323AC3001CD2A7 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		3BE8C0B624344B3800417384 /* detailPackageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailPackageTableViewCell.swift; sourceTree = "<group>"; };
 		3BE8C0B724344B3800417384 /* detailPackageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = detailPackageTableViewCell.xib; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 			children = (
 				3B14A66E2438B24900E2CF1A /* ResraurentCell */,
 				3B14A66C2438B16900E2CF1A /* RestaurentViewController.swift */,
+				3B8FAB7A243B059900E359F7 /* DinningRestModal.swift */,
 			);
 			path = DinningView;
 			sourceTree = "<group>";
@@ -989,6 +992,7 @@
 				BF2B8A62242744CE00727866 /* EventSearchViewController.swift in Sources */,
 				BF8773812423BF0B00CF8C5D /* Loader.swift in Sources */,
 				3B04120D2427762C000C9402 /* CoverTableViewCell.swift in Sources */,
+				3B8FAB7B243B059900E359F7 /* DinningRestModal.swift in Sources */,
 				BF87739E2423C0F500CF8C5D /* ProfileViewController.swift in Sources */,
 				3B4F29E32431135A00832ADA /* EventCartViewController.swift in Sources */,
 				BF8773982423C0F500CF8C5D /* HomeViewController.swift in Sources */,

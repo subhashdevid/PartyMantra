@@ -14,7 +14,7 @@ class RestBannerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: AutoScrollingCollectionView!
     
-     var imageData = [HomeBanners]()
+    var bannerModel : [RestEventparty]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,8 +30,8 @@ class RestBannerTableViewCell: UITableViewCell {
     }
     
     
-    func configureCell(imgData:[HomeBanners]) {
-        imageData = imgData
+    func configureCell(model:restaurantModel?) {
+        bannerModel = model?.eventparty
         collectionView.reloadData()
         collectionView.startScrolling()
     }
@@ -40,10 +40,9 @@ class RestBannerTableViewCell: UITableViewCell {
  
 
 
-
 extension RestBannerTableViewCell : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return bannerModel?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -59,6 +58,15 @@ extension RestBannerTableViewCell : UICollectionViewDelegate,UICollectionViewDat
             return UICollectionViewCell()
             
         }
+        
+        let imgBanner = self.bannerModel?[indexPath.row].doc_path ?? ""
+        let url = URL(string: (String(imgBanner) ?? "") )
+        
+        if url == nil {
+            cell.cellImageIcon.kf.setImage(with: url, placeholder: nil)
+        }
+        
+            
         cell.backgroundColor = .red
         
        

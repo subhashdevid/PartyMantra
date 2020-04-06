@@ -12,7 +12,7 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
    
     
     @IBOutlet weak var cellView: UIView!
-    
+    var dataArr : Array<RestaurantMenus> = []
     @IBOutlet weak var listTableView: UITableView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,10 +26,14 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
     }
     
     
+    func configureMenuDetails(dataModal:restaurantModel?) -> Void {
+        self.dataArr = dataModal?.menus ?? []
+        self.listTableView.reloadData()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           5
-       }
+        return self.dataArr.count
+    }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            
@@ -38,6 +42,15 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
             listTableView.register(UINib(nibName: "MenuDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "MenuDetailTableViewCell")
             cell = listTableView.dequeueReusableCell(withIdentifier: "MenuDetailTableViewCell") as? MenuDetailTableViewCell
         }
+        
+        let dataModal = self.dataArr[indexPath.row] as? RestaurantMenus
+        
+        let url = URL(string: dataModal?.image ?? "")
+        cell.menuImageIcon.contentMode = .scaleToFill
+        cell.menuImageIcon.kf.setImage(with: url, placeholder: nil)
+        cell.menuTitleLabel.text = dataModal?.name ?? ""
+        cell.menuPricelabel.text = "\(dataModal?.price ?? 0)" ?? "0"
+        
         
         return cell
         

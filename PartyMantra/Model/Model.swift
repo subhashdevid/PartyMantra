@@ -248,13 +248,52 @@ struct restaurantModel: Codable {
     let rating: Int?
     let discounts: String?
     let away:Int?
-    //        "pivot": {
-    //            "collection_id": 31,
-    //            "restaurant_id": 8
-    //        },
+    let eventparty : [RestEventparty]?
     let avgreviews: [avgreviewsModel]?
+    let facilities: [RestaurantFacilities]?
+    let menus: [RestaurantMenus]?
     
 }
+
+struct RestaurantFacilities: Codable {
+    let name: String?
+  
+}
+struct RestEventparty: Codable {
+    let other_type: String?
+    let other_id: Int?
+    let doc_path: String?
+    let updated_at: String?
+  
+}
+
+
+
+
+struct RestaurantMenus: Codable {
+    let id: Int?
+    let name: String?
+    let image: String?
+    let price: Int?
+    let cut_pice: Int?
+    let category_id: Int?
+    let description: String?
+    let partneractive: Int?
+    let creator_id: Int?
+    let partner_id: Int?
+    let pivot: RestaurantMenusPivot?
+  
+}
+struct RestaurantMenusPivot: Codable {
+    let partner_id: Int?
+    let menu_id: Int?
+    let price: Int?
+    let cut_price: Int?
+   
+  
+}
+
+
 
 struct PartyModel: Codable {
     let id: Int?
