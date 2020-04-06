@@ -88,6 +88,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="checkBoxBtn" destination="UDR-L6-kbX" id="2ej-8V-aZH"/>
+                <outlet property="checkBoxImage" destination="mz7-OD-3Fg" id="PCA-Ns-V6T"/>
+                <outlet property="walletAmountLabel" destination="6Rh-tq-mnH" id="szP-6f-p9J"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="156.02678571428569"/>
         </tableViewCell>
     </objects>

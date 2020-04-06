@@ -50,7 +50,7 @@ class PackageCheckoutTableViewCell: UITableViewCell,UITableViewDelegate,UITableV
         let dict = dictArr[indexPath.row] as? Dictionary<String,AnyObject> ?? [:]
         cell.itemName.text = "\(dict["package"] as? String ?? "")"
         print("\(dict["pass"] as? Int ?? 0)")
-        cell.passLabel.text = "\(dict["pass"] as? Int ?? 0)"
+        cell.passLabel.text = "\(dict["pass"] as? String ?? "")"
         cell.amountLabel.text = "\(dict["price"] as? Int ?? 0)"
         
           return cell

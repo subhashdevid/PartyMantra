@@ -36,4 +36,13 @@ class SpecialEventDetailsTableViewCell: UITableViewCell {
         
     }
     
+    func configureEventSpecialDetail(data:Dictionary<String,AnyObject>?) -> Void {
+        let dict = data?["data"] as? Dictionary<String,AnyObject> ?? [:]
+        name.text = dict["name"] as? String ?? ""
+        email.text =  dict["email"] as? String ?? ""
+        mobile.text =  dict["mobile"] as? String ?? ""
+        ratio.text =  dict["ratio"] as? String ?? ""
+        
+    }
+    
 }

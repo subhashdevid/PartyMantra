@@ -48,20 +48,20 @@
                                 <rect key="frame" x="8" y="72" width="284" height="30"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcN-Lo-H2P">
-                                        <rect key="frame" x="127" y="2" width="1" height="26"/>
+                                        <rect key="frame" x="151" y="2" width="1" height="26"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="UD4-is-JfI"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBa-At-XvQ">
-                                        <rect key="frame" x="2" y="2" width="123" height="26"/>
+                                        <rect key="frame" x="2" y="2" width="147" height="26"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNm-fJ-6Pj">
-                                                <rect key="frame" x="5" y="2" width="116" height="22"/>
+                                                <rect key="frame" x="5" y="2" width="140" height="22"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="116" id="DIe-eg-f28"/>
+                                                    <constraint firstAttribute="width" constant="140" id="DIe-eg-f28"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
@@ -77,17 +77,17 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ab8-y8-QQb">
-                                        <rect key="frame" x="205.5" y="2" width="1" height="46"/>
+                                        <rect key="frame" x="217.5" y="2" width="1" height="46"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="VHn-UW-PPq"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W54-2g-PDy">
-                                        <rect key="frame" x="130" y="2" width="73.5" height="26"/>
+                                        <rect key="frame" x="154" y="2" width="61.5" height="26"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Pass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r15-Pe-MJg">
-                                                <rect key="frame" x="2" y="2" width="69.5" height="22"/>
+                                                <rect key="frame" x="2" y="2" width="57.5" height="22"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
@@ -103,10 +103,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOJ-Rr-qOa">
-                                        <rect key="frame" x="208.5" y="2" width="73.5" height="26"/>
+                                        <rect key="frame" x="220.5" y="2" width="61.5" height="26"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rs 1000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6i-QI-L9B">
-                                                <rect key="frame" x="2" y="2" width="69.5" height="22"/>
+                                                <rect key="frame" x="2" y="2" width="57.5" height="22"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>

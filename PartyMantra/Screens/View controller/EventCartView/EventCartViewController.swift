@@ -12,6 +12,7 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
    
     
 
+    var isCheckBoxSelected : Bool = false
     var dataDict : Dictionary<String,AnyObject> = [:]
     @IBOutlet weak var eventCarttableView: UITableView!
     override func viewDidLoad() {
@@ -79,7 +80,9 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
              eventCarttableView.register(UINib(nibName: "SpecialEventDetailsTableViewCell", bundle: nil), forCellReuseIdentifier: "SpecialEventDetailsTableViewCell")
              cell = eventCarttableView.dequeueReusableCell(withIdentifier: "SpecialEventDetailsTableViewCell") as? SpecialEventDetailsTableViewCell
          }
+            
           cell.backgroundColor = .groupTableViewBackground
+            cell.configureEventSpecialDetail(data:dataDict)
         //  cell.submitCellBtn.addTarget(self, action: #selector(didTapToOpenEventCart), for: .touchUpInside)
         return cell
         }else if indexPath.row == 4{
@@ -89,7 +92,8 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
              cell = eventCarttableView.dequeueReusableCell(withIdentifier: "UseWalletTableViewCell") as? UseWalletTableViewCell
          }
           cell.backgroundColor = .groupTableViewBackground
-        //  cell.submitCellBtn.addTarget(self, action: #selector(didTapToOpenEventCart), for: .touchUpInside)
+            cell.configureWalletOption(data: dataDict)
+          cell.checkBoxBtn.addTarget(self, action: #selector(didTapCheckBoxOption(sender: )), for: .touchUpInside)
         return cell
         }else{
          var cell: SubmitBtnTableViewCell! = eventCarttableView.dequeueReusableCell(withIdentifier: "SubmitBtnTableViewCell") as? SubmitBtnTableViewCell
@@ -108,12 +112,38 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1{
-         let numberOfCell = 3
+        let dict = dataDict["data"] as? Dictionary<String,AnyObject> ?? [:]
+        let dictArr = dict["packages"] as? Array<Dictionary<String,AnyObject>> ?? []
+            let numberOfCell = dictArr.count
          let height = (numberOfCell-1)
             return  (CGFloat(140+(30*height)))
         }
         return UITableView.automaticDimension
     }
 
+    
+    @objc func didTapCheckBoxOption(sender:UIButton){
+        self.isCheckBoxSelected = !self.isCheckBoxSelected
+        guard let cell = sender.superview?.superview?.superview as? UseWalletTableViewCell else {
+            return
+        }
+        
+        if self.isCheckBoxSelected{
+            if #available(iOS 13.0, *) {
+                cell.checkBoxImage.image = UIImage(systemName:"checkmark.square")
+            } else {
+                 cell.checkBoxImage.image = UIImage.init(named: "check")
+                // Fallback on earlier versions
+            }//UIImage.init(named: "checkmark.square")
+        }else{
+            if #available(iOS 13.0, *) {
+                cell.checkBoxImage.image = UIImage(systemName:"square")
+            } else {
+                 cell.checkBoxImage.image = UIImage.init(named: "uncheck")
+                // Fallback on earlier versions
+            }
+        }
+       
+    }
 
 }
