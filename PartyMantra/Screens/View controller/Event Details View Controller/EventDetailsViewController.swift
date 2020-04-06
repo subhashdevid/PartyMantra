@@ -403,58 +403,52 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
     }
     
     func validateEventPackages () {
-        
+        var counter = 0
         let eventModel = self.eventData
         print(eventModel)
-        let veg_packageId = eventModel[0].packages[0].packageCount as? Int ?? 0
-        let nonveg_packageId = eventModel[0].packages[1].packageCount as? Int ?? 0
-       var itemId = 0
-        if nonveg_packageId>0{
-            itemId = eventModel[0].packages[1].id ?? 0
-        }else if veg_packageId>0{
-            itemId = eventModel[0].packages[0].id ?? 0
-        }else{
-            if (eventModel[0].covers[0].packageCount ?? 0)>0||(eventModel[0].covers[1].packageCount ?? 0)>0||(eventModel[0].covers[2].packageCount ?? 0)>0{
-                if (eventModel[0].covers[0].packageCount ?? 0)>0{
-                    itemId = eventModel[0].covers[0].id ?? 0
-                }
-                if (eventModel[0].covers[1].packageCount ?? 0)>0{
-                    itemId = eventModel[0].covers[1].id ?? 0
-                }
-                if (eventModel[0].covers[2].packageCount ?? 0)>0{
-                    itemId = eventModel[0].covers[1].id ?? 0
-                }
-                
-            }else{
-                self.showAlert("Please select atleast one cover or package")
+        
+        
+        var params: [String: Any] =
+            [
+                "email" : emailString ?? "",
+                "mobile" : mobileString ?? "",
+                "name" : nameString ?? "",
+                "men" : "\(eventModel[0].covers[0].packageCount ?? 0)" ,
+                "women" : "\(eventModel[0].covers[1].packageCount ?? 0)" ,
+                "couple" : "\(eventModel[0].covers[2].packageCount ?? 0)" ,
+        ]
+        
+        if type != "" {
+            params["type"] = "event"
+        }
+        
+        for cover in eventModel[0].covers {
+            if (cover.packageCount ?? 0 > 0) {
+                params["itemid[\(counter)]"] = cover.id
+                params["pass[\(counter)]"] = cover.packageCount
+                counter = counter + 1
             }
         }
-        let packagePass = (eventModel[0].packages[0].packageCount ?? 0)+(eventModel[0].packages[1].packageCount ?? 0)
-        let totalPass = (eventModel[0].covers[0].packageCount ?? 0)+(eventModel[0].covers[1].packageCount ?? 0)+(eventModel[0].covers[2].packageCount ?? 0)
-        let param: [String: String] = [
-            "type" : "event" ,
-                      "email" : emailString ?? "",
-                      "mobile" : mobileString ?? "",
-                      "name" : nameString ?? "",
-                      "men" : "\(eventModel[0].covers[0].packageCount ?? 0)" ?? "",
-                      "women" : "\(eventModel[0].covers[1].packageCount ?? 0)" ?? "",
-                      "couple" : "\(eventModel[0].covers[2].packageCount ?? 0)" ?? "",
-                      "pass[]" : "\(packagePass+totalPass)" ?? "",
-                     // "itemid" :  as AnyObject,
-                      "itemid[]" : "\(itemId)" ?? ""
-                      
-                  ]
         
-        self.bookOrder(json: param)
+        for package in eventModel[0].packages {
+            if (package.packageCount ?? 0 > 0) {
+                params["itemid[\(counter)]"] = package.id
+                params["pass[\(counter)]"] = package.packageCount
+                counter = counter + 1
+            }
+        }
+        
+        
+        print(params)
+        
+        self.bookOrder(json: params)
     }
     
-    func bookOrder(json:[String:String])  {
-           
-        
-           // Loader.showHud()
-           
-           Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.bookOrder, parameter: json as? [String : String], handler: { (response, isSuccess) in
+    func bookOrder(json:[String:Any])  {
+        Loader.showHud()
+           Multipart().formDataAPICall(mainView: self.view, urlString: Server.shared.bookOrder, parameter: json as? [String : Any], handler: { (response, isSuccess) in
                
+             Loader.dismissHud()
                if isSuccess{
                    let result = response as! Dictionary<String,Any>
                 print(result)
@@ -470,9 +464,6 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
                }
            })
        }
-    
-    
-    
     
     
     
