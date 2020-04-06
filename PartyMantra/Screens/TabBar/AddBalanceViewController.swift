@@ -150,7 +150,7 @@ class AddBalanceViewController: UIViewController {
         ]
 
         Loader.showHud()
-        Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.addMoneyUrl, parameter: param as? [String : String], handler: { (response, isSuccess) in
+        Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.addMoneyUrl, parameter: param , handler: { (response, isSuccess) in
 
             if isSuccess{
                 Loader.dismissHud()
@@ -164,8 +164,9 @@ class AddBalanceViewController: UIViewController {
                 let payStr = (responseDict["amount"] ?? "0")
                 let orderIDStr = (responseDict["order_id"] ?? "0")
 
-                self.pay.addMoneyToPay(amount: "\(payStr)", payOrderid: "\(orderIDStr)")
-                
+//                self.pay.addMoneyToPay(amount: "\(payStr)", payOrderid: "\(orderIDStr)")
+                self.pay.addMoneyToPay(amount: "\(payStr)", payOrderid: "\(orderIDStr)", screen: "wallet")
+
             }
         })
     }

@@ -145,6 +145,7 @@
 		BF9EF0C02431A05900ADB07F /* NearByEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0BD2431A05900ADB07F /* NearByEnum.swift */; };
 		BF9EF0C12431A05900ADB07F /* GoogleApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0BE2431A05900ADB07F /* GoogleApiHelper.swift */; };
 		BF9EF0C22431A05900ADB07F /* GoogleApiHelper+Nearby.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EF0BF2431A05900ADB07F /* GoogleApiHelper+Nearby.swift */; };
+		BFA3A2DF243B37F20050F2EC /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3A2DE243B37F20050F2EC /* SuccessViewController.swift */; };
 		BFA6CAD62433BF0B00A866D9 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA6CAD52433BF0B00A866D9 /* OrderDetailViewController.swift */; };
 		BFC62A342438B4F900A803C1 /* ReviewsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC62A332438B4F900A803C1 /* ReviewsListModel.swift */; };
 		BFE54B87242E438C006D813B /* MyProfileUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE54B86242E438C006D813B /* MyProfileUpdateTableViewCell.swift */; };
@@ -305,6 +306,7 @@
 		BF9EF0BD2431A05900ADB07F /* NearByEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearByEnum.swift; sourceTree = "<group>"; };
 		BF9EF0BE2431A05900ADB07F /* GoogleApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleApiHelper.swift; sourceTree = "<group>"; };
 		BF9EF0BF2431A05900ADB07F /* GoogleApiHelper+Nearby.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GoogleApiHelper+Nearby.swift"; sourceTree = "<group>"; };
+		BFA3A2DE243B37F20050F2EC /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		BFA6CAD52433BF0B00A866D9 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		BFC62A332438B4F900A803C1 /* ReviewsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsListModel.swift; sourceTree = "<group>"; };
 		BFE54B86242E438C006D813B /* MyProfileUpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUpdateTableViewCell.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 				BF2EEAF32431023400F286E9 /* LocationSelectViewController.swift */,
 				BF22AD3C2432107B005E4871 /* PaymentViewController.swift */,
 				BF22AD4124331546005E4871 /* EventListViewController.swift */,
+				BFA3A2DE243B37F20050F2EC /* SuccessViewController.swift */,
 			);
 			path = "View controller";
 			sourceTree = "<group>";
@@ -1004,6 +1007,7 @@
 				BF22AD392431DC7E005E4871 /* Multipart.swift in Sources */,
 				3B14A6862438EB8900E2CF1A /* RestBannerTableViewCell.swift in Sources */,
 				BFC62A342438B4F900A803C1 /* ReviewsListModel.swift in Sources */,
+				BFA3A2DF243B37F20050F2EC /* SuccessViewController.swift in Sources */,
 				3B041216242792DA000C9402 /* PackagesTableViewCell.swift in Sources */,
 				BF272C34242DD25D00202A71 /* MyProfileUpdateViewController.swift in Sources */,
 				BF87739F2423C0F500CF8C5D /* NotificationViewController.swift in Sources */,
