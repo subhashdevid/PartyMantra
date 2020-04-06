@@ -438,15 +438,13 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
             }
         }
         
-        
         print(params)
-        
         self.bookOrder(json: params)
     }
     
     func bookOrder(json:[String:Any])  {
         Loader.showHud()
-           Multipart().formDataAPICall(mainView: self.view, urlString: Server.shared.bookOrder, parameter: json as? [String : Any], handler: { (response, isSuccess) in
+           Multipart().formDataAPICall(mainView: self.view, urlString: Server.shared.bookOrder, parameter: json, handler: { (response, isSuccess) in
                
              Loader.dismissHud()
                if isSuccess{
