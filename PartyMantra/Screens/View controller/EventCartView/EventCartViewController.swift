@@ -13,26 +13,28 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
     
 
     var isCheckBoxSelected : Bool = false
+    var isWallet = "0"
     var dataDict : Dictionary<String,AnyObject> = [:]
     @IBOutlet weak var eventCarttableView: UITableView!
+    
+    var pay = PaymentViewController()
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(dataDict)
-        
-        // Do any additional setup after loading the view.
     }
     
+      
+      override func viewWillAppear(_ animated: Bool) {
+           NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationForCart(notification:)), name: Notification.Name("CartNotificationIdentifier"), object: nil)
+       }
+       
+  @objc func methodOfReceivedNotificationForCart(notification: Notification) {
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    let vc = SuccessViewController.instantiate(appStoryboard: .miscellaneous) as SuccessViewController
+    self.navigationController?.pushViewController(vc, animated: true)
     }
-    */
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,7 +43,7 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell: SubmitBtnTableViewCell! = eventCarttableView.dequeueReusableCell(withIdentifier: "SubmitBtnTableViewCell") as? SubmitBtnTableViewCell
+        let cell: SubmitBtnTableViewCell! = eventCarttableView.dequeueReusableCell(withIdentifier: "SubmitBtnTableViewCell") as? SubmitBtnTableViewCell
         
         if indexPath.row == 0{
             var cell: EventDetailInfoTableViewCell! = eventCarttableView.dequeueReusableCell(withIdentifier: "EventDetailInfoTableViewCell") as? EventDetailInfoTableViewCell
@@ -51,7 +53,6 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
             }
             cell.backgroundColor = .groupTableViewBackground
             cell.configureEventDetailCheckoutCell(data: dataDict)
-            //  cell.submitCellBtn.addTarget(self, action: #selector(didTapToOpenEventCart), for: .touchUpInside)
             
             return cell
         }else if indexPath.row == 1{
@@ -102,11 +103,11 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
               cell = eventCarttableView.dequeueReusableCell(withIdentifier: "SubmitBtnTableViewCell") as? SubmitBtnTableViewCell
           }
            cell.backgroundColor = .groupTableViewBackground
-         //  cell.submitCellBtn.addTarget(self, action: #selector(didTapToOpenEventCart), for: .touchUpInside)
+           cell.submitCellBtn.addTarget(self, action: #selector(didTapSubmitButton(sender:)), for: .touchUpInside)
          return cell
         }
        
-  return cell
+  return cell!
 }
 
 
@@ -122,6 +123,7 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
 
     
+    
     @objc func didTapCheckBoxOption(sender:UIButton){
         self.isCheckBoxSelected = !self.isCheckBoxSelected
         guard let cell = sender.superview?.superview?.superview as? UseWalletTableViewCell else {
@@ -129,21 +131,84 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
         }
         
         if self.isCheckBoxSelected{
+            isWallet = "1"
+            
             if #available(iOS 13.0, *) {
                 cell.checkBoxImage.image = UIImage(systemName:"checkmark.square")
             } else {
                  cell.checkBoxImage.image = UIImage.init(named: "check")
-                // Fallback on earlier versions
-            }//UIImage.init(named: "checkmark.square")
+            }
         }else{
+            isWallet = "0"
+
             if #available(iOS 13.0, *) {
                 cell.checkBoxImage.image = UIImage(systemName:"square")
             } else {
                  cell.checkBoxImage.image = UIImage.init(named: "uncheck")
-                // Fallback on earlier versions
             }
         }
        
     }
 
+        
+      @objc func didTapSubmitButton(sender:UIButton){
+        self.payNowOption(walletEnable: isWallet)
+    }
+    
+    func payNowOption(walletEnable : String)  {
+               
+        let param: [String: String] = [
+            "usingwallet": walletEnable
+        ]
+
+        Loader.showHud()
+        Multipart().formDataAPICall(mainView: self.view, urlString: Server.shared.paynowUrl, parameter: param , handler: { (response, isSuccess) in
+
+            if isSuccess{
+                Loader.dismissHud()
+               let response = response as! Dictionary<String,Any>
+                
+                print(response)
+
+                let paymentdone = response["paymentdone"] as? String
+                let responseDict = response["data"] as! Dictionary<String,Any>
+                print(responseDict)
+
+                let payStr = (responseDict["total"] ?? "0")
+                let orderIDStr = (responseDict["orderid"] ?? "0")
+
+                if paymentdone == "yes" {
+                    let vc = SuccessViewController.instantiate(appStoryboard: .miscellaneous) as SuccessViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
+
+                }else{
+                    self.pay.addMoneyToPay(amount: "\(payStr)", payOrderid: "\(orderIDStr)", screen: "cart")
+
+                }
+                
+            }
+        })
+    }
+    
+    
+    
+    
+    /*
+     
+     "status": "success",
+        "message": "success",
+        "paymentdone": "no",
+        "data": {
+            "orderid": "order_Eb9NA7OExAtUwm",
+            "total": 100000,
+            "email": "dgg@h.com",
+            "mobile": "6666666666",
+            "description": "Imperfecto Daily Event",
+            "address": "",
+            "name": "dgg",
+            "currency": "INR",
+            "merchantid": "Dvd9xhIQc0l4L3"
+        }
+     **/
+    
 }

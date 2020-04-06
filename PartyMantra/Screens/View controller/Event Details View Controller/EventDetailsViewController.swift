@@ -413,10 +413,25 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
                 "email" : emailString ?? "",
                 "mobile" : mobileString ?? "",
                 "name" : nameString ?? "",
-                "men" : "\(eventModel[0].covers[0].packageCount ?? 0)" ,
-                "women" : "\(eventModel[0].covers[1].packageCount ?? 0)" ,
-                "couple" : "\(eventModel[0].covers[2].packageCount ?? 0)" ,
+              
         ]
+        if eventModel[0].covers.count > 0 {
+                   params["men"] = "\(eventModel[0].covers[0].packageCount ?? 0)"
+               }
+        else{
+            params["men"] = "0"
+        }
+        if eventModel[0].covers.count > 1 {
+                   params["women"] = "\(eventModel[0].covers[1].packageCount ?? 0)"
+               }
+        else{
+            params["women"] = "0"
+        }
+        if eventModel[0].covers.count > 2 {
+            params["couple"] = "\(eventModel[0].covers[2].packageCount ?? 0)"
+        }else{
+            params["couple"] = "0"
+        }
         
         if type != "" {
             params["type"] = "event"

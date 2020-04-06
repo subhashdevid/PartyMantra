@@ -124,7 +124,11 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
             restaurentTblView.register(UINib(nibName: "RestBannerTableViewCell", bundle: nil), forCellReuseIdentifier: "RestBannerTableViewCell")
             cell = restaurentTblView.dequeueReusableCell(withIdentifier: "RestBannerTableViewCell") as? RestBannerTableViewCell
         }
-        
+//            cell?.configureCell(imgData: dataArr?.banners ?? [])
+            
+//            cell?.configureCell(imgData: restModal)
+            
+            print (self.restModal?.header_image)
         return cell
            
         }else{

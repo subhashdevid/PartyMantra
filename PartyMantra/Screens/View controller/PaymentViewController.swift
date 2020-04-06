@@ -18,17 +18,19 @@ class PaymentViewController: UIViewController {
     let razorpayKey = "rzp_test_zAvfify4pZWTAH"
     
     var orderId : String?
-    
+    var prev_screen : String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    func addMoneyToPay( amount : String, payOrderid :String)  {
+    func addMoneyToPay( amount : String, payOrderid :String, screen : String?)  {
         let pay_amount = Int(amount)
         orderId = payOrderid
-        
+        prev_screen = screen
         self.openRazorpayCheckout(amount: pay_amount)
     }
+    
 
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
@@ -91,9 +93,13 @@ class PaymentViewController: UIViewController {
             print("success: ", payment_id)
             self.presentAlert(withTitle: "Success", message: "Payment Succeeded")
             
-            self.verifyWalletMoneyToServer(razorpay_payment_id: payment_id, razorpay_order_id: self.orderId ?? "" )
-            
-            //  razor pay id : success:  pay_EYS5s8Z7aTgQ8s
+            if prev_screen == "wallet"{
+                self.verifyWalletMoneyToServer(razorpay_payment_id: payment_id, razorpay_order_id: self.orderId ?? "" )
+            }
+            else   if prev_screen == "cart"{
+            self.verifyCartMoneyToServer(razorpay_payment_id: payment_id, razorpay_order_id: self.orderId ?? "" )
+
+            }
             
             
         }
@@ -108,7 +114,7 @@ class PaymentViewController: UIViewController {
                 "Razorpay_signature" : "PartyMantra"
             ]
 
-            Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.verifyMoneyUrl, parameter: param as? [String : String], handler: { (response, isSuccess) in
+            Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.verifyMoneyUrl, parameter: param, handler: { (response, isSuccess) in
 
                 if isSuccess{
                    let response = response as! Dictionary<String,Any>
@@ -117,6 +123,26 @@ class PaymentViewController: UIViewController {
                 }
             })
         }
+        
+        
+        
+        func verifyCartMoneyToServer( razorpay_payment_id : String?, razorpay_order_id : String)  {
+                   let param: [String: String] = [
+                       "razorpay_payment_id" : razorpay_payment_id ?? "",
+                       "razorpay_order_id" : razorpay_order_id,
+                       "Razorpay_signature" : "PartyMantra"
+                   ]
+
+                   Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.verifyCartMoneyUrl, parameter: param , handler: { (response, isSuccess) in
+
+                       if isSuccess{
+                          let response = response as! Dictionary<String,Any>
+                           print(response)
+                           NotificationCenter.default.post(name: Notification.Name("CartNotificationIdentifier"), object: nil)
+                       }
+                   })
+               }
+        
         
         
     }
