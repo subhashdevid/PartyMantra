@@ -10,7 +10,7 @@ import UIKit
 
 class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableViewDelegate {
    
-    
+    let count = 0
     @IBOutlet weak var cellView: UIView!
     var dataArr : Array<RestaurantMenus> = []
     @IBOutlet weak var listTableView: UITableView!
@@ -28,6 +28,7 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
     
     func configureMenuDetails(dataModal:restaurantModel?) -> Void {
         self.dataArr = dataModal?.menus ?? []
+        
         self.listTableView.reloadData()
     }
     
@@ -51,7 +52,9 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
         cell.menuTitleLabel.text = dataModal?.name ?? ""
         cell.menuPricelabel.text = "\(dataModal?.price ?? 0)" ?? "0"
         
-        
+        cell.addBtn.addTarget(self, action: #selector(addMenuItemAction(sender:)), for: .touchUpInside)
+        cell.minusBtn.addTarget(self, action: #selector(minusMenuItemAction(sender:)), for: .touchUpInside)
+       
         return cell
         
        }
@@ -62,4 +65,47 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
         return 80
     }
     
+    
+    
+    @objc func minusMenuItemAction(sender : UIButton)  {
+        print("minus btn pressed")
+        
+        var model = self.dataArr[sender.tag]
+        if (model.itemCount ?? 0) <= 0 {
+            model.itemCount = (model.itemCount ?? 0) - 0
+        }
+        else {
+            model.itemCount = (model.itemCount ?? 0) - 1
+        }
+        guard let cell = sender.superview?.superview?.superview?.superview as? MenuDetailTableViewCell else {
+            return
+        }
+        cell.countLabel.text = "\(model.itemCount ?? 0)"
+    }
+    
+    
+    @objc func addMenuItemAction(sender : UIButton)  {
+        print("add btn pressed")
+        
+        var model = self.dataArr[sender.tag]
+        print(model.itemCount)
+        
+        if (model.itemCount ?? 0) <= 5 {
+            
+            model.itemCount = (model.itemCount ?? 0) + 1
+            model.counterOption(count: model.itemCount ?? 0)
+
+        }
+        else {
+            model.itemCount = (model.itemCount ?? 0) + 0
+        }
+        
+        guard let cell = sender.superview?.superview?.superview?.superview as? MenuDetailTableViewCell else {
+            return
+        }
+        
+        
+        cell.countLabel.text = "\(model.itemCount ?? 0)"
+    }
+       
 }

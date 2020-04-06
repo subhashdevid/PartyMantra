@@ -20,7 +20,8 @@ class RestBannerTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        collectionView.register(RestImageCollectionViewCell.self, forCellWithReuseIdentifier: "RestImageCollectionViewCell")
+     self.collectionView.register(UINib(nibName: "RestImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RestImageCollectionViewCell")
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,6 +34,7 @@ class RestBannerTableViewCell: UITableViewCell {
     func configureCell(model:restaurantModel?) {
         bannerModel = model?.eventparty
         collectionView.reloadData()
+        collectionView.alwaysBounceHorizontal = true
         collectionView.startScrolling()
     }
     
@@ -54,18 +56,15 @@ extension RestBannerTableViewCell : UICollectionViewDelegate,UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(RestImageCollectionViewCell.self)", for: indexPath) as? RestImageCollectionViewCell else {
-            return UICollectionViewCell()
-            
-        }
-        
+        let cell : RestImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RestImageCollectionViewCell", for: indexPath) as! RestImageCollectionViewCell
+
+       
         let imgBanner = self.bannerModel?[indexPath.row].doc_path ?? ""
-        let url = URL(string: (String(imgBanner) ?? "") )
-        
-        if url == nil {
-            cell.cellImageIcon.kf.setImage(with: url, placeholder: nil)
-        }
-        
+        let url : URL = NSURL(string: imgBanner)! as URL
+
+       
+        // this downloads the image asynchronously if it's not cached yet
+        cell.cellImageIcon.kf.setImage(with: url, placeholder: nil)
             
         cell.backgroundColor = .red
         
@@ -77,5 +76,10 @@ extension RestBannerTableViewCell : UICollectionViewDelegate,UICollectionViewDat
     }
     
     
+    
+
+   
+    
 }
+
 

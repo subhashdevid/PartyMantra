@@ -117,10 +117,15 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
                 cell = orderCheckoutTableview.dequeueReusableCell(withIdentifier: "QRCodeTableViewCell") as? QRCodeTableViewCell
             }
             
-                   let url = URL(string: self.checkoutModel?.qrcode ?? "")
-                   cell?.qrCodeImage.contentMode = .scaleAspectFill
-                   cell?.qrCodeImage.kf.setImage(with: url, placeholder: nil)
-                  
+           
+            
+            let qrCode = self.checkoutModel?.qrcode ?? ""
+            let url : URL = NSURL(string: qrCode)! as URL
+            
+            
+            // this downloads the image asynchronously if it's not cached yet
+            cell.qrCodeImage.kf.setImage(with: url, placeholder: nil)
+            
             
             return cell
         }

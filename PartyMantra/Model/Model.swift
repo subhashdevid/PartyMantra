@@ -271,6 +271,7 @@ struct RestEventparty: Codable {
 
 
 struct RestaurantMenus: Codable {
+    
     let id: Int?
     let name: String?
     let image: String?
@@ -281,16 +282,18 @@ struct RestaurantMenus: Codable {
     let partneractive: Int?
     let creator_id: Int?
     let partner_id: Int?
+    
+    var itemCount: Int?
     let pivot: RestaurantMenusPivot?
-  
 }
+
+
+
 struct RestaurantMenusPivot: Codable {
     let partner_id: Int?
     let menu_id: Int?
     let price: Int?
     let cut_price: Int?
-   
-  
 }
 
 
