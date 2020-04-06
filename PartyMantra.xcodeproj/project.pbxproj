@@ -103,6 +103,8 @@
 		BF2EEAF22430F6ED00F286E9 /* DPOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EEAF12430F6ED00F286E9 /* DPOTPView.swift */; };
 		BF2EEAF42431023400F286E9 /* LocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EEAF32431023400F286E9 /* LocationSelectViewController.swift */; };
 		BF6D1ED42424CBE300DC018C /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */; };
+		BF755FD6243B84FA00950693 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF755FD5243B84FA00950693 /* AboutViewController.swift */; };
+		BF755FD8243B8CE600950693 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF755FD7243B8CE600950693 /* AboutTableViewCell.swift */; };
 		BF87734D2423AF6200CF8C5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87734C2423AF6200CF8C5D /* AppDelegate.swift */; };
 		BF8773542423AF6200CF8C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8773522423AF6200CF8C5D /* Main.storyboard */; };
 		BF8773562423AF6300CF8C5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF8773552423AF6300CF8C5D /* Assets.xcassets */; };
@@ -262,6 +264,8 @@
 		BF2EEAF12430F6ED00F286E9 /* DPOTPView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPOTPView.swift; sourceTree = "<group>"; };
 		BF2EEAF32431023400F286E9 /* LocationSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectViewController.swift; sourceTree = "<group>"; };
 		BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
+		BF755FD5243B84FA00950693 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		BF755FD7243B8CE600950693 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
 		BF8773492423AF6200CF8C5D /* PartyMantra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyMantra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF87734C2423AF6200CF8C5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF8773532423AF6200CF8C5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -447,6 +451,7 @@
 				3B14A66E2438B24900E2CF1A /* ResraurentCell */,
 				3B14A66C2438B16900E2CF1A /* RestaurentViewController.swift */,
 				3B8FAB7A243B059900E359F7 /* DinningRestModal.swift */,
+				BF755FD5243B84FA00950693 /* AboutViewController.swift */,
 			);
 			path = DinningView;
 			sourceTree = "<group>";
@@ -609,6 +614,7 @@
 				BFE54B86242E438C006D813B /* MyProfileUpdateTableViewCell.swift */,
 				BF22F14F2435B12B009B1DCE /* CancelOrderTableViewCell.swift */,
 				BF217D5A243782CF000C7FAE /* ReviewTableViewCell.swift */,
+				BF755FD7243B8CE600950693 /* AboutTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1053,7 +1059,9 @@
 				BF8773962423C0F500CF8C5D /* DiningViewController.swift in Sources */,
 				BF8773822423BF0B00CF8C5D /* Server.swift in Sources */,
 				3BE8C0B824344B3800417384 /* detailPackageTableViewCell.swift in Sources */,
+				BF755FD8243B8CE600950693 /* AboutTableViewCell.swift in Sources */,
 				BF217D5B243782CF000C7FAE /* ReviewTableViewCell.swift in Sources */,
+				BF755FD6243B84FA00950693 /* AboutViewController.swift in Sources */,
 				3B14A67D2438E15200E2CF1A /* PromoRestaurentTableViewCell.swift in Sources */,
 				BF8773772423BDFD00CF8C5D /* Constants.swift in Sources */,
 				3B4F29DA2430FF5F00832ADA /* TermsAndConditionTableViewCell.swift in Sources */,
