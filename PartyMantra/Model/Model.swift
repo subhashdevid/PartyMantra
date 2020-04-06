@@ -220,6 +220,9 @@ struct avgreviewsModel: Codable {
 }
 
 
+struct Restaurant : Codable {
+    let restaurant : restaurantModel?
+}
 
 struct restaurantModel: Codable {
     let id: Int?
@@ -242,7 +245,7 @@ struct restaurantModel: Codable {
     let timings: String?
     let party_timings: String?
     let tnc: String?
-    let raing: Int?
+    let rating: Int?
     let discounts: String?
     let away:Int?
     //        "pivot": {
@@ -274,7 +277,7 @@ struct PartyModel: Codable {
     let timings: String?
     let party_timings: String?
     let tnc: String?
-    let raing: Int?
+    let rating: Int?
     let discounts: String?
     let away:Int?
     let avgreviews: [avgreviewsModel]?

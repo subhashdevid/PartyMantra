@@ -7,13 +7,14 @@
 //
 
 import UIKit
-
+import Cosmos
 class GallaryInfoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellTitleLabel: UILabel!
     @IBOutlet weak var cellSubTitleLabel: UILabel!
     @IBOutlet weak var cellDetailLabel: UILabel!
     @IBOutlet weak var reviewBtn: UIButton!
+    @IBOutlet weak var ratingView:CosmosView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,5 +25,8 @@ class GallaryInfoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    
     
 }

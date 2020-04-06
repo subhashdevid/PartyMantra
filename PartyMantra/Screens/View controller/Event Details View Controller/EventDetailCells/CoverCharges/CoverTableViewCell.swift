@@ -26,7 +26,7 @@ class CoverTableViewCell: UITableViewCell {
         addIconBtn.layer.borderColor = UIColor.darkGray.cgColor
         
          addIconImg.image = UIImage.init(named: "addIcon")
-         addIconImg.image?.imageWithColor(color1: .red)
+         addIconImg.image = addIconImg.image?.imageWithColor(color1: .red)
          minusIconImg.image = UIImage.init(named: "minus")
          minusIconImg.image = minusIconImg.image?.imageWithColor(color1: .red)
         

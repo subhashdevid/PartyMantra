@@ -14,7 +14,7 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
 
     @IBOutlet weak var restaurentTblView: UITableView!
     
-    
+    var restModal : restaurantModel?
        var eventID : Int = 0
        var type: String?
     override func viewDidLoad() {
@@ -38,14 +38,14 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
            
            let param: [String: Any] = [:]
            Loader.showHud()
-           NetworkManager.getEventDetailListing(url: createUrl(),parameters: param) {[weak self] result in
+           NetworkManager.getRestrauntDetailListing(url: createUrl(),parameters: param) {[weak self] result in
                Loader.dismissHud()
                switch result {
                case let .success(response):
-                   if let events = response.data {
-                     //  self?.eventData = [EventlistModel(response: events.event)]
-                      // print(self?.eventData[0].event ?? nil)
-                     //  self?.tblView.reloadData()
+                   if let dinning = response.data {
+                    self?.restModal = dinning.restaurant
+                    print(dinning)
+                self?.restaurentTblView.reloadData()
                    }
                case .failure: break
                }
@@ -67,6 +67,11 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
                 cell = restaurentTblView.dequeueReusableCell(withIdentifier: "GallaryActionTableViewCell") as? GallaryActionTableViewCell
             }
             
+            let url = URL(string: self.restModal?.header_image ?? "")
+                   cell?.gallaryImageView.contentMode = .scaleAspectFill
+                   cell?.gallaryImageView.kf.setImage(with: url, placeholder: nil)
+                   
+          
             return cell
         }else if  indexPath.row == 1 {
             var cell: GallaryInfoTableViewCell! = restaurentTblView.dequeueReusableCell(withIdentifier: "GallaryInfoTableViewCell") as? GallaryInfoTableViewCell
@@ -74,6 +79,16 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
                 restaurentTblView.register(UINib(nibName: "GallaryInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "GallaryInfoTableViewCell")
                 cell = restaurentTblView.dequeueReusableCell(withIdentifier: "GallaryInfoTableViewCell") as? GallaryInfoTableViewCell
             }
+            
+            cell.cellTitleLabel.text = self.restModal?.name ?? ""
+            cell.cellSubTitleLabel.text = self.restModal?.short_address ?? ""
+            cell.cellDetailLabel.text = self.restModal?.description ?? ""
+            
+            cell.ratingView.isUserInteractionEnabled = false
+            cell.ratingView.settings.fillMode = .half
+
+            let rate = self.restModal?.avgreviews?[0] as? avgreviewsModel
+            cell.ratingView.rating = Double(rate?.rating ?? "0") ?? 0.0
             
             return cell
             
@@ -86,10 +101,11 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
                 cell = restaurentTblView.dequeueReusableCell(withIdentifier: "RestaurentOptionTableViewCell") as? RestaurentOptionTableViewCell
             }
             
+            
+            
+            
             return cell
-            
-           
-            
+             
         }else if  indexPath.row == 3 {
         var cell: PromoRestaurentTableViewCell! = restaurentTblView.dequeueReusableCell(withIdentifier: "PromoRestaurentTableViewCell") as? PromoRestaurentTableViewCell
         if cell == nil {
@@ -97,6 +113,10 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
             cell = restaurentTblView.dequeueReusableCell(withIdentifier: "PromoRestaurentTableViewCell") as? PromoRestaurentTableViewCell
         }
         
+            cell.cashBackPercentLbl.text = "20% CASHBACK"
+            cell.promoDetailLbl.text = "Use promo cash here to save up to on your bill.Also get cash back with Discount pay"
+            
+            
         return cell
         }else if  indexPath.row == 4 {
         var cell: RestBannerTableViewCell! = restaurentTblView.dequeueReusableCell(withIdentifier: "RestBannerTableViewCell") as? RestBannerTableViewCell

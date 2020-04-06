@@ -35,7 +35,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NXz-PK-7wO" firstAttribute="leading" secondItem="g8r-OV-vPd" secondAttribute="leading" constant="5" id="1Vr-2m-psD"/>
                             <constraint firstItem="NXz-PK-7wO" firstAttribute="top" secondItem="g8r-OV-vPd" secondAttribute="top" constant="5" id="6E1-SK-4Hf"/>

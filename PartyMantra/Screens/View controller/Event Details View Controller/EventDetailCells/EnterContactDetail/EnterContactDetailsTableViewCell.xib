@@ -18,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4FM-nt-ww4">
-                        <rect key="frame" x="10" y="10" width="300" height="180"/>
+                        <rect key="frame" x="15" y="10" width="290" height="180"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Enter Contact Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cN-QM-j5M">
-                                <rect key="frame" x="10" y="5" width="280" height="21"/>
+                                <rect key="frame" x="10" y="5" width="270" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="own-lb-KmD">
-                                <rect key="frame" x="10" y="34" width="280" height="34"/>
+                                <rect key="frame" x="10" y="34" width="270" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="t0m-aC-tGL"/>
                                 </constraints>
@@ -49,7 +49,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter Email Id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GCa-0C-WZ6">
-                                <rect key="frame" x="10" y="78" width="280" height="34"/>
+                                <rect key="frame" x="10" y="78" width="270" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="e18-Cl-tlz"/>
                                 </constraints>
@@ -71,7 +71,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E3v-uW-9mr">
-                                <rect key="frame" x="10" y="122" width="280" height="34"/>
+                                <rect key="frame" x="10" y="122" width="270" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="a4V-BG-txd"/>
                                 </constraints>
@@ -110,12 +110,17 @@
                             <constraint firstItem="own-lb-KmD" firstAttribute="leading" secondItem="4FM-nt-ww4" secondAttribute="leading" constant="10" id="suk-lu-Asi"/>
                             <constraint firstItem="4cN-QM-j5M" firstAttribute="leading" secondItem="4FM-nt-ww4" secondAttribute="leading" constant="10" id="x44-Y9-E8D"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="4FM-nt-ww4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="H7B-bv-0bl"/>
-                    <constraint firstAttribute="trailing" secondItem="4FM-nt-ww4" secondAttribute="trailing" constant="10" id="N4i-dl-vhL"/>
-                    <constraint firstItem="4FM-nt-ww4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="UZ8-c1-LY7"/>
+                    <constraint firstAttribute="trailing" secondItem="4FM-nt-ww4" secondAttribute="trailing" constant="15" id="N4i-dl-vhL"/>
+                    <constraint firstItem="4FM-nt-ww4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="UZ8-c1-LY7"/>
                     <constraint firstAttribute="bottom" secondItem="4FM-nt-ww4" secondAttribute="bottom" constant="20" id="WT9-PV-5hD"/>
                 </constraints>
             </tableViewCellContentView>

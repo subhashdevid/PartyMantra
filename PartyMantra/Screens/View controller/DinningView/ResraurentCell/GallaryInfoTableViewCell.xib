@@ -108,6 +108,7 @@
                 <outlet property="cellDetailLabel" destination="wLU-2g-IxU" id="ewK-Hh-1o2"/>
                 <outlet property="cellSubTitleLabel" destination="3Sq-s3-qeF" id="reA-nJ-emq"/>
                 <outlet property="cellTitleLabel" destination="dgA-g3-qOU" id="619-yh-Zdt"/>
+                <outlet property="ratingView" destination="xa5-Qq-RlZ" id="T5O-0A-Rlp"/>
                 <outlet property="reviewBtn" destination="5Xf-Zq-wVv" id="fpc-Em-g51"/>
             </connections>
             <point key="canvasLocation" x="194.20289855072465" y="126.22767857142857"/>

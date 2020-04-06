@@ -53,7 +53,7 @@ class Server: NSObject, Codable { // checkpoint
 
     // Events
     var eventsUrl = "\(mainUrl)event"
-    var restaurentUrl = "\(mainUrl)restaurent"
+    var restaurentUrl = "\(mainUrl)restaurant"
     var partyUrl = "\(mainUrl)party"
 
     var searchUrl = "\(mainUrl)search"

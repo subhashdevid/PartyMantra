@@ -231,7 +231,7 @@ class collectionDetailClubCell: UICollectionViewCell {
         lblTitle.text = data.name
         lblDec.text = data.description
         lblPrice.text = data.per_person_text
-        lblRating.text = "\(data.raing ?? 0)"
+        lblRating.text = "\(data.rating ?? 0)"
         
         let url = URL(string: data.small_image ?? "")
         imgView.kf.setImage(with: url, placeholder: nil)
@@ -241,7 +241,7 @@ class collectionDetailClubCell: UICollectionViewCell {
                 lblTitle.text = data.name
         lblDec.text = data.description
         lblPrice.text = data.per_person_text
-        lblRating.text = "\(data.raing ?? 0)"
+        lblRating.text = "\(data.rating ?? 0)"
         let url = URL(string: data.small_image ?? "")
         imgView.kf.setImage(with: url, placeholder: nil)
     }

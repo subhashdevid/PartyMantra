@@ -139,13 +139,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="addIconBtn" destination="vNp-qX-hJM" id="fQJ-2d-sku"/>
-                <outlet property="addIconImg" destination="zuT-a5-6Lx" id="Lxb-LB-Ssx"/>
+                <outlet property="addIconBtn" destination="mwf-e8-XkB" id="xiC-Mm-E4w"/>
+                <outlet property="addIconImg" destination="Qea-ah-fN4" id="kTU-Dc-9oT"/>
                 <outlet property="cellCostLabel" destination="tYR-Yn-BAx" id="sUB-FN-vL8"/>
                 <outlet property="cellItemLbl" destination="nhI-Vn-dLw" id="iDM-Z1-9bK"/>
                 <outlet property="countLbl" destination="mFS-yK-Gz1" id="p8B-I3-qVc"/>
-                <outlet property="minusBtn" destination="mwf-e8-XkB" id="UP7-Xb-sOe"/>
-                <outlet property="minusIconImg" destination="Qea-ah-fN4" id="272-LQ-Qfb"/>
+                <outlet property="minusBtn" destination="vNp-qX-hJM" id="oav-kG-hLm"/>
+                <outlet property="minusIconImg" destination="zuT-a5-6Lx" id="Wzm-vt-VBU"/>
             </connections>
             <point key="canvasLocation" x="127.53623188405798" y="-9.375"/>
         </tableViewCell>
