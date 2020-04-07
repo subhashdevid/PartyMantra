@@ -54,6 +54,24 @@ extension AppDelegate {
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
     }
+    
+    func callNumber(phoneNumber:String) {
+
+           if let phoneCallURL = URL(string: "telprompt://\(phoneNumber)") {
+
+               let application:UIApplication = UIApplication.shared
+               if (application.canOpenURL(phoneCallURL)) {
+                   if #available(iOS 10.0, *) {
+                       application.open(phoneCallURL, options: [:], completionHandler: nil)
+                   } else {
+                       // Fallback on earlier versions
+                        application.openURL(phoneCallURL as URL)
+
+                   }
+               }
+           }
+       }
+    
 }
 
 

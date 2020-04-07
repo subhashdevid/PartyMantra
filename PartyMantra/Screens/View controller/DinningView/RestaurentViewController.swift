@@ -7,33 +7,34 @@
 //
 
 import UIKit
+import EzPopup
 
-class RestaurentViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+
+class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var restaurentTblView: UITableView!
     var restModal : RestaurantInfoModel?
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     
     var eventID : Int = 0
     var type: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        restaurentTblView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = true
-
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle:"Restaurant Details")
         self.fetchRestaurantMenuListDetail()
     }
+    
     
     func createUrl() -> String {
         let url = Server.shared.restaurentUrl + "/\(eventID)"
         print(url)
         return url
     }
-    
     
     func fetchRestaurantMenuListDetail() {
         
@@ -52,6 +53,38 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
         }
     }
     
+    @objc func makeCall() {
+        // agree
+        self.callNumber(phoneNo: restModal?.contact_no ?? "")
+    }
+    
+    
+    func callNumber(phoneNo : String){
+        appDelegate.callNumber(phoneNumber: phoneNo)
+    }
+    
+    
+    @objc  func redirectToMap(){
+        self.openMapForRedirection(lat: restModal?.lat ?? "0.0", long: restModal?.lang ?? "0.0")
+    }
+    
+    @objc  func didTapComboClicked(){
+
+
+    }
+    
+    @objc  func didTapAboutOption( sender : UIButton){
+
+               let vc = AboutViewController.instantiate(appStoryboard: .miscellaneous) as AboutViewController
+//               vc.cancel_dict = self.cancel_dict
+//               vc.refid = order.refid
+               let popupVC = PopupViewController(contentController: vc, popupWidth: 380, popupHeight: 380)
+               popupVC.cornerRadius = 20
+               present(popupVC, animated: true)
+    }
+    
+    
+    //MARK:- Delegate
     
     
     
@@ -86,10 +119,12 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
             
             cell.ratingView.isUserInteractionEnabled = false
             cell.ratingView.settings.fillMode = .half
-            
-            let rate = self.restModal?.avgreviews[0]
-                //self.restModal?.avgreviews[0] as? RestaurantAvgReviewsModel
-            cell.ratingView.rating = Double(rate?.rating ?? "0") ?? 0.0
+            cell.ratingView.rating = 0.0
+           
+            if self.restModal?.avgreviews.count ?? 0 > 0 {
+                let rate = self.restModal?.avgreviews[0]
+                cell.ratingView.rating = Double(rate?.rating ?? "0") ?? 0.0
+            }
             
             return cell
             
@@ -101,7 +136,14 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
                 restaurentTblView.register(UINib(nibName: "RestaurentOptionTableViewCell", bundle: nil), forCellReuseIdentifier: "RestaurentOptionTableViewCell")
                 cell = restaurentTblView.dequeueReusableCell(withIdentifier: "RestaurentOptionTableViewCell") as? RestaurentOptionTableViewCell
             }
+            cell.aboutBtn.tag = indexPath.row
             
+            cell.callBtn.addTarget(self, action: #selector(makeCall), for: .touchUpInside)
+            cell.directionBtn.addTarget(self, action: #selector(redirectToMap), for: .touchUpInside)
+
+            cell.comboBtn.addTarget(self, action: #selector(didTapComboClicked), for: .touchUpInside)
+            cell.aboutBtn.addTarget(self, action: #selector(didTapAboutOption(sender:)), for: .touchUpInside)
+
             
             
             
@@ -143,9 +185,22 @@ class RestaurentViewController: UIViewController,UITableViewDelegate,UITableView
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 5{
-            return 85*5+10
-        }else{
+        
+        if indexPath.row == 4 {
+            if  (restModal?.eventparty.count ?? 0) == 0 {
+                return 0
+            }else{
+                return UITableView.automaticDimension
+            }
+        }
+        else if indexPath.row == 5{
+            if  (restModal?.menus.count ?? 0) == 0 {
+                return 0
+            }
+            return CGFloat((70 * (restModal?.menus.count ?? 0)) + 40)
+        }
+        
+        else{
             return UITableView.automaticDimension
         }
     }

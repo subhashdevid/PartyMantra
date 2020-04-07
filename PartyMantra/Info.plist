@@ -33,6 +33,12 @@
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
     <string>Do you allow PartyMantra app to know your current location?</string>
     
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>googlechromes</string>
+        <string>comgooglemaps</string>
+        <string>waze</string>
+    </array>
     
 	<key>NSCameraUsageDescription</key>
 	<string>PartyMantra will be using camera for profile </string>

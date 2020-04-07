@@ -49,25 +49,28 @@ class DiningViewController: BaseViewController , DiningOtherCellDelegate, ClubEv
     }
     
     func didNearByEventCellPressed(eventID: Int) {
-        let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
-              vc.type = "restaurants"
-        vc.eventID = eventID
+        let vc = RestaurentViewController.instantiate(appStoryboard: .dinning) as RestaurentViewController
+                           vc.eventID = eventID
+               vc.type = "restaurants"
                self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
      func didDiningCellPressed(eventID: Int) {
-       let vc = EventDetailsViewController.instantiate(appStoryboard: .events) as EventDetailsViewController
+       let vc = RestaurentViewController.instantiate(appStoryboard: .dinning) as RestaurentViewController
                     vc.eventID = eventID
-                    self.navigationController?.pushViewController(vc, animated: true)
-      }
+        vc.type = "restaurants"
+        self.navigationController?.pushViewController(vc, animated: true)
+
+    }
       
       func didCollectionEventCellPressed(eventID: Int) {
           let vc = EventListViewController.instantiate(appStoryboard: .events)
                  vc.type = "restaurants"
                  vc.collectionID = eventID
                  self.navigationController?.pushViewController(vc, animated: true)
-      }
-    
+      
+    }
     
 }
 

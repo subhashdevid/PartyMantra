@@ -28,6 +28,7 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
     
     func configureMenuDetails(dataModal:RestaurantInfoModel?) -> Void {
         self.dataArr = dataModal?.menus ?? []
+        listTableView.isScrollEnabled = false
         self.listTableView.reloadData()
     }
     
@@ -61,8 +62,7 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       
-        return 80
+        return 70
     }
     
     
