@@ -12,7 +12,7 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
    
     let count = 0
     @IBOutlet weak var cellView: UIView!
-    var dataArr : Array<RestaurantMenus> = []
+    var dataArr : Array<RestaurantMenuList> = []
     @IBOutlet weak var listTableView: UITableView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,9 +26,8 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
     }
     
     
-    func configureMenuDetails(dataModal:restaurantModel?) -> Void {
+    func configureMenuDetails(dataModal:RestaurantInfoModel?) -> Void {
         self.dataArr = dataModal?.menus ?? []
-        
         self.listTableView.reloadData()
     }
     
@@ -44,13 +43,12 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
             cell = listTableView.dequeueReusableCell(withIdentifier: "MenuDetailTableViewCell") as? MenuDetailTableViewCell
         }
         
-        let dataModal = self.dataArr[indexPath.row] as? RestaurantMenus
-        
-        let url = URL(string: dataModal?.image ?? "")
+        let dataModal = self.dataArr[indexPath.row]
+        let url = URL(string: dataModal.image ?? "")
         cell.menuImageIcon.contentMode = .scaleToFill
         cell.menuImageIcon.kf.setImage(with: url, placeholder: nil)
-        cell.menuTitleLabel.text = dataModal?.name ?? ""
-        cell.menuPricelabel.text = "\(dataModal?.price ?? 0)" ?? "0"
+        cell.menuTitleLabel.text = dataModal.name ?? ""
+        cell.menuPricelabel.text = "\(dataModal.price ?? 0)"
         
         cell.addBtn.addTarget(self, action: #selector(addMenuItemAction(sender:)), for: .touchUpInside)
         cell.minusBtn.addTarget(self, action: #selector(minusMenuItemAction(sender:)), for: .touchUpInside)
@@ -93,7 +91,7 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
         if (model.itemCount ?? 0) <= 5 {
             
             model.itemCount = (model.itemCount ?? 0) + 1
-            model.counterOption(count: model.itemCount ?? 0)
+//            model.counterOption(count: model.itemCount ?? 0)
 
         }
         else {

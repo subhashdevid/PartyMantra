@@ -220,9 +220,10 @@ struct avgreviewsModel: Codable {
 }
 
 
-struct Restaurant : Codable {
-    let restaurant : restaurantModel?
-}
+//struct Restaurant : Codable {//detsil
+////    let restaurant : restaurantModel?
+//}
+
 
 struct restaurantModel: Codable {
     let id: Int?

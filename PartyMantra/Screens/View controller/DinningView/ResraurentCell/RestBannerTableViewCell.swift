@@ -9,12 +9,10 @@
 import UIKit
 
 class RestBannerTableViewCell: UITableViewCell {
-
-    
     
     @IBOutlet weak var collectionView: AutoScrollingCollectionView!
     
-    var bannerModel : [RestEventparty]?
+    var bannerModel : [RestaurantEventparty]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +29,7 @@ class RestBannerTableViewCell: UITableViewCell {
     }
     
     
-    func configureCell(model:restaurantModel?) {
+    func configureCell(model:RestaurantInfoModel?) {
         bannerModel = model?.eventparty
         collectionView.reloadData()
         collectionView.alwaysBounceHorizontal = true

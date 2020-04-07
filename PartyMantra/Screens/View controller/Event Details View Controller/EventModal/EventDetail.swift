@@ -286,6 +286,7 @@ class EventFacilitiesDetailModal {
 
        }
 }
+
 class EventPackagesDetailModal {
     var id: Int?
     var event_id: Int?
