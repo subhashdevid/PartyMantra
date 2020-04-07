@@ -22,6 +22,7 @@ class OrderViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "Order"
+        self.tabBarController?.tabBar.isHidden = false
         getOrderList()
 
     }

@@ -30,6 +30,7 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = "Profile"
+        self.tabBarController?.tabBar.isHidden = false
         self.fetchUserProfile()
     }
 

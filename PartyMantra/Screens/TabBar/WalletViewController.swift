@@ -24,7 +24,7 @@ class WalletViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.navigationBar.topItem?.title = " "
         self.navigationItem.title = "Wallet History"
         

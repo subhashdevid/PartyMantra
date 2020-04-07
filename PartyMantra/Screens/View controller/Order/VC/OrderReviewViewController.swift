@@ -24,6 +24,8 @@ class OrderReviewViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
+
         rateView.rating = 0
 
         reviewTxtView.placeholder = "Write your comment"

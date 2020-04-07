@@ -29,6 +29,7 @@ class CancelOrderViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.crossbtn.addTarget(self, action: #selector(didTapCrossBtn), for: .touchUpInside)
         submitbtn.addTarget(self, action: #selector(didTapOKBtn), for: .touchUpInside)
     }

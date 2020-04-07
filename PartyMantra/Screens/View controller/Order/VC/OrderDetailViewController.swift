@@ -20,6 +20,8 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
     @IBOutlet weak var orderCheckoutTableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
+
         orderCheckoutTableview.separatorStyle = .none
         self.view.backgroundColor = .white
     }
