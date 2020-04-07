@@ -49,6 +49,8 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
         cell.menuImageIcon.kf.setImage(with: url, placeholder: nil)
         cell.menuTitleLabel.text = dataModal.name ?? ""
         cell.menuPricelabel.text = "\(dataModal.price ?? 0)"
+        cell.addBtn.tag = indexPath.row
+        cell.minusBtn.tag = indexPath.row
         
         cell.addBtn.addTarget(self, action: #selector(addMenuItemAction(sender:)), for: .touchUpInside)
         cell.minusBtn.addTarget(self, action: #selector(minusMenuItemAction(sender:)), for: .touchUpInside)
@@ -64,11 +66,8 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
     }
     
     
-    
     @objc func minusMenuItemAction(sender : UIButton)  {
-        print("minus btn pressed")
-        
-        var model = self.dataArr[sender.tag]
+        let model = self.dataArr[sender.tag]
         if (model.itemCount ?? 0) <= 0 {
             model.itemCount = (model.itemCount ?? 0) - 0
         }
@@ -83,26 +82,16 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
     
     
     @objc func addMenuItemAction(sender : UIButton)  {
-        print("add btn pressed")
-        
-        var model = self.dataArr[sender.tag]
-        print(model.itemCount)
-        
+        let model = self.dataArr[sender.tag]
         if (model.itemCount ?? 0) <= 5 {
-            
             model.itemCount = (model.itemCount ?? 0) + 1
-//            model.counterOption(count: model.itemCount ?? 0)
-
         }
         else {
             model.itemCount = (model.itemCount ?? 0) + 0
         }
-        
         guard let cell = sender.superview?.superview?.superview?.superview as? MenuDetailTableViewCell else {
             return
         }
-        
-        
         cell.countLabel.text = "\(model.itemCount ?? 0)"
     }
        
