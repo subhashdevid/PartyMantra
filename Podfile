@@ -21,5 +21,6 @@ target 'PartyMantra' do
   pod 'EzPopup'
   pod 'UITextView+Placeholder'
   pod 'Cosmos', '~> 21.0'
+  pod 'razorpay-pod', '~> 1.1.5'
 
 end

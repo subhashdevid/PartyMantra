@@ -86,8 +86,6 @@
 		BF217D5B243782CF000C7FAE /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217D5A243782CF000C7FAE /* ReviewTableViewCell.swift */; };
 		BF22AD392431DC7E005E4871 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD382431DC7E005E4871 /* Multipart.swift */; };
 		BF22AD3D2432107B005E4871 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD3C2432107B005E4871 /* PaymentViewController.swift */; };
-		BF22AD3E243219AA005E4871 /* Razorpay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF22AD3A24320CF6005E4871 /* Razorpay.framework */; };
-		BF22AD3F243219AA005E4871 /* Razorpay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF22AD3A24320CF6005E4871 /* Razorpay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF22AD4224331546005E4871 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD4124331546005E4871 /* EventListViewController.swift */; };
 		BF22AD44243323DA005E4871 /* EventListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD43243323DA005E4871 /* EventListModel.swift */; };
 		BF22F1502435B12B009B1DCE /* CancelOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22F14F2435B12B009B1DCE /* CancelOrderTableViewCell.swift */; };
@@ -155,13 +153,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BF22AD40243219AB005E4871 /* Embed Frameworks */ = {
+		3BA366BE243CDF59005F4756 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BF22AD3F243219AA005E4871 /* Razorpay.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,7 +245,6 @@
 		BF217D582437828A000C7FAE /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
 		BF217D5A243782CF000C7FAE /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		BF22AD382431DC7E005E4871 /* Multipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipart.swift; sourceTree = "<group>"; };
-		BF22AD3A24320CF6005E4871 /* Razorpay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Razorpay.framework; sourceTree = "<group>"; };
 		BF22AD3C2432107B005E4871 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		BF22AD4124331546005E4871 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		BF22AD43243323DA005E4871 /* EventListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListModel.swift; sourceTree = "<group>"; };
@@ -324,7 +320,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF22AD3E243219AA005E4871 /* Razorpay.framework in Frameworks */,
 				0A30996FEE833B1C60685AC5 /* Pods_PartyMantra.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,7 +619,6 @@
 		BF8773402423AF6200CF8C5D = {
 			isa = PBXGroup;
 			children = (
-				BF22AD3A24320CF6005E4871 /* Razorpay.framework */,
 				BF87734B2423AF6200CF8C5D /* PartyMantra */,
 				BF87734A2423AF6200CF8C5D /* Products */,
 				85BB2F2C4BC8D770BFF09230 /* Pods */,
@@ -826,7 +820,7 @@
 				BF8773462423AF6200CF8C5D /* Frameworks */,
 				BF8773472423AF6200CF8C5D /* Resources */,
 				9749217624C0D490159D9D84 /* [CP] Embed Pods Frameworks */,
-				BF22AD40243219AB005E4871 /* Embed Frameworks */,
+				3BA366BE243CDF59005F4756 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1228,6 +1222,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Shikha.PartyMantra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

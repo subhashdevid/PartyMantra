@@ -13,6 +13,7 @@ PODS:
     - Kingfisher/Core (= 5.13.2)
   - Kingfisher/Core (5.13.2)
   - MBProgressHUD (1.1.0)
+  - razorpay-pod (1.1.5)
   - SVGKit (2.1.1):
     - CocoaLumberjack (~> 3.0)
   - SVProgressHUD (2.2.5)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Kingfisher (~> 5.0)
   - MBProgressHUD (~> 1.1.0)
+  - razorpay-pod (~> 1.1.5)
   - SVGKit
   - SVProgressHUD
   - SwiftPhoneNumberFormatter
@@ -46,6 +48,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - Kingfisher
     - MBProgressHUD
+    - razorpay-pod
     - SVGKit
     - SVProgressHUD
     - SwiftPhoneNumberFormatter
@@ -62,11 +65,12 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  razorpay-pod: 31dd24ddb70275d82be12527b45001f9bc9f1be2
   SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: 7b2e04afd5e80262e20ca41913623831cf4a6e32
+PODFILE CHECKSUM: 9172cf55f28e92957fced784ab5c31b9a98a8cec
 
 COCOAPODS: 1.8.4
