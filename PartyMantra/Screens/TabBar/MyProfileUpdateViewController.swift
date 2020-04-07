@@ -33,7 +33,8 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tabBarController?.tabBar.isHidden = true
+
         self.title = "My Profile"
         
 

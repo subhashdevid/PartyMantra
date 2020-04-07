@@ -44,6 +44,10 @@ class HomeViewController: BaseViewController, UISearchBarDelegate , AddressChang
         self.changeBtn.addTarget(self, action: #selector(changedAddressAction), for: .touchUpInside)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+           self.tabBarController?.tabBar.isHidden = false
+       }
+    
     //MARK:- AddressChange Delegate
     func returnChangedAddress(address: String, latitude: String, longitude: String) {
         self.addressLbl.text = address

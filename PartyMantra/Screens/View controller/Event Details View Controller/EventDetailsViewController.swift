@@ -37,7 +37,8 @@ class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.tabBarController?.tabBar.isHidden = true
+
         if self.type == "party" {
             fetchPartyDetail()
         }else{
@@ -45,6 +46,7 @@ class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
         }
 
     }
+   
     func createUrl() -> String {
         let url = Server.shared.eventsUrl + "/\(eventID)"
         return url

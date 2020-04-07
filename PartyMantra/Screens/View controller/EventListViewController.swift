@@ -18,7 +18,8 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     var imgUrl = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tabBarController?.tabBar.isHidden = true
+
         self.tblView.reloadData()
         // Do any additional setup after loading the view.
     }

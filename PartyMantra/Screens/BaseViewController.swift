@@ -17,7 +17,6 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.init(named: "ViewBGColor")
     }
-
     func addRightButtons() {
         let buttonBell = UIButton.init(type: .custom)
         buttonBell.setImage(UIImage.init(named: "LocationImage"), for: .normal)

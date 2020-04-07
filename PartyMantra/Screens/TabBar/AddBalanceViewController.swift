@@ -23,7 +23,8 @@ class AddBalanceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tabBarController?.tabBar.isHidden = true
+
         addMoneyButton.addTarget(self, action: #selector(addMoney), for: .touchUpInside)
         self.view.backgroundColor = .white
         self.title="Add Money"
