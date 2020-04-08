@@ -108,10 +108,12 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
             "gender" : profile?.gender ?? ""
             
         ]
-        // Loader.showHud()
         
-        Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.UpdateProfile, parameter: param as? [String : String], handler: { (response, isSuccess) in
-            
+        Loader.showHud()
+        
+        Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.UpdateProfile, parameter: param , handler: { (response, isSuccess) in
+            Loader.dismissHud()
+
             if isSuccess{
                 _ = response as! Dictionary<String,Any>
                 
