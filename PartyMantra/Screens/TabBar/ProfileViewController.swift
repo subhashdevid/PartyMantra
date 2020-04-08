@@ -92,6 +92,8 @@ class ProfileViewController: UIViewController {
         let OKAction = UIAlertAction(title: "Yes", style: .default, handler: { _ -> Void in
             
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            UserDefaults.standard.set("0", forKey: "ISLOGIN") //setObject
+            UserDefaults.standard.synchronize()
             appDelegate.showLoginScreen()
             
             

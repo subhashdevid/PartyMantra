@@ -74,6 +74,7 @@
 		3B4F29FE24312A9200832ADA /* UseWalletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F29FC24312A9200832ADA /* UseWalletTableViewCell.swift */; };
 		3B4F29FF24312A9200832ADA /* UseWalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4F29FD24312A9200832ADA /* UseWalletTableViewCell.xib */; };
 		3B6754A8242683DC005C97CA /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6754A7242683DC005C97CA /* EventDetail.swift */; };
+		3B716730243D78B800BF9E5C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B71672F243D78B800BF9E5C /* MapKit.framework */; };
 		3B8FAB7B243B059900E359F7 /* DinningRestModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8FAB7A243B059900E359F7 /* DinningRestModal.swift */; };
 		3B9A2BA324323AC3001CD2A7 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9A2BA224323AC3001CD2A7 /* UserDetails.swift */; };
 		3BE8C0B824344B3800417384 /* detailPackageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE8C0B624344B3800417384 /* detailPackageTableViewCell.swift */; };
@@ -233,6 +234,7 @@
 		3B4F29FC24312A9200832ADA /* UseWalletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseWalletTableViewCell.swift; sourceTree = "<group>"; };
 		3B4F29FD24312A9200832ADA /* UseWalletTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UseWalletTableViewCell.xib; sourceTree = "<group>"; };
 		3B6754A7242683DC005C97CA /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
+		3B71672F243D78B800BF9E5C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3B8FAB7A243B059900E359F7 /* DinningRestModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinningRestModal.swift; sourceTree = "<group>"; };
 		3B9A2BA224323AC3001CD2A7 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		3BE8C0B624344B3800417384 /* detailPackageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailPackageTableViewCell.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B716730243D78B800BF9E5C /* MapKit.framework in Frameworks */,
 				0A30996FEE833B1C60685AC5 /* Pods_PartyMantra.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,6 +573,7 @@
 		9EE6D66B9E985453E9A095F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B71672F243D78B800BF9E5C /* MapKit.framework */,
 				B692E78AF008A8CBFCFD2AC2 /* Pods_PartyMantra.framework */,
 			);
 			name = Frameworks;
