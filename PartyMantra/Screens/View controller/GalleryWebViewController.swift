@@ -20,10 +20,20 @@ class GalleryWebViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.webView.backgroundColor = .groupTableViewBackground
+
         let url = URL (string: self.docString ?? "")
         let requestObj = URLRequest(url: url!)
-        webView.loadRequest(requestObj)
+        self.webView.loadRequest(requestObj)
         
+        self.crossbtn.addTarget(self, action: #selector(crossbtnAction), for: .touchUpInside)
+    }
+    
+    
+    @objc func crossbtnAction()  {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

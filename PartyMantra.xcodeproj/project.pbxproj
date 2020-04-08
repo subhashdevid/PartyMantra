@@ -104,6 +104,8 @@
 		BF2EEAF02430D6D500F286E9 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EEAEF2430D6D500F286E9 /* OTPViewController.swift */; };
 		BF2EEAF22430F6ED00F286E9 /* DPOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EEAF12430F6ED00F286E9 /* DPOTPView.swift */; };
 		BF2EEAF42431023400F286E9 /* LocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EEAF32431023400F286E9 /* LocationSelectViewController.swift */; };
+		BF5808D4243D9C380060ECAA /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5808D3243D9C380060ECAA /* BookingViewController.swift */; };
+		BF5808D6243DAC850060ECAA /* BookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5808D5243DAC850060ECAA /* BookingTableViewCell.swift */; };
 		BF6D1ED42424CBE300DC018C /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */; };
 		BF755FD6243B84FA00950693 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF755FD5243B84FA00950693 /* AboutViewController.swift */; };
 		BF755FD8243B8CE600950693 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF755FD7243B8CE600950693 /* AboutTableViewCell.swift */; };
@@ -268,6 +270,8 @@
 		BF2EEAEF2430D6D500F286E9 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		BF2EEAF12430F6ED00F286E9 /* DPOTPView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPOTPView.swift; sourceTree = "<group>"; };
 		BF2EEAF32431023400F286E9 /* LocationSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectViewController.swift; sourceTree = "<group>"; };
+		BF5808D3243D9C380060ECAA /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
+		BF5808D5243DAC850060ECAA /* BookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTableViewCell.swift; sourceTree = "<group>"; };
 		BF6D1ED32424CBE300DC018C /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		BF755FD5243B84FA00950693 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		BF755FD7243B8CE600950693 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
@@ -611,6 +615,7 @@
 				BFA3A2DE243B37F20050F2EC /* SuccessViewController.swift */,
 				3B716731243D7DE000BF9E5C /* GalleryViewController.swift */,
 				3B716735243D877000BF9E5C /* GalleryWebViewController.swift */,
+				BF5808D3243D9C380060ECAA /* BookingViewController.swift */,
 			);
 			path = "View controller";
 			sourceTree = "<group>";
@@ -625,6 +630,7 @@
 				BF217D5A243782CF000C7FAE /* ReviewTableViewCell.swift */,
 				BF755FD7243B8CE600950693 /* AboutTableViewCell.swift */,
 				3B716733243D80F100BF9E5C /* GalleryCollectionViewCell.swift */,
+				BF5808D5243DAC850060ECAA /* BookingTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1038,8 +1044,10 @@
 				BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */,
 				BF20CABC2434F2B400E76FAF /* CancelOrderViewController.swift in Sources */,
 				3B14A6712438B28A00E2CF1A /* GallaryActionTableViewCell.swift in Sources */,
+				BF5808D4243D9C380060ECAA /* BookingViewController.swift in Sources */,
 				BFA6CAD62433BF0B00A866D9 /* OrderDetailViewController.swift in Sources */,
 				3B4F29DF243110E000832ADA /* SubmitBtnTableViewCell.swift in Sources */,
+				BF5808D6243DAC850060ECAA /* BookingTableViewCell.swift in Sources */,
 				BF2BBA4E242CFB050064EC59 /* ProfileTableViewCell.swift in Sources */,
 				3B4F29D62430FDA800832ADA /* UIView+Extensions.swift in Sources */,
 				BF8773942423C0F500CF8C5D /* ClubEventViewController.swift in Sources */,

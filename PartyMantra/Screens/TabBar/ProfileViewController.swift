@@ -19,13 +19,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImgView: UIImageView!
     
     @IBOutlet weak var scroll: UIScrollView!
-    
-    var profile : ProfileModel?  //CGSizeMake(self.view.frame.width,self.view.frame.height+100)
+    var profile : ProfileModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         scroll.contentSize = CGSize(width: self.view.frame.width,height: self.view.frame.height+100)
-       // self.fetchUserProfile()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,16 +49,12 @@ class ProfileViewController: UIViewController {
                     self?.mobileLabel.text = self?.profile?.mobile
                     self?.emailLabel.text = self?.profile?.email
                     self?.genderLabel.text = "Gender: \(self?.profile?.gender?.capitalized ?? "")"
-                        
-//
                     self?.dobLabel.text = self?.profile?.dob
                     self?.addressLabel.text = "Address: \(self?.profile?.address?.capitalized ?? "")"
                                     
                     let url = URL(string: userProfile.image ?? "")
                     self?.profileImgView.contentMode = .scaleAspectFill
                     self?.profileImgView.kf.setImage(with: url, placeholder: nil)
-
-                    
                 }
                 
             case .failure: break
@@ -71,10 +65,6 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func clickedUpdateProfile() {
-        
-        //UpdateProfileViewController
-        //let vc = UpdateProfileViewController.instantiate(appStoryboard: .home)
-               //self.navigationController?.pushViewController(vc, animated: true)
         
         let vc = MyProfileUpdateViewController.instantiate(appStoryboard: .home)
         vc.profile = self.profile
@@ -94,7 +84,7 @@ class ProfileViewController: UIViewController {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             UserDefaults.standard.set("0", forKey: "ISLOGIN") //setObject
             UserDefaults.standard.synchronize()
-            appDelegate.showLoginScreen()            
+            appDelegate.showLoginScreen()
         })
 
     alert.addAction(OKAction)

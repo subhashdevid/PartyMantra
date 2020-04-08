@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -268,7 +268,7 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select your address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="h6J-Ll-rBh">
-                                                <rect key="frame" x="44" y="12.5" width="366" height="22"/>
+                                                <rect key="frame" x="44" y="13" width="366" height="21"/>
                                                 <color key="textColor" red="0.39607843139999999" green="0.41176470590000003" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -451,7 +451,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ObF-mL-cMn" customClass="CosmosView" customModule="Cosmos">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObF-mL-cMn" customClass="CosmosView" customModule="Cosmos">
                                         <rect key="frame" x="96" y="49" width="220" height="73"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1113,20 +1113,20 @@
                                 </constraints>
                             </view>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nA0-2w-zNj">
-                                <rect key="frame" x="1" y="51" width="412" height="810"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="1" y="55" width="412" height="802"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3FG-lk-YSa" firstAttribute="trailing" secondItem="nA0-2w-zNj" secondAttribute="trailing" constant="1" id="NUg-mm-dZP"/>
-                            <constraint firstItem="nA0-2w-zNj" firstAttribute="top" secondItem="tpe-fN-tVK" secondAttribute="bottom" constant="1" id="XAp-Ht-1ku"/>
+                            <constraint firstItem="nA0-2w-zNj" firstAttribute="top" secondItem="tpe-fN-tVK" secondAttribute="bottom" constant="5" id="XAp-Ht-1ku"/>
                             <constraint firstItem="tpe-fN-tVK" firstAttribute="leading" secondItem="3FG-lk-YSa" secondAttribute="leading" id="aXy-7w-4s2"/>
-                            <constraint firstItem="3FG-lk-YSa" firstAttribute="bottom" secondItem="nA0-2w-zNj" secondAttribute="bottom" constant="1" id="hC0-hI-Wb0"/>
+                            <constraint firstItem="3FG-lk-YSa" firstAttribute="bottom" secondItem="nA0-2w-zNj" secondAttribute="bottom" constant="5" id="hC0-hI-Wb0"/>
                             <constraint firstItem="tpe-fN-tVK" firstAttribute="trailing" secondItem="3FG-lk-YSa" secondAttribute="trailing" id="iGi-FV-gpr"/>
                             <constraint firstItem="tpe-fN-tVK" firstAttribute="top" secondItem="fLi-Qf-SdS" secondAttribute="top" id="iy5-pO-wuo"/>
                             <constraint firstItem="nA0-2w-zNj" firstAttribute="leading" secondItem="3FG-lk-YSa" secondAttribute="leading" constant="1" id="qq5-CZ-jXX"/>

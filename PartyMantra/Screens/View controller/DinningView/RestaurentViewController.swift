@@ -13,6 +13,9 @@ import EzPopup
 class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var restaurentTblView: UITableView!
+    @IBOutlet weak var payNowBtn: UIButton!
+    @IBOutlet weak var bookNowBtn: UIButton!
+
     var restModal : RestaurantInfoModel?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -22,6 +25,9 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         restaurentTblView.tableFooterView = UIView()
+        self.bookNowBtn.addTarget(self, action: #selector(didtapBookNowBtn(sender:)), for: .touchUpInside)
+        self.payNowBtn.addTarget(self, action: #selector(didtapPayNowBtn(sender:)), for: .touchUpInside)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +60,16 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
     }
     
     
+    
+    @objc func didtapBookNowBtn(sender : UIButton?) {
+               let vc = BookingViewController.instantiate(appStoryboard: .dinning) as BookingViewController
+//               vc.eventId = "\(restModal?.id ?? 0)"
+//               vc.type = "restaurant"
+               self.navigationController?.pushViewController(vc, animated: true)
+       }
+     @objc func didtapPayNowBtn(sender : UIButton?) {
+   
+           }
     
     @objc func didtapGalleryBtn(sender : UIButton?) {
             let vc = GalleryViewController.instantiate(appStoryboard: .miscellaneous) as GalleryViewController

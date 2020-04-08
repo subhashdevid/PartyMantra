@@ -101,7 +101,7 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDataS
      let docString = self.dataArr[indexPath.row]["doc_path"] as? String
                let vc = GalleryWebViewController.instantiate(appStoryboard: .miscellaneous) as GalleryWebViewController
                 vc.docString = docString
-        let popupVC = PopupViewController(contentController: vc, popupWidth: UIScreen.main.bounds.size.width, popupHeight: (UIScreen.main.bounds.size.height) - 40)
+        let popupVC = PopupViewController(contentController: vc, popupWidth: (UIScreen.main.bounds.size.width)-20, popupHeight: (UIScreen.main.bounds.size.height) - 80)
                popupVC.cornerRadius = 20
                present(popupVC, animated: true)
         

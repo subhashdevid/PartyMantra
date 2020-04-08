@@ -22,5 +22,6 @@ target 'PartyMantra' do
   pod 'UITextView+Placeholder'
   pod 'Cosmos', '~> 21.0'
   pod 'razorpay-pod', '~> 1.1.5'
+  pod 'FSCalendar'
 
 end
