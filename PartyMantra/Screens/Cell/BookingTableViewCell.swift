@@ -31,16 +31,63 @@ class BookingTableViewCell: UITableViewCell {
 
 }
 
-class TimeCollectionCell: UITableViewCell {
-    @IBOutlet weak var timeSlotCollectionView: UICollectionView!
+class TimeCollectionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var timeSlotCollectionView: UICollectionView!
+       
+    var selected_row : Int?
+       override func awakeFromNib() {
+           super.awakeFromNib()
+        timeSlotCollectionView.delegate = self
+        timeSlotCollectionView.dataSource = self
+       }
+       override func setSelected(_ selected: Bool, animated: Bool) {
+           super.setSelected(selected, animated: animated)
+           // Configure the view for the selected state
+       }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: "TimeSlotCollectionViewCell", for: indexPath) as? TimeSlotCollectionViewCell
+       
+        if indexPath.row == self.selected_row {
+            cell?.contentView.backgroundColor = .darkGray
+        }else{
+            cell?.contentView.backgroundColor = .white
+        }
+        cell?.titleLbl.text = "10:00 AM - 1:00 PM"
+        return cell!
+        
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selected_row = indexPath.row
+        self.timeSlotCollectionView.reloadData()
+        
+    }
+    
+//    func collectionView(collectionView : UICollectionView,layout collectionViewLayout:UICollectionViewLayout,sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
+//       {
+//           var cellSize:CGSize = CGSizeMake(collectionView.frame.width/3, 86)
+//           return cellSize
+//       }
+    
+    
+   
+}
+
+
+class TimeSlotCollectionViewCell: UICollectionViewCell {
+   @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var titleLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
+        self.bgView.backgroundColor = .white
     }
 }
 

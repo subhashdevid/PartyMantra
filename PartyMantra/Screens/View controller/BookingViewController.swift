@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import FSCalendar
 
-class BookingViewController: BaseViewController , UITextFieldDelegate{
-    
+class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalendarDataSource, FSCalendarDelegate{
+
     @IBOutlet weak var tblView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +67,23 @@ class BookingViewController: BaseViewController , UITextFieldDelegate{
         }
         
     }
+    
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+            if monthPosition == .previous || monthPosition == .next {
+                calendar.setCurrentPage(date, animated: true)
+                print(date)
+            }
+            print(date)
+
+        
+        }
+    
+    
+    
 }
+
+
 
 //MARK:- table view delegate
 extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
@@ -87,7 +105,8 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         }
         else if indexPath.row == 1 {
             let cell = self.tblView.dequeueReusableCell(withIdentifier: "calendarCell") as? CalenderTableViewCell
-            //            cell?.fscalender.delegate = self
+            cell?.fscalender.delegate = self
+            cell?.fscalender.dataSource = self
             
             return cell!
         }
