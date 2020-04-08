@@ -31,11 +31,19 @@ class BookingTableViewCell: UITableViewCell {
 
 }
 
+protocol TimeCollectionCellDelegate: class {
+    func didTimeSlotCellPressed(timeStr: String)
+}
+
 class TimeCollectionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var timeSlotCollectionView: UICollectionView!
        
     var selected_row : Int?
+    var timeArray = [String]()
+    weak var timeCell_delegate:TimeCollectionCellDelegate?
+
+
        override func awakeFromNib() {
            super.awakeFromNib()
         timeSlotCollectionView.delegate = self
@@ -43,12 +51,17 @@ class TimeCollectionCell: UITableViewCell, UICollectionViewDelegate, UICollectio
        }
        override func setSelected(_ selected: Bool, animated: Bool) {
            super.setSelected(selected, animated: animated)
-           // Configure the view for the selected state
-       }
+    }
+    
+    func cellPressAction(timeStr : String) {
+        if let del = self.timeCell_delegate {
+            del.didTimeSlotCellPressed(timeStr: timeStr)
+        }
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return timeArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -60,24 +73,20 @@ class TimeCollectionCell: UITableViewCell, UICollectionViewDelegate, UICollectio
         }else{
             cell?.contentView.backgroundColor = .white
         }
-        cell?.titleLbl.text = "10:00 AM - 1:00 PM"
+        cell?.titleLbl.text = self.timeArray[indexPath.row]
         return cell!
         
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selected_row = indexPath.row
+
+        cellPressAction(timeStr: self.timeArray[indexPath.row])
         self.timeSlotCollectionView.reloadData()
         
     }
     
-//    func collectionView(collectionView : UICollectionView,layout collectionViewLayout:UICollectionViewLayout,sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
-//       {
-//           var cellSize:CGSize = CGSizeMake(collectionView.frame.width/3, 86)
-//           return cellSize
-//       }
-    
-    
+  
    
 }
 

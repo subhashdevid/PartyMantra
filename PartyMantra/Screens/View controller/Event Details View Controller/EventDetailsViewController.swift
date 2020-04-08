@@ -483,10 +483,24 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
     
     
     @objc func didTapToOpenEventCart(sender:UIButton) -> Void {
-       // API call
-        self.validateEventPackages()
-     
+        
+        if self.type == "party" {
+            let vc = BookingViewController.instantiate(appStoryboard: .dinning) as BookingViewController
+            vc.type = "party"
+            vc.screen = "party"
+            vc.partyModal = self.eventData
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        else {
+            // API call
+            self.validateEventPackages()
+        }
     }
+    
+    
+    
+    
     
 }
 

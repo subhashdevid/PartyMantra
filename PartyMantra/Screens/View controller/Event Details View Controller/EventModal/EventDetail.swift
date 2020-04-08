@@ -79,6 +79,18 @@ class EventlistModel {
     var party_timings: String?
     var discounts: String?
 
+    var menCounter: Int?
+    var womenCounter: Int?
+    var coupleCounter: Int?
+
+    
+    var field_name: String?
+       var field_email: String?
+       var field_number: String?
+       var cal_date: String?
+       var time_selected: String?
+    
+    
     
     init() {
         

@@ -63,9 +63,9 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
     
     @objc func didtapBookNowBtn(sender : UIButton?) {
                let vc = BookingViewController.instantiate(appStoryboard: .dinning) as BookingViewController
-//               vc.eventId = "\(restModal?.id ?? 0)"
-//               vc.type = "restaurant"
-               self.navigationController?.pushViewController(vc, animated: true)
+               vc.type = "restaurant"
+        vc.restModal = self.restModal
+        self.navigationController?.pushViewController(vc, animated: true)
        }
      @objc func didtapPayNowBtn(sender : UIButton?) {
    

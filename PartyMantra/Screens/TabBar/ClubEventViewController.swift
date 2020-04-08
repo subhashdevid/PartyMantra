@@ -403,10 +403,8 @@ extension NearByCollectionCell : UICollectionViewDelegate,UICollectionViewDataSo
         return collectionCell ?? UICollectionViewCell()
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {  
         cellPressAction(eventID: self.nearPlaceModel[indexPath.row].id ?? 0)
-        
     }
 }
 
