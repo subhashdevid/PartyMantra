@@ -75,6 +75,9 @@
 		3B4F29FF24312A9200832ADA /* UseWalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4F29FD24312A9200832ADA /* UseWalletTableViewCell.xib */; };
 		3B6754A8242683DC005C97CA /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6754A7242683DC005C97CA /* EventDetail.swift */; };
 		3B716730243D78B800BF9E5C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B71672F243D78B800BF9E5C /* MapKit.framework */; };
+		3B716732243D7DE000BF9E5C /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B716731243D7DE000BF9E5C /* GalleryViewController.swift */; };
+		3B716734243D80F100BF9E5C /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B716733243D80F100BF9E5C /* GalleryCollectionViewCell.swift */; };
+		3B716736243D877000BF9E5C /* GalleryWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B716735243D877000BF9E5C /* GalleryWebViewController.swift */; };
 		3B8FAB7B243B059900E359F7 /* DinningRestModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8FAB7A243B059900E359F7 /* DinningRestModal.swift */; };
 		3B9A2BA324323AC3001CD2A7 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9A2BA224323AC3001CD2A7 /* UserDetails.swift */; };
 		3BE8C0B824344B3800417384 /* detailPackageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE8C0B624344B3800417384 /* detailPackageTableViewCell.swift */; };
@@ -235,6 +238,9 @@
 		3B4F29FD24312A9200832ADA /* UseWalletTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UseWalletTableViewCell.xib; sourceTree = "<group>"; };
 		3B6754A7242683DC005C97CA /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
 		3B71672F243D78B800BF9E5C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3B716731243D7DE000BF9E5C /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		3B716733243D80F100BF9E5C /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B716735243D877000BF9E5C /* GalleryWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryWebViewController.swift; sourceTree = "<group>"; };
 		3B8FAB7A243B059900E359F7 /* DinningRestModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinningRestModal.swift; sourceTree = "<group>"; };
 		3B9A2BA224323AC3001CD2A7 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		3BE8C0B624344B3800417384 /* detailPackageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailPackageTableViewCell.swift; sourceTree = "<group>"; };
@@ -603,6 +609,8 @@
 				BF22AD3C2432107B005E4871 /* PaymentViewController.swift */,
 				BF22AD4124331546005E4871 /* EventListViewController.swift */,
 				BFA3A2DE243B37F20050F2EC /* SuccessViewController.swift */,
+				3B716731243D7DE000BF9E5C /* GalleryViewController.swift */,
+				3B716735243D877000BF9E5C /* GalleryWebViewController.swift */,
 			);
 			path = "View controller";
 			sourceTree = "<group>";
@@ -616,6 +624,7 @@
 				BF22F14F2435B12B009B1DCE /* CancelOrderTableViewCell.swift */,
 				BF217D5A243782CF000C7FAE /* ReviewTableViewCell.swift */,
 				BF755FD7243B8CE600950693 /* AboutTableViewCell.swift */,
+				3B716733243D80F100BF9E5C /* GalleryCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -986,6 +995,7 @@
 				3B4F29F52431250400832ADA /* AllTaxesTableViewCell.swift in Sources */,
 				3B14A68A2438EEAD00E2CF1A /* RestImageCollectionViewCell.swift in Sources */,
 				BF8773A82423C12B00CF8C5D /* TopMenuBar.swift in Sources */,
+				3B716736243D877000BF9E5C /* GalleryWebViewController.swift in Sources */,
 				BF8773952423C0F500CF8C5D /* PartiesViewController.swift in Sources */,
 				3B14A66D2438B16900E2CF1A /* RestaurentViewController.swift in Sources */,
 				BF22AD3D2432107B005E4871 /* PaymentViewController.swift in Sources */,
@@ -1022,6 +1032,7 @@
 				3B0C4AA82433A4C2005AAE60 /* OrderlistModel.swift in Sources */,
 				BF2EEAF02430D6D500F286E9 /* OTPViewController.swift in Sources */,
 				BF217D592437828A000C7FAE /* ReviewsViewController.swift in Sources */,
+				3B716734243D80F100BF9E5C /* GalleryCollectionViewCell.swift in Sources */,
 				3B4F29D12430F6C700832ADA /* EnterContactDetailsTableViewCell.swift in Sources */,
 				BF87739B2423C0F500CF8C5D /* HomePageViewController.swift in Sources */,
 				BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */,
@@ -1044,6 +1055,7 @@
 				BFE54B87242E438C006D813B /* MyProfileUpdateTableViewCell.swift in Sources */,
 				BF8773A62423C12B00CF8C5D /* TopMenuBarCollectionCell.swift in Sources */,
 				BF9EF0C12431A05900ADB07F /* GoogleApiHelper.swift in Sources */,
+				3B716732243D7DE000BF9E5C /* GalleryViewController.swift in Sources */,
 				BF87734D2423AF6200CF8C5D /* AppDelegate.swift in Sources */,
 				3B04120924277088000C9402 /* CoverChargesTableViewCell.swift in Sources */,
 				3B4F29CB2430A65E00832ADA /* CustomPickerViewController.swift in Sources */,

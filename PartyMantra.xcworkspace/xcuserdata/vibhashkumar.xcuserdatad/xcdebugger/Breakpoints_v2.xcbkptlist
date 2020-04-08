@@ -7,61 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EB642F9C-04B3-4FFF-AA76-BFAA8F808AD4"
-            shouldBeEnabled = "No"
+            uuid = "6E78721A-6D80-466E-B1EA-C200C68EF820"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PartyMantra/Screens/View controller/DinningView/ResraurentCell/RestMenuListTableViewCell.swift"
+            filePath = "PartyMantra/Screens/View controller/DinningView/RestaurentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "addMenuItemAction(sender:)"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "didtapReviewOrder(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6595D7FE-D96A-4E6B-9F4E-106754AA23B3"
+            uuid = "D902C34A-B1D6-4354-9AD7-AB4B49DD507F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PartyMantra/Screens/View controller/Order/VC/OrderDetailViewController.swift"
+            filePath = "PartyMantra/Screens/View controller/Order/ReviewsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "reviewlistEndpointCall()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7DB253F7-3E3D-4EB2-B7C3-F424703D919C"
+            uuid = "9293D73D-78E7-4F4F-8137-ED24A2FEB414"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PartyMantra/Screens/View controller/DinningView/ResraurentCell/RestMenuListTableViewCell.swift"
+            filePath = "PartyMantra/Screens/View controller/Order/ReviewsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "addMenuItemAction(sender:)"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "reviewlistEndpointCall()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            uuid = "8FAFD269-9255-40B9-A020-D1FE59A0A2D2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            breakpointStackSelectionBehavior = "1"
-            scope = "1"
-            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

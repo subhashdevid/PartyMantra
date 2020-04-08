@@ -53,6 +53,25 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
         }
     }
     
+    
+    
+    @objc func didtapGalleryBtn(sender : UIButton?) {
+            let vc = GalleryViewController.instantiate(appStoryboard: .miscellaneous) as GalleryViewController
+            vc.eventId = "\(restModal?.id ?? 0)"
+            vc.type = "restaurant"
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    @objc func didtapReviewOrder(sender : UIButton?) {
+            let vc = ReviewsViewController.instantiate(appStoryboard: .miscellaneous) as ReviewsViewController
+            
+            vc.eventId = "\(restModal?.id ?? 0)"
+            vc.type = "restaurant"
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     @objc func makeCall() {
         // agree
         self.callNumber(phoneNo: restModal?.contact_no ?? "")
@@ -103,7 +122,7 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
             let url = URL(string: self.restModal?.header_image ?? "")
             cell?.gallaryImageView.contentMode = .scaleAspectFill
             cell?.gallaryImageView.kf.setImage(with: url, placeholder: nil)
-            
+            cell.gallaryBtn.addTarget(self, action: #selector(didtapGalleryBtn(sender:)), for: .touchUpInside)
             
             return cell
         }else if  indexPath.row == 1 {
@@ -125,6 +144,8 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
                 let rate = self.restModal?.avgreviews[0]
                 cell.ratingView.rating = Double(rate?.rating ?? "0") ?? 0.0
             }
+            
+            cell.reviewBtn.addTarget(self, action: #selector(didtapReviewOrder(sender:)), for: .touchUpInside)
             
             return cell
             

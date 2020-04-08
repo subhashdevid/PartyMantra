@@ -37,6 +37,9 @@ class ReviewsViewController: UIViewController {
         if self.type == "events"{
             reviewType = "event"
         }
+        else if self.type == "restaurant"{
+            reviewType = "restaurant"
+        }
         else  if self.type == "party"{
             reviewType = "party"
         }
@@ -56,7 +59,7 @@ class ReviewsViewController: UIViewController {
                             let model = ReviewsListModel.init(response: dict)
                             self.reviewData.append(model)
                         }
-
+                        
                         if self.reviewData.count > 0 {
                             self.reviewLbl.isHidden = true
                             self.reviewTableview.isHidden = false
@@ -68,9 +71,9 @@ class ReviewsViewController: UIViewController {
                         
                         self.reviewTableview.reloadData()
                         
+                    }
                 }
-            }
-        
+                
         }
     }
 }
