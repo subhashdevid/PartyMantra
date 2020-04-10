@@ -299,8 +299,8 @@ class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalenda
             params["date"] = party[0].cal_date ?? ""
             params["time"] = party[0].time_selected ?? ""
             params["men"] = "\(party[0].menCounter ?? 0)"
-            params["women"] = "\(party[0].menCounter ?? 0)"
-            params["couple"] = "\(party[0].menCounter ?? 0)"
+            params["women"] = "\(party[0].womenCounter ?? 0)"
+            params["couple"] = "\(party[0].coupleCounter ?? 0)"
         }
         else{
             params["name"] = restaurant?.field_name ?? ""
@@ -309,8 +309,8 @@ class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalenda
             params["date"] = restaurant?.cal_date ?? ""
             params["time"] = restaurant?.time_selected ?? ""
             params["men"] = "\(restaurant?.menCounter ?? 0)"
-            params["women"] = "\(restaurant?.menCounter ?? 0)"
-            params["couple"] = "\(restaurant?.menCounter ?? 0)"
+            params["women"] = "\(restaurant?.womenCounter ?? 0)"
+            params["couple"] = "\(restaurant?.coupleCounter ?? 0)"
         }
         
         if type != "" {
