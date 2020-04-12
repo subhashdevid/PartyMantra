@@ -35,7 +35,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dH5-n9-4gs">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell_icon" translatesAutoresizingMaskIntoConstraints="NO" id="vWW-AC-k6H">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applogo_1024" translatesAutoresizingMaskIntoConstraints="NO" id="vWW-AC-k6H">
                                         <rect key="frame" x="143" y="100" width="128" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="128" id="6eX-Kn-cqi"/>
@@ -136,6 +136,6 @@ TE9HSU4DA
         </scene>
     </scenes>
     <resources>
-        <image name="bell_icon" width="64" height="64"/>
+        <image name="applogo_1024" width="1024" height="1024"/>
     </resources>
 </document>

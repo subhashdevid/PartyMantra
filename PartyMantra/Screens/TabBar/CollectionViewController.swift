@@ -125,6 +125,6 @@ class collectionListCell: UICollectionViewCell {
     func configureCell(data: HomeCollection) {
         lblTitle.text = data.name
         let url = URL(string: data.cover_image ?? "")
-        imgView.kf.setImage(with: url, placeholder: nil)
+        imgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
     }
 }

@@ -84,7 +84,7 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tblView.dequeueReusableCell(withIdentifier: "imgCell") as? CustomTableViewCell
-        cell?.bannerimgView.kf.setImage(with: URL(string: imgUrl ), placeholder: nil)
+        cell?.bannerimgView.kf.setImage(with: URL(string: imgUrl ), placeholder: UIImage(named: "applogo_1024"))
         cell?.bannerimgView.contentMode = .scaleAspectFill
         
         if indexPath.section == 1 {
@@ -101,7 +101,7 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
             //cell?.ratingLbl.text=model.rating
             let url = URL(string: model.small_image ?? "")
             cell?.bannerimgView.contentMode = .scaleAspectFill
-            cell?.bannerimgView.kf.setImage(with: url, placeholder: nil)
+            cell?.bannerimgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
             
             if type == "restaurants" || type == "party" {
                 cell?.titleLbl.text = model.name

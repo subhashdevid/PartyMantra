@@ -63,10 +63,17 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
     
     
     @objc func didtapBookNowBtn(sender : UIButton?) {
+        
+        
                let vc = BookingViewController.instantiate(appStoryboard: .dinning) as BookingViewController
                vc.type = "restaurant"
         vc.restModal = self.restModal
-        self.navigationController?.pushViewController(vc, animated: true)
+        //self.navigationController?.pushViewController(vc, animated: true)
+        let popupVC = PopupViewController(contentController: vc, popupWidth: (UIScreen.main.bounds.size.width)-20, popupHeight: (UIScreen.main.bounds.size.height) - 80)
+        popupVC.cornerRadius = 20
+        present(popupVC, animated: true)
+        
+        
        }
      @objc func didtapPayNowBtn(sender : UIButton?) {
    
@@ -138,7 +145,7 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
             
             let url = URL(string: self.restModal?.header_image ?? "")
             cell?.gallaryImageView.contentMode = .scaleAspectFill
-            cell?.gallaryImageView.kf.setImage(with: url, placeholder: UIImage.init(named: ""))
+            cell?.gallaryImageView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
             cell.gallaryBtn.addTarget(self, action: #selector(didtapGalleryBtn(sender:)), for: .touchUpInside)
             
             return cell

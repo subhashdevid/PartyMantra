@@ -291,7 +291,7 @@ class PartyOtherCell1: UICollectionViewCell {
         lblDesc.text = partydata?.short_address
         let url = URL(string: partydata?.small_image ?? "")
         imgView.contentMode = .scaleAspectFill
-        imgView.kf.setImage(with: url, placeholder: nil)
+        imgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
         
         if partydata?.avgreviews?.count ?? 0 > 0 {
             rateView.isHidden = false

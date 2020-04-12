@@ -260,7 +260,7 @@ extension MyProfileUpdateViewController:UITableViewDelegate,UITableViewDataSourc
             
             let url = URL(string: profile?.image ?? "")
             cell?.logoImageView.contentMode = .scaleAspectFill
-            cell?.logoImageView.kf.setImage(with: url, placeholder: UIImage.init(named: "user"))
+            cell?.logoImageView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
             
             cell?.logoEditImageView.layer.masksToBounds = true
             cell?.logoEditImageView.layer.cornerRadius = 5

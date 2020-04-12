@@ -17,7 +17,9 @@ class BookingTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLb: UILabel!
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var crossBtn: UIButton!
+    @IBOutlet weak var crossImgView: UIImageView!
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -69,9 +71,12 @@ class TimeCollectionCell: UITableViewCell, UICollectionViewDelegate, UICollectio
             .dequeueReusableCell(withReuseIdentifier: "TimeSlotCollectionViewCell", for: indexPath) as? TimeSlotCollectionViewCell
        
         if indexPath.row == self.selected_row {
-            cell?.contentView.backgroundColor = .darkGray
+            cell?.titleLbl.backgroundColor = .systemPink
+            cell?.titleLbl.textColor = .white
+
         }else{
-            cell?.contentView.backgroundColor = .white
+            cell?.titleLbl.backgroundColor = .white
+            cell?.titleLbl.textColor = .purple
         }
         cell?.titleLbl.text = self.timeArray[indexPath.row]
         return cell!

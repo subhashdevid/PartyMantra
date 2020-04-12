@@ -62,7 +62,7 @@ extension RestBannerTableViewCell : UICollectionViewDelegate,UICollectionViewDat
 
        
         // this downloads the image asynchronously if it's not cached yet
-        cell.cellImageIcon.kf.setImage(with: url, placeholder: nil)
+        cell.cellImageIcon.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
             
         cell.backgroundColor = .red
         

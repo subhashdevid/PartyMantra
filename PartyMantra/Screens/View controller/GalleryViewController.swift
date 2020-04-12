@@ -92,7 +92,7 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDataS
         let docString = self.dataArr[indexPath.row]["doc_path"] as? String
         let url = URL(string: docString ?? "")
         cell?.cellImage.contentMode = .scaleAspectFill
-        cell?.cellImage.kf.setImage(with: url, placeholder: nil)
+        cell?.cellImage.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
         return cell!
     }
     

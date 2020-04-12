@@ -40,7 +40,7 @@ class ReviewTableViewCell: UITableViewCell {
         
         //let imgBanner = self.imageData[indexPath.row]
         let url = URL(string: reviewModal?.user?.image ?? "")
-        bannerImg.kf.setImage(with: url, placeholder: nil)
+        bannerImg.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
 
     }
     

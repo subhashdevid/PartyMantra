@@ -46,9 +46,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UjN-9j-jNm">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="451"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="8Dl-RQ-r5f" customClass="I">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applogo_1024" translatesAutoresizingMaskIntoConstraints="NO" id="8Dl-RQ-r5f" customClass="I">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
-                                                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="250" id="5Ay-DN-BGv"/>
                                                             </constraints>
@@ -465,7 +465,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rupee_green" translatesAutoresizingMaskIntoConstraints="NO" id="ylR-oc-5RZ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applogo_1024" translatesAutoresizingMaskIntoConstraints="NO" id="ylR-oc-5RZ">
                                 <rect key="frame" x="147" y="220.5" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="gb1-yR-FxD"/>
@@ -574,7 +574,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rupee_green" translatesAutoresizingMaskIntoConstraints="NO" id="RnM-Ea-lYs">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applogo_1024" translatesAutoresizingMaskIntoConstraints="NO" id="RnM-Ea-lYs">
                                 <rect key="frame" x="137" y="156" width="140" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="aEE-H7-fZ0"/>
@@ -659,9 +659,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78W-NS-8fC">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="451"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="RBb-Jb-dLz" customClass="I">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applogo_1024" translatesAutoresizingMaskIntoConstraints="NO" id="RBb-Jb-dLz" customClass="I">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
-                                                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="250" id="2gD-CO-N2k"/>
                                                             </constraints>
@@ -1260,10 +1260,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DefaultImage" width="17.333333969116211" height="17.333333969116211"/>
+        <image name="applogo_1024" width="1024" height="1024"/>
         <image name="calendar" width="96" height="96"/>
         <image name="marker" width="96" height="96"/>
-        <image name="rupee_green" width="100" height="100"/>
         <image name="starnew" width="48" height="48"/>
     </resources>
 </document>

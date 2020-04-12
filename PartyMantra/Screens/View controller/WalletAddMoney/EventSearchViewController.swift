@@ -82,7 +82,7 @@ extension EventSearchViewController : UITableViewDelegate, UITableViewDataSource
         
         let url = URL(string: model.small_image ?? "")
         cell?.bannerimgView.contentMode = .scaleAspectFill
-        cell?.bannerimgView.kf.setImage(with: url, placeholder: nil)
+        cell?.bannerimgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
         
         return cell!
     }

@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController {
                                     
                     let url = URL(string: userProfile.image ?? "")
                     self?.profileImgView.contentMode = .scaleAspectFill
-                    self?.profileImgView.kf.setImage(with: url, placeholder: nil)
+                    self?.profileImgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
                 }
                 
             case .failure: break

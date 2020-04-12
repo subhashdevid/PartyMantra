@@ -62,7 +62,7 @@ class CollectionDetailViewController: BaseViewController {
                     self?.collectionView.reloadData()
                     
                     let url = URL(string: notification.image ?? "")
-                    self?.imageView.kf.setImage(with: url, placeholder: nil)
+                    self?.imageView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
                 }
                 
             case .failure: break
@@ -85,7 +85,7 @@ class CollectionDetailViewController: BaseViewController {
                     self?.collectionView.reloadData()
                     
                     let url = URL(string: notification.image ?? "")
-                    self?.imageView.kf.setImage(with: url, placeholder: nil)
+                    self?.imageView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
                 }
                 
             case .failure: break
@@ -108,7 +108,7 @@ class CollectionDetailViewController: BaseViewController {
                     self?.collectionView.reloadData()
                     
                     let url = URL(string: notification.image ?? "")
-                    self?.imageView.kf.setImage(with: url, placeholder: nil)
+                    self?.imageView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
                 }
                 
             case .failure: break
@@ -235,7 +235,7 @@ class collectionDetailClubCell: UICollectionViewCell {
         lblRating.text = "\(data.rating ?? 0)"
         
         let url = URL(string: data.small_image ?? "")
-        imgView.kf.setImage(with: url, placeholder: nil)
+        imgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
     }
     
     func configurePartyCell(data: PartyModel) {
@@ -244,7 +244,7 @@ class collectionDetailClubCell: UICollectionViewCell {
         lblPrice.text = data.per_person_text
         lblRating.text = "\(data.rating ?? 0)"
         let url = URL(string: data.small_image ?? "")
-        imgView.kf.setImage(with: url, placeholder: nil)
+        imgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
     }
 }
 
@@ -276,6 +276,6 @@ class collectionDetailEventCell: UICollectionViewCell {
         
         lblRating.text = "\(data.rating ?? "0")"
         let url = URL(string: data.small_image ?? "")
-        imgView.kf.setImage(with: url, placeholder: nil)
+        imgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
     }
 }

@@ -47,7 +47,7 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
         let dataModal = self.dataArr[indexPath.row]
         let url = URL(string: dataModal.image ?? "")
         cell.menuImageIcon.contentMode = .scaleToFill
-        cell.menuImageIcon.kf.setImage(with: url, placeholder: nil)
+        cell.menuImageIcon.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
         cell.menuTitleLabel.text = dataModal.name ?? ""
         cell.menuPricelabel.text = "\(dataModal.price ?? 0)"
         cell.addBtn.tag = indexPath.row

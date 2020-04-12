@@ -9,7 +9,10 @@
 import UIKit
 
 class WalletViewController: BaseViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var tblView: UITableView!
+    
+    
     var dataArr = [WalletHistory]()
     var balance = WalletBalance(balance: 0)
     
@@ -20,6 +23,9 @@ class WalletViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.tblView.rowHeight = 44
+        self.tblView.estimatedRowHeight = UITableView.automaticDimension
+        
         addMoneyButton.addTarget(self, action: #selector(didSelectAddMoney), for: .touchUpInside)
     }
     
@@ -45,7 +51,7 @@ class WalletViewController: BaseViewController {
                 print(response)
                 if let notification = response.data {
                     self?.dataArr = notification.history!
-                    self?.collectionView.reloadData()
+                    self?.tblView.reloadData()
                 }
                 
             case .failure: break
@@ -87,96 +93,42 @@ class WalletViewController: BaseViewController {
 
 }
 
-extension WalletViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-     
-        return size(indexPath: indexPath)
-     }
-
-     private func size(indexPath: IndexPath) -> CGSize {
-         // load cell from Xib
-         let cell = collectionView
-         .dequeueReusableCell(withReuseIdentifier: "WalletCell", for: indexPath) as? WalletCell
-        
-
-         // configure cell with data in it
-         let notification = dataArr[indexPath.row]
-        cell?.configureCell(data: notification)
-
-         cell?.setNeedsLayout()
-         cell?.layoutIfNeeded()
-
-         // width that you want
-         let width = collectionView.frame.width
-         let height: CGFloat = 0
-
-         let targetSize = CGSize(width: width-20, height: height)
-
-         // get size with width that you want and automatic height
-        let size = (cell?.contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .defaultHigh, verticalFittingPriority: .fittingSizeLevel))!
-         // if you want height and width both to be dynamic use below
-         // let size = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-
-         return size
-     }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+extension WalletViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataArr.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let  cell = self.tblView.dequeueReusableCell(withIdentifier: "WalletCell") as? WalletCell
+        let walletObj = dataArr[indexPath.row]
         
-        return dataArr.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        cell?.bgView.backgroundColor = .clear
+        cell?.contentView.layer.cornerRadius = 10
+        cell?.contentView.layer.masksToBounds = true
+        cell?.contentView.backgroundColor = .groupTableViewBackground
+        cell?.lblTitle.text = walletObj.description
+        cell?.lblPrice.text = "\u{20B9} \(walletObj.amount ?? 0)"
+        cell?.lblDate.text = walletObj.date
         
-        var collectionCell: UICollectionViewCell?
-        
-        let cell = collectionView
-            .dequeueReusableCell(withReuseIdentifier: "WalletCell", for: indexPath) as? WalletCell
-        let notification = dataArr[indexPath.row]
-        cell?.configureCell(data: notification)
-        collectionCell = cell
-        
-        return collectionCell ?? UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let vc = DetailViewController.instantiate(appStoryboard: .home) as DetailViewController
-//        vc.product = dataArr[indexPath.row]
-//        self.navigationController?.pushViewController(vc, animated: true)
+        if walletObj.type == "Debit" {
+            cell?.imgView.image = UIImage(named: "rupee_red")
+        }else{
+            cell?.imgView.image = UIImage(named: "rupee_green")
+        }
+        return cell!
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
 
-class WalletCell: UICollectionViewCell {
-    
+class WalletCell: UITableViewCell {
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblDate: UILabel!
-    
-    func configureCell(data: WalletHistory) {
-        bgView.backgroundColor = .clear
-        contentView.layer.cornerRadius = 10
-        contentView.layer.masksToBounds = true
-        contentView.backgroundColor = .groupTableViewBackground
-        lblTitle.text = data.description
-        lblPrice.text = "\u{20B9} \(data.amount ?? 0)"
-        lblDate.text = data.date
-        
-        if data.type == "Debit" {
-            imgView.image = UIImage(named: "rupee_red")
 
-        }else{
-            imgView.image = UIImage(named: "rupee_green")
-
-        }
-    }
 }

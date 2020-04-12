@@ -288,7 +288,7 @@ class EventOtherCell1: UICollectionViewCell {
         lblDesc.text = eventData?.venue_name
         let url = URL(string: eventData?.small_image ?? "")
         imgView.contentMode = .scaleAspectFill
-        imgView.kf.setImage(with: url, placeholder: nil)
+        imgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
         if data?.avgreviews?.count ?? 0 > 0 {
             rateView.isHidden = false
             rateLbl.isHidden = false
@@ -323,7 +323,7 @@ class NearbyOtherCell: UICollectionViewCell {
         lblDesc.text = nearByPlace?.venue_name
         let url = URL(string: nearByPlace?.small_image ?? "")
         imgView.contentMode = .scaleAspectFill
-        imgView.kf.setImage(with: url, placeholder: nil)
+        imgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
         
         if nearByPlace?.avgreviews?.count ?? 0 > 0 {
             rateView.isHidden = false
@@ -531,7 +531,7 @@ extension EventCollectionCell : UICollectionViewDelegate,UICollectionViewDataSou
         let imgBanner = self.imageData[indexPath.row]
         let url = URL(string: imgBanner.small_image ?? "")
         
-        cell.cellImage.kf.setImage(with: url, placeholder: nil)
+        cell.cellImage.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
         cell.club_delegate = self as? ClubEventCollectionCellDelegate
         
         return cell
@@ -582,7 +582,7 @@ extension ImageBannerCell : UICollectionViewDelegate,UICollectionViewDataSource,
         let imgBanner = self.imageData[indexPath.row]
         let url = URL(string: imgBanner.image ?? "")
         
-        cell.cellImage.kf.setImage(with: url, placeholder: nil)
+        cell.cellImage.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

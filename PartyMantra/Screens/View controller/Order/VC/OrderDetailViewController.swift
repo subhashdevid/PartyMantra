@@ -126,7 +126,7 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
             
             
             // this downloads the image asynchronously if it's not cached yet
-            cell.qrCodeImage.kf.setImage(with: url, placeholder: nil)
+            cell.qrCodeImage.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
             
             
             return cell

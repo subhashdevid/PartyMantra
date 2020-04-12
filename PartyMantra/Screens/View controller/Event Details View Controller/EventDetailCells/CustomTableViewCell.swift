@@ -70,7 +70,7 @@ class GalleryViewCell: UITableViewCell {
     func configureGallaryView(modal:EventlistModel) -> Void {
         let url = URL(string: modal.header_image ?? "")
            bannerimgView.contentMode = .scaleAspectFill
-           bannerimgView.kf.setImage(with: url, placeholder: nil)
+           bannerimgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
         
         if modal.type == "restaurant" {
             bannarTitle.text = modal.name ?? ""

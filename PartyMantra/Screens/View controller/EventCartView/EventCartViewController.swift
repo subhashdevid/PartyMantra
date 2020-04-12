@@ -11,7 +11,8 @@ import UIKit
 class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
    
     
-
+    var type : String?
+    
     var isCheckBoxSelected : Bool = false
     var isWallet = "0"
     var dataDict : Dictionary<String,AnyObject> = [:]
@@ -62,7 +63,9 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
                  cell = eventCarttableView.dequeueReusableCell(withIdentifier: "PackageCheckoutTableViewCell") as? PackageCheckoutTableViewCell
              }
               cell.backgroundColor = .groupTableViewBackground
+            cell.type = self.type
             cell.getPackageDetails(data: dataDict)
+            
             //  cell.submitCellBtn.addTarget(self, action: #selector(didTapToOpenEventCart), for: .touchUpInside)
             return cell
         }else if indexPath.row == 2{

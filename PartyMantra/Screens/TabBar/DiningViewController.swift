@@ -291,7 +291,7 @@ class DiningOtherCell1: UICollectionViewCell {
         lblDesc.text = restaurantData?.description
         let url = URL(string: restaurantData?.small_image ?? "")
         imgView.contentMode = .scaleAspectFill
-        imgView.kf.setImage(with: url, placeholder: nil)
+        imgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
         
         
         if restaurantData?.avgreviews?.count ?? 0 > 0 {

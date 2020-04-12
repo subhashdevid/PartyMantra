@@ -383,6 +383,7 @@ class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalenda
                 }else{
                     
                     let vc = EventCartViewController.instantiate(appStoryboard: .events) as EventCartViewController
+                    vc.type = self.type
                     vc.dataDict = result as Dictionary<String, AnyObject>
                     self.navigationController?.pushViewController(vc, animated: true)
                     
@@ -390,21 +391,7 @@ class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalenda
             }
         })
     }
-    
-    
-    
-    
-    
 }
-
-
-
-
-
-
-
-
-
 
 //MARK:- table view delegate
 extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
@@ -420,17 +407,15 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
             
             cell?.crossBtn.addTarget(self, action: #selector(didTapCrossbtn), for: .touchUpInside)
             
-            
             if screen == "party" {
                 cell?.titleLb.text = self.partyModal[0].name
                 let url = URL(string: self.partyModal[0].header_image ?? "")
-                cell?.logoImgView.kf.setImage(with: url, placeholder: nil)
+                cell?.logoImgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
             }else {
                 cell?.titleLb.text = self.restModal?.name
                 let url = URL(string: self.restModal?.header_image ?? "")
-                cell?.logoImgView.kf.setImage(with: url, placeholder: nil)
+                cell?.logoImgView.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
             }
-            
             
             return cell!
         }
@@ -459,13 +444,47 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
             
             cell?.plusBtnMen.addTarget(self, action: #selector(didTapOnMenPlus(sender:)), for: .touchUpInside)
             cell?.minusBtnMen.addTarget(self, action: #selector(didTapOnMenMinus(sender:)), for: .touchUpInside)
+            cell?.minusBtnMen.layer.cornerRadius = 12
+            cell?.minusBtnMen.layer.masksToBounds = true
+            cell?.minusBtnMen.layer.borderColor = UIColor.gray.cgColor
+            cell?.minusBtnMen.layer.borderWidth = 1
             
+            cell?.plusBtnMen.layer.cornerRadius = 12
+                       cell?.plusBtnMen.layer.masksToBounds = true
+                       cell?.plusBtnMen.layer.borderColor = UIColor.gray.cgColor
+                       cell?.plusBtnMen.layer.borderWidth = 1
+            
+
             
             cell?.plusBtnWomen.addTarget(self, action: #selector(didTapOnWomenPlus(sender:)), for: .touchUpInside)
             cell?.minusBtnWomen.addTarget(self, action: #selector(didTapOnWomenMinus(sender:)), for: .touchUpInside)
             
+            cell?.minusBtnWomen.layer.cornerRadius = 12
+            cell?.minusBtnWomen.layer.masksToBounds = true
+            cell?.minusBtnWomen.layer.borderColor = UIColor.gray.cgColor
+            cell?.minusBtnWomen.layer.borderWidth = 1
+            
+            cell?.plusBtnWomen.layer.cornerRadius = 12
+                       cell?.plusBtnWomen.layer.masksToBounds = true
+                       cell?.plusBtnWomen.layer.borderColor = UIColor.gray.cgColor
+                       cell?.plusBtnWomen.layer.borderWidth = 1
+            
+            
+            
             cell?.plusBtnCouple.addTarget(self, action: #selector(didTapOnCouplePlus(sender:)), for: .touchUpInside)
             cell?.minusBtnCouple.addTarget(self, action: #selector(didTapOnCoupleMinus(sender:)), for: .touchUpInside)
+            
+            
+            cell?.plusBtnCouple.layer.cornerRadius = 12
+                      cell?.plusBtnCouple.layer.masksToBounds = true
+                      cell?.plusBtnCouple.layer.borderColor = UIColor.gray.cgColor
+                      cell?.plusBtnCouple.layer.borderWidth = 1
+                      
+                      cell?.minusBtnCouple.layer.cornerRadius = 12
+                                 cell?.minusBtnCouple.layer.masksToBounds = true
+                                 cell?.minusBtnCouple.layer.borderColor = UIColor.gray.cgColor
+                                 cell?.minusBtnCouple.layer.borderWidth = 1
+            
             
             cell?.menCount.text = "0"
             cell?.womenCount.text = "0"
