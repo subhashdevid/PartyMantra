@@ -68,10 +68,12 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
                let vc = BookingViewController.instantiate(appStoryboard: .dinning) as BookingViewController
                vc.type = "restaurant"
         vc.restModal = self.restModal
-        //self.navigationController?.pushViewController(vc, animated: true)
-        let popupVC = PopupViewController(contentController: vc, popupWidth: (UIScreen.main.bounds.size.width)-20, popupHeight: (UIScreen.main.bounds.size.height) - 80)
+        self.navigationController?.pushViewController(vc, animated: true)
+      
+        /*let popupVC = PopupViewController(contentController: vc, popupWidth: (UIScreen.main.bounds.size.width)-20, popupHeight: (UIScreen.main.bounds.size.height) - 80)
         popupVC.cornerRadius = 20
         present(popupVC, animated: true)
+        */
         
         
        }

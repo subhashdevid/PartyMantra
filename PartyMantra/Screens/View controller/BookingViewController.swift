@@ -405,8 +405,8 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 {
             let cell = self.tblView.dequeueReusableCell(withIdentifier: "topViewCell") as? BookingTableViewCell
             
-            cell?.crossBtn.addTarget(self, action: #selector(didTapCrossbtn), for: .touchUpInside)
-            
+//            cell?.crossBtn.addTarget(self, action: #selector(didTapCrossbtn), for: .touchUpInside)
+            cell?.crossBtn.isHidden = true
             if screen == "party" {
                 cell?.titleLb.text = self.partyModal[0].name
                 let url = URL(string: self.partyModal[0].header_image ?? "")

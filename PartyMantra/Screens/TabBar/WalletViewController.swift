@@ -102,10 +102,10 @@ extension WalletViewController: UITableViewDataSource, UITableViewDelegate {
         let  cell = self.tblView.dequeueReusableCell(withIdentifier: "WalletCell") as? WalletCell
         let walletObj = dataArr[indexPath.row]
         
-        cell?.bgView.backgroundColor = .clear
-        cell?.contentView.layer.cornerRadius = 10
-        cell?.contentView.layer.masksToBounds = true
-        cell?.contentView.backgroundColor = .groupTableViewBackground
+        //cell?.bgView.backgroundColor = .clear
+        //cell?.contentView.layer.cornerRadius = 10
+        //cell?.contentView.layer.masksToBounds = true
+        //cell?.contentView.backgroundColor = .groupTableViewBackground
         cell?.lblTitle.text = walletObj.description
         cell?.lblPrice.text = "\u{20B9} \(walletObj.amount ?? 0)"
         cell?.lblDate.text = walletObj.date
