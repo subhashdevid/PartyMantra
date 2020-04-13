@@ -220,7 +220,6 @@ extension PartiesViewController: UICollectionViewDelegate, UICollectionViewDataS
                 let cell = collectionView
                     .dequeueReusableCell(withReuseIdentifier: "\(PartyOtherCell.self)", for: indexPath) as? PartyOtherCell
                 cell?.configureCell(homeOthers: dataArr?.others?[indexPath.row])
-                cell?.viewButton.tag = indexPath.row
                 cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
                 collectionCell = cell
                 cell?.party_delegate = self
@@ -246,7 +245,6 @@ extension PartiesViewController: UICollectionViewDelegate, UICollectionViewDataS
                 let cell = collectionView
                     .dequeueReusableCell(withReuseIdentifier: "\(PartyOtherCell.self)", for: indexPath) as? PartyOtherCell
                 cell?.configureCell(homeOthers: dataArr?.others?[indexPath.row])
-                cell?.viewButton.tag = indexPath.row
                 cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
                 collectionCell = cell
                 cell?.party_delegate = self
@@ -268,9 +266,13 @@ extension PartiesViewController: UICollectionViewDelegate, UICollectionViewDataS
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func viewEvent(sender: UIButton) {
-        let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
-        vc.type = "party"
-        self.navigationController?.pushViewController(vc, animated: true)
+        let eventID = sender.tag
+        let vc = EventListViewController.instantiate(appStoryboard: .events)
+               vc.type = "party"
+               vc.collectionID = eventID
+               self.navigationController?.pushViewController(vc, animated: true)
+        
+        
     }
     
 }
@@ -327,7 +329,7 @@ class PartyOtherCell: UICollectionViewCell {
     func configureCell(homeOthers:HomeOthers?) {
         lblName.text = homeOthers?.name
         lblDesc.text = homeOthers?.about
-        
+        viewButton.tag = homeOthers?.id ?? 0
         viewButton.layer.cornerRadius = 10
         viewButton.layer.masksToBounds = true
         self.homeOthers = homeOthers

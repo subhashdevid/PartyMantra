@@ -217,8 +217,6 @@ extension DiningViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 let cell = collectionView
                     .dequeueReusableCell(withReuseIdentifier: "\(DiningOtherCell.self)", for: indexPath) as? DiningOtherCell
                 cell?.configureCell(homeOthers: dataArr?.others?[indexPath.row])
-                
-                cell?.viewButton.tag = indexPath.row
                 cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
                 cell?.delegate = self
                 collectionCell = cell
@@ -243,7 +241,6 @@ extension DiningViewController: UICollectionViewDelegate, UICollectionViewDataSo
                     .dequeueReusableCell(withReuseIdentifier: "\(DiningOtherCell.self)", for: indexPath) as? DiningOtherCell
                 cell?.configureCell(homeOthers: dataArr?.others?[indexPath.row])
                 
-                cell?.viewButton.tag = indexPath.row
                 cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
                 collectionCell = cell
             }
@@ -262,11 +259,14 @@ extension DiningViewController: UICollectionViewDelegate, UICollectionViewDataSo
           vc.type = "restaurant"
           self.navigationController?.pushViewController(vc, animated: true)
       }
-      @objc func viewEvent(sender: UIButton) {
-          let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
-          vc.type = "restaurant"
-          self.navigationController?.pushViewController(vc, animated: true)
-      }
+    @objc func viewEvent(sender: UIButton) {
+        let eventID = sender.tag
+        let vc = EventListViewController.instantiate(appStoryboard: .events)
+        vc.type = "restaurants"
+        vc.collectionID = eventID
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
     
     
     
@@ -330,6 +330,7 @@ class DiningOtherCell: UICollectionViewCell {
     func configureCell(homeOthers:HomeOthers?) {
         lblName.text = homeOthers?.name
         lblDesc.text = homeOthers?.about
+        viewButton.tag = homeOthers?.id ?? 0
         viewButton.layer.cornerRadius = 10
         viewButton.layer.masksToBounds = true
         self.homeOthers = homeOthers

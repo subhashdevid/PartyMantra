@@ -214,7 +214,6 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
                 let cell = collectionView
                     .dequeueReusableCell(withReuseIdentifier: "\(EventOtherCell.self)", for: indexPath) as? EventOtherCell
                 cell?.configureCell(homeOthers: dataArr?.others?[indexPath.row])
-                cell?.viewButton.tag = indexPath.row
                 cell?.viewButton.addTarget(self, action: #selector(viewEvent(sender:)), for: .touchUpInside)
                 collectionCell = cell
                 cell?.delegate = self
@@ -263,9 +262,18 @@ extension ClubEventViewController: UICollectionViewDelegate, UICollectionViewDat
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func viewEvent(sender: UIButton) {
-        let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
-        vc.type = "events"
-        self.navigationController?.pushViewController(vc, animated: true)
+        let eventid = sender.tag
+//        let vc = CollectionViewController.instantiate(appStoryboard: .home) as CollectionViewController
+//        vc.type = "events"
+//
+//        self.navigationController?.pushViewController(vc, animated: true)
+//
+        
+        let vc = EventListViewController.instantiate(appStoryboard: .events)
+              vc.type = "events"
+              vc.collectionID = eventid
+              self.navigationController?.pushViewController(vc, animated: true)
+                
     }
     
     
@@ -426,7 +434,7 @@ class EventOtherCell: UICollectionViewCell {
     func configureCell(homeOthers:HomeOthers?) {
         lblName.text = homeOthers?.name
         lblDesc.text = homeOthers?.about
-        
+        viewButton.tag = homeOthers?.id ?? 0
         viewButton.layer.cornerRadius = 10
         viewButton.layer.masksToBounds = true
         self.homeOthers = homeOthers
