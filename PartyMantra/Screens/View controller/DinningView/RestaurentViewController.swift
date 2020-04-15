@@ -115,6 +115,22 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
     
     @objc  func didTapComboClicked(){
 
+        
+    let vc = RestPackageViewController.instantiate(appStoryboard: .dinning) as RestPackageViewController
+       vc.restModal = restModal
+        var height : CGFloat = 0
+        if ((self.restModal?.packages ?? []).count)>2{
+             height = CGFloat(3*130+240)
+            
+        }else{
+             height = CGFloat(((self.restModal?.packages ?? []).count)*130+240)
+        }
+        let popupVC = PopupViewController(contentController: vc, popupWidth: (UIScreen.main.bounds.size.width)-20,
+                                          popupHeight: (height))
+        popupVC.cornerRadius = 10
+        present(popupVC, animated: true)
+        
+
 
     }
     
