@@ -185,7 +185,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Whg-ka-xsQ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="770"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="824"/>
                                 <connections>
                                     <outlet property="delegate" destination="pHI-dl-fJQ" id="gsh-Ai-axh"/>
                                 </connections>
@@ -307,7 +307,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOi-xV-kcW">
-                                <rect key="frame" x="1" y="816" width="412" height="45"/>
+                                <rect key="frame" x="0.0" y="816" width="414" height="45"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="eFQ-sC-bY2"/>
@@ -328,13 +328,13 @@
                             <constraint firstItem="E4e-86-2Ce" firstAttribute="centerY" secondItem="4Xo-2b-dyj" secondAttribute="centerY" id="DB9-zk-bcm"/>
                             <constraint firstItem="hJP-EB-UsW" firstAttribute="trailing" secondItem="Whg-ka-xsQ" secondAttribute="trailing" id="GvY-1l-OIP"/>
                             <constraint firstItem="u9D-Lc-8ti" firstAttribute="top" secondItem="E4e-86-2Ce" secondAttribute="bottom" constant="20" id="Jur-rh-QHK"/>
-                            <constraint firstItem="xOi-xV-kcW" firstAttribute="top" secondItem="Whg-ka-xsQ" secondAttribute="bottom" constant="2" id="Ka1-KX-96L"/>
-                            <constraint firstItem="Whg-ka-xsQ" firstAttribute="top" secondItem="hJP-EB-UsW" secondAttribute="top" id="NXP-xl-fvI"/>
-                            <constraint firstItem="xOi-xV-kcW" firstAttribute="leading" secondItem="hJP-EB-UsW" secondAttribute="leading" constant="1" id="TIr-el-e2f"/>
+                            <constraint firstItem="xOi-xV-kcW" firstAttribute="top" secondItem="Whg-ka-xsQ" secondAttribute="bottom" constant="-8" id="Ka1-KX-96L"/>
+                            <constraint firstItem="Whg-ka-xsQ" firstAttribute="top" secondItem="hJP-EB-UsW" secondAttribute="top" constant="-44" id="NXP-xl-fvI"/>
+                            <constraint firstItem="xOi-xV-kcW" firstAttribute="leading" secondItem="hJP-EB-UsW" secondAttribute="leading" id="TIr-el-e2f"/>
                             <constraint firstItem="hJP-EB-UsW" firstAttribute="trailing" secondItem="u9D-Lc-8ti" secondAttribute="trailing" id="bmB-B4-WPw"/>
                             <constraint firstItem="Whg-ka-xsQ" firstAttribute="leading" secondItem="hJP-EB-UsW" secondAttribute="leading" id="cSU-dt-TJa"/>
                             <constraint firstItem="E4e-86-2Ce" firstAttribute="centerX" secondItem="4Xo-2b-dyj" secondAttribute="centerX" id="dt1-3s-5YX"/>
-                            <constraint firstItem="hJP-EB-UsW" firstAttribute="trailing" secondItem="xOi-xV-kcW" secondAttribute="trailing" constant="1" id="eKf-TS-AbN"/>
+                            <constraint firstItem="hJP-EB-UsW" firstAttribute="trailing" secondItem="xOi-xV-kcW" secondAttribute="trailing" id="eKf-TS-AbN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hJP-EB-UsW"/>
                     </view>
@@ -451,7 +451,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObF-mL-cMn" customClass="CosmosView" customModule="Cosmos">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ObF-mL-cMn" customClass="CosmosView" customModule="Cosmos">
                                         <rect key="frame" x="96" y="49" width="220" height="73"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>

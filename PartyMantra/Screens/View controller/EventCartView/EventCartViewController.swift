@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class EventCartViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
    
     
     var type : String?
@@ -28,6 +28,16 @@ class EventCartViewController: UIViewController,UITableViewDelegate,UITableViewD
     
       
       override func viewWillAppear(_ animated: Bool) {
+        if(self.type=="events"){
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "Events Cart")
+        }
+        if(self.type=="party"){
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "Party Cart")
+        }
+        if(self.type=="restaurant"){
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "Restaurant Cart")
+        }
+        
            NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationForCart(notification:)), name: Notification.Name("CartNotificationIdentifier"), object: nil)
        }
        

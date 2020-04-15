@@ -20,7 +20,7 @@ enum FieldIdentifier: Int {
 }
 
 
-class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, PickerDelegate {
+class MyProfileUpdateViewController: BaseViewController,ImagePickerDelegate, PickerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnNext: UIButton!
@@ -33,10 +33,6 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = true
-
-        self.title = "My Profile"
-        
 
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44.0
@@ -46,6 +42,13 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.topItem?.title = " "
+        self.navigationItem.title = "My Profile"
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "My Profile")
     }
     
     func showAlert(alertTitle:String, messageBody: String){
@@ -78,7 +81,7 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
             return
         }
         
-        let isValidatePhone = Validation.validatePhone(phone: phone)
+        let isValidatePhone = Validation.validaPhoneNumber(phoneNumber: phone)
         if (isValidatePhone == false) {
             //print("Incorrect Phone")
             

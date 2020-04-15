@@ -13,7 +13,7 @@ import Alamofire
 protocol AddressChangeDelegate: class {
     func returnChangedAddress(address: String, latitude: String, longitude: String)
 }
-class AddressSearchViewController: UIViewController, CLLocationManagerDelegate{
+class AddressSearchViewController: BaseViewController, CLLocationManagerDelegate{
     
     @IBOutlet weak var textfieldAddress: UITextField!
     @IBOutlet weak var tableviewSearch: UITableView!
@@ -49,10 +49,11 @@ class AddressSearchViewController: UIViewController, CLLocationManagerDelegate{
     }
     override func viewWillAppear(_ animated: Bool) {
         
+    
+        
         if self.post_screen == "home" {
             self.navigationController?.isNavigationBarHidden = false
-            self.navigationController?.navigationItem.title = self.post_title
-
+            self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: self.post_title)
         }else{
             self.navigationController?.isNavigationBarHidden = true
         }

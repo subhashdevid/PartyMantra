@@ -8,14 +8,18 @@
 
 import UIKit
 import FSCalendar
-
+protocol getBookingDetailProtocol {
+    func getbookingDetail(str:String) -> Void
+    
+    
+}
 class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalendarDataSource, FSCalendarDelegate, TimeCollectionCellDelegate {
     
     @IBOutlet weak var tblView: UITableView!
     var restModal : RestaurantInfoModel?
     var partyModal : [EventlistModel] = []
     
-    
+    var bookingDelegate: getBookingDetailProtocol?
     
     var type: String?
     var screen: String?

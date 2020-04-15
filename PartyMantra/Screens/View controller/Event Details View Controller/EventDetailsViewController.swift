@@ -42,10 +42,12 @@ class EventDetailsViewController: BaseViewController,GetFinalHeightOfCell  {
     
     override func viewWillAppear(_ animated: Bool) {
 
-        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "Event Details")
+        //self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "Event Details")
         if self.type == "party" {
+            self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "Party Details")
             fetchPartyDetail()
         }else{
+            self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "Event Details")
             fetchEventDetail()
         }
 
@@ -561,6 +563,7 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
                 }else{
                   
                     let vc = EventCartViewController.instantiate(appStoryboard: .events) as EventCartViewController
+                    vc.type = self.type
                     vc.dataDict = result as Dictionary<String, AnyObject>
                     self.navigationController?.pushViewController(vc, animated: true)
                                      

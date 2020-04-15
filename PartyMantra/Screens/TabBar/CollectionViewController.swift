@@ -22,6 +22,25 @@ class CollectionViewController: BaseViewController {
         getCollectionList()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if(self.type=="restaurant"){
+
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: " Restaurant Collections")
+        }
+        
+        if(self.type=="party"){
+
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: " Party Collections ")
+        }
+        
+        if(self.type=="events"){
+
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: " Collections")
+        }
+        
+
+    }
+    
     func getCollectionList() {
         var param: [String: Any] = [
             

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EventListViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tblView: UITableView!
     
@@ -25,6 +25,15 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if(self.type == "restaurants"){
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "Restaurant")
+        }
+        if(self.type == "party"){
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "Party")
+        }
+        if(self.type == "events"){
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "Events")
+        }
         self.getCollectionClubDetailList()
     }
     
