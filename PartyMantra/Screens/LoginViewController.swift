@@ -50,7 +50,7 @@ class LoginViewController: BaseViewController {
 
         
         
-        let isValidPhone = self.validation.validaPhoneNumber(phoneNumber: self.mobileNumber)
+        let isValidPhone = Validation.validaPhoneNumber(phoneNumber: self.mobileNumber)
         if isValidPhone {
             self.loginUser(phone: self.mobileNumber )
         }

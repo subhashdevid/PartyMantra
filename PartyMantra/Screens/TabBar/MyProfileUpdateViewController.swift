@@ -78,7 +78,7 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
             return
         }
         
-        let isValidatePhone = self.validation.validaPhoneNumber(phoneNumber: phone)
+        let isValidatePhone = Validation.validatePhone(phone: phone)
         if (isValidatePhone == false) {
             //print("Incorrect Phone")
             
@@ -86,7 +86,7 @@ class MyProfileUpdateViewController: UIViewController,ImagePickerDelegate, Picke
             return
         }
         
-        let isValidateEmail = self.validation.isValidEmail(email)
+        let isValidateEmail = Validation.isValidEmail(email: email)
         if (isValidateEmail == false) {
             
             showAlert(alertTitle: "Alert", messageBody: "Please enter valid email id ")

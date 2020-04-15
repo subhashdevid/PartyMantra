@@ -50,8 +50,8 @@ class EventlistModel {
     var description: String?
     var venue_name: String?
     var venue_adderss: String?
-    var lat: Double?
-    var lang: Double?
+    var lat: String?
+    var lang: String?
     var header_image: String?
     var small_image: String?
     var tnc: String?
@@ -109,8 +109,8 @@ class EventlistModel {
         self.description = response["description"] as? String
         self.venue_name = response["venue_name"] as? String
         self.venue_adderss = response["venue_adderss"] as? String
-        self.lat = response["lat"] as? Double
-        self.lang = response["lang"] as? Double
+        self.lat = response["lat"] as? String
+        self.lang = response["lang"] as? String
 
         self.header_image = response["header_image"] as? String
         self.small_image = response["small_image"] as? String

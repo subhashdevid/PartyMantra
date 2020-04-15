@@ -12,7 +12,7 @@ import EzPopup
 
 
 
-class GalleryViewController: UIViewController {
+class GalleryViewController: BaseViewController {
 
     var dataArr: [[String : Any]] = [[:]]
     
@@ -23,7 +23,9 @@ class GalleryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "Gallery")
         self.gallerylistEndpointCall()
+
         
     }
 

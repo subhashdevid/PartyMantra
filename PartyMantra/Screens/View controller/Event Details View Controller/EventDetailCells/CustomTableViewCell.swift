@@ -54,6 +54,7 @@ class GalleryViewCell: UITableViewCell {
        
     @IBOutlet weak var rateView: CosmosView!
     @IBOutlet weak var reviewbtn: UIButton!
+    @IBOutlet weak var gallerybtn: UIButton!
 
     
 
@@ -116,6 +117,8 @@ class AddressViewCell: UITableViewCell {
     @IBOutlet weak var addressSubTitleLbl: UILabel!
     @IBOutlet weak var distancelbl: UILabel!
     @IBOutlet weak var clickToCallBtn: UIButton!
+    @IBOutlet weak var clickDirection: UIButton!
+
 
     override func awakeFromNib() {
            super.awakeFromNib()

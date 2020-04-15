@@ -47,7 +47,103 @@ class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalenda
             
     }
     @objc func continueToCart() {
-        validateEventPackages()
+        
+        self.view.endEditing(true)
+        
+        
+        let restaurant = self.restModal
+        let party = self.partyModal
+        
+        
+        
+        
+        if screen == "party" {
+            let isValidPhone = Validation.validatePhone(phone:  party[0].field_number ?? "")
+            let isValidEmail = Validation.isValidEmail(email: party[0].field_email ?? "")
+            
+            var count = 0
+            
+            if (party[0].field_name ?? "").count == 0 {
+                count = count + 1
+                showAlert("Please enter Name")
+                return
+                
+            }
+            if !isValidPhone{
+                count = count + 1
+                showAlert("Please enter valid Phone Number")
+                
+                return
+                
+            }
+            if !isValidEmail {
+                count = count + 1
+                showAlert("Please enter valid Email")
+                return
+                
+            }
+            if (party[0].cal_date ?? "").count == 0 {
+                count = count + 1
+                showAlert("Please select booking date")
+                return
+            }
+            if (party[0].time_selected ?? "").count == 0 {
+                count = count + 1
+                showAlert("Please select time of Booking")
+                return
+            }
+            
+            
+            
+            if count == 0 {
+                validateEventPackages()
+            }
+            
+        }
+        else{
+            let isValidPhone = Validation.validatePhone(phone:  restaurant?.field_number ?? "")
+            let isValidEmail = Validation.isValidEmail(email: restaurant?.field_email ?? "")
+            
+            var count = 0
+            
+            if (restaurant?.field_name ?? "").count == 0 {
+                count = count + 1
+                showAlert("Please enter Name")
+                return
+                
+            }
+            if !isValidPhone{
+                count = count + 1
+                showAlert("Please enter valid Phone Number")
+                
+                return
+                
+            }
+            if !isValidEmail {
+                count = count + 1
+                showAlert("Please enter valid Email")
+                return
+                
+            }
+            if (restaurant?.cal_date ?? "").count == 0 {
+                count = count + 1
+                showAlert("Please select booking date")
+                return
+            }
+            if (restaurant?.time_selected ?? "").count == 0 {
+                count = count + 1
+                showAlert("Please select time of Booking")
+                return
+            }
+            
+            
+            if count == 0 {
+                validateEventPackages()
+            }
+            
+        }
+        
+        
     }
     @objc func didTapCrossbtn() {
         self.dismiss(animated: true, completion: nil)
@@ -221,6 +317,50 @@ class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalenda
         
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+      if textField.tag == 102 {
+
+            let newString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+            let components = newString.components(separatedBy: NSCharacterSet.decimalDigits.inverted)
+            let decimalString = components.joined(separator: "") as NSString
+            let length = decimalString.length
+            
+            if length == 0 {
+                return false
+            }
+            
+            let hasLeadingOne = length > 0 && decimalString.hasPrefix("1")
+            if length == 0 || (length > 10 && !hasLeadingOne) || length > 11 {
+                let newLength = (textField.text! as NSString).length + (string as NSString).length - range.length as Int
+
+                return (newLength > 10) ? false : true
+            }
+            var index = 0 as Int
+            let formattedString = NSMutableString()
+
+            if hasLeadingOne {
+                formattedString.append("1 ")
+                index += 1
+            }
+            if (length - index) > 3 {
+                let areaCode = decimalString.substring(with: NSMakeRange(index, 3))
+                formattedString.appendFormat("%@ ", areaCode)
+                index += 3
+            }
+            if length - index > 3 {
+                let prefix = decimalString.substring(with: NSMakeRange(index, 3))
+                formattedString.appendFormat("%@-", prefix)
+                index += 3
+            }
+            let remainder = decimalString.substring(from: index)
+            formattedString.append(remainder)
+            textField.text = formattedString as String
+            return false
+        }
+        else {
+            return true
+        }
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if screen == "party" {
@@ -290,12 +430,17 @@ class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalenda
         let party = self.partyModal
         
         
+        
         var params: [String: Any] = [:]
         
         if screen == "party" {
+            var number = party[0].field_number
+            number  = number?.replacingOccurrences(of: " ", with: "")
+            number  = number?.replacingOccurrences(of: "-", with: "")
+            
             params["name"] = party[0].field_name ?? ""
             params["email"] = party[0].field_email ?? ""
-            params["mobile"] = party[0].field_number ?? ""
+            params["mobile"] = number
             params["date"] = party[0].cal_date ?? ""
             params["time"] = party[0].time_selected ?? ""
             params["men"] = "\(party[0].menCounter ?? 0)"
@@ -303,9 +448,12 @@ class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalenda
             params["couple"] = "\(party[0].coupleCounter ?? 0)"
         }
         else{
+            var number = restaurant?.field_number
+                      number  = number?.replacingOccurrences(of: " ", with: "")
+                      number  = number?.replacingOccurrences(of: "-", with: "")
             params["name"] = restaurant?.field_name ?? ""
             params["email"] = restaurant?.field_email ?? ""
-            params["mobile"] = restaurant?.field_number ?? ""
+            params["mobile"] = number
             params["date"] = restaurant?.cal_date ?? ""
             params["time"] = restaurant?.time_selected ?? ""
             params["men"] = "\(restaurant?.menCounter ?? 0)"
@@ -392,6 +540,8 @@ class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalenda
         })
     }
 }
+
+
 
 //MARK:- table view delegate
 extension BookingViewController: UITableViewDataSource, UITableViewDelegate {

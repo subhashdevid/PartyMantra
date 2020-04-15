@@ -8,7 +8,7 @@
 
 import UIKit
 import EzPopup
-class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
+class EventDetailsViewController: BaseViewController,GetFinalHeightOfCell  {
     
     enum FieldIdentifier: Int {
         case name = 0
@@ -29,6 +29,8 @@ class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
     var emailString : String?
     var nameString : String?
     var mobileString : String?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     
     var validation = Validation()
     
@@ -39,8 +41,8 @@ class EventDetailsViewController: UIViewController,GetFinalHeightOfCell  {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = true
 
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "Event Details")
         if self.type == "party" {
             fetchPartyDetail()
         }else{
@@ -194,13 +196,27 @@ extension EventDetailsViewController : UITextFieldDelegate {
         
         
     }
+    @objc func didtapCall(sender : UIButton?) {
+
+        let model = self.eventData[0] as EventlistModel
+        self.callNumber(phoneNo: model.contact_no ?? "")
+    }
     
+    @objc func didtapDirection(sender : UIButton?) {
+        let model = self.eventData[0] as EventlistModel
+        self.openMapForRedirection(lat: model.lat ?? "0.0", long:  model.lat ?? "0.0")
+          
+       }
+       
+       func callNumber(phoneNo : String){
+           appDelegate.callNumber(phoneNumber: phoneNo)
+       }
+      
     
     @objc func didtapReviewOrder(sender : UIButton?) {
         
         if self.eventData.count > 0 {
             let model = self.eventData[0] as EventlistModel
-            print(model.id)
             let vc = ReviewsViewController.instantiate(appStoryboard: .miscellaneous) as ReviewsViewController
             
             vc.eventId = "\(model.id ?? 0)"
@@ -210,6 +226,15 @@ extension EventDetailsViewController : UITextFieldDelegate {
         }
     }
     
+    @objc func didtapOnGalleryBtn(sender : UIButton?) {
+        if self.eventData.count > 0 {
+            let model = self.eventData[0] as EventlistModel
+            let vc = GalleryViewController.instantiate(appStoryboard: .miscellaneous) as GalleryViewController
+            vc.eventId = "\(model.id ?? 0)"
+            vc.type = self.type
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSource {
@@ -238,6 +263,11 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
             }
             
             cell.reviewbtn.addTarget(self, action: #selector(didtapReviewOrder(sender:)), for: .touchUpInside)
+            cell.gallerybtn.addTarget(self, action: #selector(didtapOnGalleryBtn(sender:)), for: .touchUpInside)
+
+            
+            
+            
             return cell
         }
         else  if indexPath.section == 1 {
@@ -247,6 +277,10 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
                 let cellModal = self.eventData[0] as EventlistModel
                 print(cellModal)
                 cell.configureAddressCell(modal: cellModal)
+                cell.clickToCallBtn.addTarget(self, action: #selector(didtapCall(sender:)), for: .touchUpInside)
+                
+                cell.clickDirection.addTarget(self, action: #selector(didtapDirection(sender:)), for: .touchUpInside)
+
             }
             return cell
         }
@@ -541,35 +575,53 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
         
         self.view.endEditing(true)
         
-        let isValidPhone = self.validation.validatePhone(phone: mobileString ?? "")
-        if(isValidPhone){
         if self.type == "party" {
             let vc = BookingViewController.instantiate(appStoryboard: .dinning) as BookingViewController
             vc.type = "party"
             vc.screen = "party"
             vc.partyModal = self.eventData
             self.navigationController?.pushViewController(vc, animated: true)
-
-         /*
-            let popupVC = PopupViewController(contentController: vc, popupWidth: (UIScreen.main.bounds.size.width)-20, popupHeight: (UIScreen.main.bounds.size.height) - 80)
-            popupVC.cornerRadius = 20
-            present(popupVC, animated: true)
-            
-            */
         }
-        else {
-            // API call
-            self.validateEventPackages()
-        }
-    }
-    
         else{
-           self.showAlert("Please enter 10 digit mobile number")
+            
+            
+            let isValidPhone = Validation.validatePhone(phone: mobileString ?? "")
+            let isValidEmail = Validation.isValidEmail(email: emailString ?? "")
+            
+            
+            var count = 0
+            
+            
+            if (nameString ?? "").count == 0 {
+                count = count + 1
+                showAlert("Please enter Name")
+                return
+            }
+            if !isValidEmail {
+                count = count + 1
+                showAlert("Please enter Valid Email")
+                return
+            }
+            if !isValidPhone {
+                count = count + 1
+                showAlert("Please enter Valid Phone Number")
+                
+                return
+            }
+            
+            
+            
+            // All checked
+            if count == 0 {
+                // Event details API call
+                self.validateEventPackages()
+            }
             
         }
-    
-    
+        
     }
+    
+    
     
 }
 

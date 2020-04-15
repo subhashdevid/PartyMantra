@@ -241,15 +241,35 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykp-k0-Q5R">
+                                                            <rect key="frame" x="284" y="105" width="150" height="40"/>
+                                                            <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="1Cp-5Z-VMX"/>
+                                                                <constraint firstAttribute="width" constant="150" id="xXp-Ra-YQ3"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Arial-ItalicMT" family="Arial" pointSize="18"/>
+                                                            <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <state key="normal" title="Gallery">
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                                    <integer key="value" value="20"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="YRY-8C-ErB" firstAttribute="leading" secondItem="UjN-9j-jNm" secondAttribute="leading" constant="15" id="57F-H0-iKJ"/>
                                                         <constraint firstAttribute="bottom" secondItem="8Dl-RQ-r5f" secondAttribute="bottom" constant="201" id="A9M-tS-MV2"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ykp-k0-Q5R" secondAttribute="trailing" constant="-20" id="ZkE-Ju-wtc"/>
                                                         <constraint firstAttribute="trailing" secondItem="YRY-8C-ErB" secondAttribute="trailing" constant="15" id="eFf-Aw-uuX"/>
                                                         <constraint firstAttribute="bottom" secondItem="YRY-8C-ErB" secondAttribute="bottom" constant="2" id="fDv-jL-O0j"/>
                                                         <constraint firstAttribute="trailing" secondItem="8Dl-RQ-r5f" secondAttribute="trailing" id="mOF-hL-EiZ"/>
                                                         <constraint firstItem="8Dl-RQ-r5f" firstAttribute="leading" secondItem="UjN-9j-jNm" secondAttribute="leading" id="mZU-a8-Riv"/>
+                                                        <constraint firstItem="ykp-k0-Q5R" firstAttribute="centerY" secondItem="8Dl-RQ-r5f" secondAttribute="centerY" id="mkf-pI-fbi"/>
                                                         <constraint firstItem="8Dl-RQ-r5f" firstAttribute="top" secondItem="UjN-9j-jNm" secondAttribute="top" id="quX-SL-iED"/>
                                                     </constraints>
                                                 </view>
@@ -269,6 +289,7 @@
                                             <outlet property="bannarTitle" destination="9o6-hh-7S0" id="XTd-Dd-pND"/>
                                             <outlet property="bannerimgView" destination="8Dl-RQ-r5f" id="3WS-wK-GEb"/>
                                             <outlet property="endDateLbl" destination="PlO-kQ-bOo" id="NRm-PF-wUy"/>
+                                            <outlet property="gallerybtn" destination="ykp-k0-Q5R" id="aze-fw-g2n"/>
                                             <outlet property="locSubTitle" destination="5MZ-Pe-zze" id="kFS-Lt-NNV"/>
                                             <outlet property="locTitle" destination="vas-S0-UJS" id="vBJ-3H-ahA"/>
                                             <outlet property="lowerView" destination="YRY-8C-ErB" id="6bH-WA-Zky"/>
@@ -339,6 +360,13 @@
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ra8-o3-hiQ">
+                                                                    <rect key="frame" x="35" y="11" width="80" height="80"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="80" id="XQh-SP-Czc"/>
+                                                                        <constraint firstAttribute="width" constant="80" id="z8K-Im-zbv"/>
+                                                                    </constraints>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                             <constraints>
@@ -346,9 +374,11 @@
                                                                 <constraint firstAttribute="width" constant="150" id="Jl1-te-JDp"/>
                                                                 <constraint firstAttribute="bottom" secondItem="dUy-EW-ZMx" secondAttribute="bottom" constant="5" id="MDl-cg-ekb"/>
                                                                 <constraint firstItem="dUy-EW-ZMx" firstAttribute="top" secondItem="pAB-qc-Wml" secondAttribute="bottom" constant="10" id="crP-Xh-X4t"/>
+                                                                <constraint firstItem="Ra8-o3-hiQ" firstAttribute="centerX" secondItem="5Hq-Rt-tUl" secondAttribute="centerX" id="emL-UY-3fe"/>
                                                                 <constraint firstItem="pAB-qc-Wml" firstAttribute="top" secondItem="5Hq-Rt-tUl" secondAttribute="top" constant="17" id="gRe-c9-BEP"/>
                                                                 <constraint firstItem="dUy-EW-ZMx" firstAttribute="leading" secondItem="5Hq-Rt-tUl" secondAttribute="leading" constant="5" id="hF4-XB-Pgs"/>
                                                                 <constraint firstAttribute="trailing" secondItem="dUy-EW-ZMx" secondAttribute="trailing" constant="5" id="hjI-aa-Wgm"/>
+                                                                <constraint firstItem="Ra8-o3-hiQ" firstAttribute="centerY" secondItem="5Hq-Rt-tUl" secondAttribute="centerY" id="uU4-xJ-E77"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
@@ -422,6 +452,7 @@
                                         <connections>
                                             <outlet property="addressSubTitleLbl" destination="hLS-5k-tMT" id="ThR-RK-ELu"/>
                                             <outlet property="addressTitleLbl" destination="Gx8-My-a5z" id="hAx-3g-tZ6"/>
+                                            <outlet property="clickDirection" destination="Ra8-o3-hiQ" id="Gs0-RU-K1B"/>
                                             <outlet property="clickToCallBtn" destination="Zgm-qO-o8z" id="i1h-yg-3ad"/>
                                             <outlet property="distancelbl" destination="dUy-EW-ZMx" id="83A-bY-igp"/>
                                         </connections>
