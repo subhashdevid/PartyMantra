@@ -23,6 +23,21 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var rateView: CosmosView!
 
     
+    
+    @IBOutlet weak var amountField: UITextField!
+
+    @IBOutlet weak var discount1: UILabel!
+    @IBOutlet weak var discount2: UILabel!
+    @IBOutlet weak var totalAmount: UILabel!
+    @IBOutlet weak var discountAmount: UILabel!
+    @IBOutlet weak var radio1Btn: UIButton!
+    @IBOutlet weak var radio2Btn: UIButton!
+    @IBOutlet weak var payNowBtn: UIButton!
+
+    @IBOutlet weak var radio1ImgView: UIImageView!
+    @IBOutlet weak var radio2ImgView: UIImageView!
+
+    
     override func awakeFromNib() {
         
         

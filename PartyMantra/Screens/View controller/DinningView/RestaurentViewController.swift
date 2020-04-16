@@ -88,6 +88,11 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
     }
     @objc func didtapPayNowBtn(sender : UIButton?) {
         
+         let vc = PayTPMViewController.instantiate(appStoryboard: .dinning) as PayTPMViewController
+        vc.rest_title = self.restModal?.name
+        vc.entityId = "\(restModal?.id ?? 0)"
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     @objc func didtapGalleryBtn(sender : UIButton?) {

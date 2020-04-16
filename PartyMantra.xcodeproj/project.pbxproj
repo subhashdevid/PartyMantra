@@ -91,6 +91,7 @@
 		BF217D5724376814000C7FAE /* OrderReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217D5624376814000C7FAE /* OrderReviewViewController.swift */; };
 		BF217D592437828A000C7FAE /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217D582437828A000C7FAE /* ReviewsViewController.swift */; };
 		BF217D5B243782CF000C7FAE /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF217D5A243782CF000C7FAE /* ReviewTableViewCell.swift */; };
+		BF2216A024489E140016A536 /* PayTPMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22169F24489E140016A536 /* PayTPMViewController.swift */; };
 		BF22AD392431DC7E005E4871 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD382431DC7E005E4871 /* Multipart.swift */; };
 		BF22AD3D2432107B005E4871 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD3C2432107B005E4871 /* PaymentViewController.swift */; };
 		BF22AD4224331546005E4871 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22AD4124331546005E4871 /* EventListViewController.swift */; };
@@ -260,6 +261,7 @@
 		BF217D5624376814000C7FAE /* OrderReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderReviewViewController.swift; sourceTree = "<group>"; };
 		BF217D582437828A000C7FAE /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
 		BF217D5A243782CF000C7FAE /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		BF22169F24489E140016A536 /* PayTPMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayTPMViewController.swift; sourceTree = "<group>"; };
 		BF22AD382431DC7E005E4871 /* Multipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipart.swift; sourceTree = "<group>"; };
 		BF22AD3C2432107B005E4871 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		BF22AD4124331546005E4871 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				3B8FAB7A243B059900E359F7 /* DinningRestModal.swift */,
 				BF755FD5243B84FA00950693 /* AboutViewController.swift */,
 				3B91DFEC2447583D0017682A /* RestPackageViewController.swift */,
+				BF22169F24489E140016A536 /* PayTPMViewController.swift */,
 			);
 			path = DinningView;
 			sourceTree = "<group>";
@@ -1095,6 +1098,7 @@
 				3BE8C0B824344B3800417384 /* detailPackageTableViewCell.swift in Sources */,
 				BF755FD8243B8CE600950693 /* AboutTableViewCell.swift in Sources */,
 				BF217D5B243782CF000C7FAE /* ReviewTableViewCell.swift in Sources */,
+				BF2216A024489E140016A536 /* PayTPMViewController.swift in Sources */,
 				BF755FD6243B84FA00950693 /* AboutViewController.swift in Sources */,
 				3B14A67D2438E15200E2CF1A /* PromoRestaurentTableViewCell.swift in Sources */,
 				BF8773772423BDFD00CF8C5D /* Constants.swift in Sources */,
