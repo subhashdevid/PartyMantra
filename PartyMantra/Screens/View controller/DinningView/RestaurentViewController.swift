@@ -10,15 +10,17 @@ import UIKit
 import EzPopup
 
 
-class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
+class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource,BookingDetailProtocol {
+ 
+    
     
     @IBOutlet weak var restaurentTblView: UITableView!
     @IBOutlet weak var payNowBtn: UIButton!
     @IBOutlet weak var bookNowBtn: UIButton!
-
+    
     var restModal : RestaurantInfoModel?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    
     
     var eventID : Int = 0
     var type: String?
@@ -27,7 +29,7 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
         restaurentTblView.tableFooterView = UIView()
         self.bookNowBtn.addTarget(self, action: #selector(didtapBookNowBtn(sender:)), for: .touchUpInside)
         self.payNowBtn.addTarget(self, action: #selector(didtapPayNowBtn(sender:)), for: .touchUpInside)
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,41 +62,48 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
         }
     }
     
+    //MARK:- Booking Details Protocol
+    func getbookingDetail(screentype: String, dict: Dictionary<String, AnyObject>) {
+        let vc = EventCartViewController.instantiate(appStoryboard: .events) as EventCartViewController
+        vc.type = screentype
+        vc.dataDict = dict
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
     
     
     @objc func didtapBookNowBtn(sender : UIButton?) {
         
         
-               let vc = BookingViewController.instantiate(appStoryboard: .dinning) as BookingViewController
-               vc.type = "restaurant"
+        let vc = BookingViewController.instantiate(appStoryboard: .dinning) as BookingViewController
+        vc.type = "restaurant"
         vc.restModal = self.restModal
-        self.navigationController?.pushViewController(vc, animated: true)
-      
-        /*let popupVC = PopupViewController(contentController: vc, popupWidth: (UIScreen.main.bounds.size.width)-20, popupHeight: (UIScreen.main.bounds.size.height) - 80)
+        vc.bookingDelegate = self
+        
+        let popupVC = PopupViewController(contentController: vc, popupWidth: (UIScreen.main.bounds.size.width)-20, popupHeight: (UIScreen.main.bounds.size.height) - 80)
         popupVC.cornerRadius = 20
         present(popupVC, animated: true)
-        */
         
         
-       }
-     @objc func didtapPayNowBtn(sender : UIButton?) {
-   
-           }
+    }
+    @objc func didtapPayNowBtn(sender : UIButton?) {
+        
+    }
     
     @objc func didtapGalleryBtn(sender : UIButton?) {
-            let vc = GalleryViewController.instantiate(appStoryboard: .miscellaneous) as GalleryViewController
-            vc.eventId = "\(restModal?.id ?? 0)"
-            vc.type = "restaurant"
-            self.navigationController?.pushViewController(vc, animated: true)
+        let vc = GalleryViewController.instantiate(appStoryboard: .miscellaneous) as GalleryViewController
+        vc.eventId = "\(restModal?.id ?? 0)"
+        vc.type = "restaurant"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
     @objc func didtapReviewOrder(sender : UIButton?) {
-            let vc = ReviewsViewController.instantiate(appStoryboard: .miscellaneous) as ReviewsViewController
-            
-            vc.eventId = "\(restModal?.id ?? 0)"
-            vc.type = "restaurant"
-            self.navigationController?.pushViewController(vc, animated: true)
+        let vc = ReviewsViewController.instantiate(appStoryboard: .miscellaneous) as ReviewsViewController
+        
+        vc.eventId = "\(restModal?.id ?? 0)"
+        vc.type = "restaurant"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -114,34 +123,34 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
     }
     
     @objc  func didTapComboClicked(){
-
         
-    let vc = RestPackageViewController.instantiate(appStoryboard: .dinning) as RestPackageViewController
-       vc.restModal = restModal
+        
+        let vc = RestPackageViewController.instantiate(appStoryboard: .dinning) as RestPackageViewController
+        vc.restModal = restModal
         var height : CGFloat = 0
         if ((self.restModal?.packages ?? []).count)>2{
-             height = CGFloat(3*130+240)
+            height = CGFloat(3*130+240)
             
         }else{
-             height = CGFloat(((self.restModal?.packages ?? []).count)*130+240)
+            height = CGFloat(((self.restModal?.packages ?? []).count)*130+240)
         }
         let popupVC = PopupViewController(contentController: vc, popupWidth: (UIScreen.main.bounds.size.width)-20,
                                           popupHeight: (height))
         popupVC.cornerRadius = 10
         present(popupVC, animated: true)
         
-
-
+        
+        
     }
     
     @objc  func didTapAboutOption( sender : UIButton){
-
-               let vc = AboutViewController.instantiate(appStoryboard: .miscellaneous) as AboutViewController
-//               vc.cancel_dict = self.cancel_dict
-//               vc.refid = order.refid
-               let popupVC = PopupViewController(contentController: vc, popupWidth: 380, popupHeight: 380)
-               popupVC.cornerRadius = 20
-               present(popupVC, animated: true)
+        
+        let vc = AboutViewController.instantiate(appStoryboard: .miscellaneous) as AboutViewController
+        //               vc.cancel_dict = self.cancel_dict
+        //               vc.refid = order.refid
+        let popupVC = PopupViewController(contentController: vc, popupWidth: 380, popupHeight: 380)
+        popupVC.cornerRadius = 20
+        present(popupVC, animated: true)
     }
     
     
@@ -181,7 +190,7 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
             cell.ratingView.isUserInteractionEnabled = false
             cell.ratingView.settings.fillMode = .half
             cell.ratingView.rating = 0.0
-           
+            
             if self.restModal?.avgreviews.count ?? 0 > 0 {
                 let rate = self.restModal?.avgreviews[0]
                 cell.ratingView.rating = Double(rate?.rating ?? "0") ?? 0.0
@@ -203,10 +212,10 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
             
             cell.callBtn.addTarget(self, action: #selector(makeCall), for: .touchUpInside)
             cell.directionBtn.addTarget(self, action: #selector(redirectToMap), for: .touchUpInside)
-
+            
             cell.comboBtn.addTarget(self, action: #selector(didTapComboClicked), for: .touchUpInside)
             cell.aboutBtn.addTarget(self, action: #selector(didTapAboutOption(sender:)), for: .touchUpInside)
-
+            
             
             
             
@@ -262,7 +271,7 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
             }
             return CGFloat((70 * (restModal?.menus.count ?? 0)) + 40)
         }
-        
+            
         else{
             return UITableView.automaticDimension
         }

@@ -28,6 +28,7 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "More Details")
         self.fetchOrderDetails()
     }
     

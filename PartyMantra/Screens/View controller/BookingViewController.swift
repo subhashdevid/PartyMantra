@@ -8,18 +8,19 @@
 
 import UIKit
 import FSCalendar
-protocol getBookingDetailProtocol {
-    func getbookingDetail(str:String) -> Void
-    
-    
+
+protocol BookingDetailProtocol {
+    func getbookingDetail(screentype:String, dict: Dictionary<String, AnyObject>) -> Void
 }
+
+
 class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalendarDataSource, FSCalendarDelegate, TimeCollectionCellDelegate {
     
     @IBOutlet weak var tblView: UITableView!
     var restModal : RestaurantInfoModel?
     var partyModal : [EventlistModel] = []
     
-    var bookingDelegate: getBookingDetailProtocol?
+    var bookingDelegate: BookingDetailProtocol?
     
     var type: String?
     var screen: String?
@@ -27,7 +28,6 @@ class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalenda
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tblView.rowHeight = UITableView.automaticDimension
         self.tblView.estimatedRowHeight = 44.0
         self.tblView.tableFooterView = UIView()
@@ -534,11 +534,14 @@ class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalenda
                     self.showAlert(result["message"]as? String ?? "" )
                 }else{
                     
-                    let vc = EventCartViewController.instantiate(appStoryboard: .events) as EventCartViewController
-                    vc.type = self.type
-                    vc.dataDict = result as Dictionary<String, AnyObject>
-                    self.navigationController?.pushViewController(vc, animated: true)
+//                    let vc = EventCartViewController.instantiate(appStoryboard: .events) as EventCartViewController
+//                    vc.type = self.type
+//                    vc.dataDict = result as Dictionary<String, AnyObject>
+//                    self.navigationController?.pushViewController(vc, animated: true)
                     
+                    let result = result as Dictionary<String, AnyObject>
+                    self.bookingDelegate?.getbookingDetail(screentype: self.type ?? "", dict: result)
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         })
@@ -559,8 +562,8 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 {
             let cell = self.tblView.dequeueReusableCell(withIdentifier: "topViewCell") as? BookingTableViewCell
             
-//            cell?.crossBtn.addTarget(self, action: #selector(didTapCrossbtn), for: .touchUpInside)
-            cell?.crossBtn.isHidden = true
+            cell?.crossBtn.addTarget(self, action: #selector(didTapCrossbtn), for: .touchUpInside)
+            cell?.crossBtn.isHidden = false
             if screen == "party" {
                 cell?.titleLb.text = self.partyModal[0].name
                 let url = URL(string: self.partyModal[0].header_image ?? "")

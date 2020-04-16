@@ -23,6 +23,8 @@ class BaseViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = tabBarHidden
         self.navigationController?.navigationBar.topItem?.title = " "
         self.navigationItem.title = navigationTitle
+        self.view.backgroundColor = .white
+        self.navigationController?.navigationBar.tintColor = .black
     }
     
     

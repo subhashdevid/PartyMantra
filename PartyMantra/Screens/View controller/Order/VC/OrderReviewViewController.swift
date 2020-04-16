@@ -11,7 +11,7 @@ import Cosmos
 import UITextView_Placeholder
 
 
-class OrderReviewViewController: UIViewController, UITextViewDelegate {
+class OrderReviewViewController: BaseViewController, UITextViewDelegate {
     
     @IBOutlet weak var reviewTxtView: UITextView!
     @IBOutlet weak var rateView: CosmosView!
@@ -37,6 +37,10 @@ class OrderReviewViewController: UIViewController, UITextViewDelegate {
         }
         
         self.submitBtn.addTarget(self, action: #selector(didTapSubmitButton), for: .touchUpInside)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setUpTabBarAndNavigationTitle(tabBarHidden: true, navigationTitle: "Reviews")
     }
     
     
