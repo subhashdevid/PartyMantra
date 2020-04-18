@@ -49,6 +49,7 @@
 		3B14A68F2438F5EA00E2CF1A /* RestMenuListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B14A68D2438F5EA00E2CF1A /* RestMenuListTableViewCell.xib */; };
 		3B14A6922438F6D200E2CF1A /* MenuDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B14A6902438F6D200E2CF1A /* MenuDetailTableViewCell.swift */; };
 		3B14A6932438F6D200E2CF1A /* MenuDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B14A6912438F6D200E2CF1A /* MenuDetailTableViewCell.xib */; };
+		3B28C222244AFEE200C71396 /* AboutFacilitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B28C220244AFEE200C71396 /* AboutFacilitiesTableViewCell.swift */; };
 		3B4F29C92430A60500832ADA /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4F29C82430A60500832ADA /* DatePicker.storyboard */; };
 		3B4F29CB2430A65E00832ADA /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F29CA2430A65D00832ADA /* CustomPickerViewController.swift */; };
 		3B4F29CD2430A66400832ADA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F29CC2430A66400832ADA /* DatePicker.swift */; };
@@ -218,6 +219,7 @@
 		3B14A68D2438F5EA00E2CF1A /* RestMenuListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestMenuListTableViewCell.xib; sourceTree = "<group>"; };
 		3B14A6902438F6D200E2CF1A /* MenuDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailTableViewCell.swift; sourceTree = "<group>"; };
 		3B14A6912438F6D200E2CF1A /* MenuDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuDetailTableViewCell.xib; sourceTree = "<group>"; };
+		3B28C220244AFEE200C71396 /* AboutFacilitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutFacilitiesTableViewCell.swift; sourceTree = "<group>"; };
 		3B4F29C82430A60500832ADA /* DatePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		3B4F29CA2430A65D00832ADA /* CustomPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
 		3B4F29CC2430A66400832ADA /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				3B14A6912438F6D200E2CF1A /* MenuDetailTableViewCell.xib */,
 				3B91DFEE24475F600017682A /* RestPackagesTableViewCell.swift */,
 				3B91DFEF24475F600017682A /* RestPackagesTableViewCell.xib */,
+				3B28C220244AFEE200C71396 /* AboutFacilitiesTableViewCell.swift */,
 			);
 			path = ResraurentCell;
 			sourceTree = "<group>";
@@ -1055,6 +1058,7 @@
 				3B716734243D80F100BF9E5C /* GalleryCollectionViewCell.swift in Sources */,
 				3B4F29D12430F6C700832ADA /* EnterContactDetailsTableViewCell.swift in Sources */,
 				BF87739B2423C0F500CF8C5D /* HomePageViewController.swift in Sources */,
+				3B28C222244AFEE200C71396 /* AboutFacilitiesTableViewCell.swift in Sources */,
 				BF87739D2423C0F500CF8C5D /* TabbarViewController.swift in Sources */,
 				BF20CABC2434F2B400E76FAF /* CancelOrderViewController.swift in Sources */,
 				3B14A6712438B28A00E2CF1A /* GallaryActionTableViewCell.swift in Sources */,

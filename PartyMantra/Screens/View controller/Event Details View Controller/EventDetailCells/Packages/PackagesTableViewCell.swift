@@ -153,7 +153,6 @@ class PackagesTableViewCell: UITableViewCell,UITableViewDelegate,UITableViewData
         return
     }
         let count = Int((cellModal.activemenus.count)/2)
-        
         self.newHeight = (self.heightOfCell+(count*35)+100)
         
         heightDelegate?.getHeightFromArr(height: self.newHeight+68,restCellHeight:self.heightOfCell+100, isViewMoreBtnClicked: self.isViewMoreClicked, indexInt: sender.tag)

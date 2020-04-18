@@ -21,9 +21,25 @@ class RestPackageViewController: UIViewController,UITableViewDelegate,UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        closeBtn.addTarget(self, action: #selector(dismissPopUpView), for: .touchUpInside)
+        okeyBtn.addTarget(self, action: #selector(submitPopUpView), for: .touchUpInside)
         // Do any additional setup after loading the view.
     }
     
+    @objc func dismissPopUpView(){
+        
+        for item in (self.restModal?.packages ?? []) {
+          let itemModal = item as EventPackagesDetailModal
+            itemModal.packageCount = 0
+         }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    @objc func submitPopUpView(){
+        
+        self.restModal?.packages
+        self.dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
@@ -65,7 +81,6 @@ class RestPackageViewController: UIViewController,UITableViewDelegate,UITableVie
         if (self.restModal?.packages ?? []).count > 0 {
             let cellModal = (self.restModal?.packages ?? [])
                    print(cellModal)
-
                    cell.configureRestPackageCell(modal:self.restModal)
                }
               return cell

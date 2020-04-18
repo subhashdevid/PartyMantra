@@ -151,8 +151,7 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
     @objc  func didTapAboutOption( sender : UIButton){
         
         let vc = AboutViewController.instantiate(appStoryboard: .miscellaneous) as AboutViewController
-        //               vc.cancel_dict = self.cancel_dict
-        //               vc.refid = order.refid
+        vc.restModal = restModal
         let popupVC = PopupViewController(contentController: vc, popupWidth: 380, popupHeight: 380)
         popupVC.cornerRadius = 20
         present(popupVC, animated: true)
