@@ -26,19 +26,18 @@ class AllTaxesTableViewCell: UITableViewCell {
     
     
     func configureTaxCell(modal:OrderCheckoutModel?) -> Void {
-        packageTotalTitle.text = "Platform + Tax"
-        totalAmountLbl.text = "\(modal?.amount ?? 0)"
-        taxedAmountLbl.text = "\(modal?.taxes ?? 0)"
-        
+        packageTotalTitle.text = "Platform + Taxes"
+        totalAmountLbl.text = "\u{20B9}\(modal?.amount ?? 0)"
+        taxedAmountLbl.text = "\u{20B9}\(modal?.taxes ?? 0)"
     }
     
     func configureEventTaxCell(dataDict:Dictionary<String,AnyObject>) -> Void {
          let dict = dataDict["data"] as? Dictionary<String,AnyObject> ?? [:]
                
         
-        packageTotalTitle.text = "Platform + Tax"
-           totalAmountLbl.text = "\(dict["subtotal"]as? Int ?? 0)"
-           taxedAmountLbl.text = "\(dict["taxes"]as? Int ?? 0)"
+        packageTotalTitle.text = "Platform + Taxes"
+           totalAmountLbl.text = "\u{20B9}\(dict["subtotal"]as? Int ?? 0)"
+           taxedAmountLbl.text = "\u{20B9}\(dict["taxes"]as? Int ?? 0)"
            
        }
     

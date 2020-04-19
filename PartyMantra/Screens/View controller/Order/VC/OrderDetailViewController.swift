@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import WebKit
 
-class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
+
+class OrderDetailViewController: BaseViewController,UITableViewDelegate,
+UITableViewDataSource, WKNavigationDelegate {
    
     
 
@@ -122,18 +125,36 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
             
            
             
-            let qrCode = self.checkoutModel?.qrcode ?? ""
+            var webView = WKWebView()
+
+            var qrCode = self.checkoutModel?.qrcode ?? ""
+            qrCode = "\(qrCode).jpeg"
             let url : URL = NSURL(string: qrCode)! as URL
             
+
+            let request = NSURLRequest(url: url)
+
+            webView = WKWebView(frame: self.view.frame)
+            webView.load(request as URLRequest)
+            webView.translatesAutoresizingMaskIntoConstraints = true
+            cell.contentView.addSubview(webView)
+
+            
             // this downloads the image asynchronously if it's not cached yet
-            cell.qrCodeImage.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
+//            cell.qrCodeImage.kf.setImage(with: url, placeholder: nil)
+                
+            
+            
             
             
             return cell
         }
     }
     
-    
+    //MARK: - UIScrollViewDelegate
+    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+             scrollView.pinchGestureRecognizer?.isEnabled = false
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1{

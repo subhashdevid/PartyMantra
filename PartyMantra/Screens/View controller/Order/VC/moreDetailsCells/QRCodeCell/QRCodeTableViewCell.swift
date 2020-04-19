@@ -11,6 +11,7 @@ import UIKit
 class QRCodeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var qrCodeImage: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

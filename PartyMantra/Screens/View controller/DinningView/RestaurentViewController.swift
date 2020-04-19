@@ -53,6 +53,7 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
             switch result {
             case let .success(response):
                 if let dinning = response.data {
+                    self?.restModal = nil
                     self?.restModal = RestaurantInfoModel(response: dinning.restaurant)
                     
                     self?.restaurentTblView.reloadData()
@@ -129,7 +130,8 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
     
     @objc  func didTapComboClicked(){
         
-        
+        if self.restModal?.packages.count ?? 0 > 0 {
+
         let vc = RestPackageViewController.instantiate(appStoryboard: .dinning) as RestPackageViewController
         vc.restModal = restModal
         var height : CGFloat = 0
@@ -144,17 +146,21 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
         popupVC.cornerRadius = 10
         present(popupVC, animated: true)
         
+        }
+        else{
+            showAlert("No Packages available for \(self.restModal?.name?.capitalized ?? "")")
+        }
         
         
     }
     
     @objc  func didTapAboutOption( sender : UIButton){
-        
-        let vc = AboutViewController.instantiate(appStoryboard: .miscellaneous) as AboutViewController
-        vc.restModal = restModal
-        let popupVC = PopupViewController(contentController: vc, popupWidth: 380, popupHeight: 380)
-        popupVC.cornerRadius = 20
-        present(popupVC, animated: true)
+            let vc = AboutViewController.instantiate(appStoryboard: .miscellaneous) as AboutViewController
+            vc.restModal = restModal
+
+            let popupVC = PopupViewController(contentController: vc, popupWidth: 380, popupHeight: 380)
+            popupVC.cornerRadius = 20
+            present(popupVC, animated: true)
     }
     
     

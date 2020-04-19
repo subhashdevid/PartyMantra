@@ -52,7 +52,7 @@ class RestMenuListTableViewCell: UITableViewCell,UITableViewDataSource,UITableVi
         cell.menuPricelabel.text = "\(dataModal.price ?? 0)"
         cell.addBtn.tag = indexPath.row
         cell.minusBtn.tag = indexPath.row
-        
+        cell.countLabel.text = "\(dataModal.itemCount ?? 0)"
         cell.addBtn.addTarget(self, action: #selector(addMenuItemAction(sender:)), for: .touchUpInside)
         cell.minusBtn.addTarget(self, action: #selector(minusMenuItemAction(sender:)), for: .touchUpInside)
        
