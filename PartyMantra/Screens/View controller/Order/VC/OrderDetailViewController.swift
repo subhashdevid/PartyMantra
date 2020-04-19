@@ -125,7 +125,6 @@ class OrderDetailViewController: BaseViewController,UITableViewDelegate,UITableV
             let qrCode = self.checkoutModel?.qrcode ?? ""
             let url : URL = NSURL(string: qrCode)! as URL
             
-            
             // this downloads the image asynchronously if it's not cached yet
             cell.qrCodeImage.kf.setImage(with: url, placeholder: UIImage(named: "applogo_1024"))
             

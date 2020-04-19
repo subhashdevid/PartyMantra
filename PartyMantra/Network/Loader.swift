@@ -16,8 +16,8 @@ class Loader {
     static func showHud() {
         SVProgressHUD.setDefaultMaskType(.none)
         SVProgressHUD.setDefaultStyle(.custom)
-        SVProgressHUD.setForegroundColor(UIColor.lightGray)
-        SVProgressHUD.setBackgroundColor(UIColor.clear)
+        SVProgressHUD.setForegroundColor(UIColor.orange)
+        SVProgressHUD.setBackgroundColor(UIColor.white)
         SVProgressHUD.show()
     }
     

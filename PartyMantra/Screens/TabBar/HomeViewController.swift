@@ -15,7 +15,7 @@ class HomeViewController: BaseViewController, UISearchBarDelegate , AddressChang
     @IBOutlet var topAddressView: UIView!
     @IBOutlet var addressLbl: UILabel!
     @IBOutlet var changeBtn: UIButton!
-    
+    var searchedString : String?
     var profile : ProfileModel?
     var topMenuBar: TopMenuBar!
     var homePageViewController: HomePageViewController?
@@ -41,7 +41,36 @@ class HomeViewController: BaseViewController, UISearchBarDelegate , AddressChang
         searchBar.backgroundImage = UIImage()
         searchBar.delegate = self
         navigationItem.titleView = searchBar
+        searchBar.enablesReturnKeyAutomatically = true
+    
+        let numberToolbar = UIToolbar(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        numberToolbar.barStyle = .default
+        numberToolbar.items = [
+        UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelNumberPad)),
+        UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+        UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneWithNumberPad))]
+        numberToolbar.sizeToFit()
+        
+        searchBar.inputAccessoryView = numberToolbar
+        
+        
+        
+        
+        
         self.changeBtn.addTarget(self, action: #selector(changedAddressAction), for: .touchUpInside)
+    }
+    
+
+    @objc func cancelNumberPad() {
+
+        self.searchBar.resignFirstResponder()
+    }
+    @objc func doneWithNumberPad() {
+        if (searchedString ?? "").count > 0 {
+            self.redirectToSearchScreen(searchStr: searchedString ?? "")
+        }else{
+            self.searchBar.resignFirstResponder()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -111,8 +140,9 @@ class HomeViewController: BaseViewController, UISearchBarDelegate , AddressChang
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String) {
-        
+        searchedString = textSearched
     }
+    
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
