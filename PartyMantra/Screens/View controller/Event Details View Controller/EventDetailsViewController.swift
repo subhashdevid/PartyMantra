@@ -583,7 +583,13 @@ extension EventDetailsViewController:  UITableViewDelegate, UITableViewDataSourc
             vc.type = "party"
             vc.screen = "party"
             vc.partyModal = self.eventData
-            self.navigationController?.pushViewController(vc, animated: true)
+            
+
+            let popupVC = PopupViewController(contentController: vc, popupWidth: (UIScreen.main.bounds.size.width - 20), popupHeight: (UIScreen.main.bounds.size.height - 20))
+            
+            popupVC.cornerRadius = 10
+            present(popupVC, animated: true)
+            //self.navigationController?.pushViewController(vc, animated: true)
         }
         else{
             

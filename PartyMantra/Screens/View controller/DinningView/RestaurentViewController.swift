@@ -82,7 +82,7 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
         vc.bookingDelegate = self
         
         let popupVC = PopupViewController(contentController: vc, popupWidth: (UIScreen.main.bounds.size.width)-20, popupHeight: (UIScreen.main.bounds.size.height) - 80)
-        popupVC.cornerRadius = 20
+        popupVC.cornerRadius = 10
         present(popupVC, animated: true)
         
         
@@ -159,7 +159,7 @@ class RestaurentViewController: BaseViewController,UITableViewDelegate,UITableVi
             vc.restModal = restModal
 
             let popupVC = PopupViewController(contentController: vc, popupWidth: 380, popupHeight: 380)
-            popupVC.cornerRadius = 20
+            popupVC.cornerRadius = 10
             present(popupVC, animated: true)
     }
     

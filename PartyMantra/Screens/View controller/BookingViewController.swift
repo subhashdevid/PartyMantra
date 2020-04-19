@@ -32,6 +32,8 @@ class BookingViewController: BaseViewController , UITextFieldDelegate, FSCalenda
         self.tblView.estimatedRowHeight = 44.0
         self.tblView.tableFooterView = UIView()
         self.tblView.reloadData()
+        self.tblView.layer.cornerRadius = 10
+        
     }
     
     
