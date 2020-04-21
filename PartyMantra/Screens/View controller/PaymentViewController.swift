@@ -102,6 +102,10 @@ class PaymentViewController: UIViewController {
             self.verifyCartMoneyToServer(razorpay_payment_id: payment_id, razorpay_order_id: self.orderId ?? "" )
 
             }
+            else   if prev_screen == "paytpm"{
+            self.verifyPayTPMMoneyToServer(razorpay_payment_id: payment_id, razorpay_order_id: self.orderId ?? "" )
+
+            }
             
             
         }
@@ -145,7 +149,22 @@ class PaymentViewController: UIViewController {
                    })
                }
         
-        
+        func verifyPayTPMMoneyToServer( razorpay_payment_id : String?, razorpay_order_id : String)  {
+                   let param: [String: String] = [
+                       "razorpay_payment_id" : razorpay_payment_id ?? "",
+                       "razorpay_order_id" : razorpay_order_id,
+                       "Razorpay_signature" : "PartyMantra"
+                   ]
+
+                   Multipart().saveDataUsingMultipart(mainView: self.view, urlString: Server.shared.verifyBillMoneyUrl, parameter: param , handler: { (response, isSuccess) in
+
+                       if isSuccess{
+                          let response = response as! Dictionary<String,Any>
+                           print(response)
+                           NotificationCenter.default.post(name: Notification.Name("PayTPMNotificationIdentifier"), object: nil)
+                       }
+                   })
+               }
         
     }
 

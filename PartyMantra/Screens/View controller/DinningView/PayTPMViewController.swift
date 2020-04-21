@@ -13,15 +13,13 @@ class PayTPMViewController: BaseViewController, UITextFieldDelegate, UITableView
     @IBOutlet weak var tblView: UITableView!
     var amount: String?
     var final_amount: String?
-
     var discountedamount: String?
     var cashbackamount: String?
-    
     var btnSelected: String?
-    
     var rest_title: String?
     var entityId: String?
-
+    var pay = PaymentViewController()
+    
     
     
     override func viewDidLoad() {
@@ -31,6 +29,14 @@ class PayTPMViewController: BaseViewController, UITextFieldDelegate, UITableView
         self.tblView.estimatedRowHeight = UITableView.automaticDimension
         
         self.tblView.tableFooterView = UIView()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotificationForPayTPM(notification:)), name: Notification.Name("PayTPMNotificationIdentifier"), object: nil)
+    }
+    
+    
+    @objc func methodOfReceivedNotificationForPayTPM(notification: Notification) {
+        
+        let vc = SuccessViewController.instantiate(appStoryboard: .miscellaneous) as SuccessViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,10 +45,10 @@ class PayTPMViewController: BaseViewController, UITextFieldDelegate, UITableView
     
     
     @objc func didTapOnInstantDiscountRadioBtn (sender : UIButton) {
+        self.view.endEditing(true)
         
         sender.isSelected =  !sender.isSelected
-        final_amount = amount
-
+        
         
         let payAmount = Double(amount ?? "0") ?? 0.0
         if sender.isSelected {
@@ -51,12 +57,9 @@ class PayTPMViewController: BaseViewController, UITextFieldDelegate, UITableView
                 let amt = (10 * payAmount)/100
                 cashbackamount = "\(amt)"
                 discountedamount = "\(payAmount - amt)"
-                
-                final_amount = cashbackamount
-
             }
             
-
+            
             
             self.tblView.reloadData()
         }
@@ -64,9 +67,10 @@ class PayTPMViewController: BaseViewController, UITextFieldDelegate, UITableView
         
     }
     @objc func didTapOnDiscountRadioBtn (sender : UIButton) {
+        self.view.endEditing(true)
+        
         sender.isSelected =  !sender.isSelected
-        final_amount = amount
-
+        
         let payAmount = Double(amount ?? "0") ?? 0.0
         if sender.isSelected {
             if payAmount > 0 {
@@ -74,8 +78,6 @@ class PayTPMViewController: BaseViewController, UITextFieldDelegate, UITableView
                 let amt = (20 * payAmount)/100
                 cashbackamount = "\(amt)"
                 discountedamount = "\(payAmount - amt)"
-                final_amount = cashbackamount
-
             }
             self.tblView.reloadData()
         }
@@ -83,8 +85,54 @@ class PayTPMViewController: BaseViewController, UITextFieldDelegate, UITableView
         
     }
     @objc func didTapOnPayNowBtn (sender : UIButton) {
+        self.view.endEditing(true)
+        let amt = Double(amount ?? "0.0")
+        let final_amount = String(format: "%0.0f",amt ?? 0.0 )
+
+        
+        if btnSelected == "instant" {
+            self.payTPMAPICall(amount: final_amount,buttonSelected: btnSelected ?? "")
+        }
+        else{
+            self.payTPMAPICall(amount: final_amount,buttonSelected: btnSelected ?? "")
+            
+        }
+        
         
     }
+    
+    
+    
+    func payTPMAPICall (amount : String, buttonSelected : String) {
+        let param: [String: Any] = [
+            "amount" : Int(amount) ?? 0,
+            "entity_id": entityId ?? "",
+            "discount_type": buttonSelected
+        ]
+        
+        Loader.showHud()
+        Multipart().formDataAPICall(mainView: self.view, urlString: Server.shared.paybillUrl, parameter:param, handler: { (response, isSuccess) in
+            
+            if isSuccess{
+                Loader.dismissHud()
+                let response = response as! Dictionary<String,Any>
+                
+                print(response)
+                
+                let responseDict = response["data"] as! Dictionary<String,Any>
+                print(responseDict)
+                
+                let payStr = (responseDict["total"] ?? "0")
+                let orderIDStr = (responseDict["orderid"] ?? "0")
+                
+                self.pay.addMoneyToPay(amount: "\(payStr)", payOrderid: "\(orderIDStr)", screen: "paytpm")
+                
+            }
+        })
+        
+    }
+    
+    
     
     
     //MARK:- Tableview delegate
@@ -155,6 +203,5 @@ class PayTPMViewController: BaseViewController, UITextFieldDelegate, UITableView
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         amount = textField.text ?? ""
-        final_amount = amount
     }
 }
